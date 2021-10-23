@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import Header from "././pages/Header";
-import Footer from "./pages/Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import { Switch, Route } from "react-router-dom";
@@ -15,11 +15,11 @@ import InputDetail from "./pages/write/InputDetail";
 import Join from "./pages/login/Join";
 
 function App() {
-  // QNA게시판 검색관련
+  // Guide 게시판 검색관련
   const [searchKeyword, setSerchKeyword] = useState("");
-  const [keyField, seKkeyField] = useState("");
+  const [keyField, setkeyField] = useState("");
 
-  // QNA게시판 데이터 초기화
+  // Guide 게시판 데이터 초기화
   let [data, setData] = useState([""]);
 
   return (
