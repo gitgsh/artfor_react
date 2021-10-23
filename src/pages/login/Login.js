@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, FormControl, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./login.css";
+import "../../CSS/login/Login.css";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -134,4 +134,5 @@ function Login(props) {
   );
 }
 
-export default Login; //inject 주입할 클래스, observer 사용할 페이지
+
+export default Login; 

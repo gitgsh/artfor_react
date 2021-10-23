@@ -3,11 +3,17 @@ import React, { useEffect, useState} from 'react';
 import { Button, Form, FormControl, InputGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { axiosError } from '../../stores/common';
-import './Join.css';
-
+import "../../CSS/login/Join.css";
+import { useForm } from 'react-hook-form';
 
 function Join() {
 
+    const [userinfo, setUserinfo] = useState({
+        user_name : "",
+        user_id : "",
+        user_pw : "",
+        user_phone : ""
+    });
 
 
     return (
@@ -15,7 +21,7 @@ function Join() {
         <div>
              <div className="container_join" >
                  <h3 className="join"><strong>회원가입</strong></h3>
-               <form className="join-form" >
+               <form className="join-form"  >
                         <div className="join-form-input-1">
                         <InputGroup>
                         <FormControl className="login-form-input-row" placeholder="이름" />
