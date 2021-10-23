@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import Header from "././components/Header";
-import Footer from "././components/Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import { Switch, Route } from "react-router-dom";
