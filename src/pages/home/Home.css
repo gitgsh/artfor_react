@@ -8,6 +8,7 @@
 .slideImg {
     margin: auto;
     max-width: 500px;
+    vertical-align: middle;
 }
 
 .slick-prev {

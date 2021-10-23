@@ -1,0 +1,25 @@
+.container_header{
+    max-width: 1200px;
+}
+.header_logo {
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+}
+.header_menu {
+    max-width: 1200px;
+    font-size: 18px;
+}
+.container_search{
+    margin: 'auto';
+    margin-right: 30px;
+}
+.search_box{
+    height: 30px;
+    margin: auto;
+}
+
+.search_btn{
+    margin: auto;
+    height: 30px;
+}

@@ -27,7 +27,7 @@ function List(props) {
   }, []);
   return (
     <div>
-      <h3 className="page-name">Q&A게시판</h3>
+      <h3 className="page-name">Guide 게시판</h3>
       <div className="div-qna-table">
         <Table hover>
           <thead className="t-head">
@@ -60,4 +60,5 @@ function List(props) {
     </div>
   );
 }
+
 export default List;
