@@ -15,7 +15,7 @@ import InputDetail from "./pages/write/InputDetail";
 import Join from "./pages/login/Join";
 
 function App() {
-  // QNA게시판 검색관련
+  // QNA게시판 검색관련ㅋㅎ
   const [searchKeyword, setSerchKeyword] = useState("");
   const [keyField, seKkeyField] = useState("");
 
