@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "mobx-react";
 import { membersStore } from "./stores/MembersStore.js";
 import { mainStore } from "./stores/MainStore.js";
+import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,3 +18,4 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
+reportWebVitals();

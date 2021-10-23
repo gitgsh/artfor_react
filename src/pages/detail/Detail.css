@@ -1,0 +1,61 @@
+.detail_head1{
+    margin-top: 100px;
+    /* background-color: blue; */
+    width: 1400px;
+    height: 600px;
+    margin-left: 300px;
+    
+}
+
+
+
+.detail_head2{
+    width: 1250px;
+}
+
+.detail_head3{
+    /* background-color: brown; */
+    
+    width: 500px;
+    height: 465px;
+    float: right;
+    
+    margin-right: 30px;
+    
+}
+
+.content{
+    margin-top: 100px;
+    margin-left: 350px;
+    height: 1000px;
+    width: 1200px;
+    background-color: blanchedalmond;
+}
+
+.fundingbox{
+    background-color: whitesmoke;
+    margin-left: 20px;
+    margin-top: 30px;
+    width: 400px;
+    border-radius: 10px;
+    
+
+}
+
+.detail_head3_1{
+    text-align: left;
+    margin-left: 20px;
+}
+
+.buttonClass{
+    margin-right: 950px;
+}
+
+.CardHead{
+    width: 1300px;
+    
+}
+
+.card{
+    border-color: white;
+}
