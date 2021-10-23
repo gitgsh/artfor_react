@@ -1,0 +1,49 @@
+.container_join {
+    width: 400px;
+    max-height: max-content;
+    border: 1px solid rgb(228, 228, 228);
+    border-radius: 8px;
+    margin: 0 auto;
+    margin-top: 80px;
+  }
+  
+  .join {
+    margin-top: 50px;
+  }
+  
+  .join-form {
+    margin-top: 100px;
+  }
+  
+  .join-form-input-1 {
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 5px;
+  }
+  
+  /* .login-form-input-2 {
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 20px;
+  } */
+  
+  .login-form-input-row {
+    border: 1px solid rgb(228, 228, 228);
+    height: 45px;
+  }
+  
+  .div_btn_join {
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  
+  .btn_join {
+    width: 270px;
+    height: 50px;
+    margin-top: 10px;
+  }
+
+  .btn_empty{
+    font-size: 13px;
+  }
