@@ -29,7 +29,7 @@ const StyledHeader = styled.header`
   width: 100%;
   height: 65px;
   background: white;
-  border-bottom: 1px solid grey;
+
   z-index: 999;
   position: sticky;
 `;
