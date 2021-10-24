@@ -1,34 +1,9 @@
-import { Link } from "react-router-dom";
-import "../../CSS/users/Settings.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Settings(props) {
-  console.log(props);
-  const key = props.match.params.key;
+function Profile() {
   return (
-    <div className="setting-margin-box">
-      <div className="setting-box1">
-        <div className="box-top">
-          <div className="myicon-box">
-            <img src="/my.png" width="100px" />
-          </div>
-          <div className="myname-box">
-            <h2>
-              김정희 <span style={{ fontSize: "25px" }}>님</span>
-            </h2>
-          </div>
-          <div className="mymenu-box">
-            <Link className="mymenu-name" to="/users/settings">
-              프로필
-            </Link>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <Link className="mymenu-name" to="/users/project">
-              후원한 프로젝트
-            </Link>
-          </div>
-        </div>
-      </div>
-      <hr />
-      <div className="setting-box2">
+    <div className="setting-box2">
         <div className="setting-box1-1">
           <div className="left-box">
             <div>
@@ -106,7 +81,7 @@ function Settings(props) {
               <hr />
             </div>
           </div>
-          <div style={{ width: "34%", float: "left" }}>
+          {/* <div style={{ width: "34%", float: "left" }}>
             <div
               style={{
                 marginLeft: "auto",
@@ -128,11 +103,10 @@ function Settings(props) {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
-    </div>
   );
-}
+};
 
-export default Settings;
+export default Profile;
