@@ -16,7 +16,7 @@ import Detail from "./pages/detail/Detail";
 import Settings from "./pages/users/Settings";
 
 function App() {
-  // Guide 게시판 검색관련
+  // Guide 게시판 검색관련2
   const [searchKeyword, setSerchKeyword] = useState("");
   const [keyField, setkeyField] = useState("");
 
