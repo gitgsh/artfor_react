@@ -8,12 +8,12 @@ import { Switch, Route } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Members from "./pages/members/Members";
-import Users from "./pages/users/Users";
 import List from "./pages/guide/List";
 import InputPage from "./pages/write/InputPage";
 import InputDetail from "./pages/write/InputDetail";
 import Join from "./pages/login/Join";
 import Detail from "./pages/detail/Detail";
+import Settings from "./pages/users/Settings";
 
 function App() {
   // Guide 게시판 검색관련
@@ -29,8 +29,6 @@ function App() {
       <Switch>
         <Route exact={true} path="/" component={Home} />
         <Route exact={true} path="/members/list" component={Members} />
-        <Route path="/users" component={Users} />
-        {/* <Route exact={true} path="/users/:index" component={Users} /> */}
         <Route exact path="/guide/list" component={List}>
           <List data={data} setData={setData} />
         </Route>{" "}
@@ -42,10 +40,11 @@ function App() {
           <InputDetail data={data} setData={setData} />
         </Route>
         <Route exact={true} path="/detail" component={Detail}>
-            <Detail/>
-          </Route>
+          <Detail />
+        </Route>
         <Route exact={true} path="/login" component={Login} />
         <Route exact={true} path="/join" component={Join} />
+        <Route exact={true} path="/users/settings" component={Settings} />
       </Switch>
       <Footer />
     </div>
