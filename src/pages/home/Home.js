@@ -1,9 +1,11 @@
 import { inject, observer } from "mobx-react";
 import { useEffect } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import React, { Component } from "react";
 import Slider from "react-slick";
+import { Card, CardGroup } from "react-bootstrap";
+import Detail from '../detail/Detail.js'
 import "./Home.css";
 //editor
 
@@ -87,43 +89,220 @@ function HomeSlider(props) {
               </h3>
             </div>
           </Slider>
-        </div>
+          </div>
       </div>
-      <div>
-        <h3>Members</h3>
-        <hr className="d-block" />
-        <div>
-          <h4>Read</h4>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Modify</th>
-                <th>Content</th>
-              </tr>
-            </thead>
-            <tbody>
-              {works.map((work, index) => (
-                <tr key={index}>
-                  <td>
-                    <Link to={`/detail/${work.work_no}`}>
-                      {work.work_title}
-                    </Link>
-                  </td>
-                  <td>{work.artist_id}</td>
-                  <div
-                    dangerouslySetInnerHTML={{ __html: work.work_content }}
-                  ></div>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <hr className="d-block" />
+      <p className="main">주목할 만한 프로젝트</p>
+
+    <div className="CardHead">
+    <CardGroup>
+  <Card className="card">
+    <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
+    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    <Card.Body>
+      <Card.Title className="cardtitle">공예 | 김지민</Card.Title>
+      <Card.Text className="cardtext">
+      <Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
+      </Card.Text>
+      <div className="cardfooter">
+        <p>1858% 달성</p>
       </div>
+    </Card.Body>
+    {/* <Card.Footer className="cardfooter">
+      <small className="text-muted" id="text-muted">1858% 달성</small>
+    </Card.Footer> */}
+  </Card>
+  <Card>
+  <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
+    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    <Card.Body>
+      <Card.Title>Card title</Card.Title>
+      <Card.Text>
+        This card has supporting text below as a natural lead-in to additional
+        content.{' '}
+      </Card.Text>
+    </Card.Body>
+    
+  </Card>
+  <Card>
+  <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
+    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    <Card.Body>
+      <img src="./"/>
+      <Card.Title>Card title</Card.Title>
+      <Card.Text>
+        This is a wider card with supporting text below as a natural lead-in to
+        additional content. This card has even longer content than the first to
+        show that equal height action.
+      </Card.Text>
+    </Card.Body>
+    <Card.Footer>
+      <small className="text-muted">Last updated 3 mins ago</small>
+    </Card.Footer>
+  </Card>
+  <Card>
+  <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
+    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    <Card.Body>
+      <img src="./"/>
+      <Card.Title>Card title</Card.Title>
+      <Card.Text>
+        This is a wider card with supporting text below as a natural lead-in to
+        additional content. This card has even longer content than the first to
+        show that equal height action.
+      </Card.Text>
+    </Card.Body>
+    <Card.Footer>
+      <small className="text-muted">Last updated 3 mins ago</small>
+    </Card.Footer>
+  </Card>
+</CardGroup>
+
+<CardGroup>
+  <Card className="card">
+    <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
+    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    <Card.Body>
+      <Card.Title className="cardtitle">공예 | 김지민</Card.Title>
+      <Card.Text className="cardtext">
+      <Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
+      </Card.Text>
+      <div className="cardfooter">
+        <p>1858% 달성</p>
+      </div>
+    </Card.Body>
+    {/* <Card.Footer className="cardfooter">
+      <small className="text-muted" id="text-muted">1858% 달성</small>
+    </Card.Footer> */}
+  </Card>
+  <Card>
+  <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
+    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    <Card.Body>
+      <Card.Title>Card title</Card.Title>
+      <Card.Text>
+        This card has supporting text below as a natural lead-in to additional
+        content.{' '}
+      </Card.Text>
+    </Card.Body>
+    <Card.Footer>
+      <small className="text-muted">Last updated 3 mins ago</small>
+    </Card.Footer>
+  </Card>
+  <Card>
+  <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
+    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    <Card.Body>
+      <img src="./"/>
+      <Card.Title>Card title</Card.Title>
+      <Card.Text>
+        This is a wider card with supporting text below as a natural lead-in to
+        additional content. This card has even longer content than the first to
+        show that equal height action.
+      </Card.Text>
+    </Card.Body>
+    <Card.Footer>
+      <small className="text-muted">Last updated 3 mins ago</small>
+    </Card.Footer>
+  </Card>
+  <Card>
+  <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
+    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    <Card.Body>
+      <img src="./"/>
+      <Card.Title>Card title</Card.Title>
+      <Card.Text>
+        This is a wider card with supporting text below as a natural lead-in to
+        additional content. This card has even longer content than the first to
+        show that equal height action.
+      </Card.Text>
+    </Card.Body>
+    <Card.Footer>
+      <small className="text-muted">Last updated 3 mins ago</small>
+    </Card.Footer>
+  </Card>
+</CardGroup>
+
     </div>
-  );
+    <br/><br/><br/>
+    <p className="main">공개예정 프로젝트</p>
+
+    <div className="CardHead">
+    <CardGroup>
+  <Card className="card">
+    <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
+    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    <Card.Body>
+      <Card.Title className="cardtitle">공예 | 김지민</Card.Title>
+      <Card.Text className="cardtext">
+      <Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
+      </Card.Text>
+      <div className="cardfooter">
+        <p>1858% 달성</p>
+      </div>
+    </Card.Body>
+    {/* <Card.Footer className="cardfooter">
+      <small className="text-muted" id="text-muted">1858% 달성</small>
+    </Card.Footer> */}
+  </Card>
+  <Card>
+  <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
+    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    <Card.Body>
+      <Card.Title>Card title</Card.Title>
+      <Card.Text>
+        This card has supporting text below as a natural lead-in to additional
+        content.{' '}
+      </Card.Text>
+    </Card.Body>
+    <Card.Footer>
+      <small className="text-muted">Last updated 3 mins ago</small>
+    </Card.Footer>
+  </Card>
+  <Card>
+  <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
+    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    <Card.Body>
+      <img src="./"/>
+      <Card.Title>Card title</Card.Title>
+      <Card.Text>
+        This is a wider card with supporting text below as a natural lead-in to
+        additional content. This card has even longer content than the first to
+        show that equal height action.
+      </Card.Text>
+    </Card.Body>
+    <Card.Footer>
+      <small className="text-muted">Last updated 3 mins ago</small>
+    </Card.Footer>
+  </Card>
+  <Card>
+  <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
+    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    <Card.Body>
+      <img src="./"/>
+      <Card.Title>Card title</Card.Title>
+      <Card.Text>
+        This is a wider card with supporting text below as a natural lead-in to
+        additional content. This card has even longer content than the first to
+        show that equal height action.
+      </Card.Text>
+    </Card.Body>
+    <Card.Footer>
+      <small className="text-muted">Last updated 3 mins ago</small>
+    </Card.Footer>
+  </Card>
+</CardGroup>
+
+
+    </div>
+{/* ============route.........================*/}
+<Route path="/detail">
+    <div>detail 페이지 ... </div>
+    
+</Route>
+
+    </div>
+  )
 }
+
 
 export default inject("mainStore")(observer(HomeSlider));

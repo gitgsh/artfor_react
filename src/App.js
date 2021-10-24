@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import { Switch, Route } from "react-router-dom";
@@ -13,6 +13,7 @@ import List from "./pages/guide/List";
 import InputPage from "./pages/write/InputPage";
 import InputDetail from "./pages/write/InputDetail";
 import Join from "./pages/login/Join";
+import Detail from "./pages/detail/Detail";
 
 function App() {
   // Guide 게시판 검색관련
@@ -40,6 +41,9 @@ function App() {
         <Route exact={true} path="/write/detail" component={InputDetail}>
           <InputDetail data={data} setData={setData} />
         </Route>
+        <Route exact={true} path="/detail" component={Detail}>
+            <Detail/>
+          </Route>
         <Route exact={true} path="/login" component={Login} />
         <Route exact={true} path="/join" component={Join} />
       </Switch>
