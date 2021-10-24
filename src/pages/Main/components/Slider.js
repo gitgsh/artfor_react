@@ -60,10 +60,10 @@ function Slider() {
           );
         })}
         <LeftButton onClick={goLeft}>
-          <BsChevronLeft size="14" color="white" />
+          <BsChevronLeft size="14" color="white"style={{marginBottom: "5px"}}/>
         </LeftButton>
         <RightButton onClick={goRight}>
-          <BsChevronRight size="14" color="white" />
+          <BsChevronRight size="14" color="white" style={{marginBottom: "5px"}}/>
         </RightButton>
       </SlideContainerRight>
     </MainSlideContainer>
@@ -120,7 +120,7 @@ const LeftButton = styled.button`
   width: 32px;
   height: 32px;
   margin: 130px 0 0 40px;
-  padding: 3px 3px 0 0;
+  padding: 0px 3px 0 0;
   border: 1px solid #ffffff;
   border-radius: 50%;
   background: none;
@@ -131,7 +131,7 @@ const RightButton = styled.button`
   width: 32px;
   height: 32px;
   margin: 130px 0 0 100px;
-  padding: 3px 0 0 2px;
+  padding: 0px 0px 0px 2px;
   border: 1px solid #ffffff;
   border-radius: 50%;
   background: none;

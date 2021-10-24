@@ -1,0 +1,34 @@
+{
+  "FooterData": [
+    {
+      "id": 1,
+      "img": "https://images.unsplash.com/photo-1564049489314-60d154ff107d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1961&q=80",
+      "title": "사이버펑크 슈팅액션게임 <키>",
+      "number": "871755",
+      "date": "2021.08.29",
+      "option": "화려한 사이버펑크 세계관을 배경으로 진행되는 슈팅 액션 게임. 저항군이 되어 싸워보세요!",
+      "money": "1280000",
+      "name": "신수호"
+    },
+    {
+      "id": 2,
+      "img": "https://images.unsplash.com/photo-1569002925653-ed18f55d7292?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+      "title": "모바일 방탈출 게임 <Escape>",
+      "number": "263748",
+      "date": "2021.06.08",
+      "option": "살기 위해서 탈출해야한다! 텍스트 기반의 모바일 방탈출 게임 <Escape>입니다.",
+      "money": "8710000",
+      "name": "김토종"
+    },
+    {
+      "id": 3,
+      "img": "https://images.unsplash.com/flagged/photo-1624274555889-4a70c880579c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80",
+      "title": "새로운 타로 카드 <The Cards>",
+      "number": "982734",
+      "date": "2021.02.13",
+      "option": "새로운 디자인의 타로카드 세트입니다.",
+      "money": "54300000",
+      "name": "김커밋"
+    }
+  ]
+}

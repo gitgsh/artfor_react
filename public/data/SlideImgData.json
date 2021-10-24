@@ -1,0 +1,39 @@
+{
+  "SlideImgData": [
+    {
+      "id": 1,
+      "imageUrl": "https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80",
+      "content": "제주 건천 깊숙한 곳을 떠나지 않으려는 우리",
+      "subContent": "자신의 자리를 지키려는 두 아이 이야기 <하영과 미정>",
+      "color": "#4B1955"
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://images.unsplash.com/photo-1571065497914-38c5d3cde715?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80",
+      "content": "할아버지 시계마을을 구해주세요!",
+      "subContent": "자신의 자리를 지키려는 두 아이 이야기 <하영과 미정>",
+      "color": "#423421"
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://images.unsplash.com/photo-1624274579623-18121fc8126e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000&q=80",
+      "content": "지쳐 있는 여성들에게 재충전의 시간을",
+      "subContent": "자신의 자리를 지키려는 두 아이 이야기 <하영과 미정>",
+      "color": "#A48371"
+    },
+    {
+      "id": 4,
+      "imageUrl": "https://images.unsplash.com/photo-1605131546405-65fedb62861f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80",
+      "content": "소규모 출판사를 위한 도서 물류 파트너",
+      "subContent": "자신의 자리를 지키려는 두 아이 이야기 <하영과 미정>",
+      "color": "#7EB5B0"
+    },
+    {
+      "id": 5,
+      "imageUrl": "https://images.unsplash.com/photo-1522198763288-96e9f39904af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80",
+      "content": "신수호  안진근 감하영 박미정 아좌좍!",
+      "subContent": "자신의 자리를 지키려는 두 아이 이야기 <하영과 미정>",
+      "color": "#68270F"
+    }
+  ]
+}

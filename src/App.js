@@ -30,7 +30,7 @@ function App() {
         <Header />
         <Switch>
           <Route exact={true} path="/" component={Main}/>
-          <Route exact={true} path="/" component={Home} />
+          {/* <Route exact={true} path="/" component={Home} /> */}
           <Route exact={true} path="/members/list" component={Members} />
           <Route exact path="/guide/list" component={List}>
             <List data={data} setData={setData} />
