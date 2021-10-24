@@ -15,6 +15,10 @@ import Join from "./pages/login/Join";
 import Detail from "./pages/detail/Detail";
 import Settings from "./pages/users/Settings";
 import Main from "./pages/Main/Main";
+import Main2 from "./pages/project/Main";
+import Check from "./pages/project/Check";
+import FundingPlan from "./pages/project/FundingPlan";
+import ProjectPlan from "./pages/project/ProjectPlan";
 
 function App() {
   // Guide 게시판 검색관련2
@@ -29,7 +33,7 @@ function App() {
       <div className="App">
         <Header />
         <Switch>
-          <Route exact={true} path="/" component={Main}/>
+          <Route exact={true} path="/" component={Main} />
           <Route exact={true} path="/" component={Home} />
           <Route exact={true} path="/members/list" component={Members} />
           <Route exact path="/guide/list" component={List}>
@@ -48,6 +52,18 @@ function App() {
           <Route exact={true} path="/login" component={Login} />
           <Route exact={true} path="/join" component={Join} />
           <Route exact={true} path="/users/settings" component={Settings} />
+          <Route exact={true} path="/project/main" component={Main2} />
+          <Route exact={true} path="/project/check" component={Check} />
+          <Route
+            exact={true}
+            path="/project/plan/funding"
+            component={FundingPlan}
+          />
+          <Route
+            exact={true}
+            path="/project/plan/project"
+            component={ProjectPlan}
+          />
         </Switch>
         <Footer />
       </div>
