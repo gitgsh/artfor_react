@@ -52,6 +52,7 @@
 
 /* 카드 이미지 밑에 글씨 패딩~ */
 .cardbody{
+  /* font-family: 'NanumSquareB'; */
   padding-left: 11px;
 }
 
