@@ -14,6 +14,7 @@ import InputDetail from "./pages/project/input/InputDetail";
 import Join from "./pages/login/Join";
 import Detail from "./pages/detail/Detail";
 import Settings from "./pages/users/Settings";
+import Main from "./pages/Main/Main";
 
 function App() {
   // Guide 게시판 검색관련2
@@ -28,6 +29,7 @@ function App() {
       <div className="App">
         <Header />
         <Switch>
+          <Route exact={true} path="/" component={Main}/>
           <Route exact={true} path="/" component={Home} />
           <Route exact={true} path="/members/list" component={Members} />
           <Route exact path="/guide/list" component={List}>
