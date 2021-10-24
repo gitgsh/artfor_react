@@ -1,18 +1,67 @@
-
 .jumbo {
     background-size: 100%;
     background-color: #F7F6F2;
+   
     /*background-image : url() */
 }
-.title {
-    padding-top: 5%;
-}
 
-.p1 {
+.title, .p1 {
     padding-top: 2%;
 }
 
+.miancontent {
+    max-width: 1080px;
+    width: 100%;
+    margin: auto;
+    height: auto;
+    
+    background-color: rgb(255, 208, 0);
+    
+}
+
+.c1_1 {
+    margin-bottom: 3%;
+}
+
+.c1_2 {
+    box-sizing: border-box;
+   
+   background: rgb(0, 255, 0);
+   
+    
+}
+
+.c2 {
+    margin-top: 3%;
+    
+    background-color: sandybrown;
+    
+}
+.c2_2 {
+    box-sizing: border-box;
+    
+    background: rgb(0, 255, 0);
+   
+}
+
+.c3 {
+    
+    background-color: red;
+   
+}
+
 .head_btn2 {
-    width: 160px;
+    width: 180px;
+    margin: auto;
+}
+
+.cardtitle {
+    margin-top: 3%;
+    font-size: larger;
+    text-align: center;
+}
+
+.cardtext {
+    font-size: medium;
     text-align: center;
 }
