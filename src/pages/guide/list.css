@@ -1,18 +1,24 @@
-.page-name {
-  margin-top: 50px;
+.container-guide {
+  max-width: 1080px;
+  margin: auto;
 }
 
-.div-qna-table {
-  margin: 0 auto;
-  margin-top: 100px;
+.page-name {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.div-guide-table {
+  margin: auto;
+  /* margin-top: 100px;
   margin-left: 300px;
-  margin-right: 300px;
+  margin-right: 300px; */
 }
 
 .t-head {
   background: rgb(228, 228, 228);
 }
 
-.qna-writeBtn {
+.guide-writeBtn {
   margin-top: 50px;
 }
