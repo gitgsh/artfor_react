@@ -1,3 +1,7 @@
+  /* container */
+
+
+
 .homeSlider {
   max-width: 1200px;
   background-color: rgba(150, 205, 209, 0.151);
@@ -24,29 +28,36 @@
 .main {
   font-size: larger;
   text-align: left;
-  margin-left: 350px;
+  /* margin-left: 410px; */
   font-weight: bold;
+  
 }
 
-.CardHead {
-  margin-left: 300px;
-  margin-right: 300px;
-}
+
 
 .card {
-  margin-left: 50px;
-  margin-right: 50px;
+  /* margin-left: 50px; */
+  /* margin-right: 50px; */
   margin-top: 10px;
   margin-bottom: 50px;
+ 
 }
 
 .cardtitle {
   font-size: small;
   text-align: left;
+ 
+}
+
+
+/* 카드 이미지 밑에 글씨 패딩~ */
+.cardbody{
+  padding-left: 11px;
 }
 
 .cardtext {
   text-align: left;
+   
 }
 
 .cardfooter {
@@ -72,3 +83,21 @@ a:hover {
   color: black;
   text-decoration: underline;
 }
+
+.main_card{
+      /* container */
+      max-width: 1080px;
+      width: 100%;
+      margin: auto;
+}
+
+.cardgroup{
+  max-width: 1080px;
+      width: 100%;
+      
+}
+
+
+
+
+

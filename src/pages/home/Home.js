@@ -91,77 +91,16 @@ function HomeSlider(props) {
           </Slider>
           </div>
       </div>
-      <p className="main">주목할 만한 프로젝트</p>
-
-    <div className="CardHead">
-    <CardGroup>
-  <Card className="card">
-    <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
-    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-    <Card.Body>
-      <Card.Title className="cardtitle">공예 | 김지민</Card.Title>
-      <Card.Text className="cardtext">
-      <Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
-      </Card.Text>
-      <div className="cardfooter">
-        <p>1858% 달성</p>
-      </div>
-    </Card.Body>
-    {/* <Card.Footer className="cardfooter">
-      <small className="text-muted" id="text-muted">1858% 달성</small>
-    </Card.Footer> */}
-  </Card>
-  <Card>
-  <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
-    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-    <Card.Body>
-      <Card.Title>Card title</Card.Title>
-      <Card.Text>
-        This card has supporting text below as a natural lead-in to additional
-        content.{' '}
-      </Card.Text>
-    </Card.Body>
     
-  </Card>
-  <Card>
-  <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
-    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-    <Card.Body>
-      <img src="./"/>
-      <Card.Title>Card title</Card.Title>
-      <Card.Text>
-        This is a wider card with supporting text below as a natural lead-in to
-        additional content. This card has even longer content than the first to
-        show that equal height action.
-      </Card.Text>
-    </Card.Body>
-    <Card.Footer>
-      <small className="text-muted">Last updated 3 mins ago</small>
-    </Card.Footer>
-  </Card>
-  <Card>
-  <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
-    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-    <Card.Body>
-      <img src="./"/>
-      <Card.Title>Card title</Card.Title>
-      <Card.Text>
-        This is a wider card with supporting text below as a natural lead-in to
-        additional content. This card has even longer content than the first to
-        show that equal height action.
-      </Card.Text>
-    </Card.Body>
-    <Card.Footer>
-      <small className="text-muted">Last updated 3 mins ago</small>
-    </Card.Footer>
-  </Card>
-</CardGroup>
-
-<CardGroup>
+      <div className="main_card">
+      <p className="main">주목할 만한 프로젝트</p>
+    
+    
+    <CardGroup className="cardgroup">
   <Card className="card">
     <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
-    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-    <Card.Body>
+    style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    <Card.Body className="cardbody">
       <Card.Title className="cardtitle">공예 | 김지민</Card.Title>
       <Card.Text className="cardtext">
       <Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
@@ -174,63 +113,135 @@ function HomeSlider(props) {
       <small className="text-muted" id="text-muted">1858% 달성</small>
     </Card.Footer> */}
   </Card>
-  <Card>
-  <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
-    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-    <Card.Body>
-      <Card.Title>Card title</Card.Title>
-      <Card.Text>
-        This card has supporting text below as a natural lead-in to additional
-        content.{' '}
+  <Card className="card">
+    <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
+    style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    <Card.Body className="cardbody">
+      <Card.Title className="cardtitle">공예 | 김지민</Card.Title>
+      <Card.Text className="cardtext">
+      <Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
       </Card.Text>
+      <div className="cardfooter">
+        <p>1858% 달성</p>
+      </div>
     </Card.Body>
-    <Card.Footer>
-      <small className="text-muted">Last updated 3 mins ago</small>
-    </Card.Footer>
+    {/* <Card.Footer className="cardfooter">
+      <small className="text-muted" id="text-muted">1858% 달성</small>
+    </Card.Footer> */}
   </Card>
-  <Card>
-  <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
-    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-    <Card.Body>
-      <img src="./"/>
-      <Card.Title>Card title</Card.Title>
-      <Card.Text>
-        This is a wider card with supporting text below as a natural lead-in to
-        additional content. This card has even longer content than the first to
-        show that equal height action.
+  <Card className="card">
+    <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
+    style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    <Card.Body className="cardbody">
+      <Card.Title className="cardtitle">공예 | 김지민</Card.Title>
+      <Card.Text className="cardtext">
+      <Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
       </Card.Text>
+      <div className="cardfooter">
+        <p>1858% 달성</p>
+      </div>
     </Card.Body>
-    <Card.Footer>
-      <small className="text-muted">Last updated 3 mins ago</small>
-    </Card.Footer>
+    {/* <Card.Footer className="cardfooter">
+      <small className="text-muted" id="text-muted">1858% 달성</small>
+    </Card.Footer> */}
   </Card>
-  <Card>
-  <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
-    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-    <Card.Body>
-      <img src="./"/>
-      <Card.Title>Card title</Card.Title>
-      <Card.Text>
-        This is a wider card with supporting text below as a natural lead-in to
-        additional content. This card has even longer content than the first to
-        show that equal height action.
+  <Card className="card">
+    <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
+    style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    <Card.Body className="cardbody">
+      <Card.Title className="cardtitle">공예 | 김지민</Card.Title>
+      <Card.Text className="cardtext">
+      <Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
       </Card.Text>
+      <div className="cardfooter">
+        <p>1858% 달성</p>
+      </div>
     </Card.Body>
-    <Card.Footer>
-      <small className="text-muted">Last updated 3 mins ago</small>
-    </Card.Footer>
+    {/* <Card.Footer className="cardfooter">
+      <small className="text-muted" id="text-muted">1858% 달성</small>
+    </Card.Footer> */}
   </Card>
+  
 </CardGroup>
 
-    </div>
+<CardGroup className="cardgroup">
+  <Card className="card">
+    <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
+    style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    <Card.Body className="cardbody">
+      <Card.Title className="cardtitle">공예 | 김지민</Card.Title>
+      <Card.Text className="cardtext">
+      <Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
+      </Card.Text>
+      <div className="cardfooter">
+        <p>1858% 달성</p>
+      </div>
+    </Card.Body>
+    {/* <Card.Footer className="cardfooter">
+      <small className="text-muted" id="text-muted">1858% 달성</small>
+    </Card.Footer> */}
+  </Card>
+  <Card className="card">
+    <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
+    style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    <Card.Body className="cardbody">
+      <Card.Title className="cardtitle">공예 | 김지민</Card.Title>
+      <Card.Text className="cardtext">
+      <Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
+      </Card.Text>
+      <div className="cardfooter">
+        <p>1858% 달성</p>
+      </div>
+    </Card.Body>
+    {/* <Card.Footer className="cardfooter">
+      <small className="text-muted" id="text-muted">1858% 달성</small>
+    </Card.Footer> */}
+  </Card>
+  <Card className="card">
+    <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
+    style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    <Card.Body className="cardbody">
+      <Card.Title className="cardtitle">공예 | 김지민</Card.Title>
+      <Card.Text className="cardtext">
+      <Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
+      </Card.Text>
+      <div className="cardfooter">
+        <p>1858% 달성</p>
+      </div>
+    </Card.Body>
+    {/* <Card.Footer className="cardfooter">
+      <small className="text-muted" id="text-muted">1858% 달성</small>
+    </Card.Footer> */}
+  </Card>
+  <Card className="card">
+    <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
+    style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    <Card.Body className="cardbody">
+      <Card.Title className="cardtitle">공예 | 김지민</Card.Title>
+      <Card.Text className="cardtext">
+      <Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
+      </Card.Text>
+      <div className="cardfooter">
+        <p>1858% 달성</p>
+      </div>
+    </Card.Body>
+    {/* <Card.Footer className="cardfooter">
+      <small className="text-muted" id="text-muted">1858% 달성</small>
+    </Card.Footer> */}
+  </Card>
+  
+</CardGroup>
+
+
+    
     <br/><br/><br/>
     <p className="main">공개예정 프로젝트</p>
 
-    <div className="CardHead">
+    
     <CardGroup>
   <Card className="card">
     <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
-    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
     <Card.Body>
       <Card.Title className="cardtitle">공예 | 김지민</Card.Title>
       <Card.Text className="cardtext">
@@ -246,7 +257,7 @@ function HomeSlider(props) {
   </Card>
   <Card>
   <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
-    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
     <Card.Body>
       <Card.Title>Card title</Card.Title>
       <Card.Text>
@@ -260,7 +271,7 @@ function HomeSlider(props) {
   </Card>
   <Card>
   <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
-    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
     <Card.Body>
       <img src="./"/>
       <Card.Title>Card title</Card.Title>
@@ -276,7 +287,7 @@ function HomeSlider(props) {
   </Card>
   <Card>
   <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
-    style={{width:'270px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+    style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
     <Card.Body>
       <img src="./"/>
       <Card.Title>Card title</Card.Title>
