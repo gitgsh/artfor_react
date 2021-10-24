@@ -20,7 +20,7 @@ function Settings(props) {
             <Link className="mymenu-name" to="/users/settings">
               프로필
             </Link>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <Link className="mymenu-name" to="/users/project">
               후원한 프로젝트
             </Link>
