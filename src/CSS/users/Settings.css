@@ -1,0 +1,53 @@
+.settings-body {
+  font-family: nanumgothic;
+}
+.setting-box1 {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.box-top {
+  margin-top: 20px;
+}
+.myicon-box {
+  float: left;
+}
+.myname-box {
+  float: left;
+  margin-left: 15px;
+  margin-top: 30px;
+  margin-bottom: 80px;
+  width: 500px;
+  text-align: left;
+}
+.myname-box h2 {
+  font-weight: 1000;
+  text-decoration: none;
+}
+.mymenu-box {
+  width: 500px;
+  text-align: left;
+  margin-bottom: 15px;
+  margin-left: 10px;
+}
+.mymenu-name {
+  font-size: 20px;
+  text-decoration: none;
+  color: darkgray;
+}
+.setting-box2 {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+.setting-box1-1 {
+  text-align: left;
+  height: 1000px;
+}
+.left-box {
+  margin-left: 10px;
+  width: 65%;
+  height: 1000px;
+  float: left;
+}
