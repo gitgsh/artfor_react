@@ -22,7 +22,7 @@ function ProjectList() {
 
   return (
     <MainProjectContainer>
-      <Title>Fashion</Title>
+      <Title></Title>
       <ProjectGrid>
         {projectsData.map(item => {
           return <ProjectCard key={item.id} {...item} />;
