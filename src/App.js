@@ -8,7 +8,6 @@ import { Switch, Route } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Members from "./pages/members/Members";
-import List from "./pages/guide/List";
 import InputPage from "./pages/project/input/InputPage";
 import InputDetail from "./pages/project/input/InputDetail";
 import Join from "./pages/login/Join";
@@ -22,6 +21,7 @@ import ProjectPlan from "./pages/project/ProjectPlan";
 import G_List_practice from "./pages/guide/G_List_practice";
 import G_Detail from "./pages/guide/G_Detail";
 import G_Input from "./pages/guide/G_Input";
+import G_List from "./pages/guide/G_List"
 
 function App() {
   // Guide 게시판 검색관련2
@@ -69,7 +69,7 @@ function App() {
             path="/project/plan/project"
             component={ProjectPlan}
           />
-          <Route exact={true} path="/project/plan" component={Plan} />
+          
           {/* GUIDE */}
           <Route
             exact

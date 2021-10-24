@@ -1,0 +1,18 @@
+
+.jumbo {
+    background-size: 100%;
+    background-color: #F7F6F2;
+    /*background-image : url() */
+}
+.title {
+    padding-top: 5%;
+}
+
+.p1 {
+    padding-top: 2%;
+}
+
+.head_btn2 {
+    width: 160px;
+    text-align: center;
+}
