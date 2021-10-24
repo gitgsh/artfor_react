@@ -1,16 +1,12 @@
-.header_1{
-    color: red;
-    border: 1px solid grey;
-    
+.header_1 {
+  color: red;
+  border: 1px solid blue;
 }
-.header_2{
-    color: black;
-
+.header_2 {
+  color: black;
 }
 
-.head_btn1, .head_btn2{
-    width: 160px;
-    
+.head_btn1,
+.head_btn2 {
+  width: 160px;
 }
-
-

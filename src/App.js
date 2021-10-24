@@ -24,29 +24,31 @@ function App() {
   let [data, setData] = useState([""]);
 
   return (
-    <div className="App">
-      <Header />
-      <Switch>
-        <Route exact={true} path="/" component={Home} />
-        <Route exact={true} path="/members/list" component={Members} />
-        <Route exact path="/guide/list" component={List}>
-          <List data={data} setData={setData} />
-        </Route>{" "}
-        <Route exact={true} path="/login" component={Login} />
-        <Route exact={true} path="/write/input" component={InputPage}>
-          <InputPage />
-        </Route>
-        <Route exact={true} path="/write/detail" component={InputDetail}>
-          <InputDetail data={data} setData={setData} />
-        </Route>
-        <Route exact={true} path="/detail" component={Detail}>
-          <Detail />
-        </Route>
-        <Route exact={true} path="/login" component={Login} />
-        <Route exact={true} path="/join" component={Join} />
-        <Route exact={true} path="/users/settings" component={Settings} />
-      </Switch>
-      <Footer />
+    <div>
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route exact={true} path="/" component={Home} />
+          <Route exact={true} path="/members/list" component={Members} />
+          <Route exact path="/guide/list" component={List}>
+            <List data={data} setData={setData} />
+          </Route>{" "}
+          <Route exact={true} path="/login" component={Login} />
+          <Route exact={true} path="/write/input" component={InputPage}>
+            <InputPage />
+          </Route>
+          <Route exact={true} path="/write/detail" component={InputDetail}>
+            <InputDetail data={data} setData={setData} />
+          </Route>
+          <Route exact={true} path="/detail" component={Detail}>
+            <Detail />
+          </Route>
+          <Route exact={true} path="/login" component={Login} />
+          <Route exact={true} path="/join" component={Join} />
+          <Route exact={true} path="/users/settings" component={Settings} />
+        </Switch>
+        <Footer />
+      </div>
     </div>
   );
 }

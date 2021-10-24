@@ -1,70 +1,74 @@
-
 .homeSlider {
-    max-width: 1200px;
-    background-color: rgba(150, 205, 209, 0.151);
-    margin: auto;
-    margin-bottom: 50px;
+  max-width: 1200px;
+  background-color: rgba(150, 205, 209, 0.151);
+  margin: auto;
+  margin-bottom: 50px;
+  /* container */
+  max-width: 1080px;
+  width: 100%;
 }
 
 .slideImg {
-    margin: auto;
-    max-width: 500px;
+  margin: auto;
+  max-width: 500px;
 }
 
 .slick-prev {
-    left: 3% !important;
-    z-index: 1;
+  left: 3% !important;
+  z-index: 1;
 }
 .slick-next {
-    right: 3% !important;
-    z-index: 1;
-
+  right: 3% !important;
+  z-index: 1;
 }
-.main{
-    font-size: larger;
-    text-align: left;
-    margin-left: 350px;
-    font-weight: bold;
-
+.main {
+  font-size: larger;
+  text-align: left;
+  margin-left: 350px;
+  font-weight: bold;
 }
 
-.CardHead{
-    
-    margin-left: 300px;
-    margin-right: 300px;
+.CardHead {
+  margin-left: 300px;
+  margin-right: 300px;
 }
 
-
-
-.card{
-    
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top:10px;
-    margin-bottom: 50px;
+.card {
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 10px;
+  margin-bottom: 50px;
 }
 
-.cardtitle{
-    font-size: small;
-    text-align: left;
+.cardtitle {
+  font-size: small;
+  text-align: left;
 }
 
-.cardtext{
-    text-align: left;
+.cardtext {
+  text-align: left;
 }
 
-.cardfooter{
-    border: 0;
-    background-color: white;
-    
+.cardfooter {
+  border: 0;
+  background-color: white;
 }
 
-.cardfooter{
-    text-align: left;
-    font-weight: bold;
-    color: red;
+.cardfooter {
+  text-align: left;
+  font-weight: bold;
+  color: red;
 }
 
-a:link { color: red; text-decoration: none;}
-a:visited { color: black; text-decoration: none;}
-a:hover { color: black; text-decoration: underline;}
+a:link {
+  color: red;
+  text-decoration: none;
+}
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: black;
+  text-decoration: underline;
+}
