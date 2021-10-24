@@ -1,7 +1,7 @@
 import React from "react";
 
 function ProjectPlan(props) {
-  return <div></div>;
+  return <div>projectPlan</div>;
 }
 
 export default ProjectPlan;

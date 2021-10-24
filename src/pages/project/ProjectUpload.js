@@ -5,7 +5,7 @@ import Main from "./Main";
 
 function ProjectPlan(props) {
   return (
-    <div>
+    <div className="body">
       <Main />
       <FundingPlan />
       <ProjectPlan />
