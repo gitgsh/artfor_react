@@ -68,24 +68,17 @@ function FundingStatus(){
         </div>
         
         
-        <hr/>
+        {/* <hr/> */}
         <div className="detail_head4" style={{textAlign: 'left'}}>
         <div>
-        <Link to={"#"} style={{marginLeft: '40px', marginRight:'15px', fontSize: '15px'}}>프로젝트 계획 </Link>
-        <Link to={"#"} style={{marginRight:'10px', fontSize: '15px'}}>커뮤니티</Link>
+        {/* <Link to={"#"} style={{marginLeft: '40px', marginRight:'15px', fontSize: '15px'}}>프로젝트 계획 </Link>
+        <Link to={"#"} style={{marginRight:'10px', fontSize: '15px'}}>커뮤니티</Link> */}
         </div>
         </div>
-         <hr/>
+         {/* <hr/> */}
         </div>
         
-        <div className="buttonClass_detail_Home" style={{marginLeft: '10px'}}>
-        <Button variant="outline-secondary" size="sm" style={{marginRight: '10px'}}>목적</Button>
-        <Button variant="outline-secondary" size="sm" style={{marginRight: '10px'}}>예산</Button>
-        <Button variant="outline-secondary" size="sm" style={{marginRight: '10px'}}>일정</Button>
-        <Button variant="outline-secondary" size="sm" style={{marginRight: '10px'}}>팀소개</Button>
-        <Button variant="outline-secondary" size="sm" style={{marginRight: '10px'}}>신뢰와 안전</Button>
-        </div>
-
+       
 
         <Popover
         id={id}

@@ -6,9 +6,17 @@ width: 100%;
 
 
 }
+
+
+.Detail_Home_All{
+
+margin-left: 60px;
+
+}
+
 .detail_head1{
     margin-top: 100px;
-    margin-bottom: 80px;
+    margin-bottom: 20px;
     /* background-color: blue; */
     width: 1400px;
     height: 600px;
@@ -35,15 +43,15 @@ width: 100%;
 }
 
 .content_HomeDetail{
-    margin-top: 50px;
-    margin-left: 350px;
+    
     height: 1000px;
-    width: 1200px;
+    width: 1080px;
     background-color: blanchedalmond;
 }
 .writer_homeDetail{
     font-family:'NanumSquareB';
     font-size: 16px;
+    margin-right: 150px;
     
 }
 .fundingbox{
@@ -63,18 +71,16 @@ width: 100%;
     margin-left: 20px;
 }
 
-.buttonClass_detail_Home{
-    margin-right: 870px;
-}
+
 
 
 
 .CardHead_Home_Detail{
     
        /* container */
-       max-width: 1250px;
+       max-width: 1280px;
        width: 100%;
-       margin : auto;
+       /* margin : auto; */
        /* margin-left: 100px; */
        
        
@@ -94,25 +100,46 @@ width: 100%;
    
   }
   
-  
+  .cardfooter_Home_Detail{
+    font-family: 'NanumSquareR';
+    font-size: 15px;
+    color: red;
+
+  }
+
   .card_Home_Detail {
     /* margin-left: 50px; */
     /* margin-right: 50px; */
     margin-top: 10px;
     margin-bottom: 50px;
+    padding-left: 10px;
    
   }
   
   /* 카드 이미지 밑에 글씨 패딩~ */
   .cardbody_Home_Detail{
     /* font-family: 'NanumSquareB'; */
-    padding-left: 32px;
+    padding-left: 5px;
   
   }
   
   .cardtext_Home_Detail {
     font-family: 'NanumSquareR';
     font-size: 17px;
+    
     text-align: left;
     
   }
+
+  .projectTitle_Home_Detail {
+    display: block;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'NanumSquareR';
+    text-align: left;
+    max-width: 1080px;
+    margin: 0 auto;
+    margin-top: 50px;
+    background-color: aqua;
+  }
+  
