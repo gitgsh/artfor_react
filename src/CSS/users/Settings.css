@@ -1,13 +1,21 @@
-.settings-body {
-  font-family: nanumgothic;
+.setting-margin-box {
+  font-family: "NanumSquareR";
+  border-top: 1px solid #e8e8e8;
+  color: #323232;
 }
-.setting-box1 {
-  width: 60%;
+.setting-box-1 {
+  margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
+  max-width: 1080px;
+  width: 100%;
 }
-.box-top {
-  margin-top: 20px;
+.tab-box {
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1080px;
+  width: 100%;
 }
 .myicon-box {
   float: left;
@@ -20,26 +28,14 @@
   width: 500px;
   text-align: left;
 }
-.myname-box h2 {
-  font-weight: 1000;
-  text-decoration: none;
-}
-.mymenu-box {
-  width: 500px;
-  text-align: left;
-  margin-bottom: 15px;
-  margin-left: 10px;
-}
-.mymenu-name {
-  font-size: 20px;
-  text-decoration: none;
-  color: darkgray;
-}
+
 .setting-box2 {
   width: 60%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
+  max-width: 1080px;
+  width: 100%;
 }
 .setting-box1-1 {
   text-align: left;
