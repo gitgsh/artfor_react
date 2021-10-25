@@ -2,6 +2,9 @@
   max-width: 1080px;
   margin: auto;
 }
+body {
+  font-family: 'nanumsquare';
+}
 
 .page-name {
   margin-top: 50px;
