@@ -1,0 +1,10 @@
+.projectTitle {
+  display: block;
+  padding-top: 64px;
+  padding-bottom: 25px;
+  font-size: 35px;
+  font-weight: bold;
+  text-align: left;
+  max-width: 1080px;
+  margin: 0 auto;
+}

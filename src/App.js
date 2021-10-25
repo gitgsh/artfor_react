@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Home from "./pages/home/Home";
@@ -21,7 +22,7 @@ import ProjectPlan from "./pages/project/ProjectPlan";
 import G_List_practice from "./pages/guide/G_List_practice";
 import G_Detail from "./pages/guide/G_Detail";
 import G_Input from "./pages/guide/G_Input";
-import G_List from "./pages/guide/G_List"
+import G_List from "./pages/guide/G_List";
 
 function App() {
   // Guide 게시판 검색관련2
@@ -69,7 +70,6 @@ function App() {
             path="/project/plan/project"
             component={ProjectPlan}
           />
-          
           {/* GUIDE */}
           <Route
             exact

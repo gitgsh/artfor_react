@@ -3,12 +3,18 @@ import { styled } from "@mui/material/styles";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
+import { maxWidth } from "@mui/system";
+import "./Tab.css";
 
 const AntTabs = styled(Tabs)({
-  borderBottom: "1px solid #e8e8e8",
+  maxWidth: "1080px",
+  width: "100%",
+  margin: "0 auto",
+
   "& .MuiTabs-indicator": {
-    backgroundColor: "#1890ff",
+    backgroundColor: "#282828",
   },
+  borderBottom: "1px solid #e8e8e8",
 });
 
 const AntTab = styled((props) => <Tab disableRipple {...props} />)(
@@ -19,8 +25,10 @@ const AntTab = styled((props) => <Tab disableRipple {...props} />)(
       minWidth: 0,
     },
     fontWeight: theme.typography.fontWeightRegular,
+    //ANTTAB fontsize
+    fontSize: "15px",
     marginRight: theme.spacing(1),
-    color: "rgba(0, 0, 0, 0.85)",
+    color: "#bebebe",
     fontFamily: [
       "-apple-system",
       "BlinkMacSystemFont",
@@ -34,11 +42,11 @@ const AntTab = styled((props) => <Tab disableRipple {...props} />)(
       '"Segoe UI Symbol"',
     ].join(","),
     "&:hover": {
-      color: "#40a9ff",
+      color: "#282828",
       opacity: 1,
     },
     "&.Mui-selected": {
-      color: "#1890ff",
+      color: "#282828",
       fontWeight: theme.typography.fontWeightMedium,
     },
     "&.Mui-focusVisible": {
@@ -89,27 +97,27 @@ export default function CustomizedTabs() {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
-      <Box sx={{ bgcolor: "#fff" }}>
-        <AntTabs value={value} onChange={handleChange} aria-label="ant example">
-          <AntTab label="Tab 1" />
-          <AntTab label="Tab 2" />
-          <AntTab label="Tab 3" />
-        </AntTabs>
-        <Box sx={{ p: 3 }} />
+    <div>
+      <div className="projectTitle">프로젝트 기획</div>
+      <Box sx={{ width: "100%", margin: "0 auto", maxWidth: "1080px" }}>
+        <Box sx={{ bgcolor: "#fff" }}>
+          <AntTabs
+            value={value}
+            onChange={handleChange}
+            aria-label="ant example"
+          >
+            <AntTab label="펀딩 계획" />
+            <AntTab label="프로젝트 계획" />
+            <AntTab label="신뢰와 안전" />
+          </AntTabs>
+
+          <Box className="box1" sx={{ bgcolor: "black" }}>
+            <div>dkssud</div>
+            <Box sx={{ p: 50 }} />
+          </Box>
+        </Box>
+        {/* #fff */}
       </Box>
-      <Box sx={{ bgcolor: "#2e1534" }}>
-        <StyledTabs
-          value={value}
-          onChange={handleChange}
-          aria-label="styled tabs example"
-        >
-          <StyledTab label="Workflows" />
-          <StyledTab label="Datasets" />
-          <StyledTab label="Connections" />
-        </StyledTabs>
-        <Box sx={{ p: 3 }} />
-      </Box>
-    </Box>
+    </div>
   );
 }
