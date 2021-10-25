@@ -1,0 +1,18 @@
+.TabsAll_Home_Detail{
+     /* container */
+    max-width: 1080px;
+    width: 100%;
+    margin: auto; 
+    
+    margin-left: 350px;
+    
+}
+
+.buttonClass_detail_Home{
+      /* padding-bottom: 50px; */
+      max-width: 900px; 
+      width: 100%;
+  
+      padding-right:550px;
+
+}

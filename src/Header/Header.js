@@ -13,6 +13,7 @@ const exclusionRoutes = ["/login", "/signup"];
 //   border-bottom: 1px solid ${({ theme }) => theme.colors.grey500};
 function Header() {
   return (
+    
     <StyledHeader>
       <HeaderContainer>
         <LeftMenu />
@@ -20,6 +21,7 @@ function Header() {
         <RightMenu />
       </HeaderContainer>
     </StyledHeader>
+    
   );
 }
 

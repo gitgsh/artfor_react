@@ -31,7 +31,8 @@ const StyledLink = styled(Link)`
 `;
 
 const LogoSkyrocket = styled(Logo)`
-  width: 150px;
+  width: 500px;
+  padding-right: 150px;
   height: 30px;
   fill: #333;
 `;

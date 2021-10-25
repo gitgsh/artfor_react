@@ -96,86 +96,19 @@ function HomeList(){
 <div className="main_card">
 <p className="main_home">주목할 만한 프로젝트</p>
 
+<CardGroup>
+<Card className="card_Home">
+<Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
+style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+<Card.Body className="cardbody_Home">
+<Card.Title className="cardtitle_Home">공예 | 김지민</Card.Title>
+<Card.Text className="cardtext_Home">
+<Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
+</Card.Text>
+<div className="cardfooter">
+  <p>1858% 달성</p>
 
-<CardGroup className="cardgroup_Home">
-<Card className="card_Home">
-<Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
-style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-<Card.Body className="cardbody_Home">
-<Card.Title className="cardtitle_Home">공예 | 김지민</Card.Title>
-<Card.Text className="cardtext_Home">
-<Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
-</Card.Text>
-<div className="cardfooter">
-  <p>1858% 달성</p>
-</div>
-</Card.Body>
-{/* <Card.Footer className="cardfooter">
-<small className="text-muted" id="text-muted">1858% 달성</small>
-</Card.Footer> */}
-</Card>
-<Card className="card_Home">
-<Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
-style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-<Card.Body className="cardbody_Home">
-<Card.Title className="cardtitle_Home">공예 | 김지민</Card.Title>
-<Card.Text className="cardtext_Home">
-<Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
-</Card.Text>
-<div className="cardfooter">
-  <p>1858% 달성</p>
-</div>
-</Card.Body>
-{/* <Card.Footer className="cardfooter">
-<small className="text-muted" id="text-muted">1858% 달성</small>
-</Card.Footer> */}
-</Card>
-<Card className="card_Home">
-<Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
-style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-<Card.Body className="cardbody_Home">
-<Card.Title className="cardtitle_Home">공예 | 김지민</Card.Title>
-<Card.Text className="cardtext_Home">
-<Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
-</Card.Text>
-<div className="cardfooter">
-  <p>1858% 달성</p>
-</div>
-</Card.Body>
-{/* <Card.Footer className="cardfooter">
-<small className="text-muted" id="text-muted">1858% 달성</small>
-</Card.Footer> */}
-</Card>
-<Card className="card_Home">
-<Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
-style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-<Card.Body className="cardbody_Home">
-<Card.Title className="cardtitle_Home">공예 | 김지민</Card.Title>
-<Card.Text className="cardtext_Home">
-<Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
-</Card.Text>
-<div className="cardfooter">
-  <p>1858% 달성</p>
-</div>
-</Card.Body>
-{/* <Card.Footer className="cardfooter">
-<small className="text-muted" id="text-muted">1858% 달성</small>
-</Card.Footer> */}
-</Card>
 
-</CardGroup>
-
-<CardGroup className="cardgroup_Home">
-<Card className="card_Home">
-<Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
-style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-<Card.Body className="cardbody_Home">
-<Card.Title className="cardtitle_Home">공예 | 김지민</Card.Title>
-<Card.Text className="cardtext_Home">
-<Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
-</Card.Text>
-<div className="cardfooter">
-  <p>1858% 달성</p>
 </div>
 </Card.Body>
 {/* <Card.Footer className="cardfooter">
@@ -230,7 +163,6 @@ style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
 <small className="text-muted" id="text-muted">1858% 달성</small>
 </Card.Footer> */}
 </Card>
-
 </CardGroup>
 
 

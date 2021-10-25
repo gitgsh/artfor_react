@@ -3,19 +3,31 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import './header.css';
 import { flex } from '../../styles/mixins';
-import { Button } from 'react-bootstrap';
+import TextButtons from './TextButtons';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+
 
 function LeftMenu() {
   // color: ${({ theme }) => theme.colors.white};
   // background: ${({ theme }) => theme.colors.red100};
+  
+  function TextButtons() {
+    return (
+      <Stack direction="row" spacing={2}>
+        <Button>Primary</Button>
+        <Button disabled>Disabled</Button>
+        <Button href="#text-buttons">Link</Button>
+      </Stack>
+    );
+  }
   return (
+
     <LeftMenuBox>
-      {/* <ListLink to="/discover"><div className="header_1">프로젝트 둘러보기</div></ListLink> */}
-      <div className="head_btn1"><Button variant="danger">프로젝트 둘러보기</Button></div>
-      <div className="head_btn2"><Button variant="light">프로젝트 올리기</Button></div>
-      {/* <ProjectCreateLink to="/project-create">
-        <div className="header_2">프로젝트 올리기</div>
-      </ProjectCreateLink> */}
+      
+      <div className="head_btn1"> <Button style={{color:'black', fontFamily:"NanumSquareB", fontSize:"15px"}}><img src="../icon_navbar.png" style={{width:'20px'}}/>프로젝트 둘러보기</Button></div>
+      <div className="head_btn2"><Button  style={{color:'black', fontFamily:"NanumSquareB", fontSize:"15px"}}>프로젝트 올리기</Button></div>
+      
     </LeftMenuBox>
   );
 }
