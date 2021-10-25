@@ -78,7 +78,7 @@ function Login(props) {
             {(errors.user_id?.type === "maxLength" ||
               errors.user_id?.type === "minLength") && (
               <InputGroup style={{ color: "red" }}>
-                아이디는 6자 이상, 20자 이하로 입력하세요.
+                아이디는 2자 이상, 20자 이하로 입력하세요.
               </InputGroup>
             )}
           </div>
