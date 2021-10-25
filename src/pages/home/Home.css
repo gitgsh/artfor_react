@@ -25,9 +25,10 @@
   right: 3% !important;
   z-index: 1;
 }
-.main {
-  font-size: larger;
+.main_home {
+  font-size: 22px;
   text-align: left;
+  font-family: 'NanumSquareB';
   /* margin-left: 410px; */
   font-weight: bold;
   
@@ -35,7 +36,7 @@
 
 
 
-.card {
+.card_Home {
   /* margin-left: 50px; */
   /* margin-right: 50px; */
   margin-top: 10px;
@@ -43,33 +44,35 @@
  
 }
 
-.cardtitle {
-  font-size: small;
+.cardtitle_Home {
+  font-family:'NanumSquareL';
+  font-size: 14px;
   text-align: left;
+  
  
 }
 
 
 /* 카드 이미지 밑에 글씨 패딩~ */
-.cardbody{
+.cardbody_Home{
   /* font-family: 'NanumSquareB'; */
-  padding-left: 11px;
+  padding-left: 0px;
+
 }
 
-.cardtext {
-  text-align: left;
-   
-}
-
-.cardfooter {
-  border: 0;
-  background-color: white;
+.cardtext_Home {
+  font-family: 'NanumSquareR';
+  font-size: 17px;
+  
+  
 }
 
 .cardfooter {
   text-align: left;
   font-weight: bold;
   color: red;
+  border: 0;
+  background-color: white;
 }
 
 a:link {
@@ -90,11 +93,14 @@ a:hover {
       max-width: 1080px;
       width: 100%;
       margin: auto;
+      
+      text-align: left;
 }
 
-.cardgroup{
+.cardgroup_Home{
   max-width: 1080px;
-      width: 100%;
+    width: 100%;
+    
       
 }
 

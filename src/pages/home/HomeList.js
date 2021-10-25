@@ -94,16 +94,16 @@ function HomeList(){
     return(
         
 <div className="main_card">
-<p className="main">주목할 만한 프로젝트</p>
+<p className="main_home">주목할 만한 프로젝트</p>
 
 
-<CardGroup className="cardgroup">
-<Card className="card">
+<CardGroup className="cardgroup_Home">
+<Card className="card_Home">
 <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
 style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-<Card.Body className="cardbody">
-<Card.Title className="cardtitle">공예 | 김지민</Card.Title>
-<Card.Text className="cardtext">
+<Card.Body className="cardbody_Home">
+<Card.Title className="cardtitle_Home">공예 | 김지민</Card.Title>
+<Card.Text className="cardtext_Home">
 <Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
 </Card.Text>
 <div className="cardfooter">
@@ -114,12 +114,12 @@ style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
 <small className="text-muted" id="text-muted">1858% 달성</small>
 </Card.Footer> */}
 </Card>
-<Card className="card">
+<Card className="card_Home">
 <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
 style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-<Card.Body className="cardbody">
-<Card.Title className="cardtitle">공예 | 김지민</Card.Title>
-<Card.Text className="cardtext">
+<Card.Body className="cardbody_Home">
+<Card.Title className="cardtitle_Home">공예 | 김지민</Card.Title>
+<Card.Text className="cardtext_Home">
 <Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
 </Card.Text>
 <div className="cardfooter">
@@ -130,12 +130,12 @@ style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
 <small className="text-muted" id="text-muted">1858% 달성</small>
 </Card.Footer> */}
 </Card>
-<Card className="card">
+<Card className="card_Home">
 <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
 style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-<Card.Body className="cardbody">
-<Card.Title className="cardtitle">공예 | 김지민</Card.Title>
-<Card.Text className="cardtext">
+<Card.Body className="cardbody_Home">
+<Card.Title className="cardtitle_Home">공예 | 김지민</Card.Title>
+<Card.Text className="cardtext_Home">
 <Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
 </Card.Text>
 <div className="cardfooter">
@@ -146,12 +146,12 @@ style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
 <small className="text-muted" id="text-muted">1858% 달성</small>
 </Card.Footer> */}
 </Card>
-<Card className="card">
+<Card className="card_Home">
 <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
 style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-<Card.Body className="cardbody">
-<Card.Title className="cardtitle">공예 | 김지민</Card.Title>
-<Card.Text className="cardtext">
+<Card.Body className="cardbody_Home">
+<Card.Title className="cardtitle_Home">공예 | 김지민</Card.Title>
+<Card.Text className="cardtext_Home">
 <Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
 </Card.Text>
 <div className="cardfooter">
@@ -165,13 +165,13 @@ style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
 
 </CardGroup>
 
-<CardGroup className="cardgroup">
-<Card className="card">
+<CardGroup className="cardgroup_Home">
+<Card className="card_Home">
 <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
 style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-<Card.Body className="cardbody">
-<Card.Title className="cardtitle">공예 | 김지민</Card.Title>
-<Card.Text className="cardtext">
+<Card.Body className="cardbody_Home">
+<Card.Title className="cardtitle_Home">공예 | 김지민</Card.Title>
+<Card.Text className="cardtext_Home">
 <Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
 </Card.Text>
 <div className="cardfooter">
@@ -182,12 +182,12 @@ style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
 <small className="text-muted" id="text-muted">1858% 달성</small>
 </Card.Footer> */}
 </Card>
-<Card className="card">
+<Card className="card_Home">
 <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
 style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-<Card.Body className="cardbody">
-<Card.Title className="cardtitle">공예 | 김지민</Card.Title>
-<Card.Text className="cardtext">
+<Card.Body className="cardbody_Home">
+<Card.Title className="cardtitle_Home">공예 | 김지민</Card.Title>
+<Card.Text className="cardtext_Home">
 <Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
 </Card.Text>
 <div className="cardfooter">
@@ -198,12 +198,12 @@ style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
 <small className="text-muted" id="text-muted">1858% 달성</small>
 </Card.Footer> */}
 </Card>
-<Card className="card">
+<Card className="card_Home">
 <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
 style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-<Card.Body className="cardbody">
-<Card.Title className="cardtitle">공예 | 김지민</Card.Title>
-<Card.Text className="cardtext">
+<Card.Body className="cardbody_Home">
+<Card.Title className="cardtitle_Home">공예 | 김지민</Card.Title>
+<Card.Text className="cardtext_Home">
 <Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
 </Card.Text>
 <div className="cardfooter">
@@ -214,12 +214,12 @@ style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
 <small className="text-muted" id="text-muted">1858% 달성</small>
 </Card.Footer> */}
 </Card>
-<Card className="card">
+<Card className="card_Home">
 <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
 style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-<Card.Body className="cardbody">
-<Card.Title className="cardtitle">공예 | 김지민</Card.Title>
-<Card.Text className="cardtext">
+<Card.Body className="cardbody_Home">
+<Card.Title className="cardtitle_Home">공예 | 김지민</Card.Title>
+<Card.Text className="cardtext_Home">
 <Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
 </Card.Text>
 <div className="cardfooter">
@@ -236,16 +236,16 @@ style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
 
 
 <br/><br/><br/>
-<p className="main">공개예정 프로젝트</p>
+<p className="main_home">공개예정 프로젝트</p>
 
 
 <CardGroup>
-<Card className="card">
+<Card className="card_Home">
 <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
 style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-<Card.Body>
-<Card.Title className="cardtitle">공예 | 김지민</Card.Title>
-<Card.Text className="cardtext">
+<Card.Body className="cardbody_Home">
+<Card.Title className="cardtitle_Home">공예 | 김지민</Card.Title>
+<Card.Text className="cardtext_Home">
 <Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
 </Card.Text>
 <div className="cardfooter">
@@ -256,51 +256,53 @@ style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
 <small className="text-muted" id="text-muted">1858% 달성</small>
 </Card.Footer> */}
 </Card>
-<Card>
+<Card className="card_Home">
 <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
 style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-<Card.Body>
-<Card.Title>Card title</Card.Title>
-<Card.Text>
-  This card has supporting text below as a natural lead-in to additional
-  content.{' '}
+<Card.Body className="cardbody_Home">
+<Card.Title className="cardtitle_Home">공예 | 김지민</Card.Title>
+<Card.Text className="cardtext_Home">
+<Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
 </Card.Text>
+<div className="cardfooter">
+  <p>1858% 달성</p>
+</div>
 </Card.Body>
-<Card.Footer>
-<small className="text-muted">Last updated 3 mins ago</small>
-</Card.Footer>
+{/* <Card.Footer className="cardfooter">
+<small className="text-muted" id="text-muted">1858% 달성</small>
+</Card.Footer> */}
 </Card>
-<Card>
+<Card className="card_Home">
 <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
 style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-<Card.Body>
-<img src="./"/>
-<Card.Title>Card title</Card.Title>
-<Card.Text>
-  This is a wider card with supporting text below as a natural lead-in to
-  additional content. This card has even longer content than the first to
-  show that equal height action.
+<Card.Body className="cardbody_Home">
+<Card.Title className="cardtitle_Home">공예 | 김지민</Card.Title>
+<Card.Text className="cardtext_Home">
+<Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
 </Card.Text>
+<div className="cardfooter">
+  <p>1858% 달성</p>
+</div>
 </Card.Body>
-<Card.Footer>
-<small className="text-muted">Last updated 3 mins ago</small>
-</Card.Footer>
+{/* <Card.Footer className="cardfooter">
+<small className="text-muted" id="text-muted">1858% 달성</small>
+</Card.Footer> */}
 </Card>
-<Card>
+<Card className="card_Home">
 <Link to={"/detail"}><Card.Img variant="top" src="/main1.jpeg"
 style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
-<Card.Body>
-<img src="./"/>
-<Card.Title>Card title</Card.Title>
-<Card.Text>
-  This is a wider card with supporting text below as a natural lead-in to
-  additional content. This card has even longer content than the first to
-  show that equal height action.
+<Card.Body className="cardbody_Home">
+<Card.Title className="cardtitle_Home">공예 | 김지민</Card.Title>
+<Card.Text className="cardtext_Home">
+<Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
 </Card.Text>
+<div className="cardfooter">
+  <p>1858% 달성</p>
+</div>
 </Card.Body>
-<Card.Footer>
-<small className="text-muted">Last updated 3 mins ago</small>
-</Card.Footer>
+{/* <Card.Footer className="cardfooter">
+<small className="text-muted" id="text-muted">1858% 달성</small>
+</Card.Footer> */}
 </Card>
 </CardGroup>
 

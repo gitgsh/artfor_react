@@ -1,12 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-<<<<<<< HEAD
+
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
-=======
-import Header from "./components/Header";
-import Footer from "./components/Footer";
->>>>>>> ffbbfb0957f35d0d1ccdddf0015ff7bf40d05be8
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import { Switch, Route } from "react-router-dom";
