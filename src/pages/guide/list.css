@@ -3,7 +3,7 @@
   margin: auto;
 }
 body {
-  font-family: 'nanumsquare';
+  font-family: "nanumsquare";
 }
 
 .page-name {
@@ -19,7 +19,7 @@ body {
   float: left;
 }
 
-.div-guide-list-1{
+.div-guide-list-1 {
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 15px;
