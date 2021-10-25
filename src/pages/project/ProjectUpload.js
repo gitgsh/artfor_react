@@ -2,16 +2,18 @@ import React from "react";
 import Check from "./Check";
 import FundingPlan from "./FundingPlan";
 import Main from "./Main";
+import PlanTabs from "./Tab";
 
-function ProjectPlan(props) {
+function ProjectUpload(props) {
   return (
     <div className="body">
-      <Main />
+      {/* <Main />
       <FundingPlan />
       <ProjectPlan />
-      <Check />
+      <Check /> */}
+      <PlanTabs />
     </div>
   );
 }
 
-export default ProjectPlan;
+export default ProjectUpload;

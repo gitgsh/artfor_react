@@ -1,4 +1,10 @@
+.TabsAll_Project {
+  margin: 0;
+  /* height: auto; */
+  overflow: hidden;
+}
 .projectTitle {
+  font-family: "NanumSquareEB";
   display: block;
   padding-top: 64px;
   padding-bottom: 25px;
@@ -7,4 +13,50 @@
   text-align: left;
   max-width: 1080px;
   margin: 0 auto;
+}
+.fundingPlan-container {
+  background-color: #f6f5f5;
+  width: 100%;
+  min-height: 100%;
+  border-top: 1px solid #e8e8e8;
+  box-shadow: #e8e8e8;
+}
+.projectPlan-container {
+  background-color: #f6f5f5;
+  width: 100%;
+  /* min-height: 100%; */
+  height: 500px;
+  border-top: 1px solid #e8e8e8;
+  box-shadow: #e8e8e8;
+}
+.pledges-container {
+  background-color: #f6f5f5;
+  width: 100%;
+  /* min-height: 100%; */
+  height: 500px;
+  border-top: 1px solid #e8e8e8;
+  box-shadow: #e8e8e8;
+}
+.border-line {
+  color: "#000000";
+  background-color: "#000000";
+  height: 0.5;
+  border-color: "#000000";
+}
+.funding-goal-box {
+  margin: 0 auto;
+  /* width: 30px;
+  height: 30px; */
+  background: rgb(253, 244, 243);
+  border-radius: 8 px;
+  /* padding: 23 px 24 px 22 px; */
+  padding-top: 23px;
+  padding-right: 24 px;
+  padding-bottom: 23 px;
+  font-weight: 400;
+  color: rgb(109, 109, 109);
+  font-size: 12px !important;
+  line-height: 20px !important;
+  font-family: NotoSansKR, "SF Pro Text", "Segoe UI", "Helvetica Neue", Arial,
+    sans-serif !important;
 }

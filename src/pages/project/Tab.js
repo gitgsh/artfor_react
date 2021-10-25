@@ -3,18 +3,25 @@ import { styled } from "@mui/material/styles";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
+import { Button } from "react-bootstrap";
 import { maxWidth } from "@mui/system";
+import { useState } from "react";
+
 import "./Tab.css";
+import ProjectPlan from "./ProjectPlan";
+import FundingPlan from "./FundingPlan";
+import Pledges from "./Pledges";
 
 const AntTabs = styled(Tabs)({
   maxWidth: "1080px",
   width: "100%",
+  height: "100%",
   margin: "0 auto",
 
   "& .MuiTabs-indicator": {
     backgroundColor: "#282828",
   },
-  borderBottom: "1px solid #e8e8e8",
+  // borderBottom: "1px solid #e8e8e8",
 });
 
 const AntTab = styled((props) => <Tab disableRipple {...props} />)(
@@ -89,35 +96,48 @@ const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
   })
 );
 
-export default function CustomizedTabs() {
+export default function PlanTabs() {
   const [value, setValue] = React.useState(0);
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  return (
-    <div>
-      <div className="projectTitle">프로젝트 기획</div>
-      <Box sx={{ width: "100%", margin: "0 auto", maxWidth: "1080px" }}>
-        <Box sx={{ bgcolor: "#fff" }}>
-          <AntTabs
-            value={value}
-            onChange={handleChange}
-            aria-label="ant example"
-          >
-            <AntTab label="펀딩 계획" />
-            <AntTab label="프로젝트 계획" />
-            <AntTab label="신뢰와 안전" />
-          </AntTabs>
+  const [clickValue, setClickValue] = useState(<FundingPlan />);
 
-          <Box className="box1" sx={{ bgcolor: "black" }}>
-            <div>dkssud</div>
-            <Box sx={{ p: 50 }} />
-          </Box>
-        </Box>
-        {/* #fff */}
+  return (
+    <div className="TabsAll_Project">
+      <Box sx={{ bgcolor: "#fff", height: "100%" }}>
+        <div className="projectTitle">프로젝트 기획</div>
+        <AntTabs
+          value={value}
+          onChange={handleChange}
+          aria-label="ant example"
+          style={{ height: "100%" }}
+        >
+          <AntTab
+            label="펀딩 계획"
+            style={{ fontFamily: "NanumSquareB" }}
+            onClick={() => {
+              setClickValue(<FundingPlan />);
+            }}
+          />
+          <AntTab
+            label="프로젝트 계획"
+            style={{ fontFamily: "NanumSquareB" }}
+            onClick={() => {
+              setClickValue(<ProjectPlan />);
+            }}
+          />
+          <AntTab
+            label="신뢰와 안전"
+            style={{ fontFamily: "NanumSquareB" }}
+            onClick={() => {
+              setClickValue(<Pledges />);
+            }}
+          />
+        </AntTabs>
       </Box>
+      {clickValue}
     </div>
   );
 }
