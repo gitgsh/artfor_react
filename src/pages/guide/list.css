@@ -2,23 +2,39 @@
   max-width: 1080px;
   margin: auto;
 }
+body {
+  font-family: 'nanumsquare';
+}
 
 .page-name {
   margin-top: 50px;
   margin-bottom: 50px;
 }
 
-.div-guide-table {
+.div-guide-list {
+  margin-top: 20px;
+  padding: 20px;
   margin: auto;
-  /* margin-top: 100px;
-  margin-left: 300px;
-  margin-right: 300px; */
+  width: 25%;
+  float: left;
 }
 
-.t-head {
-  background: rgb(228, 228, 228);
+.div-guide-list-1{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 15px;
 }
 
 .guide-writeBtn {
   margin-top: 50px;
+  margin: auto;
+}
+
+.guide-modal {
+  margin-top: 20px;
+  padding: 20px;
+  background: #eee;
+  float: right;
+  width: 70%;
+  height: 700px;
 }
