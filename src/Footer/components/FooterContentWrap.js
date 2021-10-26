@@ -21,6 +21,7 @@ function FooterContentWrap() {
 const TopDivideLine = styled.div`
   margin-top: 24px;
   border-top: 1px solid #e6e6e6;
+  
 `;
 
 const BottomDivideLine = styled.div`

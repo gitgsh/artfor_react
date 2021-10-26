@@ -6,12 +6,19 @@ import { flex } from '../../styles/mixins';
 import TextButtons from './TextButtons';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import { useState } from 'react';
 
+
+import CenterMenu from './CenterMenu';
+import RightMenu from './RightMenu';
 
 function LeftMenu() {
   // color: ${({ theme }) => theme.colors.white};
   // background: ${({ theme }) => theme.colors.red100};
   
+//const [headerContainer, setHeaderContainer] =  useState(<HeaderContainer/>);
+
+
   function TextButtons() {
     return (
       <Stack direction="row" spacing={2}>
@@ -21,12 +28,15 @@ function LeftMenu() {
       </Stack>
     );
   }
+
+
+
   return (
 
     <LeftMenuBox>
       
       <div className="head_btn1"> <Button style={{color:'black', fontFamily:"NanumSquareB", fontSize:"15px"}}><img src="../icon_navbar.png" style={{width:'20px'}}/>프로젝트 둘러보기</Button></div>
-      <div className="head_btn2"><Button  style={{color:'black', fontFamily:"NanumSquareB", fontSize:"15px"}}>프로젝트 올리기</Button></div>
+      <div className="head_btn2"><Button  style={{color:'black', fontFamily:"NanumSquareB", fontSize:"15px", width:'120px'}}>프로젝트 올리기</Button></div>
       
     </LeftMenuBox>
   );

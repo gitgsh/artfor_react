@@ -31,7 +31,7 @@
   font-family: 'NanumSquareB';
   /* margin-left: 410px; */
   font-weight: bold;
-  background-color: tomato;
+  
 }
 
 
@@ -93,7 +93,7 @@ a:hover {
 
 .main_card{
       /* container */
-      max-width: 1200px;
+      max-width: 1110px;
       width: 100%;
       
       margin-left: 410px;

@@ -75,7 +75,7 @@ function FooterContent() {
       <AppContentWrap>
         <thead>
           <tr>
-            <ContentsTitle>App</ContentsTitle>
+            <ContentsTitle style={{marginTop:"9px"}}>App</ContentsTitle>
           </tr>
         </thead>
         <tbody>
@@ -102,7 +102,7 @@ function FooterContent() {
       <CustomerWrapContents>
         <thead>
           <tr>
-            <ContentsTitle>고객지원</ContentsTitle>
+            <ContentsTitle style={{marginTop:"9px"}}>고객지원</ContentsTitle>
           </tr>
         </thead>
         <tbody>
