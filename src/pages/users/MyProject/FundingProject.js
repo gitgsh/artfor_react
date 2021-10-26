@@ -1,9 +1,9 @@
 import React from 'react';
 import { Card, CardGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import "./Project.css";
+import "../Project.css";
 
-function Project() {
+function FundingProject() {
   return (
     <div>
       <div className="project_component">
@@ -88,4 +88,4 @@ function Project() {
   );
 };
 
-export default Project;
+export default FundingProject;

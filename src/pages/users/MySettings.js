@@ -2,16 +2,10 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
-import { Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import "../../CSS/users/Settings.css";
-import Profile from "./Profile";
-import Project from "./Project";
-import Tabbar from "./Tabbar";
-import Tabdiv from "./Tabdiv";
+import "./Settings.css";
+import SettingsTabdiv from './MySettings/SettingsTabdiv';
 
-function Settings(props) {
+function MySettings(props) {
   console.log(props);
   const key = props.match.params.key;
 
@@ -24,28 +18,21 @@ function Settings(props) {
 
   return (
     <div className="setting-margin-box">
-      <div className="setting-box-1">
+      <div className="setting-box-1" >
         <div className="myicon-box">
-            <img src="/mygray.png" width="100px" />
-        </div>
-        <div className="myname-box">
-          <h2>
-            김정희 <span style={{ fontSize: "25px" }}>님</span>
-          </h2>
+          <h2>설정</h2>
         </div>
       </div>
-      <div style={{borderBottom:'1px solid #e8e8e8'}}>
+      <div style={{borderBottom:'1px solid #e8e8e8', marginTop:'135px'}}>
         <div className="tab-box">
           <AntTabs value={value} onChange={handleChange} aria-label="ant example">
-            <AntTab label="후원한 프로젝트"/>
-            <AntTab label="내 정보!"/>
+            <AntTab label="계정"/>
           </AntTabs>
         </div>
       </div>
       <br />
       <br />
-      <br />
-      <Tabdiv value={value} setValue={setValue} />
+      <SettingsTabdiv value={value} setValue={setValue} />
     </div>
   );
 }
@@ -85,4 +72,4 @@ const AntTab = styled((props) => <Tab disableRipple {...props} />)(({ theme }) =
   },
 }));
 
-export default Settings;
+export default MySettings;

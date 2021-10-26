@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Button, FormControl, InputGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import '../Settings.css'
 
 function Profile() {
+
+  let [modal, setModal] = useState(false);
+
+  function modalSwitch() {
+    setModal(!modal);
+  }
+
+  function NameUpdate(e){
+    console.log(e.target.value)
+    
+  }
+
   return (
     <div className="setting-box2">
         <div className="setting-box1-1">
@@ -11,77 +25,84 @@ function Profile() {
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
-                  marginBottom: "10px",
+                  marginBottom: "30px",
                 }}
               >
                 <h5 style={{ fontWeight: "bold", fontSize: "20px" }}>이름</h5>
-                <Link style={{ fontSize: "25px", textDecoration: "none" }}>
+                <button style={{ fontSize: "20px", background:'none', color:'black', border:'0' }} onClick={NameUpdate} value="변경">
                   변경
-                </Link>
+                </button>
               </div>
               <div>
                 <p>김정희</p>
               </div>
-              <hr />
+              <div style={{width:'30%'}}>
+                <NameModal />
+              </div>
+              <hr style={{marginBottom:'20px'}} />
             </div>
+
             <div>
               <div
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
-                  marginBottom: "10px",
+                  marginBottom: "30px",
                 }}
               >
                 <h5 style={{ fontWeight: "bold", fontSize: "20px" }}>
                   비밀번호
                 </h5>
-                <Link style={{ fontSize: "25px", textDecoration: "none" }}>
+                <button style={{ fontSize: "20px",background:'none', color:'black', border:'0' }}>
                   변경
-                </Link>
+                </button>
               </div>
               <div>
                 <p>xxxxx</p>
               </div>
-              <hr />
+              <hr style={{marginBottom:'20px'}} />
             </div>
+
             <div>
               <div
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
-                  marginBottom: "10px",
+                  marginBottom: "30px",
                 }}
               >
                 <h5 style={{ fontWeight: "bold", fontSize: "20px" }}>이메일</h5>
-                <Link style={{ fontSize: "25px", textDecoration: "none" }}>
+                <button style={{ fontSize: "20px",background:'none', color:'black', border:'0' }}>
                   인증
-                </Link>
+                </button>
               </div>
               <div>
                 <p>kkkkkk@naver.com</p>
               </div>
-              <hr />
+              <hr style={{marginBottom:'20px'}} />
             </div>
+
             <div>
               <div
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
-                  marginBottom: "10px",
+                  marginBottom: "30px",
                 }}
               >
                 <h5 style={{ fontWeight: "bold", fontSize: "20px" }}>연락처</h5>
-                <Link style={{ fontSize: "25px", textDecoration: "none" }}>
+                <button style={{ fontSize: "20px",background:'none', color:'black', border:'0' }}>
                   변경
-                </Link>
+                </button>
               </div>
               <div>
                 <p>010-2015-1336</p>
               </div>
-              <hr />
+              <hr style={{marginBottom:'20px'}} />
             </div>
+
           </div>
-          {/* <div style={{ width: "34%", float: "left" }}>
+          <div style={{ width: "34%", float: "left" }}>
             <div
               style={{
                 marginLeft: "auto",
@@ -103,10 +124,27 @@ function Profile() {
                 </p>
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
   );
 };
+
+function NameModal(){
+  return(
+    <div>
+      <InputGroup>
+        <FormControl
+          className="login-form-input-row"
+          type="text"
+          placeholder="이름 입력"
+          aria-label="Recipient's username with two button addons"
+        />
+      </InputGroup>
+      <br />
+      <Button variant="dark" style={{width:'80px'}}>저장</Button>
+    </div>
+  )
+}
 
 export default Profile;
