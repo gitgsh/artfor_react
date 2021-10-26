@@ -13,7 +13,7 @@ import InputPage from "./pages/project/input/InputPage";
 import InputDetail from "./pages/project/input/InputDetail";
 import Join from "./pages/login/Join";
 import Detail from "./pages/detail/Detail";
-import Settings from "./pages/users/Settings";
+import MyProject from "./pages/users/MyProject";
 import Main from "./pages/Main/Main";
 import Main2 from "./pages/project/Main";
 import Check from "./pages/project/Check";
@@ -24,6 +24,7 @@ import G_Detail from "./pages/guide/G_Detail";
 import G_Input from "./pages/guide/G_Input";
 import G_List from "./pages/guide/G_List";
 import ProjectUpload from "./pages/project/ProjectUpload";
+import MySettings from "./pages/users/MySettings";
 
 function App() {
   // Guide 게시판 검색관련2
@@ -57,7 +58,8 @@ function App() {
           {/* LOGIN */}
           <Route exact={true} path="/login" component={Login} />
           <Route exact={true} path="/join" component={Join} />
-          <Route exact={true} path="/users/settings" component={Settings} />
+          <Route exact={true} path="/users/myproject" component={MyProject} />
+          <Route exact={true} path="/users/mysettings" component={MySettings} />
           {/* PROJECT */}
           <Route exact={true} path="/project/main" component={Main2} />
           <Route exact={true} path="/project/check" component={Check} />
