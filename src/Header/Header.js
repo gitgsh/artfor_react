@@ -4,14 +4,20 @@ import styled from "styled-components";
 import LeftMenu from "./components/LeftMenu";
 import CenterMenu from "./components/CenterMenu";
 import RightMenu from "./components/RightMenu";
+import head_prjMenu from "./components/head_prjMenu";
 import Container from "../Container/Container";
 import { flex } from "../styles/mixins";
+import { useState } from "react";
+
 
 const exclusionRoutes = ["/login", "/signup"];
 
 // background: ${({ theme }) => theme.colors.white};
 //   border-bottom: 1px solid ${({ theme }) => theme.colors.grey500};
 function Header() {
+
+  
+
   return (
     
     <StyledHeader>
@@ -19,6 +25,7 @@ function Header() {
         <LeftMenu />
         <CenterMenu />
         <RightMenu />
+        <head_prjMenu/>
       </HeaderContainer>
     </StyledHeader>
     

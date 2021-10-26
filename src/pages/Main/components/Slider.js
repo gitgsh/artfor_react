@@ -23,6 +23,7 @@ function Slider() {
       ? buttonSetState(0)
       : buttonSetState(buttonState - 100);
   };
+  
 
   useEffect(() => {
     fetch('data/SlideImgData.json')
@@ -30,11 +31,22 @@ function Slider() {
       .then(data => slideImageSetState(data.SlideImgData));
   }, []);
 
+
+  setTimeout(  //자동슬라이더 효과.
+    () =>
+      goRight(),
+    3000  
+  );
+  
   return (
+    
     <MainSlideContainer>
-      <SlideContainerLeft>
+      <SlideContainerLeft className="SlideContainerLeft">
         {slideImageState.map(item => {
           return (
+
+
+            
             <Slide
               key={item.id}
               style={{ transform: `translateX(${buttonState}%)` }}
@@ -44,7 +56,7 @@ function Slider() {
           );
         })}
       </SlideContainerLeft>
-      <SlideContainerRight>
+      <SlideContainerRight className="SlideContainerRight">
         {slideImageState.map(item => {
           return (
             <SlideTextBox
