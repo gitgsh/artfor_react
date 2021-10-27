@@ -44,9 +44,9 @@
   border-color: "#000000";
 }
 .funding-goal-box {
-  margin: 0 auto;
-  /* width: 30px;
-  height: 30px; */
+  /* margin: 0 auto; */
+  width: 351px;
+  height: 210px;
   background: rgb(253, 244, 243);
   border-radius: 8 px;
   /* padding: 23 px 24 px 22 px; */
