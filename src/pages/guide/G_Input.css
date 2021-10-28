@@ -1,0 +1,43 @@
+/* 테두리 하고 싶을 때 */
+/* .container_guide {
+    width: 700px;
+    max-height: max-content;
+    border: 1px solid rgb(228, 228, 228);
+    border-radius: 8px;
+    margin: 0 auto;
+    margin-top: 80px;
+  } */
+
+body {
+    font-family: 'nanumsquareR';
+}
+
+.guideInput-title {
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+
+.container-guide-input {
+    margin: auto;
+    max-width: 1080px;
+
+}
+
+.input-text-1 {
+    margin: auto;
+}
+
+.guide-file {
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.guideInput-Btn-submit {
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    text-align: center;
+}
