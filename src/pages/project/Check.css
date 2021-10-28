@@ -1,0 +1,55 @@
+.pcheck {
+    max-width: 1080px;
+    width: 100%;  
+    font-family: NanumSquareR;
+    margin: auto;
+    height: auto;
+    padding-top: 2%;
+    /* background-color: rgb(255, 208, 0); */
+}
+.hr1 {
+    display: none;
+}
+.tlien {
+    border-bottom: 1.5px solid gainsboro;
+    border-top: 1.5px solid gainsboro;
+}
+
+.p_c_title {
+    font-weight: bolder;
+}
+
+.p_c_title, .p_c_context {
+    margin-top: 2%;
+}
+
+.p_c_cb {
+   text-align: left;
+   padding-left: 5%;
+   padding-top: 3%;
+   padding-bottom: 3%;
+}
+
+#pcheck1, #pcheck2, #pcheck3 {
+    width: 20px;
+	height: 20px;
+}
+
+input[type="checkbox"] {
+    display:none;
+}
+
+input[type="checkbox"] +label {
+    display: inline-block; 
+    width:17px; 
+    height: 17px; 
+    background: #fa3062;
+    cursor: pointer; 
+    border-radius: 3px;
+    float: left;
+}
+
+input[type="checkbox"]:checked + label {
+    background: url('../../../src/check.png') #fa3062 no-repeat center/25px 25px;
+    float: left;
+}

@@ -6,6 +6,7 @@ import { Card } from "react-bootstrap";
 import "./Main.css";
 import { CardGroup } from "react-bootstrap";
 import { margin, style } from "@mui/system";
+import { Link } from "react-router-dom";
 
 function Main(props) {
 
@@ -20,7 +21,9 @@ function Main(props) {
                     <br />든든한 후원자 네트워크도 확보할 수 있습니다. </p>
                     <br />
                     <p className="p_m_lead">
-                        <div className="p_m_head_btn2"><Button variant="dark" size="lg">프로젝트 올리기</Button></div>
+                        <div className="p_m_head_btn2">
+                        <Link to="/project/check"><Button variant="dark" size="lg">지금 시작</Button></Link>
+                        </div>
                     </p>
                     <br />
                 </Jumbotron>
