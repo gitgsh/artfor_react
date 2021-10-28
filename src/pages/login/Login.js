@@ -86,7 +86,7 @@ function Login(props) {
             <InputGroup>
               <FormControl
                 className="login-form-input-row"
-                type="text"
+                type="textz"
                 placeholder="비밀번호 입력"
                 aria-label="Recipient's username with two button addons"
                 {...register("user_pw", {

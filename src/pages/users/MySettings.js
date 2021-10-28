@@ -31,7 +31,6 @@ function MySettings(props) {
         </div>
       </div>
       <br />
-      <br />
       <SettingsTabdiv value={value} setValue={setValue} />
     </div>
   );

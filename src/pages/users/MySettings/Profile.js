@@ -2,18 +2,28 @@ import React, { useState } from 'react';
 import { Button, FormControl, InputGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../Settings.css'
-
+import './Profile.css'
 function Profile() {
 
-  let [modal, setModal] = useState(false);
+  let [nameModal, setNameModal] = useState(false);
+  let [pwModal, setPWModal] = useState(false);
+  let [emailModal, setEmailModal] = useState(false);
+  let [phoneModal, setPhoneModal] = useState(false);
+  let [photoModal, setPhotoModal] = useState(false);
 
-  function modalSwitch() {
-    setModal(!modal);
-  }
-
-  function NameUpdate(e){
-    console.log(e.target.value)
-    
+  function modalSwitch(e) {
+    let value = e.target.value;
+    if(value === 'name') {
+      setNameModal(!nameModal);
+    } else if (value === 'pw'){
+      setPWModal(!pwModal);
+    } else if (value === 'email') {
+      setEmailModal(!emailModal);
+    } else if (value === 'phone') {
+      setPhoneModal(!phoneModal);
+    } else if (value === 'photo') {
+      setPhotoModal(!photoModal);
+    }
   }
 
   return (
@@ -21,23 +31,39 @@ function Profile() {
         <div className="setting-box1-1">
           <div className="left-box">
             <div>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  marginBottom: "30px",
-                }}
-              >
-                <h5 style={{ fontWeight: "bold", fontSize: "20px" }}>이름</h5>
-                <button style={{ fontSize: "20px", background:'none', color:'black', border:'0' }} onClick={NameUpdate} value="변경">
-                  변경
-                </button>
+              <div style={{display: "flex", justifyContent: "space-between", marginBottom: "30px"}}>
+                <h5 style={{ fontWeight: "bold", fontSize: "17px" }}>이름</h5>
+                  {
+                    nameModal === true
+                    ? <button style={{ fontSize: "17px", background:'none', color:'#3399ff', border:'0' }} onClick={modalSwitch} value="name">취소</button>
+                    : <button style={{ fontSize: "17px", background:'none', color:'#3399ff', border:'0' }} onClick={modalSwitch} value="name">변경</button>
+                  }
               </div>
               <div>
-                <p>김정희</p>
+              {
+                nameModal === true
+                  ? <div><NameModal></NameModal></div>
+                  : <p>김정희</p>
+              }
               </div>
-              <div style={{width:'30%'}}>
-                <NameModal />
+              <hr style={{marginBottom:'20px'}} />
+            </div>
+
+            <div>
+              <div style={{display: "flex", justifyContent: "space-between", marginBottom: "30px"}}>
+                <h5 style={{ fontWeight: "bold", fontSize: "17px" }}>비밀번호</h5>
+                  {
+                    pwModal === true
+                    ? <button style={{ fontSize: "17px", background:'none', color:'#3399ff', border:'0' }} onClick={modalSwitch} value="pw">취소</button>
+                    : <button style={{ fontSize: "17px", background:'none', color:'#3399ff', border:'0' }} onClick={modalSwitch} value="pw">변경</button>
+                  }
+              </div>
+              <div>
+                {
+                  pwModal === true
+                    ? <div><PasswordModal></PasswordModal></div>
+                    : <p>비밀번호입니다.</p>
+                }
               </div>
               <hr style={{marginBottom:'20px'}} />
             </div>
@@ -50,15 +76,19 @@ function Profile() {
                   marginBottom: "30px",
                 }}
               >
-                <h5 style={{ fontWeight: "bold", fontSize: "20px" }}>
-                  비밀번호
-                </h5>
-                <button style={{ fontSize: "20px",background:'none', color:'black', border:'0' }}>
-                  변경
-                </button>
+                <h5 style={{ fontWeight: "bold", fontSize: "17px" }}>이메일</h5>
+                  {
+                    emailModal === true
+                    ? <button style={{ fontSize: "17px", background:'none', color:'#3399ff', border:'0' }} onClick={modalSwitch} value="email">취소</button>
+                    : <button style={{ fontSize: "17px", background:'none', color:'#3399ff', border:'0' }} onClick={modalSwitch} value="email">변경</button>
+                  }
               </div>
               <div>
-                <p>xxxxx</p>
+                {
+                  emailModal === true
+                    ? <div><EmailModal></EmailModal></div>
+                    : <p>kjhgood3@naver.com</p>
+                }
               </div>
               <hr style={{marginBottom:'20px'}} />
             </div>
@@ -71,17 +101,23 @@ function Profile() {
                   marginBottom: "30px",
                 }}
               >
-                <h5 style={{ fontWeight: "bold", fontSize: "20px" }}>이메일</h5>
-                <button style={{ fontSize: "20px",background:'none', color:'black', border:'0' }}>
-                  인증
-                </button>
+                <h5 style={{ fontWeight: "bold", fontSize: "17px" }}>연락처</h5>
+                  {
+                    phoneModal === true
+                    ? <button style={{ fontSize: "17px", background:'none', color:'#3399ff', border:'0' }} onClick={modalSwitch} value="phone">취소</button>
+                    : <button style={{ fontSize: "17px", background:'none', color:'#3399ff', border:'0' }} onClick={modalSwitch} value="phone">변경</button>
+                  }
               </div>
               <div>
-                <p>kkkkkk@naver.com</p>
+                {
+                  phoneModal === true
+                    ? <div><PhoneModal></PhoneModal></div>
+                    : <p>010-2015-1336</p>
+                }
               </div>
               <hr style={{marginBottom:'20px'}} />
             </div>
-
+            
             <div>
               <div
                 style={{
@@ -90,39 +126,44 @@ function Profile() {
                   marginBottom: "30px",
                 }}
               >
-                <h5 style={{ fontWeight: "bold", fontSize: "20px" }}>연락처</h5>
-                <button style={{ fontSize: "20px",background:'none', color:'black', border:'0' }}>
-                  변경
-                </button>
+                <h5 style={{ fontWeight: "bold", fontSize: "17px" }}>회원탈퇴</h5>
+                  {
+                    phoneModal === true
+                    ? <button style={{ fontSize: "17px", background:'none', color:'#3399ff', border:'0' }} onClick={modalSwitch} value="phone">취소</button>
+                    : <button style={{ fontSize: "17px", background:'none', color:'#ff6666', border:'0' }} onClick={modalSwitch} value="phone">탈퇴</button>
+                  }
               </div>
               <div>
-                <p>010-2015-1336</p>
+                {
+                  phoneModal === true
+                    ? <div><PhoneModal></PhoneModal></div>
+                    : null
+                }
               </div>
-              <hr style={{marginBottom:'20px'}} />
             </div>
 
           </div>
-          <div style={{ width: "34%", float: "left" }}>
-            <div
-              style={{
-                marginLeft: "auto",
-                width: "350px",
-                height: "180px",
-                border: "1px solid gray",
-                borderRadius: "8px",
-              }}
-            >
-              <div style={{ margin: "20px" }}>
-                <h5 style={{ fontWeight: "bold", fontSize: "18px" }}>
-                  어떤 정보가 프로필에 공개되나요?
-                </h5>
-                <p style={{ fontsize: "10px", letterSpacing: "-1px" }}>
-                  프로필 사진과, 이름, 사용자 이름, 소개글, 웹사이트 및 회원님과
-                  관련된 프로젝트 등이 프로필 페이지에 공개 됩니다. 프라이버시
-                  설정을 활성화하시면 후원한 프로젝트 목록을 숨길 수 있습니다.
-                  내 프로필 바로가기
-                </p>
-              </div>
+
+          <div style={{ width: "34%", float: "left"}}>
+            <div style={{clear:'both'}}>
+            <h5 style={{textAlign:'center', fontWeight: "bold", fontSize: "17px" }}>프로필</h5>
+            <div style={{marginTop:'20px', marginLeft:'95px', width:'180px', height:'180px', borderRadius:'70%', overflow:'hidden'}}>
+              <img style={{width:'100%', height:'100%', objectFit:'cover'}} src="/dog1.jpg" />
+            </div>
+            <div style={{marginLeft:'160px', marginTop:'20px'}}>
+              {
+                photoModal === true
+                ? <button style={{ fontSize: "17px", background:'none', color:'#3399ff', border:'0' }} onClick={modalSwitch} value="photo">취소</button>
+                : <button style={{ fontSize: "17px", background:'none', color:'#3399ff', border:'0' }} onClick={modalSwitch} value="photo">변경</button>
+              }
+            </div>
+            <div style={{marginLeft:'150px', marginTop:'20px'}}>
+              {
+                photoModal === true
+                  ? <div><PhotoModal></PhotoModal></div>
+                  : null
+              }
+            </div>
             </div>
           </div>
         </div>
@@ -133,18 +174,105 @@ function Profile() {
 function NameModal(){
   return(
     <div>
-      <InputGroup>
-        <FormControl
-          className="login-form-input-row"
-          type="text"
-          placeholder="이름 입력"
-          aria-label="Recipient's username with two button addons"
-        />
-      </InputGroup>
-      <br />
-      <Button variant="dark" style={{width:'80px'}}>저장</Button>
+      <form>
+        <InputGroup style={{width:'40%'}}>
+          <FormControl
+            type="text"
+            placeholder="이름 입력"
+          />
+        </InputGroup>
+        <br />
+        <Button variant="dark" style={{width:'80px'}}>저장</Button>
+      </form>
     </div>
   )
 }
 
+function PasswordModal(){
+  return(
+    <div>
+      <p style={{fontSize:'15px'}}>현재 비밀번호</p>
+      <form>
+        <InputGroup style={{width:'40%'}}>
+          <FormControl
+            style={{fontFamily:'Consolas', marginTop:'-5px'}}
+            type="password"
+            placeholder="현재 비밀번호"
+          />
+        </InputGroup>
+        <div style={{fontSize:'12px', marginTop:'13px', fontFamily:'NanumSquareR'}}>
+          <p>비밀번호가 기억나지 않나요? <Link style={{color:'#3399ff'}}>비밀번호 초기화</Link></p>
+        </div>
+        <br />
+        <p style={{fontSize:'15px'}}>변경할 비밀번호</p>
+        <InputGroup style={{width:'40%'}}>
+          <FormControl
+            style={{fontFamily:'Consolas', marginTop:'-5px'}}
+            type="password"
+            placeholder="변경할 비밀번호"
+          />
+        </InputGroup>
+        <InputGroup style={{width:'40%'}}>
+          <FormControl
+            style={{fontFamily:'Consolas', marginTop:'10px'}}
+            type="password"
+            placeholder="변경할 비밀번호 확인"
+          />
+        </InputGroup>
+        <br />
+        <Button variant="dark" style={{width:'80px'}}>저장</Button>
+      </form>
+    </div>
+  )
+}
+
+function EmailModal(){
+  return(
+    <div>
+      <form>
+        <InputGroup style={{width:'40%'}}>
+          <FormControl
+            type="email"
+            placeholder="이메일 입력"
+          />
+        </InputGroup>
+        <br />
+        <Button variant="dark" style={{width:'120px'}}>인증메일 전송</Button>
+      </form>
+    </div>
+  )
+}
+
+function PhoneModal(){
+  return(
+    <div>
+      <form>
+        <InputGroup style={{width:'40%'}}>
+          <FormControl
+            type="text"
+            placeholder="연락처 입력"
+          />
+        </InputGroup>
+        <br />
+        <Button variant="dark" style={{width:'80px'}}>저장</Button>
+      </form>
+    </div>
+  )
+}
+
+function PhotoModal(){
+  return(
+    <div>
+      <form>
+        <InputGroup>
+          <FormControl
+            type="file"
+          />
+        </InputGroup>
+        <br />
+        <Button variant="dark" style={{width:'80px'}}>저장</Button>
+      </form>
+    </div>
+  )
+}
 export default Profile;
