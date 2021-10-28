@@ -28,6 +28,7 @@ const StyledLink = styled(Link)`
 const SignInSignUp = styled.div`
   font-size: 14px;
   font-weight: bold;
+  font-family: "NanumSquareB";
 `;
 
 const UserAvatarIcon = styled(FaUserCircle)`

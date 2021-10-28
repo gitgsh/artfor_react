@@ -6,8 +6,9 @@ import { Popover } from "@mui/material";
 import { Typography } from "@mui/material";
 import {HeartOutlined, HeartFilled} from '@ant-design/icons';	//icons 모듈을 갖고온다
 import React, { useState } from "react";
+import {shareKakao} from '../../kakao/shareKakao'; //카톡 공유하기 API
 
-function FundingStatus(){
+function FundingStatus({plantData}){ //{plantData}는 카톡공유API
     //PopOver창..(공유하기 버튼)
     const [anchorEl, setAnchorEl] = React.useState(null);
     const handleClick = (event) => {
@@ -19,8 +20,14 @@ function FundingStatus(){
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
     //PopOver창 끝
+    const [like, setLike] = useState(true); //좋아요
+    const onKakaoClick = () => {//카톡공유 API
+      const {name, testDescription, imagePath} = plantData;
+      shareKakao(`${testDescription}, ${name}`, imagePath);
+    };
+   
 
-    const [like, setLike] = useState(true);
+    
 
     return (
         <>
@@ -90,7 +97,7 @@ function FundingStatus(){
           horizontal: 'left',
         }}
       >
-        <Typography sx={{ p: 2 }}> <button>카카오톡</button>
+        <Typography sx={{ p: 2 }}> <button onClick={onKakaoClick}>카카오톡으로 공유하기</button>
             <button>페이스북</button>
             <button>링크복사</button></Typography>
       </Popover>
