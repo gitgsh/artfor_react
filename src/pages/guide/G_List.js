@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Modal, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./G_List.css";
+import "./list.css";
 
 function List(props) {
   let [제목, 제목변경] = useState([
