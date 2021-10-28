@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Modal, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./list.css";
+import "./G_List.css";
 
 function G_List_practice(props) {
 

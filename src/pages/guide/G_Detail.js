@@ -33,7 +33,7 @@ function G_Detail(props) {
             .then((findGuide) => {
                 console.log("delete 요청 성공");
                 console.log("");
-                window.location.replace("");
+                history.push("/guide/G_List");
             })
             .catch((err) => {
                 console.log("delete 요청 실패", err);
@@ -50,6 +50,7 @@ function G_Detail(props) {
 
     return (
         <div>
+            <p>글번호: {findGuide.g_no}</p>
             <p>글제목: {findGuide.g_title}</p>
             <p>작성자: {findGuide.g_writer}</p>
             <p>글내용: {findGuide.g_content}</p>
@@ -63,7 +64,7 @@ function G_Detail(props) {
             <button onClick={del}>삭제</button>
             <button
                 onClick={() => {
-                history.push(`/update/${findGuide.g_no}`);
+                history.push(`/guide/G_Update/${findGuide.g_no}`);
                 }}
             >
                 수정

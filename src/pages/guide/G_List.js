@@ -42,7 +42,7 @@ function List(props) {
     <div className="container-guide">
       <h3 className="page-name">이용안내 게시판</h3>
       <div>
-        <Link to="./G_Input">
+        <Link to="/guide/G_Input">
           <Button className="guide-writeBtn" variant="dark">
             글쓰기
           </Button>
@@ -87,7 +87,7 @@ function List(props) {
                   >
                     {d.g_title}
                   </h3>
-                  <p>{d.g_day} 발행</p>
+                  <Link to={`/guide/G_Detail/${d.g_no}`}><p>{d.g_day} 발행</p></Link>
                 </div>
               );
             })}

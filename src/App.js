@@ -25,6 +25,7 @@ import G_Input from "./pages/guide/G_Input";
 import G_List from "./pages/guide/G_List";
 import ProjectUpload from "./pages/project/ProjectUpload";
 import MySettings from "./pages/users/MySettings";
+import G_Update from "./pages/guide/G_Update";
 
 function App() {
   // Guide 게시판 검색관련2
@@ -84,8 +85,15 @@ function App() {
             path="/guide/G_List_practice"
             component={G_List_practice}
           />
-          <Route exact path="/guide/G_Detail" component={G_Detail} />
-          <Route exact path="/guide/G_Input" component={G_Input} />
+          <Route path="/guide/G_Detail/:seq" component={G_Detail}>
+            <G_Detail data={data} setData={setData} />
+            </Route>
+          <Route exact path="/guide/G_Input" component={G_Input}>
+            <G_Input data={data} setData={setData} />
+            </Route>
+          <Route path="/guide/G_Update/:seq" component={G_Update}>
+            <G_Update data={data} setData={setData} />
+            </Route>
           <Route exact path="/guide/G_List" component={G_List}>
             <G_List data={data} setData={setData} />
           </Route>{" "}
