@@ -155,13 +155,7 @@ function FundingPlan(props) {
                       style={{ color: "#9E9E9E", paddingBottom: "0px" }}
                     >
                       <div class="col-4">총 수수료</div>
-                      <div
-                        class="col-4"
-                        class="col-4"
-                        style={{ textAlign: "center" }}
-                      >
-                        {0} 원
-                      </div>
+                      <div class="col-4">{0} 원</div>
                     </div>
 
                     <br />
@@ -175,13 +169,7 @@ function FundingPlan(props) {
                       <div class="col-4" style={{ width: "300px" }}>
                         결제대행 수수료 (총 결제액의 3% + VAT)
                       </div>
-                      <div
-                        class="col-4"
-                        class="col-4"
-                        style={{ textAlign: "center" }}
-                      >
-                        {0} 원
-                      </div>
+                      <div class="col-4">{0} 원</div>
                     </div>
 
                     <br />
