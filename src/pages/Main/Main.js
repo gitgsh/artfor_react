@@ -15,7 +15,7 @@ function Main() {
 }
 
 const MainContainer = styled.div`
-  padding-top: 85px;
+  padding-top: 10px;
 `;
 
 export default Main;

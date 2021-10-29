@@ -1,0 +1,15 @@
+div.fade.modal-backdrop.show{
+    background-color:transparent;
+    box-shadow: none;
+}
+
+.modal-header{
+    padding: 0;
+    
+}
+
+.main-modal {
+    margin: 0px;
+    min-width: 100%;
+}
+
