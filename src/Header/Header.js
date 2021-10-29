@@ -4,6 +4,7 @@ import styled from "styled-components";
 import LeftMenu from "./components/LeftMenu";
 import CenterMenu from "./components/CenterMenu";
 import RightMenu from "./components/RightMenu";
+import SearchModal from "./components/SearchModal";
 import head_prjMenu from "./components/head_prjMenu";
 import Container from "../Container/Container";
 import { flex } from "../styles/mixins";
@@ -23,6 +24,7 @@ function Header() {
     <StyledHeader>
       <HeaderContainer>
         <LeftMenu />
+        {/* <SearchModal/> */}
         <CenterMenu />
         <RightMenu />
         <head_prjMenu/>

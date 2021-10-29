@@ -69,7 +69,7 @@ export default class MainStore {
 
   worksUpdate(index, member) {
     axios
-      .patch("http://localhost:3100/api/v1/members/" + index, member)
+      .patch("http://localhost:3000/api/v1/members/" + index, member)
       .then((response) => {
         console.log("Done membersUpdate", response);
         this.membersRead();
@@ -83,7 +83,7 @@ export default class MainStore {
     // this.members.splice(index, 1);
     // console.log('Done membersDelete', this.members);
     axios
-      .delete("http://localhost:3100/api/v1/members/" + index)
+      .delete("http://localhost:3000/api/v1/members/" + index)
       .then((response) => {
         console.log("Done membersDelete", response);
         this.membersRead();

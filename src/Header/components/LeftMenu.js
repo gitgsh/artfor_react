@@ -9,47 +9,50 @@ import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
 import Modal from '@mui/material/Modal'
 import { TextField } from '@mui/material';
+import SearchModal from './SearchModal';
 import Stack from '@mui/material/Stack';
 import { useState } from 'react';
 
 
-import CenterMenu from './CenterMenu';
-import RightMenu from './RightMenu';
-
 function LeftMenu() {
+  const [smodal, setSmodal] = useState(false);
+
   // color: ${({ theme }) => theme.colors.white};
   // background: ${({ theme }) => theme.colors.red100};
   
 //const [headerContainer, setHeaderContainer] =  useState(<HeaderContainer/>);
 
 //모달시작
-const [open, setOpen] = React.useState(false);
-const handleOpen = () => setOpen(true);
-const handleClose = () => setOpen(false);
+// const [open, setOpen] = React.useState(false);
+// const handleOpen = () => setOpen(true);
+// const handleClose = () => setOpen(false);
 
-const style = {
-  position: 'absolute',
-  top: '20%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: "100%",
+// const style = {
+//   position: 'absolute',
+//   top: '20%',
+//   left: '50%',
+//   transform: 'translate(-50%, -50%)',
+//   width: "100%",
   
-  bgcolor: 'background.paper',
-  border: '0',
-  boxShadow: 10,
-  p: 4,
-};
+//   bgcolor: 'background.paper',
+//   border: '0',
+//   boxShadow: 10,
+//   p: 4,
+// };
 //모달끝
 
-  function TextButtons() {
-    return (
-      <Stack direction="row" spacing={2}>
-        <Button>Primary xxxxx</Button>
-        <Button disabled>Disabled</Button>
-        <Button href="#text-buttons">Link</Button>
-      </Stack>
-    );
-  }
+  // function TextButtons() {
+  //   return (
+  //     <Stack direction="row" spacing={2}>
+  //       <Button>Primary xxxxx</Button>
+  //       <Button disabled>Disabled</Button>
+  //       <Button href="#text-buttons">Link</Button>
+  //     </Stack>
+  //   );
+  // }
+
+
+  //서치모달...
 
 
 
@@ -58,8 +61,8 @@ const style = {
     <LeftMenuBox>
       
       <div className="head_btn1">
-        <Button onClick={handleOpen} style={{color:'black', fontFamily:"NanumSquareB", fontSize:"15px"}}><img src="../icon_navbar.png" style={{width:'20px'}}/>프로젝트 둘러보기</Button>
       
+      <SearchModal/>
       </div>
       <div className="head_btn2"><Button  style={{color:'black', fontFamily:"NanumSquareB", fontSize:"15px", width:'120px'}}>프로젝트 올리기</Button></div>
       
@@ -67,7 +70,7 @@ const style = {
     </LeftMenuBox>
 
      {/* 프로젝트 둘러보기 모달창 */}
-     <Modal
+     {/* <Modal
      open={open}
      onClose={handleClose}
      aria-labelledby="modal-modal-title"
@@ -84,7 +87,7 @@ const style = {
          Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
        </Typography>
      </Box>
-   </Modal>
+   </Modal> */}
     
    </>
   );

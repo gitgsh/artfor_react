@@ -26,7 +26,7 @@ export default class MembersStore {
     // });
     // console.log('Done membersCreate', this.members);
     axios
-      .post("http://localhost:3100/api/v1/members", this.member)
+      .post("http://localhost:3000/api/v1/members", this.member)
       .then((response) => {
         console.log("Done membersCreate", response);
         this.membersRead();
@@ -46,7 +46,7 @@ export default class MembersStore {
     // }];
     // console.log('Done membersRead', this.members);
     axios
-      .get("http://localhost:3100/api/v1/members")
+      .get("http://localhost:3000/api/v1/members")
       .then((response) => {
         console.log("Done membersRead", response);
         this.members = response.data.members;
@@ -58,7 +58,7 @@ export default class MembersStore {
 
   membersUpdate(index, member) {
     axios
-      .patch("http://localhost:3100/api/v1/members/" + index, member)
+      .patch("http://localhost:3000/api/v1/members/" + index, member)
       .then((response) => {
         console.log("Done membersUpdate", response);
         this.membersRead();
@@ -72,7 +72,7 @@ export default class MembersStore {
     // this.members.splice(index, 1);
     // console.log('Done membersDelete', this.members);
     axios
-      .delete("http://localhost:3100/api/v1/members/" + index)
+      .delete("http://localhost:3000/api/v1/members/" + index)
       .then((response) => {
         console.log("Done membersDelete", response);
         this.membersRead();

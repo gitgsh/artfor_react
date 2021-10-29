@@ -6,9 +6,14 @@ import { Popover } from "@mui/material";
 import { Typography } from "@mui/material";
 import {HeartOutlined, HeartFilled} from '@ant-design/icons';	//icons 모듈을 갖고온다
 import React, { useState } from "react";
-import {shareKakao} from '../../kakao/shareKakao'; //카톡 공유하기 API
 
-function FundingStatus({plantData}){ //{plantData}는 카톡공유API
+import shareKakao from '../../kakao/shareKakao'
+
+
+//import {shareKakao} from '../../kakao/shareKakao'; //카톡 공유하기 API
+
+
+function FundingStatus(){ 
     //PopOver창..(공유하기 버튼)
     const [anchorEl, setAnchorEl] = React.useState(null);
     const handleClick = (event) => {
@@ -21,14 +26,18 @@ function FundingStatus({plantData}){ //{plantData}는 카톡공유API
     const id = open ? 'simple-popover' : undefined;
     //PopOver창 끝
     const [like, setLike] = useState(true); //좋아요
-    const onKakaoClick = () => {//카톡공유 API
-      const {name, testDescription, imagePath} = plantData;
-      shareKakao(`${testDescription}, ${name}`, imagePath);
-    };
-   
 
-    
-
+    //카카오공유 시작
+// function kakaoFunction(e){
+//   e.preventDefault();
+  
+//   return(
+//     Kakao.Link.sendCustom({
+//       templateId: 64332   // 카카오디벨로퍼 템플릿만들기에 있는이벤트번호 등록 
+//       //https://developers.kakao.com/tool/template-builder/app/657097/template/64332/component/thl/0
+//     })
+//   )
+// }
     return (
         <>
 <div className="detail_head1">
@@ -48,6 +57,7 @@ function FundingStatus({plantData}){ //{plantData}는 카톡공유API
             <span style={{fontFamily:'NanumSquareL' ,fontSize: '20px'}}>후원자</span><br/>
             <span style={{fontSize: '30px'}}>335</span>
             <span style={{fontFamily:'NanumSquareL'}}>명</span><br/>
+            
             </div>
             <div className="fundingbox">
                 <p style={{fontFamily: 'NanumSquareB', fontSize: '15px', textAlign: 'left'}}>펀딩 진행중</p>
@@ -97,7 +107,13 @@ function FundingStatus({plantData}){ //{plantData}는 카톡공유API
           horizontal: 'left',
         }}
       >
-        <Typography sx={{ p: 2 }}> <button onClick={onKakaoClick}>카카오톡으로 공유하기</button>
+        <Typography sx={{ p: 2 }}> 
+          {/* 카카오톡 공유버튼 */}
+            <button onClick={shareKakao} style={{backgroundColor:"transparent", borderColor:"transparent"}}>
+              <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
+            </button> 
+
+            {/* <a href="javascript:sendLink()"><img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" /></a> */}
             <button>페이스북</button>
             <button>링크복사</button></Typography>
       </Popover>
