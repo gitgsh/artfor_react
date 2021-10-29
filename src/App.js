@@ -4,6 +4,7 @@ import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
+import ForgotPW from "./pages/login/ForgotPW";
 import { Switch, Route } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -65,6 +66,7 @@ function App() {
           {/* LOGIN */}
           <Route exact={true} path="/login" component={Login} />
           <Route exact={true} path="/join" component={Join} />
+          <Route exact={true} path="/forgotPW" component={ForgotPW} />
           <Route exact={true} path="/users/myproject" component={MyProject} />
           <Route exact={true} path="/users/mysettings" component={MySettings} />
           {/* PROJECT */}
