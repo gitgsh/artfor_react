@@ -16,6 +16,8 @@
 }
 .fundingPlan-container {
   background-color: #f6f5f5;
+  margin: auto;
+
   width: 100%;
   min-height: 100%;
   border-top: 1px solid #e8e8e8;
@@ -64,7 +66,7 @@
 .input-goal-box {
   margin-top: 30px;
   width: 580px;
-  height: 157px;
+
   background: #fcfcfc;
   border-radius: 8 px;
 }
