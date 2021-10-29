@@ -121,7 +121,7 @@ function Login(props) {
             아직 계정이 없으신가요? <Link to="/join">가입하기</Link>
           </p>
           <hr className="hr" />
-          <Link className="question-pw">혹시 비밀번호를 잊으셨나요?</Link>
+          <Link className="question-pw" to="/forgotPW">혹시 비밀번호를 잊으셨나요?</Link>
         </form>
         <div>
           <a id="custom-login-btn">
