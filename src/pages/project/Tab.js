@@ -19,7 +19,7 @@ const AntTabs = styled(Tabs)({
   margin: "0 auto",
 
   "& .MuiTabs-indicator": {
-    backgroundColor: "#282828",
+    backgroundColor: "#F86453",
   },
   // borderBottom: "1px solid #e8e8e8",
 });
