@@ -22,10 +22,10 @@ function Pledges(props) {
 function Div1(){
   
   let [div1_text, setDiv1_text] = useState("프로젝트의 진행 및 선물 전달 과정에서 예상되는 어려움을 기입해주세요.");
-  let [modal, setModal] = useState(false);
-  const textModal=()=>{
+  let [div1Modal, setDiv1Modal] = useState(false);
+  // const textModal=()=>{
     
-  }
+  // }
 
   return(
     <div className="div1-box">
@@ -45,14 +45,19 @@ function Div1(){
             <p>예상되는 어려움</p>
           </div>
           <div className="round-button-box">
-            <button className="round-button" onClick={textModal}>작성하기</button>
+            <button className="round-button">작성하기</button>
           </div>
           <div className="round-p2">
             <p>
               {div1_text}
             </p>
           </div>
-          <Div1Modal modal={modal} setModal={setModal}/>
+          {/* {
+            nameModal === true
+            ? <Div1Modal modal={modal} setModal={setModal}/>
+            : <p>김정희</p>
+          } */}
+          
         </div>
       </div>
     </div>
