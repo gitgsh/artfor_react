@@ -55,8 +55,22 @@
   padding-bottom: 23 px;
   font-weight: 400;
   color: rgb(109, 109, 109);
+  text-align: left;
   font-size: 12px !important;
   line-height: 20px !important;
-  font-family: NotoSansKR, "SF Pro Text", "Segoe UI", "Helvetica Neue", Arial,
+  font-family: "NotoSansKR", "SF Pro Text", "Segoe UI", "Helvetica Neue", Arial,
     sans-serif !important;
+}
+.input-goal-box {
+  margin-top: 30px;
+  width: 580px;
+  height: 157px;
+  background: #fcfcfc;
+  border-radius: 8 px;
+}
+.Input-goal-funding {
+  width: 580px;
+  height: 157px;
+  background: #fcfcfc;
+  border-radius: 8 px;
 }
