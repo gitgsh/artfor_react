@@ -37,14 +37,12 @@ function App() {
   let [header, setHeader] = useState(true);
 
   return (
+    
     <div>
+      {console.log(window.location.pathname)}
       <div className="App">
-        {window.location.href ==
-        "http://localhost:3000/project/plan/projectupload" ? (
-          <></>
-        ) : (
-          <Header />
-        )}
+        {(window.location.pathname ==
+        "/project/plan/projectupload")? (<></>) : (<Header />)}
 
         <Switch>
           {/* MAIN & DETAIL */}
