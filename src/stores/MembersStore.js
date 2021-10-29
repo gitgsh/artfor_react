@@ -15,8 +15,11 @@ export default class MembersStore {
   //this
   members = [];
   member = {
-    name: "",
-    age: "",
+    user_name: "",
+    user_email: "",
+    user_address: "",
+    user_phone :"",
+    user_role : "",
   };
 
   membersCreate() {
@@ -46,10 +49,11 @@ export default class MembersStore {
     // }];
     // console.log('Done membersRead', this.members);
     axios
-      .get("http://localhost:3000/api/v1/members")
+      .get("http://localhost:8004/app/user/userList.do")
       .then((response) => {
         console.log("Done membersRead", response);
-        this.members = response.data.members;
+        // this.members = response.data.members;
+        this.members = response.data;
       })
       .catch((error) => {
         axiosError(error);

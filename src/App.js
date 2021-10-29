@@ -26,6 +26,7 @@ import G_List from "./pages/guide/G_List";
 import G_Update from "./pages/guide/G_Update";
 import ProjectUpload from "./pages/project/ProjectUpload";
 import MySettings from "./pages/users/MySettings";
+import AdminMain from "./pages/admin/AdminMain";
 
 function App() {
   // Guide 게시판 검색관련2
@@ -67,30 +68,15 @@ function App() {
           <Route exact={true} path="/forgotPW" component={ForgotPW} />
           <Route exact={true} path="/users/myproject" component={MyProject} />
           <Route exact={true} path="/users/mysettings" component={MySettings} />
+          <Route exact={true} path="/admin/adminmain" component={AdminMain} />
           {/* PROJECT */}
           <Route exact={true} path="/project/main" component={Main2} />
           <Route exact={true} path="/project/check" component={Check} />
-          <Route
-            exact={true}
-            path="/project/plan/projectupload"
-            component={ProjectUpload}
-          />
-          <Route
-            exact={true}
-            path="/project/plan/funding"
-            component={FundingPlan}
-          />
-          <Route
-            exact={true}
-            path="/project/plan/project"
-            component={ProjectPlan}
-          />
+          <Route exact={true} path="/project/plan/projectupload" component={ProjectUpload} />
+          <Route exact={true} path="/project/plan/funding" component={FundingPlan} />
+          <Route exact={true} path="/project/plan/project" component={ProjectPlan} />
           {/* GUIDE */}
-          <Route
-            exact
-            path="/guide/G_List_practice"
-            component={G_List_practice}
-          />
+          <Route exact path="/guide/G_List_practice" component={G_List_practice} />
           <Route path="/guide/G_Detail/:seq" component={G_Detail}>
             <G_Detail data={data} setData={setData} />
           </Route>
