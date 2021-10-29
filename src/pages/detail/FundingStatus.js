@@ -5,15 +5,19 @@ import { Link } from "react-router-dom";
 import { Popover } from "@mui/material";
 import { Typography } from "@mui/material";
 import {HeartOutlined, HeartFilled} from '@ant-design/icons';	//icons 모듈을 갖고온다
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import shareKakao from '../../kakao/shareKakao'
-
+import initialize from "../../kakao/initialize";
 
 //import {shareKakao} from '../../kakao/shareKakao'; //카톡 공유하기 API
 
 
 function FundingStatus(){ 
+
+  //링크복사
+  const currentUrl = window.location.href;
+
     //PopOver창..(공유하기 버튼)
     const [anchorEl, setAnchorEl] = React.useState(null);
     const handleClick = (event) => {
@@ -27,6 +31,9 @@ function FundingStatus(){
     //PopOver창 끝
     const [like, setLike] = useState(true); //좋아요
 
+
+
+    
     //카카오공유 시작
 // function kakaoFunction(e){
 //   e.preventDefault();
@@ -79,7 +86,9 @@ function FundingStatus(){
                 <img src="./icon_share.png" style={{width: '25px', height:'25px'}}/>
             </Button>
       
+            <Link to="/donation">
             <Button variant="danger" style={{fontFamily: 'NanumSqareL', marginRight: '138px', marginLeft: '8px'}}>이 프로젝트 후원하기</Button>
+            </Link>
            
         </div>
         </div>
@@ -114,8 +123,16 @@ function FundingStatus(){
             </button> 
 
             {/* <a href="javascript:sendLink()"><img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" /></a> */}
-            <button>페이스북</button>
-            <button>링크복사</button></Typography>
+            
+            <CopyToClipboard text={currentUrl}>
+                <button onClick={()=>{alert('링크가 복사되었습니다!')}} 
+                style={{border:"0", borderRadius:"11px"}}>
+                  <img width="57px" height="67px" src="./icon_url.jpg"
+                style={{backgroundColor:"transparent"}}/></button>
+             </CopyToClipboard>
+                
+            
+            </Typography>
       </Popover>
 
         </>

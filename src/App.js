@@ -26,6 +26,7 @@ import G_List from "./pages/guide/G_List";
 import G_Update from "./pages/guide/G_Update";
 import ProjectUpload from "./pages/project/ProjectUpload";
 import MySettings from "./pages/users/MySettings";
+import Donation from './pages/detail/donation/Donation';
 import AdminMain from "./pages/admin/AdminMain";
 
 function App() {
@@ -50,9 +51,10 @@ function App() {
           <Route exact={true} path="/" component={Main} />
           <Route exact={true} path="/" component={Home} />
           <Route exact={true} path="/detail" component={Detail}>
-            <Detail />
-          </Route>
+            <Detail /></Route>
+          <Route exact={true} path="/donation" component={Donation}/>
           <Route exact={true} path="/members/list" component={Members} />
+
           {/* 
           <Route exact={true} path="/login" component={Login} /> */}
           {/* EDITOR */}
