@@ -7,10 +7,6 @@ import PlanTabs from "./Tab";
 function ProjectUpload(props) {
   return (
     <div className="body">
-      {/* <Main />
-      <FundingPlan />
-      <ProjectPlan />
-      <Check /> */}
       <PlanTabs />
     </div>
   );

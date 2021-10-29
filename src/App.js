@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Home from "./pages/home/Home";
@@ -34,11 +33,18 @@ function App() {
 
   // Guide 게시판 데이터 초기화
   let [data, setData] = useState([""]);
+  let [header, setHeader] = useState(true);
 
   return (
     <div>
       <div className="App">
-        <Header />
+        {window.location.href ==
+        "http://localhost:3000/project/plan/projectupload" ? (
+          <></>
+        ) : (
+          <Header />
+        )}
+
         <Switch>
           {/* MAIN & DETAIL */}
           <Route exact={true} path="/" component={Main} />
@@ -87,13 +93,13 @@ function App() {
           />
           <Route path="/guide/G_Detail/:seq" component={G_Detail}>
             <G_Detail data={data} setData={setData} />
-            </Route>
+          </Route>
           <Route exact path="/guide/G_Input" component={G_Input}>
             <G_Input data={data} setData={setData} />
-            </Route>
+          </Route>
           <Route path="/guide/G_Update/:seq" component={G_Update}>
             <G_Update data={data} setData={setData} />
-            </Route>
+          </Route>
           <Route exact path="/guide/G_List" component={G_List}>
             <G_List data={data} setData={setData} />
           </Route>{" "}
