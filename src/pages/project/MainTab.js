@@ -3,25 +3,20 @@ import { styled } from "@mui/material/styles";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import { Button } from "react-bootstrap";
-import { maxWidth } from "@mui/system";
 import { useState } from "react";
 
-import "./Tab.css";
+import "./MainTab.css";
 import ProjectPlan from "./ProjectPlan";
-import FundingPlan from "./FundingPlan";
-import Pledges from "./Pledges";
+import ProjectFundingPlan from "./ProjectFundingPlan";
 
 const AntTabs = styled(Tabs)({
   maxWidth: "1080px",
   width: "100%",
   height: "100%",
   margin: "0 auto",
-
   "& .MuiTabs-indicator": {
     backgroundColor: "#F86453",
   },
-  // borderBottom: "1px solid #e8e8e8",
 });
 
 const AntTab = styled((props) => <Tab disableRipple {...props} />)(
@@ -102,42 +97,43 @@ export default function PlanTabs() {
     setValue(newValue);
   };
 
-  const [clickValue, setClickValue] = useState(<FundingPlan />);
+  
+
+  const [clickValue, setClickValue] = useState(<ProjectFundingPlan />);
 
   return (
-    <div className="TabsAll_Project">
-      <Box sx={{ bgcolor: "#fff", height: "100%" }}>
-        
-        <AntTabs
-          value={value}
-          onChange={handleChange}
-          aria-label="ant example"
-          style={{ height: "100%" }}
-        >
-          <AntTab
-            label="펀딩 계획"
-            style={{ fontFamily: "NanumSquareB" }}
-            onClick={() => {
-              setClickValue(<FundingPlan />);
-            }}
-          />
-          <AntTab
-            label="프로젝트 계획"
-            style={{ fontFamily: "NanumSquareB" }}
-            onClick={() => {
-              setClickValue(<ProjectPlan />);
-            }}
-          />
-          <AntTab
-            label="신뢰와 안전"
-            style={{ fontFamily: "NanumSquareB" }}
-            onClick={() => {
-              setClickValue(<Pledges />);
-            }}
-          />
-        </AntTabs>
-      </Box>
-      {clickValue}
-    </div>
+    <div className="TabsAll_Project2">
+      
+        <Box sx={{ bgcolor: "#fff", height: "100%" }}>
+     
+          <div className="content_wrap" >
+            <div className="pmImage"></div>
+            <div className="pmTitle">wlgp****의 프로젝트 </div>
+          </div>
+
+          <AntTabs
+            value={value}
+            onChange={handleChange}
+            aria-label="ant example"
+            style={{ height: "100%" }}
+          >
+            <AntTab
+              label="프로젝트 기획"
+              style={{ fontFamily: "NanumSquareB" }}
+              onClick={() => {
+                setClickValue(<ProjectFundingPlan />);
+              }}
+            />
+            <AntTab
+              label="공개 예정"
+              style={{ fontFamily: "NanumSquareB" }}
+              onClick={() => {
+                setClickValue(<ProjectPlan />);
+              }}
+            />
+          </AntTabs>
+        </Box>
+        {clickValue}
+      </div>
   );
 }

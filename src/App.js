@@ -28,6 +28,8 @@ import ProjectUpload from "./pages/project/ProjectUpload";
 import MySettings from "./pages/users/MySettings";
 import Donation from './pages/detail/donation/Donation';
 import AdminMain from "./pages/admin/AdminMain";
+import ProjectUploadMain from "./pages/project/ProjectUploadMain";
+
 
 function App() {
   // Guide 게시판 검색관련2
@@ -74,9 +76,26 @@ function App() {
           {/* PROJECT */}
           <Route exact={true} path="/project/main" component={Main2} />
           <Route exact={true} path="/project/check" component={Check} />
-          <Route exact={true} path="/project/plan/projectupload" component={ProjectUpload} />
-          <Route exact={true} path="/project/plan/funding" component={FundingPlan} />
-          <Route exact={true} path="/project/plan/project" component={ProjectPlan} />
+          <Route
+            exact={true}
+            path="/project/plan/projectupload"
+            component={ProjectUpload}
+          />
+          <Route
+            exact={true}
+            path="/project/plan/funding"
+            component={FundingPlan}
+          />
+          <Route
+            exact={true}
+            path="/project/plan/project"
+            component={ProjectPlan}
+          />
+          <Route
+            exact={true}
+            path="/project/plan/projectuploadmain"
+            component={ProjectUploadMain}
+          />
           {/* GUIDE */}
           <Route exact path="/guide/G_List_practice" component={G_List_practice} />
           <Route path="/guide/G_Detail/:seq" component={G_Detail}>

@@ -50,6 +50,7 @@ input[type="checkbox"] +label {
 }
 
 input[type="checkbox"]:checked + label {
-    background: url('../../../src/check.png') #fa3062 no-repeat center/25px 25px;
+    /* background: url('../../../src/check.png') #fa3062 no-repeat center/25px 25px; */
+    background: url('../../image/check.png') #fa3062 no-repeat center/25px 25px;
     float: left;
 }
