@@ -1,5 +1,5 @@
 .pledges-marginbox {
-  max-width: 1080px;
+  max-width: 1180px;
   width: 100%;
   margin: auto;
 }
@@ -11,11 +11,11 @@
   margin-top: 70px;
 }
 .div1-left-box-h5 {
-  font-size: 18px;
+  font-size: 20px;
   font-family: "NanumSquareEB";
 }
 .div1-left-box-p {
-  font-size: 14px;
+  font-size: 15px;
   color: #828282;
   font-family: "NanumSquareR";
   margin-top: 20px;
@@ -30,24 +30,28 @@
   border-radius: 5px;
   border: 1px solid #e6e6e6;
   width: 600px;
-  margin-left: 100px;
+  margin-left: 165px;
   background: white;
   padding: 25px 25px 10px 25px;
 }
 .round-p1 {
   margin-left: 10px;
   float: left;
-  font-size: 16px;
+  font-size: 17px;
   font-family: "NanumSquareEB";
 }
 .round-button-box {
   float: left;
-  margin-left: 340px;
+  margin-left: 330px;
+}
+.round-button-box2 {
+  float: left;
+  margin-left: 320px;
 }
 .round-button {
   background: white;
   border-radius: 5px;
-  border: 1px solid #d2d2d2;
+  border: 1px solid #e6e6e6;
   font-size: 12px;
   padding: 7px;
   font-family: "NanumSquareB";
@@ -98,4 +102,20 @@
   font-family: "NanumSquareB";
   color: #a4a4a4;
   margin-left: 10px;
+}
+.notice-box {
+  clear: both;
+  background: rgb(252, 252, 252);
+  border-radius: 5px;
+  padding: 17px 13px 0.5px 4px;
+  color: #828282;
+  font-family: "NanumSquareR";
+  margin-bottom: 10px;
+}
+.div3-notice-box {
+  margin-top: 20px;
+  background: rgb(253, 244, 243);
+  border-radius: 8px;
+  padding: 30px 30px 10px 30px;
+  color: #828282;
 }
