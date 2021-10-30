@@ -8,13 +8,13 @@ function MakeProject() {
     <div>
       <div className="project_component">
           <CardGroup className="card_group">
-            <Card className="card_Home">
+            <Card className="card_User">
               <Link to={"/detail"}>
                 <Card.Img variant="top" src="/main1.jpeg" style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/>
               </Link>
-              <Card.Body className="cardbody_Home">
-                <Card.Title className="cardtitle_Home">공예 | 김지민</Card.Title>
-                <Card.Text className="cardtext_Home">
+              <Card.Body className="cardbody_User">
+                <Card.Title className="cardtitle_User">공예 | 김지민</Card.Title>
+                <Card.Text className="cardtext_User">
                   <Link to={"/detail"}>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</Link>
                 </Card.Text>
                 <div className="cardfooter">
