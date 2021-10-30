@@ -11,7 +11,7 @@
   font-size: 35px;
   font-weight: bold;
   text-align: left;
-  max-width: 1080px;
+  max-width: 1180px;
   margin: 0 auto;
 }
 .fundingPlan-container {
@@ -60,7 +60,8 @@
   text-align: left;
   font-size: 12px !important;
   line-height: 20px !important;
-  font-family: "NotoSansKR", "SF Pro Text", "Segoe UI", "Helvetica Neue", Arial, sans-serif !important;
+  font-family: "NotoSansKR", "SF Pro Text", "Segoe UI", "Helvetica Neue", Arial,
+    sans-serif !important;
 }
 
 .input-goal-box {
@@ -78,7 +79,7 @@
 }
 .funding-box {
   margin: 0 auto;
-  width: 1080px;
+  width: 1180px;
 }
 .effect1 {
   -webkit-box-shadow: 0 5px 6px -6px #777;

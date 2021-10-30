@@ -14,7 +14,7 @@ function ProjectFundingPlan(props) {
     >
       <div
         className="funding-box"
-        style={{ margin: "0 auto", maxWidth: "1080px" }}
+        style={{ margin: "0 auto", maxWidth: "1180px" }}
       >
         <div
           style={{
