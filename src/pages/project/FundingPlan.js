@@ -1,22 +1,27 @@
 import React from "react";
 import PlanTabs from "./Tab";
 import { Col, Form, FormGroup, Label, Input } from "reactstrap";
-import Timeline from "@mui/lab/Timeline";
-import TimelineItem from "@mui/lab/TimelineItem";
-import TimelineSeparator from "@mui/lab/TimelineSeparator";
-import TimelineConnector from "@mui/lab/TimelineConnector";
-import TimelineContent from "@mui/lab/TimelineContent";
-import TimelineDot from "@mui/lab/TimelineDot";
+import TextField from "@mui/material/TextField";
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
+import Stack from "@mui/material/Stack";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import { LeftCircleFilled } from "@ant-design/icons";
+import { display, width } from "@mui/system";
 
 function FundingPlan(props) {
+  const [value, setValue] = React.useState(new Date());
+
   return (
     <div
       className="fundingPlan-container"
-      style={{ backgroundColor: "rgb(252, 252, 252)" }}
+      style={{ backgroundColor: "rgb(252, 252, 252)", height: "100%" }}
     >
       <div className="funding-box">
         <div
-          class="row"
+          className="row"
           style={{
             paddingTop: "70px",
             paddingBottom: "35px",
@@ -139,7 +144,7 @@ function FundingPlan(props) {
                   }}
                 >
                   <div
-                    class="row justify-content-between"
+                    className="row justify-content-between"
                     style={{
                       borderBottom: "1px solid ",
                       borderBottomColor: "rgb(228, 228, 228)",
@@ -183,7 +188,7 @@ function FundingPlan(props) {
                     {/* 총수수료 */}
 
                     <div
-                      class="row justify-content-between"
+                      className="row justify-content-between"
                       style={{ color: "#9E9E9E", paddingBottom: "0px" }}
                     >
                       <div class="col-4">총 수수료</div>
@@ -199,7 +204,7 @@ function FundingPlan(props) {
                     {/* 총수수료 */}
 
                     <div
-                      class="row justify-content-between"
+                      className="row justify-content-between"
                       style={{ color: "#9E9E9E", paddingBottom: "0px" }}
                     >
                       <div class="col-4" style={{ width: "300px" }}>
@@ -213,10 +218,10 @@ function FundingPlan(props) {
                       </div>
                     </div>
 
-                    {/* 총수수료 */}
+                    {/* 플랫폼 수수료 */}
 
                     <div
-                      class="row justify-content-between"
+                      className="row justify-content-between"
                       style={{ color: "#9E9E9E", paddingBottom: "0px" }}
                     >
                       <div class="col-4" style={{ width: "300px" }}>
@@ -236,17 +241,21 @@ function FundingPlan(props) {
           </div>
         </div>
       </div>
-      <div className="funding-box">
+      <div className="funding-box" style={{ height: "100%" }}>
         <div
-          class="row"
+          className="row"
           style={{
             paddingTop: "70px",
             paddingBottom: "35px",
             borderBottom: "1px solid",
             borderBottomColor: "rgb(228, 228, 228)",
+            height: "100%",
           }}
         >
-          <div class="col" style={{ paddingRight: "100px" }}>
+          <div
+            class="col"
+            style={{ borderRight: "1px solid", height: "487px" }}
+          >
             {" "}
             <div>
               <div
@@ -270,7 +279,10 @@ function FundingPlan(props) {
 
               <div
                 className="funding-goal-box"
-                style={{ backgroundColor: "rgb(252, 252, 252)" }}
+                style={{
+                  backgroundColor: "rgb(252, 252, 252)",
+                  width: "400px",
+                }}
               >
                 <div
                   className="funding-notice"
@@ -300,7 +312,199 @@ function FundingPlan(props) {
               </div>
             </div>
           </div>
-          {1}
+
+          <div
+            className="col"
+            style={{
+              float: "left",
+              marginTop: "-20px",
+              marginLeft: "-36px",
+              maxWidth: "630px",
+              backgroundColor: "#FFFFFF",
+              backgroundColor: "rgba(255, 255, 255, 0.8)",
+              // height: "309px",
+              height: "100%",
+              border: "1px solid rgb(234, 234, 234)",
+              borderRadius: "6px",
+              paddingBottom: "50px",
+              paddingLeft: "21px",
+              paddingRight: "22px",
+            }}
+          >
+            <ul>
+              <li style={{ color: "tomato", fontSize: "30px" }}>
+                <p
+                  style={{
+                    marginTop: "0px",
+                    color: "black",
+                    fontSize: "15px",
+                    textAlign: "left",
+                  }}
+                >
+                  시작일
+                </p>
+                <div
+                  className="funding-start-date"
+                  // style={{ backgroundColor: "green" }}
+                >
+                  <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <div
+                      style={{
+                        fontSize: "12px",
+                        textAlign: "left",
+                        marginLeft: "38px",
+                        marginBottom: "-17px",
+                      }}
+                    >
+                      시작 날짜를 선택해주세요
+                    </div>
+                    <DesktopDatePicker
+                      // label="시작 날짜를 선택해주세요"
+                      value={value}
+                      onChange={(newValue) => {
+                        setValue(newValue);
+                      }}
+                      renderInput={(params) => (
+                        <TextField
+                          color="warning"
+                          sx={{ width: 500, fontSize: "100px" }}
+                          {...params}
+                        />
+                      )}
+                    />
+                  </LocalizationProvider>
+                </div>
+              </li>
+
+              <li
+                style={{
+                  color: "tomato",
+                  fontSize: "30px",
+                  listStyleType: "none",
+                }}
+              >
+                <br />
+                <p
+                  style={{
+                    marginTop: "0px",
+                    color: "black",
+                    fontSize: "15px",
+                    textAlign: "left",
+                  }}
+                >
+                  펀딩기간
+                  <div
+                    style={{
+                      textAlign: "left",
+                      fontSize: "16px",
+                      color: "#6D6D6D",
+                    }}
+                  >
+                    최대 60일
+                  </div>
+                </p>
+              </li>
+              <li style={{ color: "tomato", fontSize: "30px" }}>
+                <p
+                  style={{
+                    marginTop: "0px",
+                    color: "black",
+                    fontSize: "15px",
+                    textAlign: "left",
+                  }}
+                >
+                  종료일
+                </p>
+                {/* EndDate*/}
+                <div
+                  className="funding-end-date"
+                  // style={{ backgroundColor: "red" }}
+                >
+                  <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <div
+                      style={{
+                        fontSize: "12px",
+                        textAlign: "left",
+                        marginLeft: "38px",
+                        marginBottom: "-17px",
+                      }}
+                    >
+                      종료 날짜를 선택해주세요
+                    </div>
+                    <DesktopDatePicker
+                      value={value}
+                      onChange={(newValue) => {
+                        setValue(newValue);
+                      }}
+                      renderInput={(params) => (
+                        <TextField
+                          color="warning"
+                          sx={{ width: 500 }}
+                          {...params}
+                        />
+                      )}
+                    />
+                  </LocalizationProvider>
+                </div>
+              </li>
+              <br />
+              <li
+                style={{
+                  color: "tomato",
+                  fontSize: "30px",
+                }}
+              >
+                <p
+                  style={{
+                    marginTop: "0px",
+                    color: "black",
+                    fontSize: "15px",
+                    textAlign: "left",
+                  }}
+                >
+                  후원자 결제종료
+                </p>
+                <div
+                  style={{
+                    textAlign: "left",
+                    fontSize: "16px",
+                    color: "#6D6D6D",
+                  }}
+                >
+                  종료일 다음 날부터 7일
+                </div>
+              </li>
+              <br />
+              <br />
+              <li
+                style={{
+                  color: "tomato",
+                  fontSize: "30px",
+                }}
+              >
+                <p
+                  style={{
+                    marginTop: "0px",
+                    color: "black",
+                    fontSize: "15px",
+                    textAlign: "left",
+                  }}
+                >
+                  정산일
+                </p>
+                <div
+                  style={{
+                    textAlign: "left",
+                    fontSize: "16px",
+                    color: "#6D6D6D",
+                  }}
+                >
+                  후원자 결제 종료 다음 날부터 7영업일
+                </div>
+              </li>
+            </ul>
+            {/* StartDate */}
+          </div>
         </div>
       </div>
     </div>
