@@ -5,8 +5,13 @@ import { Card, CardGroup } from "react-bootstrap";
 import { margin } from "@mui/system";
 import { Container, Row } from "react-bootstrap";
 import "./ProjectFundingPlan.css";
+import PFPModal from "./PFPModal";
+import { Button } from "react-bootstrap";
+import { useState } from "react";
 
 function ProjectFundingPlan(props) {
+  const [modalShow, setModalShow] = useState(false);
+  
   return (
     <div
       className="fundingPlan-container"
@@ -16,6 +21,16 @@ function ProjectFundingPlan(props) {
         className="funding-box"
         style={{ margin: "0 auto", maxWidth: "1180px" }}
       >
+      <div style={{textAlign:"right"}}>
+        <button className="bbtn" onClick={() => setModalShow(true)}>
+          심사 기준
+        </button>
+
+        <PFPModal
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+        />
+      </div>
         <div
           style={{
             paddingTop: "5%",
