@@ -13,7 +13,7 @@ import FundingPlan from "./FundingPlan";
 import Pledges from "./Pledges";
 
 const AntTabs = styled(Tabs)({
-  maxWidth: "1080px",
+  maxWidth: "1180px",
   width: "100%",
   height: "100%",
   margin: "0 auto",
@@ -107,7 +107,7 @@ export default function PlanTabs() {
   return (
     <div className="TabsAll_Project">
       <Box sx={{ bgcolor: "#fff", height: "100%" }}>
-        
+        <div className="projectTitle">프로젝트 기획</div>
         <AntTabs
           value={value}
           onChange={handleChange}
