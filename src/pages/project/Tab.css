@@ -76,3 +76,13 @@
   background: #fcfcfc;
   border-radius: 8 px;
 }
+.funding-box {
+  margin: 0 auto;
+  width: 1080px;
+}
+.effect1 {
+  -webkit-box-shadow: 0 5px 6px -6px #777;
+  -moz-box-shadow: 0 5px 6px -6px #777;
+  box-shadow: 0 5px 6px -6px #777;
+  background-color: "#FFFFFF";
+}
