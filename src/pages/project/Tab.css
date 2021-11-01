@@ -17,9 +17,8 @@
 .fundingPlan-container {
   background-color: #f6f5f5;
   margin: auto;
-
+  height: 100%;
   width: 100%;
-  min-height: 100%;
   border-top: 1px solid #e8e8e8;
   box-shadow: #e8e8e8;
 }
@@ -27,7 +26,8 @@
   background-color: #f6f5f5;
   width: 100%;
   /* min-height: 100%; */
-  height: 500px;
+  height: 100%;
+  /* height: 500px; */
   border-top: 1px solid #e8e8e8;
   box-shadow: #e8e8e8;
 }
@@ -85,4 +85,12 @@
   -moz-box-shadow: 0 5px 6px -6px #777;
   box-shadow: 0 5px 6px -6px #777;
   background-color: "#FFFFFF";
+}
+.circle {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: tomato;
+  display: flex;
+  display: inline-block;
 }
