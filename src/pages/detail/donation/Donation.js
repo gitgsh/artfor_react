@@ -1,5 +1,11 @@
 import React from "react";
 import { Route } from "react-router";
+import styled from 'styled-components';
+
+import DonationHead from './DonationHead';
+import DonationLeftContents from './DonationLeftContents';
+import DonationRigthContents from './DonationRigthContents';
+
 
 function Donation(){
     
@@ -7,11 +13,22 @@ function Donation(){
 
       return(
     <div >
-        <h1>후원하기(결제) 페이지!</h1>
+        <틀>
+        <DonationHead/>
+        <DonationLeftContents/>
+        <DonationRigthContents/>
+        
+        </틀>
        
     
     </div>
     )}
   
+    const 틀 = styled.div`
+    max-width: 1080px;
+    width: 100%;
+    margin: auto;
+    margin-top: 30px;
+    `
   
   export default Donation;
