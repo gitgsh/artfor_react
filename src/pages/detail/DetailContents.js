@@ -8,6 +8,9 @@ import { useRef } from "react";
 
 function DetailContents(props){
 
+  
+
+  //스크롤이동
   const myRef = useRef(null)
   const executeScroll = ()=>{
     myRef.current.scrollIntoView()
