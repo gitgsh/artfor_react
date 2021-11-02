@@ -10,9 +10,6 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import shareKakao from '../../kakao/shareKakao'
 import initialize from "../../kakao/initialize";
 
-//import {shareKakao} from '../../kakao/shareKakao'; //카톡 공유하기 API
-
-
 function FundingStatus(){ 
 
   //링크복사
@@ -31,20 +28,6 @@ function FundingStatus(){
     //PopOver창 끝
     const [like, setLike] = useState(true); //좋아요
 
-
-
-    
-    //카카오공유 시작
-// function kakaoFunction(e){
-//   e.preventDefault();
-  
-//   return(
-//     Kakao.Link.sendCustom({
-//       templateId: 64332   // 카카오디벨로퍼 템플릿만들기에 있는이벤트번호 등록 
-//       //https://developers.kakao.com/tool/template-builder/app/657097/template/64332/component/thl/0
-//     })
-//   )
-// }
     return (
         <>
 <div className="detail_head1">
