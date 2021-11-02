@@ -28,12 +28,8 @@ import ProjectUpload from "./pages/project/ProjectUpload";
 import MySettings from "./pages/users/MySettings";
 import Donation from './pages/detail/donation/Donation';
 import AdminMain from "./pages/admin/AdminMain";
-<<<<<<< Updated upstream
 import ProjectUploadMain from "./pages/project/ProjectUploadMain";
-
-=======
 import ManageArtwork from "./pages/admin/ManageArtwork";
->>>>>>> Stashed changes
 
 function App() {
   // Guide 게시판 검색관련2
