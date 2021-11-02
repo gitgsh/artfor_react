@@ -28,8 +28,12 @@ import ProjectUpload from "./pages/project/ProjectUpload";
 import MySettings from "./pages/users/MySettings";
 import Donation from './pages/detail/donation/Donation';
 import AdminMain from "./pages/admin/AdminMain";
+<<<<<<< Updated upstream
 import ProjectUploadMain from "./pages/project/ProjectUploadMain";
 
+=======
+import ManageArtwork from "./pages/admin/ManageArtwork";
+>>>>>>> Stashed changes
 
 function App() {
   // Guide 게시판 검색관련2
@@ -73,6 +77,7 @@ function App() {
           <Route exact={true} path="/users/myproject" component={MyProject} />
           <Route exact={true} path="/users/mysettings" component={MySettings} />
           <Route exact={true} path="/admin/adminmain" component={AdminMain} />
+          <Route exact={true} path="/admin/manageArtwork" component={ManageArtwork} />
           {/* PROJECT */}
           <Route exact={true} path="/project/main" component={Main2} />
           <Route exact={true} path="/project/check" component={Check} />

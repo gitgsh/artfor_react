@@ -8,13 +8,13 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { inject, observer } from "mobx-react";
 
-function userTable(props){
+function UserTable(props){
     const { membersStore } = props;
     const { members, member } = membersStore;
 
     return(
-        <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650, maxWidth:1000 }} aria-label="simple table">
+      <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650}} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>
@@ -45,4 +45,4 @@ function userTable(props){
     );
 }
 
-export default inject("membersStore")(observer(userTable));
+export default inject("membersStore")(observer(UserTable));
