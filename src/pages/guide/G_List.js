@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Modal, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import G_Detail from "./G_Detail";
 import "./list.css";
 
 function List(props) {
@@ -15,7 +16,9 @@ function List(props) {
   let [modal, setModal] = useState(true);
   let [누른제목, 누른제목변경] = useState(0);
 
-  console.log(props.data);
+  // const [list, setList] = useState([""]);
+
+  console.log("밖 props.data >>>>", props.data);
 
   useEffect(() => {
     console.log(">>> G_list로 들어옴");
@@ -26,17 +29,23 @@ function List(props) {
       .get("http://localhost:8004/app/guide/list.do")
       .then((result) => {
         console.log("ajax 요청 성공함");
-        console.log("dd", result);
+        console.log("result >>> ", result);
 
         let dataA = result.data.list2;
-
-        props.setData([...dataA]);
+        console.log("dataA >>>>>>>>>>>", dataA);
+        let dataACopy = [...dataA];
+        props.setData(dataACopy);
+        console.log("props.data >>> ", props.data)
+        // setList([...dataA]);
+        // console.log("list >>>>",list);
+        
       })
       .catch((err) => {
-        console.log("dd", err);
+        console.log("err >>> ", err);
         console.log("ajax 요청 실패함", err);
       });
   }, []);
+
 
   return (
     <div className="container-guide">
@@ -46,56 +55,53 @@ function List(props) {
           <Button className="guide-writeBtn" variant="dark">
             글쓰기
           </Button>
-        </Link>{" "}
+        </Link>
       </div>
+
       <div className="div-guide">
-        <div className="div-guide-list">
-          {/* <tbody>
-            {props.data.map((data, i) => {
-              return (
-                <div key={i}>
-                  <h3 onClick={ () => {
-                    setTitle(i)
-                  }} >{data.g_title}</h3>
-                  <p>{data.g_day} 발행</p>
-                </div>
-              );
-            })}
-          </tbody> */}
           <div className="div-guide-list-1">
+            {/* <div> */}
+            {/* 누르면 누른 제목 모달에 뜨게 하는 list (db 아님)
             {제목.map(function (글, i) {
               return (
                 <div key={i}>
                   <div
                     className="div-guide-list-1"
-                    onClick={() => {
-                      누른제목변경(i);
-                    }}
+                    onClick={() => { 누른제목변경(i)} }
                   >
                     <Link to={modal}>{글}</Link>
                   </div>
                 </div>
               );
             })}
-            {props.data.map((d, i) => {
-              return (
-                <div key={i}>
-                  <h3
-                    onClick={() => {
-                      누른제목변경(i);
-                    }}
-                  >
-                    {d.g_title}
-                  </h3>
-                  <Link to={`/guide/G_Detail/${d.g_no}`}><p>{d.g_day} 발행</p></Link>
-                </div>
-              );
-            })}
+            </div>  */}
+            
+            <div>
+            {/* props.data로 db 데이터 가져오기 (db) */}
+            
+            {
+              props.data.map((d, i) => {
+                
+                return (
+                  <div key={i}>
+                    <h3 onClick={() => {
+                        누른제목변경(i)}}><Link to={modal}>{d.g_title}</Link>
+                    </h3>
+                    <Link to={`/guide/G_Detail/${d.g_no}`}><p>{d.g_day} 발행</p></Link>
+                  </div>
+                );
+              })
+            }
+
+            </div>
+
+
           </div>
-        </div>
+       </div>
+        
 
         <div className="guide-modal">
-          {/* {props.data.map((data, i) => {
+         {/* {props.data.map((data, i) => {
               return (
                 <div key={i}>
                   <div>{data.g_no}</div>
@@ -105,24 +111,30 @@ function List(props) {
                   <div>{data.g_day}</div>
                 </div>
               );
-            })}  */}
-          {modal === true ? (
-            <ModalPage 제목={제목} 누른제목={누른제목}></ModalPage>
-          ) : null}
+            })}
+
+           {props.data[0].g_title} */}
+
+         
+          <ModalPage 제목={제목} 누른제목={누른제목} 데이터={props.data}></ModalPage> 
         </div>
-      </div>
-    </div>
+       </div>
   );
 }
 
 function ModalPage(props) {
-  return (
-    <div>
-      <h2>{props.제목[props.누른제목]}</h2>
-      <p>날짜</p>
-      <p>내용</p>
-    </div>
-  );
+  console.log("props.데이터 >>>> ", props.데이터);
+     
+    return (
+      <div>
+        {props.데이터[0].g_no}
+        {props.데이터[0].g_title}
+        {props.데이터[0].g_content}
+        {props.데이터[0].g_writer}
+      </div>
+    )
+      
 }
+
 
 export default List;
