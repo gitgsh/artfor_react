@@ -27,13 +27,7 @@ function ProjectPlan(props) {
         height: "100%",
       }}
     >
-      <div
-        className="projectPlan-box"
-        style={{
-          borderBottom: "1px solid",
-          borderBottomColor: "rgb(228, 228, 228)",
-        }}
-      >
+      <div className="projectPlan-box" style={{}}>
         <div
           className="row"
           style={{
@@ -77,6 +71,422 @@ function ProjectPlan(props) {
               }
             }
           >
+            <div class="row justify-content-md">
+              <div class="category-container" style={{ marginLeft: "100px" }}>
+                <div
+                  class="row justify-content-md"
+                  style={{
+                    textAlign: "left",
+                    fontFamily: "NanumSquareB",
+                    fontSize: "13px",
+                    transform: "skew(-0.1deg)",
+                    marginTop: "10px",
+                  }}
+                >
+                  <div class="col" style={{ marginLeft: "0px" }}>
+                    카테고리
+                  </div>
+                  <div class="col" style={{ marginRight: "112px" }}>
+                    세부 카테고리(선택사항)
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div
+                    className="col-4"
+                    style={{
+                      paddingLeft: "0px",
+                    }}
+                  >
+                    {" "}
+                    <FormControl
+                      sx={{
+                        paddingTop: "5px",
+                        m: 1,
+                        minWidth: 300,
+                        width: "307px",
+                        backgroundColor: "#FFFFFF",
+                      }}
+                    >
+                      <Select
+                        style={{
+                          textAlign: "left",
+                          height: "38px",
+                          fontSize: "16px",
+                          fontFamily: "NanumSquareB",
+                          transform: "skew(-0.1deg)",
+                        }}
+                        value={category}
+                        onChange={categoryChange}
+                        displayEmpty
+                        inputProps={{}}
+                      >
+                        <MenuItem
+                          style={{
+                            fontFamily: "NanumSquareR",
+                            color: "#3D3D3D",
+                            transform: "skew(-0.1deg)",
+                          }}
+                          value="예술"
+                          selected
+                        >
+                          예술
+                        </MenuItem>
+                        <MenuItem
+                          style={{
+                            fontFamily: "NanumSquareR",
+                            color: "#3D3D3D",
+                            transform: "skew(-0.1deg)",
+                          }}
+                          value={"공예"}
+                        >
+                          공예
+                        </MenuItem>
+                        <MenuItem
+                          style={{
+                            fontFamily: "NanumSquareR",
+                            color: "#3D3D3D",
+                            transform: "skew(-0.1deg)",
+                          }}
+                          value={"사진"}
+                        >
+                          사진
+                        </MenuItem>
+                        <MenuItem
+                          style={{
+                            fontFamily: "NanumSquareR",
+                            color: "#3D3D3D",
+                            transform: "skew(-0.1deg)",
+                          }}
+                          value={"디자인"}
+                        >
+                          디자인
+                        </MenuItem>
+                      </Select>
+                    </FormControl>
+                  </div>
+                  {/* <div className="col"></div> */}
+                  <div className="col" style={{ marginRight: "50px" }}>
+                    {" "}
+                    <FormControl
+                      sx={{
+                        paddingTop: "5px",
+                        m: 1,
+                        minWidth: 300,
+                        width: "307px",
+                        backgroundColor: "#FFFFFF",
+                        color: "green",
+                      }}
+                    >
+                      <Select
+                        style={{
+                          textAlign: "left",
+                          backgroundColor: "#FFFFFF",
+                          height: "38px",
+                          color: "#3D3D3D",
+                          fontSize: "16px",
+                          fontFamily: "NanumSquareB",
+                          transform: "skew(-0.1deg)",
+                        }}
+                        value={detailCategory}
+                        onChange={detailCategoryChange}
+                        displayEmpty
+                      >
+                        <MenuItem
+                          style={{
+                            fontFamily: "NanumSquareR",
+                            color: "#3D3D3D",
+                            transform: "skew(-0.1deg)",
+                          }}
+                          value={"예술"}
+                        >
+                          예술
+                        </MenuItem>
+                        <MenuItem
+                          style={{
+                            fontFamily: "NanumSquareR",
+                            color: "#3D3D3D",
+                            transform: "skew(-0.1deg)",
+                          }}
+                          value={"공예"}
+                        >
+                          공예
+                        </MenuItem>
+                        <MenuItem
+                          style={{
+                            fontFamily: "NanumSquareR",
+                            color: "#3D3D3D",
+                            transform: "skew(-0.1deg)",
+                          }}
+                          value={"사진"}
+                        >
+                          사진
+                        </MenuItem>
+                        <MenuItem
+                          style={{
+                            fontFamily: "NanumSquareR",
+                            color: "#3D3D3D",
+                            transform: "skew(-0.1deg)",
+                          }}
+                          value={"디자인"}
+                        >
+                          디자인
+                        </MenuItem>
+                      </Select>
+                    </FormControl>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* 제목 */}
+      <div className="projectPlan-box" style={{}}>
+        <div
+          className="row"
+          style={{
+            paddingTop: "70px",
+            // marginBottom: "-70px",
+            borderBottom: "1px solid",
+            borderBottomColor: "rgb(228, 228, 228)",
+            margin: "0 auto",
+            maxWidth: "1180px",
+          }}
+        >
+          <div className="col-4" style={{}}>
+            <div>
+              <div
+                style={{
+                  fontSize: "16px",
+                  fontFamily: "NanumSquareEB",
+                  textAlign: "left",
+                  transform: "skew(-0.1deg)",
+                }}
+              >
+                프로젝트 제목
+                <Star />
+              </div>
+              <div
+                className="projectPlan-notice-box"
+                style={{
+                  backgroundColor: "rgb(252, 252, 252)",
+                  // marginBottom: "-50px",
+                }}
+              >
+                <Description />
+              </div>
+            </div>
+          </div>
+          <div className="col-8">
+            <div class="row justify-content-md">
+              <div class="category-container" style={{ marginLeft: "100px" }}>
+                <div
+                  class="row justify-content-md"
+                  style={{
+                    textAlign: "left",
+                    fontFamily: "NanumSquareB",
+                    fontSize: "13px",
+                    transform: "skew(-0.1deg)",
+                    marginTop: "10px",
+                  }}
+                >
+                  <div class="col" style={{ marginLeft: "0px" }}>
+                    카테고리
+                  </div>
+                  <div class="col" style={{ marginRight: "112px" }}>
+                    세부 카테고리(선택사항)
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div
+                    className="col-4"
+                    style={{
+                      paddingLeft: "0px",
+                    }}
+                  >
+                    {" "}
+                    <FormControl
+                      sx={{
+                        paddingTop: "5px",
+                        m: 1,
+                        minWidth: 300,
+                        width: "307px",
+                        backgroundColor: "#FFFFFF",
+                      }}
+                    >
+                      <Select
+                        style={{
+                          textAlign: "left",
+                          height: "38px",
+                          fontSize: "16px",
+                          fontFamily: "NanumSquareB",
+                          transform: "skew(-0.1deg)",
+                        }}
+                        value={category}
+                        onChange={categoryChange}
+                        displayEmpty
+                        inputProps={{}}
+                      >
+                        <MenuItem
+                          style={{
+                            fontFamily: "NanumSquareR",
+                            color: "#3D3D3D",
+                            transform: "skew(-0.1deg)",
+                          }}
+                          value="예술"
+                          selected
+                        >
+                          예술
+                        </MenuItem>
+                        <MenuItem
+                          style={{
+                            fontFamily: "NanumSquareR",
+                            color: "#3D3D3D",
+                            transform: "skew(-0.1deg)",
+                          }}
+                          value={"공예"}
+                        >
+                          공예
+                        </MenuItem>
+                        <MenuItem
+                          style={{
+                            fontFamily: "NanumSquareR",
+                            color: "#3D3D3D",
+                            transform: "skew(-0.1deg)",
+                          }}
+                          value={"사진"}
+                        >
+                          사진
+                        </MenuItem>
+                        <MenuItem
+                          style={{
+                            fontFamily: "NanumSquareR",
+                            color: "#3D3D3D",
+                            transform: "skew(-0.1deg)",
+                          }}
+                          value={"디자인"}
+                        >
+                          디자인
+                        </MenuItem>
+                      </Select>
+                    </FormControl>
+                  </div>
+                  {/* <div className="col"></div> */}
+                  <div className="col" style={{ marginRight: "50px" }}>
+                    {" "}
+                    <FormControl
+                      sx={{
+                        paddingTop: "5px",
+                        m: 1,
+                        minWidth: 300,
+                        width: "307px",
+                        backgroundColor: "#FFFFFF",
+                        color: "green",
+                      }}
+                    >
+                      <Select
+                        style={{
+                          textAlign: "left",
+                          backgroundColor: "#FFFFFF",
+                          height: "38px",
+                          color: "#3D3D3D",
+                          fontSize: "16px",
+                          fontFamily: "NanumSquareB",
+                          transform: "skew(-0.1deg)",
+                        }}
+                        value={detailCategory}
+                        onChange={detailCategoryChange}
+                        displayEmpty
+                      >
+                        <MenuItem
+                          style={{
+                            fontFamily: "NanumSquareR",
+                            color: "#3D3D3D",
+                            transform: "skew(-0.1deg)",
+                          }}
+                          value={"예술"}
+                        >
+                          예술
+                        </MenuItem>
+                        <MenuItem
+                          style={{
+                            fontFamily: "NanumSquareR",
+                            color: "#3D3D3D",
+                            transform: "skew(-0.1deg)",
+                          }}
+                          value={"공예"}
+                        >
+                          공예
+                        </MenuItem>
+                        <MenuItem
+                          style={{
+                            fontFamily: "NanumSquareR",
+                            color: "#3D3D3D",
+                            transform: "skew(-0.1deg)",
+                          }}
+                          value={"사진"}
+                        >
+                          사진
+                        </MenuItem>
+                        <MenuItem
+                          style={{
+                            fontFamily: "NanumSquareR",
+                            color: "#3D3D3D",
+                            transform: "skew(-0.1deg)",
+                          }}
+                          value={"디자인"}
+                        >
+                          디자인
+                        </MenuItem>
+                      </Select>
+                    </FormControl>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* 프로젝트 설명 - 에디터 */}
+      <div className="projectPlan-box" style={{}}>
+        <div
+          className="row"
+          style={{
+            paddingTop: "70px",
+            // marginBottom: "-70px",
+            borderBottom: "1px solid",
+            borderBottomColor: "rgb(228, 228, 228)",
+            margin: "0 auto",
+            maxWidth: "1180px",
+          }}
+        >
+          <div className="col-4" style={{}}>
+            <div>
+              <div
+                style={{
+                  fontSize: "16px",
+                  fontFamily: "NanumSquareEB",
+                  textAlign: "left",
+                  transform: "skew(-0.1deg)",
+                }}
+              >
+                프로젝트 설명
+                <Star />
+              </div>
+              <div
+                className="projectPlan-notice-box"
+                style={{
+                  backgroundColor: "rgb(252, 252, 252)",
+                  // marginBottom: "-50px",
+                }}
+              >
+                <Description />
+              </div>
+            </div>
+          </div>
+          <div className="col-8" style={{}}>
             <div class="row justify-content-md">
               <div class="category-container" style={{ marginLeft: "100px" }}>
                 <div
