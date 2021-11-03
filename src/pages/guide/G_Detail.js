@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect } from "react";
+import { Button } from "react-bootstrap";
 import { useHistory, useParams } from "react-router";
 
 function G_Detail(props) {
@@ -55,20 +56,24 @@ function G_Detail(props) {
             <p>작성자: {findGuide.g_writer}</p>
             <p>글내용: {findGuide.g_content}</p>
             {findGuide.fileName}
-            {findGuide.fileName === null ? null : (
+            {
+            findGuide.fileName === null 
+            ? null 
+            : (
                 <p>
                 <img src={`images/${findGuide.fileName}`} />
                 </p>
-            )}
+            )
+            }
             {/* <p><img src= {`image/${findGuide.fileName}`} /></p> */}
-            <button onClick={del}>삭제</button>
-            <button
+            <Button onClick={del}>삭제</Button>
+            <Button
                 onClick={() => {
                 history.push(`/guide/G_Update/${findGuide.g_no}`);
                 }}
             >
                 수정
-            </button>
+            </Button>
       {/* <button onClick={()=>{useHistory()}}></button> */}
         </div>
     )
