@@ -105,8 +105,14 @@ export default function PlanTabs() {
   const [clickValue, setClickValue] = useState(<FundingPlan />);
 
   return (
-    <div className="TabsAll_Project" style={{borderTop: '1px solid #e8e8e8', background:'rgb(252, 252, 252)'}}>
-      <Box sx={{ bgcolor: "#fff", height: "100%" }}>
+    <div
+      className="TabsAll_Project"
+      style={{
+        borderTop: "1px solid #e8e8e8",
+        background: "rgb(252, 252, 252)",
+      }}
+    >
+      <Box sx={{ bgcolor: "#fff", height: "100%", transform: "skew(-0.1deg)" }}>
         <div className="projectTitle">프로젝트 기획</div>
         <AntTabs
           value={value}

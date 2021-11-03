@@ -7,7 +7,8 @@ import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 
 function FundingPlan(props) {
-  const [value, setValue] = React.useState(new Date());
+  const [startDate, setStartDate] = React.useState(new Date());
+  const [endDate, setEndDate] = React.useState(new Date());
 
   return (
     <div
@@ -29,9 +30,10 @@ function FundingPlan(props) {
             <div>
               <div
                 style={{
-                  fontSize: "22px",
-                  fontFamily: "NanumSquareB",
+                  fontSize: "20px",
+                  fontFamily: "NanumSquareEB",
                   textAlign: "left",
+                  transform: "skew(-0.1deg)",
                 }}
               >
                 목표 금액
@@ -69,6 +71,7 @@ function FundingPlan(props) {
                       fontFamily: "NanumSquareB",
                       color: "#F86453",
                       fontSize: "16px",
+                      transform: "skew(-0.1deg)",
                     }}
                   >
                     ⓘ 목표 금액 설정 시 꼭 알아두세요!
@@ -120,6 +123,7 @@ function FundingPlan(props) {
                 </Label>
 
                 <Input
+                  transform="skew(-0.1deg)"
                   className="Input-goal"
                   placeholder="50만원 이상의 금액을 입력해주세요"
                 />
@@ -161,23 +165,12 @@ function FundingPlan(props) {
                       {0} 원
                     </div>
                   </div>
-                  {/* 
-                  <hr
-                    style={{
-                      borderTop: "1px solid grey",
-                      width: "100%",
-                      borderColor: "rgb(228, 228, 228)",
-                      color: "rgb(228, 228, 228)",
-                    }}
-                  /> */}
 
                   <div
                     className="taxContent"
                     style={{
                       textAlign: "left",
                       paddingTop: "20px",
-
-                      //float: "left",
                     }}
                   >
                     {/* 총수수료 */}
@@ -249,15 +242,21 @@ function FundingPlan(props) {
         >
           <div
             class="col"
-            style={{ borderRight: "1px solid", height: "487px" }}
+            style={{
+              marginTop: "26px",
+              marginRight: "4px",
+              borderRight: "1px solid",
+              height: "570px",
+            }}
           >
             {" "}
             <div>
               <div
                 style={{
-                  fontSize: "22px",
-                  fontFamily: "NanumSquareB",
+                  fontSize: "20px",
+                  fontFamily: "NanumSquareEB",
                   textAlign: "left",
+                  transform: "skew(-0.1deg)",
                 }}
               >
                 펀딩 일정
@@ -284,13 +283,6 @@ function FundingPlan(props) {
                   style={{
                     fontFamily: "NanumSquareR",
                     fontSize: "14px",
-                    // width: "400px",
-                    // backgroundColor: "rgb(253, 244, 243)",
-                    // paddingTop: "23px",
-                    // paddingLeft: "24px",
-                    // paddingRight: "22px",
-                    // paddingBottom: "25px",
-                    // borderRadius: "8px",
                   }}
                 >
                   <p
@@ -298,6 +290,7 @@ function FundingPlan(props) {
                       fontFamily: "NanumSquareR",
                       fontSize: "16px",
                       letterSpacing: "0px",
+                      transform: "skew(-0.1deg)",
                     }}
                   >
                     설정한 일시가 되면 펀딩이 자동 시작됩니다. 펀딩 시작 전까지
@@ -313,11 +306,11 @@ function FundingPlan(props) {
             style={{
               float: "left",
               marginTop: "-20px",
-              marginLeft: "-36px",
+              marginLeft: "-59px",
               maxWidth: "630px",
-              backgroundColor: "#FFFFFF",
+              // backgroundColor: "green",
+              // backgroundColor: "#FFFFFF",
               backgroundColor: "rgba(255, 255, 255, 0.8)",
-              // height: "309px",
               height: "100%",
               border: "1px solid rgb(234, 234, 234)",
               borderRadius: "6px",
@@ -330,7 +323,7 @@ function FundingPlan(props) {
               <li style={{ color: "tomato", fontSize: "30px" }}>
                 <p
                   style={{
-                    marginTop: "0px",
+                    marginTop: "15px",
                     color: "black",
                     fontSize: "15px",
                     textAlign: "left",
@@ -347,7 +340,7 @@ function FundingPlan(props) {
                       style={{
                         fontSize: "12px",
                         textAlign: "left",
-                        marginLeft: "38px",
+                        marginLeft: "11px",
                         marginBottom: "-17px",
                       }}
                     >
@@ -355,9 +348,9 @@ function FundingPlan(props) {
                     </div>
                     <DesktopDatePicker
                       // label="시작 날짜를 선택해주세요"
-                      value={value}
-                      onChange={(newValue) => {
-                        setValue(newValue);
+                      value={startDate}
+                      onChange={(startDate) => {
+                        setStartDate(startDate);
                       }}
                       renderInput={(params) => (
                         <TextField
@@ -420,16 +413,16 @@ function FundingPlan(props) {
                       style={{
                         fontSize: "12px",
                         textAlign: "left",
-                        marginLeft: "38px",
+                        marginLeft: "12px",
                         marginBottom: "-17px",
                       }}
                     >
                       종료 날짜를 선택해주세요
                     </div>
                     <DesktopDatePicker
-                      value={value}
-                      onChange={(newValue) => {
-                        setValue(newValue);
+                      value={endDate}
+                      onChange={(endDate) => {
+                        setEndDate(endDate);
                       }}
                       renderInput={(params) => (
                         <TextField
