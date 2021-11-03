@@ -127,18 +127,9 @@ function Profile() {
                 }}
               >
                 <h5 style={{ fontWeight: "bold", fontSize: "17px" }}>회원탈퇴</h5>
-                  {
-                    phoneModal === true
-                    ? <button style={{ fontSize: "17px", background:'none', color:'#3399ff', border:'0' }} onClick={modalSwitch} value="phone">취소</button>
-                    : <button style={{ fontSize: "17px", background:'none', color:'#ff6666', border:'0' }} onClick={modalSwitch} value="phone">탈퇴</button>
-                  }
+                  <button style={{ fontSize: "17px", background:'none', color:'#ff6666', border:'0' }} value="phone">탈퇴</button>
               </div>
               <div>
-                {
-                  phoneModal === true
-                    ? <div><PhoneModal></PhoneModal></div>
-                    : null
-                }
               </div>
             </div>
 
