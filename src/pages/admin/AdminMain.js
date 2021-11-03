@@ -1,9 +1,7 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
 import { useEffect } from "react";
-// import userTable from "./userTable";
 import BasicTable from "./UserTable";
-import Demo from "./Demo";
 
 
 function AdminMain(props){
@@ -21,7 +19,7 @@ function AdminMain(props){
             <h3>Members</h3>
             <hr />
             <div>
-                {/* <userTable></userTable> */}
+                <userTable></userTable>
                 <BasicTable></BasicTable>
              </div>
          </div>

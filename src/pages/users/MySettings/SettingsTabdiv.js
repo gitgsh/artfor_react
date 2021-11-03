@@ -5,7 +5,9 @@ function SettingsTabdiv(props) {
 
   if(props.value === 0) {
     return (
-      <Profile />
+      <div>
+        <Profile />
+      </div>
     )
   }
   // else if(props.value === 1) {

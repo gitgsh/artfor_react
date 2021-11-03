@@ -47,7 +47,6 @@ function App() {
       <div className="App">
         {(window.location.pathname ==
         "/project/plan/projectupload")? (<></>) : (<Header />)}
-
         <Switch>
           {/* MAIN & DETAIL */}
           <Route exact={true} path="/" component={Main} />
@@ -114,7 +113,9 @@ function App() {
             <G_List data={data} setData={setData} />
           </Route>{" "}
         </Switch>
-        <Footer />
+        {(window.location.pathname ==
+        "/project/plan/projectupload")? (<></>) : (<Footer />)}
+        
       </div>
     </div>
   );
