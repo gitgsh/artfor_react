@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { useHistory, useParams } from "react-router";
+import "./G_Detail.css";
 
 function G_Detail(props) {
     let history = useHistory();
@@ -50,11 +51,33 @@ function G_Detail(props) {
     });
 
     return (
-        <div>
-            <p>글번호: {findGuide.g_no}</p>
+        <div className="div-G_Detail">
+            <table className="table-G_Detail">
+            <tbody>
+                <tr>
+                    <th>번호</th>
+                    <td>{findGuide.g_no}</td>
+                </tr>
+                <tr>
+                    <th>제목</th>
+                    <td>{findGuide.g_title}</td>
+                </tr>
+                <tr>
+                    <th>작성자</th>
+                    <td>{findGuide.g_writer}</td>
+                </tr>
+                <tr>
+                    <td className="td-g_content">{findGuide.g_content}</td>
+                </tr>
+
+
+            {/* <p>글번호: {findGuide.g_no}</p>
             <p>글제목: {findGuide.g_title}</p>
             <p>작성자: {findGuide.g_writer}</p>
-            <p>글내용: {findGuide.g_content}</p>
+            <p>글내용: {findGuide.g_content}</p> */}
+            </tbody>
+            </table>
+
             {findGuide.fileName}
             {
             findGuide.fileName === null 
