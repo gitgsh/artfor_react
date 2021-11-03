@@ -29,7 +29,7 @@ import MySettings from "./pages/users/MySettings";
 import Donation from './pages/detail/donation/Donation';
 import AdminMain from "./pages/admin/AdminMain";
 import ProjectUploadMain from "./pages/project/ProjectUploadMain";
-
+import ManageArtwork from "./pages/admin/ManageArtwork";
 
 function App() {
   // Guide 게시판 검색관련2
@@ -47,7 +47,6 @@ function App() {
       <div className="App">
         {(window.location.pathname ==
         "/project/plan/projectupload")? (<></>) : (<Header />)}
-
         <Switch>
           {/* MAIN & DETAIL */}
           <Route exact={true} path="/" component={Main} />
@@ -73,6 +72,7 @@ function App() {
           <Route exact={true} path="/users/myproject" component={MyProject} />
           <Route exact={true} path="/users/mysettings" component={MySettings} />
           <Route exact={true} path="/admin/adminmain" component={AdminMain} />
+          <Route exact={true} path="/admin/manageArtwork" component={ManageArtwork} />
           {/* PROJECT */}
           <Route exact={true} path="/project/main" component={Main2} />
           <Route exact={true} path="/project/check" component={Check} />
@@ -113,7 +113,9 @@ function App() {
             <G_List data={data} setData={setData} />
           </Route>{" "}
         </Switch>
-        <Footer />
+        {(window.location.pathname ==
+        "/project/plan/projectupload")? (<></>) : (<Footer />)}
+        
       </div>
     </div>
   );

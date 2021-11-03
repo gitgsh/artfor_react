@@ -18,6 +18,7 @@ const CenterMenuBox = styled.div`
   ${flex('center', 'center')};
   flex: 2;
   height: 100%;
+  max-width : 500px;
 `;
 
 const StyledLink = styled(Link)`
@@ -31,8 +32,8 @@ const StyledLink = styled(Link)`
 `;
 
 const LogoSkyrocket = styled(Logo)`
-  width: 500px;
-  padding-right: 20px;
+  width: 400px;
+  padding-right: 0px;
   height: 30px;
   fill: #333;
 `;

@@ -1,8 +1,7 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
 import { useEffect } from "react";
-// import userTable from "./userTable";
-import BasicTable from "./userTable";
+import BasicTable from "./UserTable";
 
 
 function AdminMain(props){
@@ -15,14 +14,13 @@ function AdminMain(props){
     );
 
     return(
-        <div>
-            운영자 페이지
+        <div style={{textAlign: "left", margin : "auto", padding:"80px"}}> 
+            <p>운영자 페이지</p>
             <h3>Members</h3>
+            <hr />
             <div>
-             <center>
-                {/* <userTable></userTable> */}
+                <userTable></userTable>
                 <BasicTable></BasicTable>
-            </center>
              </div>
          </div>
     );

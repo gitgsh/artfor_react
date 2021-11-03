@@ -14,15 +14,6 @@ function SearchModal() {
       <img src="../icon_navbar.png" style={{width:'20px'}}/>프로젝트 둘러보기
       </Button>
        
-
-      {/* <div className="head_btn1">
-        <Button onClick={()=>setShow(true)} style={{backgroundColor:"white", border:"0", color:'black', fontFamily:"NanumSquareB", 
-        fontSize:"15px"}}>
-          <img src="../icon_navbar.png" style={{width:'20px'}}/>프로젝트 둘러보기</Button>
-      
-      </div>
-       */}
-      
       <Modal
         show={show}
         onHide={() => setShow(false)}
