@@ -2,6 +2,8 @@ import { TextField } from "@mui/material";
 import axios from "axios";
 import React, { useState } from "react";
 import { useHistory, useParams } from "react-router";
+import { Button } from "react-bootstrap";
+import "./G_Update.css";
 
 function G_Update(props) {
 
@@ -76,50 +78,48 @@ function G_Update(props) {
 
     return (
         <div>
-            <h2>이용안내 수정창</h2>
+            <h2 className="h2">이용안내 수정창</h2>
             <form>
-            <div className="">
-                <TextField className="input-text-1" label="제목" variant="filled" color="success" 
-                type="text"
-                name="g_title"
-                value={g_title}
-                onChange={onChange} 
-                style={{ width : '500px' }}
-                />
-                </div>
+                <div className="textFields">
+                    <div>
+                        <TextField className="input-text-1" label="제목" variant="standard" color="success" 
+                        type="text"
+                        name="g_title"
+                        value={g_title}
+                        onChange={onChange} 
+                        style={{ width : '700px' }}/>
+                    </div>
 
-                <div>
-                <TextField label="작성자" variant="filled" color="success" type="text"
-                name="g_writer"
-                value={g_writer}
-                onChange={onChange}
-                style={{ width : '500px' }}/> 
-                </div>
-              
-                <div>
-                <TextField
-                    variant="filled" color="success"
-                    id="outlined-multiline-flexible"
-                    label="내용"
-                    type="text"
-                    name="g_content"
-                    multiline
-                    maxRows={10}
-                    minRows={10}
-                    value={g_content}
-                    onChange={onChange}
-                    style={{ width : '500px' }}
-                    />
+                    <div>
+                        <TextField label="작성자" variant="standard" color="success" type="text"
+                        name="g_writer"
+                        value={g_writer}
+                        onChange={onChange}
+                        style={{ width : '700px' }}/> 
+                    </div>
+                
+                    <div>
+                    <TextField
+                        variant="standard" color="success"
+                        id="outlined-multiline-flexible"
+                        label="내용"
+                        type="text"
+                        name="g_content"
+                        multiline
+                        maxRows={10}
+                        minRows={10}
+                        value={g_content}
+                        onChange={onChange}
+                        style={{ width : '700px' }}/>
                     </div>
               
            
-                <div className="guideInput-Btn-submit">
-                <input type="submit" value="글쓰기" style={{ width: '70px', backgroundColor: 'black', color: 'white' }}
-                onClick={onClick} />
-                </div>
+                    <div className="guideInput-Btn-submit">
+                    <Button type="submit" variant="dark"
+                    onClick={onClick}>수정하기</Button>
+                    </div>
           
-
-
+                </div>
             </form>
 
 
