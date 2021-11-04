@@ -53,51 +53,43 @@ function G_Detail(props) {
 
     return (
         <div className="div-G_Detail">
-            <table className="table-G_Detail">
-            <tbody>
-                <tr>
-                    <th className="th">번호</th>
-                    <td className="td">{findGuide.g_no}</td>
-                </tr>
-                <tr>
-                    <th className="th">제목</th>
-                    <td className="td">{findGuide.g_title}</td>
-                </tr>
-                <tr>
-                    <th className="th">작성자</th>
-                    <td className="td">{findGuide.g_writer}</td>
-                </tr>
+            <div className="div2">
+                <table className="table-G_Detail">
+                <tbody>
+                    <tr>
+                        <th className="th">번호</th>
+                        <td className="td">{findGuide.g_no}</td>
+                    </tr>
+                    <tr>
+                        <th className="th">제목</th>
+                        <td className="td">{findGuide.g_title}</td>
+                    </tr>
+                    <tr>
+                        <th className="th">작성자</th>
+                        <td className="td">{findGuide.g_writer}</td>
+                    </tr>
                 </tbody>
-            </table>
-                    <div className="td-g_content">
-                        {findGuide.g_content.split("\n").map((line) => {
-                            return (
-                                <span>
-                                    {line}
-                                    <br />
-                                </span>
-                            );
-                        })}
-                    </div>
-                
-
-
-            {/* <p>글번호: {findGuide.g_no}</p>
-            <p>글제목: {findGuide.g_title}</p>
-            <p>작성자: {findGuide.g_writer}</p>
-            <p>글내용: {findGuide.g_content}</p> */}
-            
-
-            {findGuide.fileName}
-            {
-            findGuide.fileName === null 
+                </table>
+                <div className="td-g_content">
+                    {findGuide.g_content.split("\n").map((line) => {
+                        return (
+                            <span>
+                            {line}
+                            <br />
+                            </span>
+                        );
+                    })}
+                </div>
+            </div>       
+            {/* {findGuide.fileName}
+            {findGuide.fileName === null 
             ? null 
             : (
                 <p>
                 <img src={`images/${findGuide.fileName}`} />
                 </p>
             )
-            }
+            } */}
             {/* <p><img src= {`image/${findGuide.fileName}`} /></p> */}
             <Button onClick={del} variant="dark" className="btn1">삭제</Button>
             <Button variant="dark"

@@ -9,6 +9,13 @@ body {
     width: 700px;
 }
 
+.div2 {
+    border-top: 1px solid #e9e6e6;
+    border-bottom: 1px solid #e9e6e6;
+    padding: 0px 20px 0px 20px;
+    margin-bottom: 20px;
+}
+
 .table-G_Detail {
     width: 700px;
     margin: auto;
@@ -19,11 +26,12 @@ body {
 }
 
 .td-g_content {
+    margin: auto;
     margin-top: 50px;
     margin-bottom: 100px;
     text-align: center;
-    width: 700px;
-    border-bottom-color: darkgreen;
+    width: 600px;
+    padding: 10px;
 }
 
 .th {

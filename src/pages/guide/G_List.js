@@ -4,21 +4,29 @@ import { Button, Modal, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import G_Detail from "./G_Detail";
 import "./list.css";
+import browserIcon from './browserIcon.png';
+
 
 function List(props) {
-  let [제목, 제목변경] = useState([
-    "아트포(artfor)는 무엇인가요?",
-    "크라우드펀딩과 후원이란 무엇인가요?",
-    "펀딩 수수료는 얼마인가요?",
-    "지식재산권 침해 신고 가이드",
-  ]);
 
-  let [modal, setModal] = useState(true);
-  let [누른제목, 누른제목변경] = useState(0);
+  // Guide 게시판 검색관련2
+  const [searchKeyword, setSearchKeyword] = useState("");
+  const [keyField, setKeyField] = useState("");
+
+  // let [제목, 제목변경] = useState([
+  //   "아트포(artfor)는 무엇인가요?",
+  //   "크라우드펀딩과 후원이란 무엇인가요?",
+  //   "펀딩 수수료는 얼마인가요?",
+  //   "지식재산권 침해 신고 가이드",
+  // ]);
+
+  // let [modal, setModal] = useState(true);
+  // let [누른제목, 누른제목변경] = useState(0);
 
   // const [list, setList] = useState([""]);
 
-  console.log("밖 props.data >>>>", props.data);
+  // console.log("밖 props.data >>>>", props.data);
+
 
   useEffect(() => {
     console.log(">>> G_list로 들어옴");
@@ -46,16 +54,25 @@ function List(props) {
       });
   }, []);
 
+  const onChange = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
+
+    if (name === "searchKeyword") {
+      setSearchKeyword(value);
+    }
+    if (name === "keyField") {
+      setKeyField(value);
+    }
+  };
 
   return (
     <div className="container-guide">
-      <h3 className="page-name">이용안내 게시판</h3>
-      <div>
-        <Link to="/guide/G_Input">
-          <Button className="guide-writeBtn" variant="dark">
-            글쓰기
-          </Button>
-        </Link>
+      <h3 className="page-name">artfor 가이드센터</h3>
+      
+      <div className="div-searchBox">
+            <img src={browserIcon} style={{ width: '25px', marginRight: '10px' }}/>
+            <input className="searchBox" type="text" placeholder="검색어를 입력해주세요" name="searchKeyword" onChange={onChange} />
       </div>
 
       <div className="div-guide">
@@ -79,16 +96,31 @@ function List(props) {
             <div>
             {/* props.data로 db 데이터 가져오기 (db) */}
             
-            {
-              props.data.map((d, i) => {
-                
-                return (
-                  <div key={i}>
+
+            {/* 검색 */}
+            {props.data
+            .filter((d) => {
+
+              if (searchKeyword.length === 0) {
+
+                return d;
+              } else if (
+                d.g_writer.toString().includes(searchKeyword)) {
+                  return d;
+              } else if (
+                d.g_title.toString().includes(searchKeyword)) {
+                  return d;
+                }
+            })
+
+            .map(function (d, i) {
+              return (
+                <div key={i}>
                     <Link to={`/guide/G_Detail/${d.g_no}`}><h3>{d.g_title}</h3></Link>
                     <p>{d.g_day} 발행</p>
                   </div>
-                );
-              })
+              );
+            })
             }
 
             </div>
@@ -116,6 +148,13 @@ function List(props) {
          
           {/* <ModalPage 제목={제목} 누른제목={누른제목} 데이터={props.data}></ModalPage> 
         </div> */}
+        <div>
+        <Link to="/guide/G_Input">
+          <Button className="guide-writeBtn" variant="dark">
+            글쓰기
+          </Button>
+        </Link>
+      </div>
        </div>
   );
 }

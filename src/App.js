@@ -33,7 +33,7 @@ import ManageArtwork from "./pages/admin/ManageArtwork";
 
 function App() {
   // Guide 게시판 검색관련2
-  const [searchKeyword, setSerchKeyword] = useState("");
+  const [searchKeyword, setSearchKeyword] = useState("");
   const [keyField, setkeyField] = useState("");
 
   // Guide 게시판 데이터 초기화
@@ -110,7 +110,9 @@ function App() {
           <Route exact path="/guide/G_Detail" component={G_Detail} />
           <Route exact path="/guide/G_Input" component={G_Input} />
           <Route exact path="/guide/G_List" component={G_List}>
-            <G_List data={data} setData={setData} />
+            <G_List data={data} setData={setData} searchKeyword={searchKeyword} setSearchKeyword={setSearchKeyword}
+            keyField={keyField} setkeyField={setkeyField}
+            />
           </Route>{" "}
         </Switch>
         {(window.location.pathname ==

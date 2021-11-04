@@ -21,7 +21,7 @@ body {
 }
 
 .div-guide-list-1{
-  margin-top: 100px;
+  margin-top: 60px;
   margin-bottom: 100px;
   font-size: 15px;
 }
@@ -38,4 +38,20 @@ body {
   float: right;
   width: 70%;
   height: 700px;
+}
+
+.div-searchBox {
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.searchBox {
+  font-size: 16px;
+  border: 0px;
+  outline: none;
+  width: 200px;
+  padding: 7px;
+  border: 1px solid #c4c2c2;
+  border-radius: 10px;
+  color: #a8a8a8;
 }
