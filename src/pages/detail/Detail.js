@@ -14,7 +14,7 @@ function Detail(){
   useEffect(()=>{
     initialize();
   }, []) //카톡공유하기 API
-    
+  
     axios.get("http://localhost:8004/app/detail")
     .then(console.log('detail아작스 성공...'))
     .catch((err)=>{console.log('에러임...', err)})
