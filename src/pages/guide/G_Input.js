@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 import TextField from '@mui/material/TextField';
 import './G_Input.css'
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 
 function G_Input(props) {
@@ -104,7 +105,7 @@ function G_Input(props) {
                 name="g_title"
                 value={g_title}
                 onChange={onChange} 
-                style={{ width : '500px' }}
+                style={{ width : '700px', padding: '10px 0px 0px 0px' }}
                 />
                 
                 </div>
@@ -118,7 +119,7 @@ function G_Input(props) {
                     name="g_writer"
                     value={g_writer}
                     onChange={onChange}
-                    style={{ width : '500px' }}
+                    style={{ width : '700px', padding: '10px 0px 0px 0px' }}
                 /> 
                 </div>
               
@@ -130,18 +131,18 @@ function G_Input(props) {
                     type="text"
                     name="g_content"
                     multiline
-                    maxRows={10}
-                    minRows={10}
+                    maxRows={17}
+                    minRows={17}
                     value={g_content}
                     onChange={onChange}
-                    style={{ width : '500px' }}
+                    style={{ width : '700px', padding: '10px 0px 0px 0px' }}
                 />
                 </div>
               
-                <div className="guide-file">
+                {/* <div className="guide-file">
                 <input type="file" name="uploadFile" onChange={onFileChange} 
                 style={{ width : '500px' }} />
-                </div>
+                </div> */}
  
            
                 <div className="guideInput-Btn-submit">
@@ -149,7 +150,11 @@ function G_Input(props) {
                 type="submit"
                 variant="dark"
                 >글쓰기</Button>
+                <Link to="/guide/G_List"><Button 
+                variant="light"
+                >취소</Button></Link>
                 </div>
+                
                 
                 </form>
             </div>

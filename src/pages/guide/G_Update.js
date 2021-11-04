@@ -87,7 +87,7 @@ function G_Update(props) {
                         name="g_title"
                         value={g_title}
                         onChange={onChange} 
-                        style={{ width : '700px' }}/>
+                        style={{ width : '700px', padding: '10px 0px 0px 0px' }}/>
                     </div>
 
                     <div>
@@ -95,7 +95,7 @@ function G_Update(props) {
                         name="g_writer"
                         value={g_writer}
                         onChange={onChange}
-                        style={{ width : '700px' }}/> 
+                        style={{ width : '700px', padding: '10px 0px 0px 0px' }}/> 
                     </div>
                 
                     <div>
@@ -106,11 +106,11 @@ function G_Update(props) {
                         type="text"
                         name="g_content"
                         multiline
-                        maxRows={10}
+                        maxRows={20}
                         minRows={10}
                         value={g_content}
                         onChange={onChange}
-                        style={{ width : '700px' }}/>
+                        style={{ width : '700px', padding: '10px 0px 0px 0px' }}/>
                     </div>
               
            
