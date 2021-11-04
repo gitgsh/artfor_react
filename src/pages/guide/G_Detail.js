@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { useHistory, useParams } from "react-router";
+import { Link } from "react-router-dom";
 import "./G_Detail.css";
 
 function G_Detail(props) {
@@ -55,28 +56,37 @@ function G_Detail(props) {
             <table className="table-G_Detail">
             <tbody>
                 <tr>
-                    <th>번호</th>
-                    <td>{findGuide.g_no}</td>
+                    <th className="th">번호</th>
+                    <td className="td">{findGuide.g_no}</td>
                 </tr>
                 <tr>
-                    <th>제목</th>
-                    <td>{findGuide.g_title}</td>
+                    <th className="th">제목</th>
+                    <td className="td">{findGuide.g_title}</td>
                 </tr>
                 <tr>
-                    <th>작성자</th>
-                    <td>{findGuide.g_writer}</td>
+                    <th className="th">작성자</th>
+                    <td className="td">{findGuide.g_writer}</td>
                 </tr>
-                <tr>
-                    <td className="td-g_content">{findGuide.g_content}</td>
-                </tr>
+                </tbody>
+            </table>
+                    <div className="td-g_content">
+                        {findGuide.g_content.split("\n").map((line) => {
+                            return (
+                                <span>
+                                    {line}
+                                    <br />
+                                </span>
+                            );
+                        })}
+                    </div>
+                
 
 
             {/* <p>글번호: {findGuide.g_no}</p>
             <p>글제목: {findGuide.g_title}</p>
             <p>작성자: {findGuide.g_writer}</p>
             <p>글내용: {findGuide.g_content}</p> */}
-            </tbody>
-            </table>
+            
 
             {findGuide.fileName}
             {
@@ -89,15 +99,17 @@ function G_Detail(props) {
             )
             }
             {/* <p><img src= {`image/${findGuide.fileName}`} /></p> */}
-            <Button onClick={del}>삭제</Button>
-            <Button
+            <Button onClick={del} variant="dark" className="btn1">삭제</Button>
+            <Button variant="dark"
                 onClick={() => {
                 history.push(`/guide/G_Update/${findGuide.g_no}`);
                 }}
             >
                 수정
             </Button>
-      {/* <button onClick={()=>{useHistory()}}></button> */}
+            <div>
+            <Link to="/guide/G_List"><Button variant="light" className="btn2">목록으로</Button></Link>
+            </div>
         </div>
     )
 }

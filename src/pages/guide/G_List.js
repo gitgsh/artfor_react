@@ -84,10 +84,8 @@ function List(props) {
                 
                 return (
                   <div key={i}>
-                    <h3 onClick={() => {
-                        누른제목변경(i)}}><Link to={modal}>{d.g_title}</Link>
-                    </h3>
-                    <Link to={`/guide/G_Detail/${d.g_no}`}><p>{d.g_day} 발행</p></Link>
+                    <Link to={`/guide/G_Detail/${d.g_no}`}><h3>{d.g_title}</h3></Link>
+                    <p>{d.g_day} 발행</p>
                   </div>
                 );
               })
@@ -100,7 +98,7 @@ function List(props) {
        </div>
         
 
-        <div className="guide-modal">
+        {/* <div className="guide-modal"> */}
          {/* {props.data.map((data, i) => {
               return (
                 <div key={i}>
@@ -116,8 +114,8 @@ function List(props) {
            {props.data[0].g_title} */}
 
          
-          <ModalPage 제목={제목} 누른제목={누른제목} 데이터={props.data}></ModalPage> 
-        </div>
+          {/* <ModalPage 제목={제목} 누른제목={누른제목} 데이터={props.data}></ModalPage> 
+        </div> */}
        </div>
   );
 }
