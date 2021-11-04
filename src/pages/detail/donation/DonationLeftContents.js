@@ -1,15 +1,12 @@
 import React from "react";
-import { Route } from "react-router";
 import styled from 'styled-components';
 import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
+import Certification from "./Certification";
+
 function DonationLeftContents(){
+
+    
 
     //Start of RadioButton 
     const [selectedValue, setSelectedValue] = React.useState('a');
@@ -30,6 +27,7 @@ function DonationLeftContents(){
 
     return(
         <틀>
+        <Certification/>
          <소제목>작품 정보</소제목>
             <박스1>
             <테이블1>
@@ -54,7 +52,6 @@ function DonationLeftContents(){
 
             <소제목>후원자 정보</소제목>
             <박스2>
-
             <테이블1>
             <table>
                 <tr>
@@ -66,9 +63,10 @@ function DonationLeftContents(){
                     <td>    <Button variant="outlined" size="small" 
                     style={{color:"black", marginBottom:"10px", borderColor: "grey"}}>
                     인증번호 보내기
-                    </Button></td>
+                    </Button>
+                    {/* <Certification/> */}
+                    </td>
                 </tr>
-                
                 <tr>
                     <td style={{width:"150px", height:"30px"}}>이메일</td>
                     <td>korea_sh3@naver.com</td>
@@ -76,11 +74,10 @@ function DonationLeftContents(){
             </table>
             <br/>
             <p style={{fontSize:"11px"}}>* 위 연락처와 이메일로 후원 관련 소식이 전달됩니다.</p>
-            <p style={{fontSize:"11px"}}>* 연락처 및 이메일 변경은 설정 > 계정 설정에서 가능합니다.</p>
+            <p style={{fontSize:"11px"}}>* 연락처 및 이메일 변경은 설정 ＞계정 설정에서 가능합니다.</p>
             </테이블1>
             </박스2>
-
-
+{/* 
             <소제목>결제수단</소제목>
             <박스3>
 
@@ -99,7 +96,7 @@ function DonationLeftContents(){
                 + 결제수단 추가</button>
             
             </테이블1>
-            </박스3>
+            </박스3> */}
 
             
         </틀>

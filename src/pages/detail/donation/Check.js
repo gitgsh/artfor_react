@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useHistory } from "react-router";
 import PersonalInfo from "./PersonalInfo";
 import FundingNotice from "./FundingNotice";
+import $ from "jquery";
+import RequestPay from "./RequestPay";
 
 function Check() {
     const histroy = useHistory();
@@ -34,8 +36,6 @@ function Check() {
             <p>닫기∧</p>
         )
     }
-
-    
 
     return (
       <div className="pcheck">
@@ -74,8 +74,6 @@ function Check() {
                     : <FundingNotice/>
                     
                 }
-               
-  
                 
               </div>
             </td>
@@ -84,17 +82,21 @@ function Check() {
         
         &nbsp;
         <Button 
+          id= "check_module"
           variant="light" 
           size="lg"
           disabled={disabled}
-          onClick={()=>histroy.push('/detail')}
+          
           style={
             disabled
-              ? { backgroundColor: "dark", borderColor: "transparent", color:"black"}
+              ? { backgroundColor: "grey", borderColor: "transparent", color:"black"}
               : { backgroundColor: '#fa3062',  borderColor: "transparent", color:"white" }
+              //#fa3062
             
           }
-          >후원하기</Button>
+          ><RequestPay/>
+          </Button>
+          
       </div>
   
     ) 
