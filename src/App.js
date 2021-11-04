@@ -51,7 +51,7 @@ function App() {
           {/* MAIN & DETAIL */}
           <Route exact={true} path="/" component={Main} />
           <Route exact={true} path="/" component={Home} />
-          <Route exact={true} path="/detail" component={Detail}>
+          <Route exact={true} path="/detail/:no" component={Detail}>
             <Detail /></Route>
           <Route exact={true} path="/donation" component={Donation}/>
           <Route exact={true} path="/members/list" component={Members} />
