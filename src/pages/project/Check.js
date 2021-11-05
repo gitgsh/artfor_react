@@ -2,6 +2,7 @@ import React from "react";
 import "./Check.css"
 import { useState } from "react";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function Check({history}) {
   const [checkedInputs, setCheckedInputs] = useState([]);
@@ -55,6 +56,7 @@ function Check({history}) {
       <Button  variant="dark" size="lg" 
         onClick={()=>history.push('/project/main')}>뒤로 가기</Button>
       &nbsp;
+      <Link to="/project/plan/projectuploadmain">
       <Button 
         variant="light" 
         size="lg"
@@ -66,7 +68,7 @@ function Check({history}) {
             : { backgroundColor: '#fa3062',  borderColor: "transparent", color:"white" }
           
         }
-        >확인</Button>
+        >확인</Button></Link>
     </div>
 
   ) 
