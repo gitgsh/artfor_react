@@ -16,7 +16,7 @@
 .projectPlan-notice-box {
   /* margin: 0 auto; */
   width: 351px;
-  height: 210px;
+  height: 150px;
   background: rgb(253, 244, 243);
   border-radius: 8 px;
   /* padding: 23 px 24 px 22 px; */
@@ -112,4 +112,62 @@
   background-color: tomato;
   display: flex;
   display: inline-block;
+}
+.tbtn {
+  font-family: "NanumSquareB";
+  transform: skew(-0.1deg);
+  align-items: center;
+  border-radius: 2px;
+  font-size: 13px;
+  outline: none;
+  padding: 0px;
+  /* margin: 0px; */
+  margin-left: 2%;
+  border: 0px;
+  background: transparent;
+  box-sizing: inherit;
+  color: inherit;
+}
+
+.Input-title {
+  text-align: left;
+  font-weight: 400;
+  font-size: 14px !important;
+  padding: 11px 0px;
+  margin-top: 0;
+  font-weight: 400;
+  margin-top: 2%;
+}
+
+.tleft {
+  width: 40%;
+  float: left;
+  box-sizing: border-box;
+  /* background: #ff0; */
+  text-align: left;
+  font-size: 12px !important;
+  line-height: 20px !important;
+  font-weight: 700 !important;
+  padding-left: 2%;
+  padding-top: 1%;
+}
+
+.tright {
+  width: 60%;
+  float: right;
+  box-sizing: border-box;
+  /* background:blue; */
+  margin-bottom: 0%;
+}
+
+.imgbtn {
+  font-size: 15px;
+  width: 130px;
+  height: 40px;
+  border: 1px solid rgb(242, 242, 242);
+  border-radius: 4px;
+  margin: 0px auto 30px;
+  text-align: center;
+  line-height: 1.7em;
+  padding-top: 20px;
 }
