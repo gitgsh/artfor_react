@@ -25,10 +25,7 @@ class InputPage extends React.Component {
   }
   handleChangeEditor = (e) => {
     let work_content = this.editorRef.current.getInstance().getHTML();
-    // console.log("ddd", content);
-    // // console.log("json", JSON.stringify(data));
-    // // console.log("String", data.toString());
-    // //getHTML
+
     let data = {
       work_content: work_content,
     };
@@ -45,39 +42,38 @@ class InputPage extends React.Component {
   };
   editorRef = React.createRef();
 
-  // handleClick = () => {
-  //   this.editorRef.current.getInstance().exec("Bold");
-  // };
-
   render() {
     return (
       <>
         <Editor
           previewStyle="vertical"
           height="400px"
-          initialEditType="markdown"
-          initialValue="hello"
+          initialEditType="wysiwyg"
+          initialValue=""
           plugins={[[codeSyntaxHighlight, { highlighter: Prism }]]}
           plugins={[colorSyntax]}
           ref={this.editorRef}
         />
-        <div id="toastUIEditor">
-          <h1>Exmaple</h1>
-          <div id="button">
-            <button onClick={this.handleChangeEditor} className="btn_save">
-              Save
-            </button>
+        <div id="toastUIEditor" style={{ margin: "0 auto" }}>
+          <div id="button" style={{ display: "block", paddingTop: "17px" }}>
+            <Button
+              onClick={this.handleChangeEditor}
+              variant="dark"
+              style={{ width: "80px" }}
+            >
+              저장
+            </Button>
           </div>
           <div>
-            <h2>Result</h2>
+            {/* <h2>Result</h2>
             <div
               dangerouslySetInnerHTML={{ __html: this.state.work_content }}
-            ></div>
+            ></div> 
             <textarea
               className="result"
               value={this.state.work_content}
               readOnly="readOnly"
-            ></textarea>
+            ></textarea>*/}
           </div>
         </div>
       </>
