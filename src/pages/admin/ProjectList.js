@@ -43,7 +43,7 @@ function ProjectList() {
 
     return (
         <div>
-            <div className="ButtonGroup" >
+            <div className="ButtonGroup" style={{marginTop: '30px', textAlign:'left'}}>
             {buttons &&
                 buttons.map((type, index) => (
                     <Button variant="outline-secondary" size="sm" style={{marginRight: '10px',  borderRadius:"30px"}}  key={index} value={type.value} onClick={handlePokemon}>
@@ -51,10 +51,10 @@ function ProjectList() {
                     </Button>
                     ))}
             </div>
-            <div style={{margin: '50px'}}>
+            <div style={{ paddingTop:'50px  ', clear:'both'}}>
             {filtredPokemon &&
                 filtredPokemon.map(type => (
-            <Paper sx={{ p: 2, margin: 'auto', maxWidth: 800, flexGrow: 1 }} key={type.id}>
+            <Paper sx={{ p: 2, margin: 'auto', maxWidth: 1080, flexGrow: 1 }} key={type.id}>
             <Grid container spacing={2} rowSpacing={5}>
                 <Grid item>
                     <ButtonBase sx={{ width: 128, height: 128 }}>
