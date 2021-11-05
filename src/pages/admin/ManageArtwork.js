@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { buttons, pokemons } from "./testData";
 import ProjectList from "./ProjectList";
-
+import { FcInspection } from "react-icons/fc";
+import "./AdminMain.css";
 
 
 function ManageArtwork() {
@@ -32,11 +33,25 @@ function ManageArtwork() {
     }
 
     return (
-        <div style={{textAlign: "left", margin : "auto", padding:"80px"}}>
-            <p>운영자 페이지</p>
-            <h3>ArtWork Status</h3>
-            <hr />
-                <ProjectList/>
+        <div className="setting-margin-abox">
+            <div className="setting-abox-1" >
+              <div className="myicon-abox" style={{marginTop:'23px'}}>
+                  <FcInspection size="80" />
+              </div>
+              <div className="myname-abox">
+                <h2>
+                  운영자 페이지
+                </h2>
+                <h4>게시물 관리</h4>
+              </div>
+            </div>
+              <div style={{clear:'both', borderBottom:'1px solid #e8e8e8'}} />
+      
+              <div className="setting-abox-1" >
+            <ProjectList/>
+            </div>
+            
+            
         </div>
     );
 }

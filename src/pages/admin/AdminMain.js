@@ -1,8 +1,10 @@
-import React from "react";
+import * as React from 'react';
 import { inject, observer } from "mobx-react";
 import { useEffect } from "react";
-import BasicTable from "./UserTable";
-//test
+import "./AdminMain.css";
+import { FcConferenceCall } from "react-icons/fc";
+import UserTable from './UserTable';
+
 
 function AdminMain(props) {
   const { membersStore } = props;
@@ -13,14 +15,24 @@ function AdminMain(props) {
   }, [membersStore]);
 
   return (
-    <div style={{ textAlign: "left", margin: "auto", padding: "80px" }}>
-      <p>운영자 페이지</p>
-      <h3>Members</h3>
-      <hr />
-      <div>
-        <userTable></userTable>
-        <BasicTable></BasicTable>
+    <div className="setting-margin-abox">
+      <div className="setting-abox-1" >
+        <div className="myicon-abox" style={{marginTop:'23px'}}>
+            <FcConferenceCall size="80" />
+        </div>
+        <div className="myname-abox">
+          <h2>
+            운영자 페이지
+          </h2>
+          <h4>회원 관리</h4>
+        </div>
       </div>
+        <div style={{clear:'both', borderBottom:'1px solid #e8e8e8'}} />
+
+      <div className="setting-abox-1">
+        <UserTable />
+      </div>
+      
     </div>
   );
 }

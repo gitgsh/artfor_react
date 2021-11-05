@@ -1,0 +1,30 @@
+.setting-margin-abox {
+  font-family: "NanumSquareR";
+  border-top: 1px solid #e8e8e8;
+  color: #323232;
+}
+.setting-abox-1 {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1050px;
+  width: 100%;
+}
+
+.myicon-abox {
+  float: left;
+}
+.myname-abox {
+  float: left;
+  margin-left: 15px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  width: 500px;
+  text-align: left;
+}
+
+
+.setting-abox1-1 {
+  text-align: left;
+  height: 700px;
+}
