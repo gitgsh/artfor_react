@@ -3,8 +3,6 @@ import { styled } from "@mui/material/styles";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import { Button } from "react-bootstrap";
-import { maxWidth } from "@mui/system";
 import { useState } from "react";
 
 import Cummunity from "../community/Coummunity";
