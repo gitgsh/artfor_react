@@ -8,7 +8,7 @@ import { useState } from "react";
 import "./MainTab.css";
 import ProjectPlan from "./ProjectPlan";
 import ProjectFundingPlan from "./ProjectFundingPlan";
-
+import TobeRel from "./TobeRel";
 const AntTabs = styled(Tabs)({
   maxWidth: "1080px",
   width: "100%",
@@ -128,7 +128,7 @@ export default function PlanTabs() {
               label="공개 예정"
               style={{ fontFamily: "NanumSquareB" }}
               onClick={() => {
-                setClickValue(<ProjectPlan />);
+                setClickValue(<TobeRel />);
               }}
             />
           </AntTabs>

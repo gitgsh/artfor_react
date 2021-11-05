@@ -133,7 +133,7 @@ function Main(props) {
                                         프로젝트를 제출하면 artfor의 심사를 거쳐 후원자에게 공개됩니다.</p>
                     <br />
                     <p className="p_m_lead">
-                        <div className="p_m_head_btn2"><Button variant="dark" size="lg">지금시작</Button></div>
+                        <div className="p_m_head_btn2"><Link to="/project/check"><Button variant="dark" size="lg">지금시작</Button></Link></div>
                     </p>
                     <br />
                 </Jumbotron>

@@ -15,7 +15,7 @@ function ProjectFundingPlan(props) {
   return (
     <div
       className="fundingPlan-container"
-      style={{ backgroundColor: "rgb(252, 252, 252)" }}
+      style={{ backgroundColor: "rgb(252, 252, 252)"}}
     >
       <div
         className="funding-box"
@@ -40,7 +40,7 @@ function ProjectFundingPlan(props) {
         >
           <Row>
             <Col>
-              <a href="/project/main" style={{ textDecorationLine: "none" }}>
+              <a href="/project/plan/projectupload" style={{ textDecorationLine: "none" }}>
                 <div className="fb">
                   <div>
                     <p style={{ textAlign: "left" }}>
@@ -54,7 +54,7 @@ function ProjectFundingPlan(props) {
             </Col>
             <Col>
               <div className="fb">
-                <a href="/project/check" style={{ textDecorationLine: "none" }}>
+                <a href="/project/plan/projectupload" style={{ textDecorationLine: "none" }}>
                   <div>
                     <p style={{ textAlign: "left" }}>
                       <img src="/mon.png" style={{ width: "25px" }} />{" "}
@@ -67,7 +67,7 @@ function ProjectFundingPlan(props) {
             </Col>
             <Col>
               <div className="fb">
-                <a href="/project/main" style={{ textDecorationLine: "none" }}>
+                <a href="/project/plan/projectupload" style={{ textDecorationLine: "none" }}>
                   <div>
                     <p style={{ textAlign: "left" }}>
                       <img src="/safety.png" style={{ width: "25px" }} />{" "}
@@ -80,7 +80,7 @@ function ProjectFundingPlan(props) {
             </Col>
             <Col>
               <div className="fb">
-                <a href="/project/check" style={{ textDecorationLine: "none" }}>
+                <a href="/project/plan/projectupload" style={{ textDecorationLine: "none" }}>
                   <div>
                     <p style={{ textAlign: "left" }}>
                       <img src="/pen.png" style={{ width: "25px" }} />{" "}

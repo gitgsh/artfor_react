@@ -25,7 +25,11 @@ function LeftMenu() {
       
       <SearchModal/>
       </div>
-      <div className="head_btn2"><Button  style={{color:'black', fontFamily:"NanumSquareB", fontSize:"15px", width:'120px'}}>프로젝트 올리기</Button></div>
+      <div className="head_btn2">
+        <Link to="/project/main">
+        <Button  style={{color:'black', fontFamily:"NanumSquareB", fontSize:"15px", width:'120px'}}>프로젝트 올리기</Button>
+        </Link>
+      </div>
       
      
     </LeftMenuBox>
