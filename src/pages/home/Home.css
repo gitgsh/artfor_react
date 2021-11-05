@@ -3,7 +3,7 @@
 
 
 .homeSlider {
-  max-width: 1200px;
+  max-width: 1100px;
   background-color: rgba(150, 205, 209, 0.151);
   margin: auto;
   margin-bottom: 50px;
@@ -59,7 +59,7 @@
 .cardbody_Home{
   /* font-family: 'NanumSquareB'; */
   padding-left: 0px;
-  
+  height: 180px;
 
 }
 
@@ -67,7 +67,6 @@
   font-family: 'NanumSquareR';
   font-size: 17px;
   height: 40px;
-  
   
 }
 
@@ -92,17 +91,24 @@ a:hover {
   text-decoration: underline;
 }
 
-.main_card{
+.main_card_home{
       /* container */
-      max-width: 1110px;
+      /* max-width: 1110px;
       width: 100%;
       
       margin-left: 410px;
-      text-align: left;
-}
+      text-align: left; */
+ /* container */
+ max-width: 1200px;
+ width: 100%;
+ margin-left: 410px;
+ text-align: left;
+      
+} 
 
 .cardgroup_Home{
-  max-width: 1080px;
+  max-width: 1105px;
+
     width: 100%;
     
       

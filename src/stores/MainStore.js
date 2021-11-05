@@ -20,11 +20,14 @@ export default class MainStore {
     work_img: "",
     work_content: "",
     artist_id: "",
-    heart: "",
+    funding_like: "",
     funding_deadline: "",
     funding_goal: "",
     funding_now: "",
     supporters: "",
+    artist_name: "",
+    funding_today: "",
+    funding_status: "",
   };
 
   worksCreate() {
@@ -54,7 +57,7 @@ export default class MainStore {
     // }];
     // console.log('Done membersRead', this.members);
     axios
-      .get("http://localhost:8004/app/list.do")
+      .get("http://localhost:8004/app/")
       .then((response) => {
         console.log("성공");
         console.log("Done worksRead", response);

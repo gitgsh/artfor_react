@@ -76,7 +76,6 @@ function FundingStatus(){
         </div>
         </div>
         
-        
         {/* <hr/> */}
         <div className="detail_head4" style={{textAlign: 'left'}}>
         <div>
@@ -87,8 +86,6 @@ function FundingStatus(){
          {/* <hr/> */}
         </div>
         
-       
-
         <Popover
         id={id}
         open={open}
