@@ -6,7 +6,7 @@ import { FcConferenceCall } from "react-icons/fc";
 import UserTable from './UserTable';
 
 
-function AdminMain2(props) {
+function AdminMain(props) {
   const { membersStore } = props;
   const { members, member } = membersStore;
 
@@ -37,4 +37,4 @@ function AdminMain2(props) {
   );
 }
 
-export default inject("membersStore")(observer(AdminMain2));
+export default inject("membersStore")(observer(AdminMain));
