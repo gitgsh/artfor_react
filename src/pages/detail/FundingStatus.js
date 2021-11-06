@@ -15,9 +15,13 @@ function FundingStatus(props){
   const {mainStore} = props;
   const {works, work} = mainStore;
 
-  useEffect(()=>{
-    mainStore.worksRead();
-  }, [mainStore]);
+  // useEffect(()=>{
+  //   mainStore.worksRead();
+  // }, [mainStore]);
+
+  // useEffect(()=>{
+  //   mainStore.getWork();
+  // }, [mainStore]);
 
   //링크복사기능
   const currentUrl = window.location.href;
@@ -40,7 +44,7 @@ function FundingStatus(props){
 <div className="detail_head1">
         <div className="detail_head2">
           {works.work_title}
-        <center><h2 style={{fontFamily: 'NanumSquareB', fontSize: '40px'}}> 당신의 바다꽃이 될래요. 탄생화 자개 DIY 키트</h2>
+        <center><h2 style={{fontFamily: 'NanumSquareB', fontSize: '40px'}}>{work.work_title}</h2>
             <p className="writer_homeDetail"><img src="./icon_detail_writer.JPG"/>김지민</p></center><br/>
         
         
