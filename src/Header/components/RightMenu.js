@@ -1,21 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
-import LogoutLink from './LogoutLink';
+// import LogoutLink from './LogoutLink';
+import UserLinkMenu from './UserLinkMenu';
 import LoginLink from './LoginLink';
 import { flex } from '../../styles/mixins';
 import { NavDropdown } from 'react-bootstrap';
+import AdminMenu from './AdminMenu';
+import { FcConferenceCall } from "react-icons/fc";
+
 
 function RightMenu() {
   const token = localStorage.getItem('token');
+  const user = window.localStorage.getItem('user_id');
+
+  console.log('토큰 : ', token);
+  console.log('유저 : ', user);
 
   return <RightMenuBox>
-    <NavDropdown  title="운영자 페이지" id="basic-nav-dropdown">
-      <NavDropdown.Item style={{fontFamily:"NanumSquareB", fontSize:"14px"}} href="/admin/adminmain">회원 관리</NavDropdown.Item>
-      <NavDropdown.Item style={{fontFamily:"NanumSquareB", fontSize:"14px"}} href="/admin/manageArtwork">게시물 심사/승인</NavDropdown.Item>
-      {/* <NavDropdown.Divider /> */}
-      {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
-    </NavDropdown>
-    {token ? <LogoutLink /> : <LoginLink />}
+    {(user == 'admin' && token ) ? <AdminMenu /> : <> </>}
+    {token ? <UserLinkMenu /> : <LoginLink />}
     </RightMenuBox>;
 }
 
