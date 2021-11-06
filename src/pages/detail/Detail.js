@@ -7,30 +7,29 @@ import { Route, useParams } from "react-router";
 import Donation from "./donation/Donation";
 import FundingStatus from "./FundingStatus";
 import CustomizedTabs from "./Tab";
-
 import { useEffect } from "react";
 import initialize from "../../kakao/initialize";
 
 function Detail(props){
   const {no} = useParams();
   console.log('props>>', props.work_no);
-  
-  //const {mainStore} = props;
-  //const {works, work} = mainStore;
+  const {mainStore} = props;
+  const {works, work} = mainStore;
 
   useEffect(()=>{
     initialize(); //카톡공유하기 API
-    axios.get("http://localhost:8004/app/detail",{
-      params : {
-        work_no : no
-      }
-      })
-      .then((response=>{
-        console.log('detail아작스 성공...');
-        console.log(response.data);
-      }
-        ))
-      .catch((err)=>{console.log('에러임...', err)})
+    // axios.get("http://localhost:8004/app/detail",{
+    //   params : {
+    //     work_no : no
+    //   }
+    //   })
+    //   .then((response=>{
+    //     console.log('detail아작스 성공...');
+    //     console.log(response.data);
+    //     console.log(response.data.work_title);
+    //   }
+    //     ))
+    //   .catch((err)=>{console.log('에러임...', err)})
   }, []) 
   
   
@@ -47,5 +46,5 @@ function Detail(props){
          </div>
   )}
 
-//export default inject("mainStore")(observer(Detail));
-export default Detail;
+export default inject("mainStore")(observer(Detail));
+//export default Detail;
