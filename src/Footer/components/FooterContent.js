@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FaGooglePlay, FaApple } from 'react-icons/fa';
 import './footerContent.css';
+import { Link } from 'react-router-dom';
 
 function FooterContent() {
   return (
@@ -110,7 +111,7 @@ function FooterContent() {
             <Timetable>평일 10:00 ~ 18:00 (12:00 ~ 14:00 제외)</Timetable>
           </tr>
           <tr>
-            <CustomerButton>아트포에 문의</CustomerButton>
+            <Link to="/chatbot"><CustomerButton>아트포에 문의</CustomerButton></Link>
           </tr>
         </tbody>
       </CustomerWrapContents>

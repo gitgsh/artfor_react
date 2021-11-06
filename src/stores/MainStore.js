@@ -1,6 +1,7 @@
 import { configure, makeAutoObservable } from "mobx";
 import axios from "axios";
 import { axiosError } from "./common.js";
+import { Route, useParams } from "react-router";
 //import, 무조건 붙이면 워닝 사라지게
 configure({
   enforceActions: "never",
@@ -29,6 +30,8 @@ export default class MainStore {
     funding_today: "",
     funding_status: "",
   };
+
+
 
   worksCreate() {
     // this.members.push({
@@ -69,6 +72,25 @@ export default class MainStore {
         axiosError(error);
       });
   }
+
+ 
+  getWork(index) {
+    axios
+    .get("http://localhost:8004/app/detail")
+      //.get("http://localhost:8004/app/detail/" + index) 이렇게 쓰면 콘솔에 getWork실패!가 뜸...
+      .then((response) => {
+        console.log("Done boardDetail", response); //response가 null이 뜸...
+        this.works.work_no = index;
+        console.log('index>>', index);
+        console.log('response.data>>', response.data);
+        console.log('work_no>>', response.data.work_no);
+      })
+      .catch((error) => {
+        axiosError(error);
+        console.log('getWork실패!');
+      });
+  }
+
 
   worksUpdate(index, member) {
     axios

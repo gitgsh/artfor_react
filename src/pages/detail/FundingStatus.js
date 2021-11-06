@@ -1,4 +1,5 @@
 import axios from "axios";
+import { inject, observer } from "mobx-react";
 import './Detail.css';
 import { Button, Card, CardGroup} from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -10,9 +11,15 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import shareKakao from '../../kakao/shareKakao'
 import initialize from "../../kakao/initialize";
 
-function FundingStatus(){ 
+function FundingStatus(props){ 
+  const {mainStore} = props;
+  const {works, work} = mainStore;
 
-  //링크복사
+  useEffect(()=>{
+    mainStore.worksRead();
+  }, [mainStore]);
+
+  //링크복사기능
   const currentUrl = window.location.href;
 
     //PopOver창..(공유하기 버튼)
@@ -32,6 +39,7 @@ function FundingStatus(){
         <>
 <div className="detail_head1">
         <div className="detail_head2">
+          {works.work_title}
         <center><h2 style={{fontFamily: 'NanumSquareB', fontSize: '40px'}}> 당신의 바다꽃이 될래요. 탄생화 자개 DIY 키트</h2>
             <p className="writer_homeDetail"><img src="./icon_detail_writer.JPG"/>김지민</p></center><br/>
         
@@ -120,4 +128,4 @@ function FundingStatus(){
 }
 
 
-export default FundingStatus;
+export default inject("mainStore")(observer(FundingStatus));

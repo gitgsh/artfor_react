@@ -7,11 +7,7 @@ import "./Home.css";
 function NoticePrj(props){
     const {mainStore} = props;
     const {works, work} = mainStore;
-  
-    useEffect(()=>{
-      mainStore.worksRead();
-    }, [mainStore]);
-  
+
     return(
 <>
 <p className="main_home">주목할 만한 프로젝트</p>
@@ -45,15 +41,17 @@ style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
 
       <CardGroup className="cardgroup_Home">
       {
-        works.slice(4,9).map(function(data, j){ 
+        works.slice(4,8).map(function(data, j){ 
           return(//data.work_title
 <Card className="card_Home">
 <Link to={`/detail/${data.work_no}`}><Card.Img variant="top" src="/main1.jpeg"
 style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
 <Card.Body className="cardbody_Home">
 <Card.Title className="cardtitle_Home">공예 | {data.artist_name}</Card.Title>
-<Card.Text className="cardtext_Home">
-<Link to={`/detail/${data.work_no}`}>{data.work_title}</Link>
+<Card.Text className="cardtext_Home"> 
+<Link to={`/detail/${data.work_no}`} onClick={()=>{mainStore.getWork(data.work_no)}}>{data.work_title}</Link> 
+{/* 백틱빼도 되나? 달러표시만 해도 되나? */}
+<button onClick={()=>{mainStore.getWork(6)}}>테스트</button>
 </Card.Text>
 <div className="cardfooter">
   <p>{Math.round((data.funding_now/data.funding_goal)*100)}% 달성</p>
