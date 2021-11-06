@@ -7,28 +7,32 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { axiosError } from "../../stores/common";
 import { styled } from "@mui/system";
+import { inject, observer } from "mobx-react";
 
 // import { KakaoLogin } from "react-kakao-login";
 // wllwlwlwlwkdfjksjlfdk
 
 function Login(props) {
+  const { membersStore } = props;
+  const { members, member } = membersStore;
+
   const [userinfo, setUserinfo] = useState({
     user_id: "",
     user_pw: "",
-  });
+  }); 
 
   let result = 0;
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+    
+  const {register, handleSubmit, formState: { errors }, getValues } = useForm();
+  
   const onSubmit = (data) => {
+   
     console.log("데이터>>>", data);
 
     setUserinfo(data);
-    console.log("유저인포", userinfo);
+    console.log("유저인포", userinfo.user_id);
+    
 
     axios
       .post("http://localhost:8004/app/user/login.do", data)
@@ -43,7 +47,14 @@ function Login(props) {
           alert("비밀번호가 일치하지 않습니다.");
         } else {
           alert("로그인 완료");
-          props.history.push("/");
+        
+          localStorage.setItem('token',true);
+          const userName = getValues("user_id");
+          localStorage.setItem('user_id',userName);
+          console.log("getvalue 성공", userName);
+          // localStorage.setItem('user_id',JSON.stringify(userinfo.user_id).slice(1,-1));
+
+          props.history.push("/users/myproject");
         }
       })
       .catch((error) => {
@@ -137,4 +148,4 @@ function Login(props) {
 }
 
 
-export default Login; 
+export default inject("membersStore")(observer(Login)); 

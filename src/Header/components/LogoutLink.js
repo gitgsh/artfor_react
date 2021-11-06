@@ -5,7 +5,7 @@ import { FaUserCircle } from 'react-icons/fa';
 import { flex } from '../../styles/mixins';
 
 function LogoutLink() {
-  const kakaoToken = window.Kakao.Auth.getAccessToken();
+  // const kakaoToken = window.Kakao.Auth.getAccessToken();
   const history = useHistory();
 
   const handleKakaoLogout = () => {
@@ -18,7 +18,7 @@ function LogoutLink() {
 
         localStorage.removeItem('token');
         alert('성공적으로 로그아웃 되었습니다. 다음에 또 만나요!🙋‍♀️');
-        history.push('/');
+        history.push('/login');
       },
       fail: error => {
         console.log(error);
@@ -36,17 +36,18 @@ function LogoutLink() {
   const handleNormalLogout = () => {
     localStorage.removeItem('token');
     alert('성공적으로 로그아웃 되었습니다. 다음에 또 만나요🥰');
-    history.push('/');
+    history.push('/login');
   };
 
   return (
     <>
-      <PledgesButton to="/pledges">후원 현황</PledgesButton>
+      {/* <PledgesButton to="/pledges">후원 현황</PledgesButton> */}
       <LogoutButton
-        onClick={kakaoToken ? handleKakaoLogout : handleNormalLogout}
+        // onClick={kakaoToken ? handleKakaoLogout : handleNormalLogout}
+        onClick={handleNormalLogout}
       >
         <SignInSignUp>로그아웃</SignInSignUp>
-        <UserAvatarIcon />
+        {/* <UserAvatarIcon /> */}
       </LogoutButton>
     </>
   );
@@ -81,7 +82,7 @@ const SignInSignUp = styled.div`
 
 const UserAvatarIcon = styled(FaUserCircle)`
   margin-left: 10px;
-  color: ${({ theme }) => theme.colors.grey200};
+
   font-size: 38px;
 `;
 
