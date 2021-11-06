@@ -123,6 +123,8 @@ function FundingPlan(props) {
                 </Label>
 
                 <Input
+                  type="number"
+                  style={{ textAlign: "right" }}
                   transform="skew(-0.1deg)"
                   className="Input-goal"
                   placeholder="50만원 이상의 금액을 입력해주세요"
