@@ -76,14 +76,16 @@ export default class MainStore {
  
   getWork(index) {
     axios
-    .get("http://localhost:8004/app/detail")
-      //.get("http://localhost:8004/app/detail/" + index) 이렇게 쓰면 콘솔에 getWork실패!가 뜸...
+    .get("http://localhost:8004/app/detail/", {
+    params:{
+      work_no : index,
+    }
+    })
       .then((response) => {
-        console.log("Done boardDetail", response); //response가 null이 뜸...
+        console.log("DoneDetail", response); //response가 null이 뜸...
         this.works.work_no = index;
         console.log('index>>', index);
         console.log('response.data>>', response.data);
-        console.log('work_no>>', response.data.work_no);
       })
       .catch((error) => {
         axiosError(error);
