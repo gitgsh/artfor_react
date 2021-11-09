@@ -2,10 +2,9 @@ import React from 'react';
 import { NavDropdown } from 'react-bootstrap';
 import LogoutLink from './LogoutLink';
 
-
 function UserLinkMenu(){
 
-    return <NavDropdown  title= {window.localStorage.getItem('user_id')} id="basic-nav-dropdown">            
+    return <NavDropdown  title= { window.localStorage.getItem('name') } id="basic-nav-dropdown">            
             <NavDropdown.Item style={{fontFamily:"NanumSquareB", fontSize:"14px"}} href="/users/myproject">프로젝트</NavDropdown.Item>
             <NavDropdown.Item style={{fontFamily:"NanumSquareB", fontSize:"14px"}} href="/users/myproject">설정</NavDropdown.Item>
             <NavDropdown.Divider />

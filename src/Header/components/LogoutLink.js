@@ -17,6 +17,8 @@ function LogoutLink() {
           .forEach(key => localStorage.removeItem(key));
 
         localStorage.removeItem('token');
+        localStorage.removeItem('role');
+        localStorage.removeItem('name');
         alert('성공적으로 로그아웃 되었습니다. 다음에 또 만나요!🙋‍♀️');
         history.push('/login');
       },

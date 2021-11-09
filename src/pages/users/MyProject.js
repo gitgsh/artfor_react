@@ -28,7 +28,7 @@ function MyProject(props) {
           <h2>
             
             {/* {window.localStorage.getItem('user_id').slice(1,-1)} <span style={{ fontSize: "25px" }}>님</span> */}
-            {window.localStorage.getItem('user_id')} <span style={{ fontSize: "25px" }}>님</span>
+            {window.localStorage.getItem('name')} <span style={{ fontSize: "25px" }}>님</span>
           </h2>
         </div>
         <div style={{position:'absolute', zIndex:'1', left:'670px', top:'150px'}}>
