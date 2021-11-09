@@ -72,7 +72,7 @@ function List(props) {
       <Link to="/guide/G_List">
       <h3 className="page-name">
         <FcOnlineSupport size='40' style={{ marginRight: '5px' }}/>
-        artfor 가이드센터
+        artfor 헬프센터
         <FcOnlineSupport size='40' style={{ marginLeft: '5px' }}/>
       </h3>
       </Link>
