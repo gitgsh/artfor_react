@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { useHistory, useParams } from "react-router";
 import { Button } from "react-bootstrap";
 import "./G_Update.css";
+import { FormControl, InputLabel, MenuItem, NativeSelect, Select  } from "@mui/material";
+
 
 function G_Update(props) {
 
@@ -35,6 +37,7 @@ function G_Update(props) {
     const [g_title, setG_title] = useState(findGuide.g_title);
     const [g_writer, setG_writer] = useState(findGuide.g_writer);
     const [g_content, setG_content] = useState(findGuide.g_content);
+    const [g_category, setG_category] = useState(findGuide.g_category);
     
     let history = useHistory();
 
@@ -46,6 +49,8 @@ function G_Update(props) {
             setG_title(value);
         } else if (name === "g_content") {
             setG_content(value);
+        } else if (name === "g_category") {
+            setG_category(value);
         }
 
         console.log(g_title);
@@ -59,6 +64,7 @@ function G_Update(props) {
             g_title,
             g_writer,
             g_content,
+            g_category,
         };
 
         axios
@@ -78,8 +84,29 @@ function G_Update(props) {
 
     return (
         <div>
-            <h2 className="h2">이용안내 수정창</h2>
+            <h2 className="h2"></h2>
             <form>
+
+                <FormControl sx={{ m: 1, minWidth: 700 }}>
+                    <InputLabel variant="standard" htmlFor="uncontrolled-native">
+                        카테고리를 선택해주세요.
+                    </InputLabel>
+                    <NativeSelect
+                        value={g_category}
+                        onChange={onChange}
+                        color="success"
+                        inputProps={{
+                        name: 'g_category',
+                        id: 'uncontrolled-native',
+                        }}
+                    >
+                        <option value={"일반"}>일반</option>
+                        <option value={"후원자 질문"}>후원자 질문</option>
+                        <option value={"프로젝트 올리기"}>프로젝트 올리기</option>
+                        <option value={"시작하고 알리기"}>시작하고 알리기</option>
+                    </NativeSelect>
+                </FormControl>
+
                 <div className="textFields">
                     <div>
                         <TextField className="input-text-1" label="제목" variant="standard" color="success" 
@@ -117,7 +144,10 @@ function G_Update(props) {
                     <div className="guideInput-Btn-submit">
                     <Button type="submit" variant="dark"
                     onClick={onClick}>수정하기</Button>
-                    </div>
+                    <Button style={{ marginLeft: '15px' }} variant="light" onClick={ () => {
+                        history.goBack();
+                    }}>
+                        취소</Button></div>
           
                 </div>
             </form>
