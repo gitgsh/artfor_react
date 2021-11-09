@@ -11,13 +11,13 @@ import { FcConferenceCall } from "react-icons/fc";
 
 function RightMenu() {
   const token = localStorage.getItem('token');
-  const user = window.localStorage.getItem('user_id');
+  const user_role = localStorage.getItem('name');
 
   console.log('토큰 : ', token);
-  console.log('유저 : ', user);
+  console.log('유저 권한 : ', user_role);
 
   return <RightMenuBox>
-    {(user == 'admin' && token ) ? <AdminMenu /> : <> </>}
+    {(user_role == '관리자' && token ) ? <AdminMenu /> : <> </>}
     {token ? <UserLinkMenu /> : <LoginLink />}
     </RightMenuBox>;
 }
