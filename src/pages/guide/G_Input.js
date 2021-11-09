@@ -3,8 +3,9 @@ import React, { useState } from "react";
 import { useHistory } from "react-router";
 import TextField from '@mui/material/TextField';
 import './G_Input.css'
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { FormControl, InputLabel, MenuItem, NativeSelect, Select  } from "@mui/material";
 
 
 function G_Input(props) {
@@ -14,14 +15,15 @@ function G_Input(props) {
         console.log("G_Input >> InputData ...");
         console.log(result);
         let dataA = result.data.list2;
-    
         props.setData([...dataA]);
     };
 
     const [g_title, setG_title] = useState("");
     const [g_writer, setG_writer] = useState("");
     const [g_content, setG_content] = useState("");
-    const [attachment, setAttachment] = useState("");
+    //
+    const [g_category, setG_category] = useState("");
+    // const [attachment, setAttachment] = useState("");
 
     let history = useHistory();
 
@@ -35,6 +37,8 @@ function G_Input(props) {
             setG_writer(value);
         } else if (name === "g_content") {
             setG_content(value);
+        } else if (name === "g_category") {
+            setG_category(value);
         }
     };
 
@@ -48,7 +52,7 @@ function G_Input(props) {
         // 파일 전송 중에는 submit이 비활성화 되도록??
 
         let data = {
-            g_title, g_content, g_writer
+            g_title, g_content, g_writer, g_category
         }
     
         axios
@@ -69,22 +73,22 @@ function G_Input(props) {
             });
     };
 
-    const onFileChange = (event) => {
-        console.log(event.target.files[0]);
-        const {
-            target: { files },
-        } = event;
-        const reader = new FileReader();
+    // const onFileChange = (event) => {
+    //     console.log(event.target.files[0]);
+    //     const {
+    //         target: { files },
+    //     } = event;
+    //     const reader = new FileReader();
 
-        reader.onloadend = (progressEvent) => {
-            const {
-                currentTarget: { result },
-            } = progressEvent;
-            // 파일 보여주기
-            setAttachment(result);
-        };
-        reader.readAsDataURL(files[0]);
-    };
+    //     reader.onloadend = (progressEvent) => {
+    //         const {
+    //             currentTarget: { result },
+    //         } = progressEvent;
+    //         // 파일 보여주기
+    //         setAttachment(result);
+    //     };
+    //     reader.readAsDataURL(files[0]);
+    // };
 
     return (
         <div className="container_guide">
@@ -93,21 +97,38 @@ function G_Input(props) {
                 
                 <form onSubmit={onSubmit}>
 
+                {/* 카테고리 선택 */}
+                <FormControl sx={{ m: 1, minWidth: 700 }}>
+                    <InputLabel variant="standard" htmlFor="uncontrolled-native">
+                        카테고리를 선택해주세요.
+                    </InputLabel>
+                    <NativeSelect
+                        value={g_category}
+                        onChange={onChange}
+                        color="success"
+                        inputProps={{
+                        name: 'g_category',
+                        id: 'uncontrolled-native',
+                        }}
+                    >
+                        <option value={"일반"}>일반</option>
+                        <option value={"후원자 질문"}>후원자 질문</option>
+                        <option value={"프로젝트 올리기"}>프로젝트 올리기</option>
+                        <option value={"시작하고 알리기"}>시작하고 알리기</option>
+                    </NativeSelect>
+                </FormControl>
+
                 <div className="input-text-1">
-                
-                
-                <TextField 
-                className="input-text-1" 
-                label="제목" 
-                variant="standard" 
-                color="success" 
-                type="text"
-                name="g_title"
-                value={g_title}
-                onChange={onChange} 
-                style={{ width : '700px', padding: '10px 0px 0px 0px' }}
-                />
-                
+                    <TextField 
+                    label="제목" 
+                    variant="standard" 
+                    color="success" 
+                    type="text"
+                    name="g_title"
+                    value={g_title}
+                    onChange={onChange} 
+                    style={{ width : '700px', padding: '10px 0px 0px 0px' }}
+                    />
                 </div>
                 
                 <div>
@@ -125,9 +146,10 @@ function G_Input(props) {
               
                 <div>
                 <TextField
-                    variant="standard"
-                    id="outlined-multiline-flexible"
                     label="내용"
+                    variant="standard"
+                    color="success"
+                    id="outlined-multiline-flexible"
                     type="text"
                     name="g_content"
                     multiline
@@ -143,16 +165,16 @@ function G_Input(props) {
                 <input type="file" name="uploadFile" onChange={onFileChange} 
                 style={{ width : '500px' }} />
                 </div> */}
- 
            
                 <div className="guideInput-Btn-submit">
-                <Button 
-                type="submit"
-                variant="dark"
-                >글쓰기</Button>
-                <Link to="/guide/G_List"><Button 
-                variant="light"
-                >취소</Button></Link>
+                    <Button 
+                    type="submit"
+                    variant="dark"
+                    >글쓰기</Button>
+
+                    <Link to="/guide/G_List"><Button 
+                    variant="light"
+                    >취소</Button></Link>
                 </div>
                 
                 

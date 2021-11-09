@@ -5,15 +5,17 @@ body {
 .div-G_Detail {
     margin: auto;
     border: #f4f4f4;
-    margin-top: 100px;
-    width: 700px;
+    margin-top: 50px;
+    width: 1080px;
 }
 
 .div2 {
     border-top: 1px solid #e9e6e6;
     border-bottom: 1px solid #e9e6e6;
     padding: 0px 20px 0px 20px;
-    margin-bottom: 20px;
+    width: 1080px;
+    margin: auto;
+    margin-top: 30px;
 }
 
 .table-G_Detail {
@@ -49,7 +51,7 @@ body {
 }
 
 .btn1 {
-    margin: 0px 15px 0px 0px;
+    margin: 20px 15px 0px 0px;
 }
 
 .btn2 {

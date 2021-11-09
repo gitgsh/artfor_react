@@ -39,7 +39,7 @@ function FooterContent() {
         </thead>
         <tbody>
           <tr>
-            <Contents>헬프센터</Contents>
+            <Contents><Link to="/guide/G_List">헬프센터</Link></Contents>
           </tr>
           <tr>
             <ContentsHighlight>창작자 가이드</ContentsHighlight>

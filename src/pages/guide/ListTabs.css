@@ -1,0 +1,19 @@
+body {
+    font-family: 'nanumsquareR';
+  }
+
+.searchBox1 {
+    margin-right: 20px;
+  }
+  
+.searchBox2 {
+    margin-bottom: 50px;
+    font-size: 16px;
+    border: 0px;
+    outline: none;
+    width: 200px;
+    padding: 7px;
+    border: 1px solid #c4c2c2;
+    border-radius: 10px;
+    color: #a8a8a8;
+  }
