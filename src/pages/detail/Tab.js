@@ -9,11 +9,11 @@ import Cummunity from "../community/Coummunity";
 import DetailContents from "./DetailContents";
 import "./Tab.css";
 
-
 const AntTabs = styled(Tabs)({
   maxWidth: "1080px",
   width: "100%",
   margin: "0 auto",
+  transform: "skew(-0.1deg)",
 
   "& .MuiTabs-indicator": {
     backgroundColor: "#282828",
@@ -99,28 +99,29 @@ export default function CustomizedTabs() {
     setValue(newValue);
   };
 
-  const [clickValue, setClickValue] = useState(<DetailContents/>);
-
+  const [clickValue, setClickValue] = useState(<DetailContents />);
 
   return (
     <div className="TabsAll_Home_Detail">
-      
-      
-        <Box sx={{ bgcolor: "#fff" }}>
-          <AntTabs
-            value={value}
-            onChange={handleChange}
-            aria-label="ant example"
-          >
-            <AntTab label="프로젝트 계획" style={{fontFamily: "NanumSquareB"}} onClick={()=>{setClickValue(<DetailContents/>)}}/>
-            <AntTab label="커뮤니티" style={{fontFamily: "NanumSquareB"}} onClick={()=>{setClickValue(<Cummunity/>)}}/>
-          </AntTabs>
-        
-
-        </Box>
-        {clickValue}
-        
-      
+      <Box sx={{ bgcolor: "#fff", transform: "skew(-0.1deg)" }}>
+        <AntTabs value={value} onChange={handleChange} aria-label="ant example">
+          <AntTab
+            label="프로젝트 계획"
+            style={{ fontFamily: "NanumSquareB" }}
+            onClick={() => {
+              setClickValue(<DetailContents />);
+            }}
+          />
+          <AntTab
+            label="커뮤니티"
+            style={{ fontFamily: "NanumSquareB" }}
+            onClick={() => {
+              setClickValue(<Cummunity />);
+            }}
+          />
+        </AntTabs>
+      </Box>
+      {clickValue}
     </div>
   );
 }
