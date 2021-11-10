@@ -2,11 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, FormControl, InputGroup } from 'react-bootstrap';
 import { useParams, Link } from 'react-router-dom';
-import { useForm } from "react-hook-form";
 import '../Settings.css'
 import './Profile.css'
-import styled from 'styled-components';
-
 function Profile(props) {
 
   let { user_id } = useParams();
@@ -19,8 +16,10 @@ function Profile(props) {
   let [photoModal, setPhotoModal] = useState(false);
 
   const [mypage, setMypage] = useState({
+    user_idx : 0,
     user_id : '',
     user_name : '',
+    user_pw : '',
     user_phone : '',
     user_address : '',
     user_email : '',
@@ -73,7 +72,7 @@ function Profile(props) {
               <div>
               {
                 nameModal === true
-                  ? <div><NameModal mypage={mypage} setMypage={setMypage}></NameModal></div>
+                  ? <div><NameModal></NameModal></div>
                   : <p>{mypage.user_name}</p>
               }
               </div>
@@ -93,7 +92,7 @@ function Profile(props) {
                 {
                   pwModal === true
                     ? <div><PasswordModal></PasswordModal></div>
-                    : null
+                    : <p>{mypage.user_pw}</p>
                 }
               </div>
               <hr style={{marginBottom:'20px'}} />
@@ -193,120 +192,28 @@ function Profile(props) {
   );
 };
 
-function NameModal(props){
-  console.log("mypage모달의 props : ", props);
-  let useridx = props.mypage.user_idx; //넘어온 아이디번호 
-  console.log("user_idx는? : ", useridx);
-
-  const [inputs, setInputs] = useState({
-    user_idx : '',
-    user_name : ''
-  });
-  const {name} = inputs;
-  console.log("inputs는? ", inputs);
-
-  // const [user_name, setUser_name] = useState(props.mypage.user_name);
-  // const [new_user, setNew_user] = useState({
-  //   user_idx : props.mypage.user_idx,
-  //   user_id : '',
-  //   user_name : '',
-  //   user_phone : '',
-  //   user_address:'',
-  // });
-  // console.log("마지막 : ",new_user.user_idx);
-
-
-  const { register, watch, handleSubmit,  formState: { errors } } = useForm();
-
-  const onSubmit = (data) => {
-    console.log("데이터>>>", data);  //변경한이름 user_name : "ddd"
-
-    // setNew_user(data.user_name);
-    // console.log("new_user찾아보자");
-    // console.log(new_user);
-
-    // axios
-    //   .post("http://localhost:8004/app/user/join.do", data)
-    //   .then((response) => {
-    //     console.log("login post user to Spring", response);
-    //     const result = response.data;
-    //     console.log("result", result);
-    //     alert("회원가입 완료");
-    //   })
-    //   .catch((error) => {
-    //     axiosError(error);
-    //     console.log("실패")
-    //   });
-};
-
+function NameModal(){
   return(
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form>
         <InputGroup style={{width:'40%'}}>
           <FormControl
             type="text"
-            name="user_name"
             placeholder="이름 입력"
-            {...register("user_name", {required:true, maxLength : 20, minLength : 2 })}
           />
         </InputGroup>
-        {errors.user_name?.type === "required" && (<InputGroup><Warning>이름을 입력해주세요</Warning></InputGroup>)}
-        {(errors.user_name?.type === "maxLength" || errors.user_name?.type === "minLength") && (<InputGroup><Warning>이름은 2자 이상, 20자 이하로 입력하세요.</Warning></InputGroup>)}
         <br />
-        <Button variant="dark" style={{width:'80px'}} type="submit" >저장</Button>
+        <Button variant="dark" style={{width:'80px'}}>저장</Button>
       </form>
     </div>
   )
 }
 
 function PasswordModal(){
-
-  const [userinfo, setUserinfo] = useState({
-    user_pw: "",
-  });
-
-  const {register, handleSubmit, formState: { errors }, getValues } = useForm();
-  
-  const onSubmit = (data) => {
-   
-    console.log("데이터>>>", data);
-
-    setUserinfo(data);
-    console.log("유저인포", userinfo.user_pw);
-
-    axios
-      .post("http://localhost:8004/app/user/pwcheck.do", data)
-      .then((response) => {
-        console.log("login post user to Spring", response);
-        // result = response.data;
-        // console.log("result", result);
-
-        // if (result === 0) {
-        //   alert("아이디가 없습니다.");
-        // } else if (result === -1) {
-        //   alert("비밀번호가 일치하지 않습니다.");
-        // } else {
-        //   alert("로그인 완료");
-        
-        //   localStorage.setItem('token',true);
-        //   const userName = getValues("user_id");
-        //   localStorage.setItem('user_id',userName);
-        //   console.log("getvalue 성공", userName);
-        //   // localStorage.setItem('user_id',JSON.stringify(userinfo.user_id).slice(1,-1));
-
-        //   props.history.push("/users/myproject");
-        //   // props.history.push("/");
-        // }
-      })
-      .catch((error) => {
-        console.log("error입니다. ", error);
-      });
-  };
-
   return(
     <div>
       <p style={{fontSize:'15px'}}>현재 비밀번호</p>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form>
         <InputGroup style={{width:'40%'}}>
           <FormControl
             style={{fontFamily:'Consolas', marginTop:'-5px'}}
@@ -334,7 +241,7 @@ function PasswordModal(){
           />
         </InputGroup>
         <br />
-        <Button variant="dark" style={{width:'80px'}} type="submit">저장</Button>
+        <Button variant="dark" style={{width:'80px'}}>저장</Button>
       </form>
     </div>
   )
@@ -389,10 +296,4 @@ function PhotoModal(){
     </div>
   )
 }
-
-const Warning = styled.div`
-    color : red ;
-    font-size : 13px;
-    `;
-    
 export default Profile;
