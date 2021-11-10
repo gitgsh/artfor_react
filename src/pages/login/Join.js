@@ -7,6 +7,7 @@ import "../../CSS/login/Join.css";
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { data } from 'jquery';
+import Agree from './Agree';
 
 function Join(props) {
 
@@ -37,7 +38,8 @@ function Join(props) {
             console.log("login post user to Spring", response);
             result = response.data;
             console.log("result", result);
-            alert("회원가입 완료");
+            alert("회원가입 완료! 로그인 해주세요.");
+            props.history.push("/login");
 
           })
           .catch((error) => {
@@ -49,7 +51,7 @@ function Join(props) {
 
     //중복확인하고 중복아니면 인증메일 보내주기
     const confirmEmail = (data) => {
-        data = getValues("user_email");
+        data = {user_email : getValues("user_email")};
         console.log("데이터>>", data);
         axios.post("http://localhost:8004/app/user/mailConfirm2", data)
         .then((response) => {
@@ -148,21 +150,13 @@ function Join(props) {
                         {errors.user_pw_con?.type === "validate" && <InputGroup><Warning>비밀번호가 일치하지 않습니다.</Warning></InputGroup>}
                         </InputGroup>
                     </div>
-                    </BoxStyle>
-
-                    <div className="join-form-input-1" >
-                        <InputGroup>
-                        <FormCheck type="checkbox"  label="동의" {...register("agree", {required : true })}/> 
-                        {errors.agree?.type === "required" && (<InputGroup><Warning>필수 동의 내용을 체크해주세요.</Warning></InputGroup>)}
-                        </InputGroup>
-
-                        <InfoStyle>동의</InfoStyle>
-                    </div>              
+                    </BoxStyle>             
 
                     <div className="div_btn_join">
                         <Button className="btn_join" variant="dark" type="submit">가입</Button>
                         <Link to="/login"><Button className="btn_join" variant="light">취소</Button></Link>
                     </div>
+                   
 
                 </form>
              </div>
