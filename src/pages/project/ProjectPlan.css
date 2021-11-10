@@ -164,10 +164,21 @@
   font-size: 15px;
   width: 130px;
   height: 40px;
-  border: 1px solid rgb(242, 242, 242);
+  border: 1.5px solid rgb(242, 242, 242);
   border-radius: 4px;
   margin: 0px auto 30px;
   text-align: center;
   line-height: 1.7em;
   padding-top: 20px;
+}
+
+.imgsubmit {
+  font-size: 15px;
+  width: 130px;
+  height: 40px;
+  border: 1.5px solid rgb(242, 242, 242);
+  border-radius: 4px;
+  text-align: center;
+  line-height: 1.7em;
+  background-color: white;
 }

@@ -10,8 +10,12 @@ import "./Pledges.css";
 import "./Tab.css";
 import { Checkbox } from "@mui/material";
 import { pink } from "@mui/material/colors";
+//jh
+import { inject, observer } from "mobx-react";
 
 function Pledges(props) {
+  
+
   return (
     <div
       className="pledges-container"

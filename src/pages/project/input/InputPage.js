@@ -31,7 +31,7 @@ class InputPage extends React.Component {
     };
 
     axios
-      .post("http://localhost:8004/app/input.do", data)
+      .post("http://localhost:8004/app/inputc.do", data)
       .then((result) => {
         console.log("성공");
         console.log("dd", data);
@@ -65,15 +65,6 @@ class InputPage extends React.Component {
             </Button>
           </div>
           <div>
-            {/* <h2>Result</h2>
-            <div
-              dangerouslySetInnerHTML={{ __html: this.state.work_content }}
-            ></div> 
-            <textarea
-              className="result"
-              value={this.state.work_content}
-              readOnly="readOnly"
-            ></textarea>*/}
           </div>
         </div>
       </>

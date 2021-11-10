@@ -9,8 +9,6 @@ import { Switch, Route } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Members from "./pages/members/Members";
-import InputPage from "./pages/project/input/InputPage";
-import InputDetail from "./pages/project/input/InputDetail";
 import Join from "./pages/login/Join";
 import Detail from "./pages/detail/Detail";
 import MyProject from "./pages/users/MyProject";
@@ -56,15 +54,7 @@ function App() {
           <Route exact={true} path="/donation" component={Donation}/>
           <Route exact={true} path="/members/list" component={Members} />
 
-          {/* 
-          <Route exact={true} path="/login" component={Login} /> */}
-          {/* EDITOR */}
-          <Route exact={true} path="/write/input" component={InputPage}>
-            <InputPage />
-          </Route>
-          <Route exact={true} path="/write/detail" component={InputDetail}>
-            <InputDetail data={data} setData={setData} />
-          </Route>
+
           {/* LOGIN */}
           <Route exact={true} path="/login" component={Login} />
           <Route exact={true} path="/join" component={Join} />
