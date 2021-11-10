@@ -29,6 +29,7 @@ export default class MainStore {
     artist_name: "",
     funding_today: "",
     funding_status: "",
+    funding_startline: "",
   };
 
 
@@ -65,7 +66,7 @@ export default class MainStore {
         console.log("성공");
         console.log("Done worksRead", response);
         this.works = response.data;
-        console.log("Done worksRead", this.works);
+        console.log("this.works>>", this.works);
       })
       .catch((error) => {
         console.log("실패");
@@ -93,6 +94,35 @@ export default class MainStore {
       });
   }
 
+  likePlus(index){
+    axios.get("http://localhost:8004/app/likePlus/", {
+      params: {
+        work_no : index,
+      }
+    })
+    .then((response)=>{
+      console.log('likePlus axious...')
+    })
+    .catch((error)=>{
+      axiosError(error);
+      console.log('likePlus실패...')
+    });
+  }
+
+  likeMinus(index){
+    axios.get("http://localhost:8004/app/likeMinus/", {
+      params: {
+        work_no : index,
+      }
+    })
+    .then((response)=>{
+      console.log('likeMinus axious...')
+    })
+    .catch((error)=>{
+      axiosError(error);
+      console.log('likeMinus실패...')
+    });
+  }
 
   worksUpdate(index, member) {
     axios
