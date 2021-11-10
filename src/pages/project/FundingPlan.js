@@ -5,10 +5,41 @@ import TextField from "@mui/material/TextField";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
+// jh
+import { useState, useEffect } from "react";
+import { inject, observer } from "mobx-react";
+import dayjs from "dayjs";
 
 function FundingPlan(props) {
-  const [startDate, setStartDate] = React.useState(new Date());
-  const [endDate, setEndDate] = React.useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  const [fee1, setFee1] = useState(0);
+  const [fee2, setFee2] = useState(0);
+ 
+
+  //jh
+  const {mainStore} = props;
+  const {works, work} = mainStore;
+  
+    // 얘를 없애면 home안감
+    // useEffect(()=>{
+    //   mainStore.worksRead();
+    // }, [mainStore]);
+
+    function Soso1() {
+      console.log(work.funding_goal);
+      const mfee1 = (work.funding_goal)*0.03;
+      const rfee = mfee1+(mfee1*0.1);
+      setFee1(rfee);
+      return fee1;
+    }
+
+    function Soso2() {
+      const mfee2 = (work.funding_goal)*0.05;
+      const rfee = mfee2+(mfee2*0.1);
+      setFee2(rfee);
+      return fee2;
+    }
 
   return (
     <div
@@ -128,6 +159,8 @@ function FundingPlan(props) {
                   transform="skew(-0.1deg)"
                   className="Input-goal"
                   placeholder="50만원 이상의 금액을 입력해주세요"
+                  value={work.funding_goal}
+                  onChange={event=> {work.funding_goal = event.target.value}}
                 />
 
                 <div
@@ -164,7 +197,8 @@ function FundingPlan(props) {
                         textAlign: "right",
                       }}
                     >
-                      {0} 원
+                      {work.funding_goal - (fee1+fee2)} 원
+                      {/* {work.funding_goal} */}
                     </div>
                   </div>
 
@@ -186,7 +220,8 @@ function FundingPlan(props) {
                         class="col-4"
                         style={{ textAlign: "right", marginBottom: "2px" }}
                       >
-                        {0} 원
+                        {/* {0} 원 */}
+                        {fee1+fee2} 원
                       </div>
                     </div>
 
@@ -204,7 +239,8 @@ function FundingPlan(props) {
                         class="col-4"
                         style={{ textAlign: "right", marginBottom: "2px" }}
                       >
-                        {0} 원
+                        <Soso1 /> 원
+                        {/* {0} 원 */}
                       </div>
                     </div>
 
@@ -221,7 +257,8 @@ function FundingPlan(props) {
                         class="col-4"
                         style={{ textAlign: "right", marginBottom: "2px" }}
                       >
-                        {0} 원
+                        {/* {0} 원 */}
+                        <Soso2 /> 원
                       </div>
                     </div>
                   </div>
@@ -351,8 +388,15 @@ function FundingPlan(props) {
                     <DesktopDatePicker
                       // label="시작 날짜를 선택해주세요"
                       value={startDate}
+                      dateFormat="yyyy-MM-dd"
                       onChange={(startDate) => {
                         setStartDate(startDate);
+                        console.log(startDate);
+                        //const dateFormat = dayjs(startDate).format('YY/MM/DD');
+                        //console.log(">>>>",dateFormat);
+                        //console.log(">>>>", typeof dateFormat) 
+                        work.funding_startline = startDate;
+                        console.log(">>>>", work.funding_startline); 
                       }}
                       renderInput={(params) => (
                         <TextField
@@ -382,6 +426,7 @@ function FundingPlan(props) {
                     textAlign: "left",
                   }}
                 >
+                  
                   펀딩기간
                   <div
                     style={{
@@ -392,6 +437,7 @@ function FundingPlan(props) {
                   >
                     최대 60일
                   </div>
+                  
                 </p>
               </li>
               <li style={{ color: "tomato", fontSize: "30px" }}>
@@ -425,6 +471,12 @@ function FundingPlan(props) {
                       value={endDate}
                       onChange={(endDate) => {
                         setEndDate(endDate);
+                        console.log(endDate);
+                        //const dateFormat = dayjs(endDate).format('YY/MM/DD');
+                        //console.log(">>>>",dateFormat);
+                        //work.funding_deadline = dateFormat;
+                        work.funding_deadline = endDate;
+                        //console.log(">>>>", work.funding_deadline);
                       }}
                       renderInput={(params) => (
                         <TextField
@@ -501,4 +553,5 @@ function FundingPlan(props) {
   );
 }
 
-export default FundingPlan;
+//export default FundingPlan;
+export default inject("mainStore")(observer(FundingPlan));

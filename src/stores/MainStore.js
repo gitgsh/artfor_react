@@ -35,21 +35,19 @@ export default class MainStore {
 
 
   worksCreate() {
-    // this.members.push({
-    //   name: this.member.name,
-    //   age: this.member.age
-    // });
-    // console.log('Done membersCreate', this.members);
+    
     axios
-      .post("http://localhost:3100/api/v1/members", this.member)
-      .then((response) => {
-        console.log("Done membersCreate", response);
-        this.membersRead();
+      .post("http://localhost:8004/app/input.do", this.work)
+      .then((result) => {
+        console.log("성공");
+        console.log("dd", this.work);
       })
-      .catch((error) => {
-        axiosError(error);
+      .catch((err) => {
+        console.log("실패함", err);
+        // console.log(this.work.work_content)
       });
-  }
+  };
+    
 
   worksRead() {
     // this.members = [{

@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "./ProjectPlan.css";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -11,24 +11,23 @@ import { Button, InputGroup } from "react-bootstrap";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { FcRemoveImage, FcExternal } from "react-icons/fc";
 import { Input } from "reactstrap";
+import axios from "axios";
+
+// jh
+import { inject, observer } from "mobx-react";
+
+
 function ProjectPlan(props) {
-  const [category, setCategory] = useState("");
-  const [detailCategory, setDetailCategory] = useState("");
-  let [planModal, setPlanModal] = useState(false);
+  
+  
 
-  const categoryChange = (event) => {
-    setCategory(event.target.value);
-  };
-  const detailCategoryChange = (event) => {
-    setDetailCategory(event.target.value);
-  };
 
-  function modalSwitch(event) {
-    let value = event.target.value;
-    if (value === "buttonClick") {
-      setPlanModal(!planModal);
-    }
-  }
+   //jh
+   const {mainStore} = props;
+   const {works, work} = mainStore;
+
+   console.log("새로고침");
+
   return (
     <div
       className="projectPlan-container"
@@ -37,6 +36,125 @@ function ProjectPlan(props) {
         height: "100%",
       }}
     >
+      {/* 카테고리 */}
+      <CategoryInput />
+
+      {/* 제목 */}
+      <Titleupload />
+
+      {/* 이미지 업로드 */}
+      <Imageupload />
+
+      {/* 프로젝트 설명 - 에디터 */}
+      <ProjectEditor />
+
+      <div id="button" style={{ display: "block", paddingTop: "17px" }}>
+            <Button
+              onClick={() => mainStore.worksCreate()}
+              variant="dark"
+              style={{ width: "80px" }}
+            >
+              올리기
+            </Button>
+      </div>
+    </div>
+  ); // return끝부분
+
+  function Description() {
+    return (
+      <div
+        className="projectPlan-description"
+        style={{
+          color: "#6D6D6D",
+          fontFamily: "NanumSquareR",
+          fontSize: "14px",
+          letterSpacing: "0px",
+          transform: "skew(-0.1deg)",
+        
+        }}
+      >
+        <p>무엇을 만들기 위한 프로젝트인지 분명히 알려주세요.</p>
+      </div>
+    );
+  }
+
+  function Star() {
+    return (
+      <span
+        className="projectPlan-star"
+        style={{
+          fontSize: "25px",
+          fontFamily: "NanumSquareEB",
+          color: "#F86453",
+        }}
+      >
+        *
+      </span>
+    );
+  }
+
+  function PlanModal() {
+    return (
+      <InputPage />
+    );
+  }
+
+  
+  function TitleDescription() { // 제목 설명
+    return (
+      <div
+        className="projectPlan-description"
+        style={{
+          color: "#6D6D6D",
+          fontFamily: "NanumSquareR",
+          fontSize: "14px",
+          letterSpacing: "0px",
+          transform: "skew(-0.1deg)",
+        }}
+      >
+        <p>프로젝트의 주제, 창작물의 특징이 드러나는 멋진 제목을 붙여주세요.</p>
+      </div>
+    );
+  }
+
+  function ImageDescription() { // 이미지 업로드 설명
+    return (
+      <div
+        className="projectPlan-description"
+        style={{
+          color: "#6D6D6D",
+          fontFamily: "NanumSquareR",
+          fontSize: "14px",
+          letterSpacing: "0px",
+          transform: "skew(-0.1deg)",
+        }}
+      >
+        <p>
+          후원자들이 프로젝트의 내용을 쉽게 파악하고 좋은 인상을 받을 수 있도록
+          이미지 가이드 라인을 따라주세요.
+        </p>
+      </div>
+    );
+  }
+
+
+  // 카테고리
+  function CategoryInput(){
+    // 이걸 고침!
+    const [category, setCategory] = useState("");
+    const [detailCategory, setDetailCategory] = useState("");
+
+    const categoryChange = (e) => {
+      // /e.preventDefault();
+      setCategory(e.target.value);
+    }
+
+    const detailCategoryChange = (event) => {
+      event.preventDefault();
+      setDetailCategory(event.target.value);
+    };
+    return(
+      
       <div className="projectPlan-box" style={{}}>
         <div
           className="row"
@@ -251,266 +369,6 @@ function ProjectPlan(props) {
           </div>
         </div>
       </div>
-      {/* 제목 */}
-
-      <Titleupload />
-      <Imageupload />
-
-      {/* 프로젝트 설명 - 에디터 */}
-      <div className="projectPlan-box">
-        <div
-          className="col"
-          style={{
-            paddingBottom: "40px",
-            paddingTop: "70px",
-            borderBottom: "1px solid",
-            borderBottomColor: "rgb(228, 228, 228)",
-            margin: "0 auto",
-            maxWidth: "1180px",
-          }}
-        >
-          <div
-            className="row"
-            style={{
-              fontSize: "16px",
-              fontFamily: "NanumSquareEB",
-              textAlign: "left",
-              transform: "skew(-0.1deg)",
-            }}
-          >
-            <div style={{ marginLeft: "130px" }}>
-              프로젝트 설명
-              <Star />
-            </div>
-
-            <Description />
-          </div>
-
-          <div
-            className="row"
-            style={{
-              margin: "0 auto",
-              borderColor: "rgb(240, 240, 240)",
-              borderRadius: "5px",
-              paddingLeft: "25px",
-              paddingRight: "25px",
-              paddingBottom: "20px",
-              paddingTop: "30px",
-            }}
-          >
-            <div
-              style={{
-                border: "1px solid ",
-                borderColor: "rgb(240, 240, 240)",
-                backgroundColor: "#FFFFFF",
-                borderRadius: "5px",
-                paddingLeft: "17px",
-                paddingRight: "25px",
-                paddingBottom: "20px",
-                width: "900px",
-                margin: "0 auto",
-                paddingTop: "30px",
-                margin: "0 auto",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  marginTop: "10px",
-                  marginBottom: "30px",
-                  marginRight: "-5px",
-                }}
-              >
-                <div
-                  style={{
-                    fontWeight: "bold",
-                    fontSize: "17px",
-                    paddingLeft: "5px",
-                  }}
-                >
-                  프로젝트 설명
-                </div>
-
-                {planModal === true ? (
-                  <button
-                    style={{
-                      fontSize: "17px",
-                      background: "none",
-                      color: "#3399ff",
-                      border: "0",
-                      marginLeft: "",
-                    }}
-                    onClick={modalSwitch}
-                    value="buttonClick"
-                  >
-                    <img
-                      src={"../../../up-arrow.png"}
-                      style={{ height: "20px" }}
-                    ></img>
-                  </button>
-                ) : (
-                  <button
-                    style={{
-                      fontSize: "17px",
-                      background: "none",
-                      color: "#3399ff",
-                      border: "0",
-                      display: "inline-flex",
-                    }}
-                    onClick={modalSwitch}
-                    value="buttonClick"
-                  >
-                    <img
-                      src={"../../../down-arrow.png"}
-                      style={{
-                        width: "20px",
-                        height: "20px",
-                        marginTop: "5px",
-                      }}
-                    ></img>
-                  </button>
-                )}
-              </div>
-              <div>
-                {planModal === true ? (
-                  <div>
-                    <PlanModal />
-                  </div>
-                ) : (
-                  <div></div>
-                )}
-              </div>
-              <hr
-                style={{
-                  marginBottom: "10px",
-                  color: "#6c757d",
-                }}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="row" style={{}}>
-        <div className="col-5" style={{}}>
-          <div></div>
-          <div className="col-7" style={{}}></div>
-        </div>
-      </div>
-    </div>
-  );
-
-  function Description() {
-    return (
-      <div
-        className="projectPlan-description"
-        style={{
-          color: "#6D6D6D",
-          fontFamily: "NanumSquareR",
-          fontSize: "14px",
-          letterSpacing: "0px",
-          transform: "skew(-0.1deg)",
-          marginLeft: "130px",
-        }}
-      >
-        <p>무엇을 만들기 위한 프로젝트인지 분명히 알려주세요.</p>
-      </div>
-    );
-  }
-  function Star() {
-    return (
-      <span
-        className="projectPlan-star"
-        style={{
-          fontSize: "25px",
-          fontFamily: "NanumSquareEB",
-          color: "#F86453",
-        }}
-      >
-        *
-      </span>
-    );
-  }
-  function PlanModal() {
-    return (
-      <div>
-        <form>
-          <InputPage />
-        </form>
-      </div>
-    );
-  }
-  function Notice() {
-    return (
-      <div
-        className="funding-notice"
-        style={{
-          fontFamily: "NanumSquareR",
-          fontSize: "14px",
-          width: "400px",
-          backgroundColor: "rgb(253, 244, 243)",
-          paddingTop: "23px",
-          paddingLeft: "24px",
-          paddingRight: "22px",
-          paddingBottom: "25px",
-          borderRadius: "8px",
-        }}
-      >
-        <p
-          style={{
-            fontFamily: "NanumSquareB",
-            color: "#F86453",
-            fontSize: "16px",
-            transform: "skew(-0.1deg)",
-          }}
-        >
-          ⓘ 목표 금액 설정 시 꼭 알아두세요!
-        </p>
-        <p>* 프로젝트를 완수하기 위해 필요한 금액을 설정해주세요.</p>
-        <p>
-          * 종료일까지 목표금액을 달성하지 못하면 후원자 결제가 진행되지
-          않습니다.
-        </p>
-        <p>
-          * 종료 전 후원 취소를 대비해 10% 이상 초과 달성을 목표로 해주세요.
-        </p>
-      </div>
-    );
-  }
-  function TitleDescription() {
-    return (
-      <div
-        className="projectPlan-description"
-        style={{
-          color: "#6D6D6D",
-          fontFamily: "NanumSquareR",
-          fontSize: "14px",
-          letterSpacing: "0px",
-          transform: "skew(-0.1deg)",
-        }}
-      >
-        <p>프로젝트의 주제, 창작물의 특징이 드러나는 멋진 제목을 붙여주세요.</p>
-      </div>
-    );
-  }
-
-  function ImageDescription() {
-    return (
-      <div
-        className="projectPlan-description"
-        style={{
-          color: "#6D6D6D",
-          fontFamily: "NanumSquareR",
-          fontSize: "14px",
-          letterSpacing: "0px",
-          transform: "skew(-0.1deg)",
-        }}
-      >
-        <p>
-          후원자들이 프로젝트의 내용을 쉽게 파악하고 좋은 인상을 받을 수 있도록
-          이미지 가이드 라인을 따라주세요.
-        </p>
-      </div>
     );
   }
 
@@ -519,6 +377,7 @@ function ProjectPlan(props) {
     let [titleModal, setTitleModal] = useState(false);
 
     function modalSwitch(e) {
+      e.preventDefault();
       let value = e.target.value;
       if (value === "title") {
         setTitleModal(!titleModal);
@@ -592,9 +451,16 @@ function ProjectPlan(props) {
             </div>
             <div>
               <Input
+                type="text"
+                transform="skew(-0.1deg)"
                 className="Input-title"
                 placeholder="     제목을 입력해주세요"
+                onChange={(event)=>{work.work_title = event.target.value}}
+             
               />
+              {/* 테스트 */}
+              {/* 제목은 : {work.work_title}
+              내용은 : {work.work_content} */}
             </div>
           </div>
         </div>
@@ -608,6 +474,7 @@ function ProjectPlan(props) {
     const [attachment, setAttachment] = useState("");
 
     function modalSwitch(e) {
+      e.preventDefault();
       let value = e.target.value;
       if (value === "image") {
         setImageModal(!imageModal);
@@ -630,6 +497,27 @@ function ProjectPlan(props) {
       };
       reader.readAsDataURL(files[0]);
     };
+
+    const onSubmit = (event) => {
+      event.preventDefault();
+      //console.log(event.target); <form></form>이 들어온다
+      //그냥 폼은 태그 엘리먼트일뿐이기에 FormData 타입으로 변경해야한다. 
+      let form = event.target;
+      let data = new FormData(form);
+      // 파일 전송중에는 submit 비활성화되도록
+
+
+      axios.post('http://localhost:8004/app/input2.do', data,{
+          headers: {
+            "Content-Type": "multipart/form-data",
+          }      
+      }).then((result)=>{
+          console.log('아작스요청 성공함');
+        })
+      .catch((err)=>{
+          console.log('실패');
+      })   
+  }
 
     return (
       <div className="projectPlan-box">
@@ -721,12 +609,17 @@ function ProjectPlan(props) {
                   <p style={{ textAlign: "center", marginTop: "-12px" }}>
                     이미지 업로드 <FcExternal size="16px" color="red" />
                   </p>
-                  <input
-                    type="file"
-                    id="uploadFile"
-                    style={{ display: "none" }}
-                    name="uploadFile"
-                  />
+                  <form onSubmit={onSubmit} >
+                    <input
+                      type="file"
+                      id="uploadFile"
+                      style={{ display: "none" }}
+                      name="uploadFile"
+                    />
+                    
+          
+                    <input className="imgsubmit" type="submit" value="저장" />
+                  </form>
                 </label>
               </div>
             </div>
@@ -776,6 +669,157 @@ function ProjectPlan(props) {
       </div>
     );
   }
+
+  
+  function ProjectEditor(){
+
+    let [planModal, setPlanModal] = useState(false);
+
+    function modalSwitch2(e){
+      e.preventDefault();
+      // event.stopPropagation();
+      let value = e.target.value;
+      if (value === "buttonClick") {
+        setPlanModal(!planModal);
+      }
+    }
+
+    return(<div className="projectPlan-box">
+    <div
+      className="col"
+      style={{
+        paddingBottom: "40px",
+        paddingTop: "70px",
+        borderBottom: "1px solid",
+        borderBottomColor: "rgb(228, 228, 228)",
+        margin: "0 auto",
+        maxWidth: "1180px",
+      }}
+    >
+      <div
+        className="row"
+        style={{
+          fontSize: "16px",
+          fontFamily: "NanumSquareEB",
+          textAlign: "left",
+          transform: "skew(-0.1deg)",
+        }}
+      >
+        <div style={{ marginLeft: "130px" }}>
+          프로젝트 설명
+          <Star />
+        </div>
+   
+      </div>
+ 
+      <div
+        className="row"
+        style={{
+          margin: "0 auto",
+          borderColor: "rgb(240, 240, 240)",
+          borderRadius: "5px",
+          paddingLeft: "25px",
+          paddingRight: "25px",
+          paddingBottom: "20px",
+          paddingTop: "30px",
+        }}
+      >
+        <div
+          style={{
+            border: "1px solid ",
+            borderColor: "rgb(240, 240, 240)",
+            backgroundColor: "#FFFFFF",
+            borderRadius: "5px",
+            paddingLeft: "17px",
+            paddingRight: "17px",
+            paddingBottom: "20px",
+            width: "900px",
+            margin: "0 auto",
+            paddingTop: "30px",
+            margin: "0 auto",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginTop: "10px",
+              marginBottom: "30px",
+              marginRight: "-5px",
+            }}
+          >
+            <div
+              style={{
+                fontWeight: "bold",
+                fontSize: "17px",
+                paddingLeft: "5px",
+              }}
+            >
+              프로젝트 설명
+            </div>
+
+            {planModal === true ? (
+              <button 
+                onClick={modalSwitch2}
+                value="buttonClick"
+                style={{
+                  fontSize: "17px",
+                  background: "none",
+                  color: "#3399ff",
+                  border: "0",
+                  marginLeft: "",
+                }}
+              >
+                <img
+                  src={"../../../up-arrow.png"}
+                  style={{ height: "20px" }}
+                ></img>
+              </button>
+            ) : (
+              <button
+                style={{
+                  fontSize: "17px",
+                  background: "none",
+                  color: "#3399ff",
+                  border: "0",
+                  display: "inline-flex",
+                }}
+                onClick={modalSwitch2}
+                value="buttonClick"
+              >
+                <img
+                  src={"../../../down-arrow.png"}
+                  style={{
+                    width: "20px",
+                    height: "20px",
+                    marginTop: "5px",
+                  }}
+                ></img>
+              </button>
+            )}
+          </div>
+          <div>
+            {planModal === true ? (
+              <div>
+                <PlanModal />
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
+          <hr
+            style={{
+              marginBottom: "10px",
+              color: "#6c757d",
+            }}
+          />
+        </div>
+      </div>
+    </div>
+  </div>);
+  }
+ 
 }
 
-export default ProjectPlan;
+// export default ProjectPlan;
+export default inject("mainStore")(observer(ProjectPlan));
