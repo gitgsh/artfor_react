@@ -25,7 +25,7 @@ function Community(props) {
   console.log("findCommunity", findCommunity);
   return (
     <div className="projectTitle_Home_Detail">
-      <p style={{ fontFamily: "NanumSquareR" }}></p>
+      <p style={{ fontFamily: "NanumSquareR" }}>{findCommunity.c_content}</p>
 
       <div
         className="content_HomeDetail"
