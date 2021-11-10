@@ -5,7 +5,7 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import { useState } from "react";
 
-import Cummunity from "../community/Coummunity";
+import Community from "../community/Coummunity";
 import DetailContents from "./DetailContents";
 import "./Tab.css";
 
@@ -116,7 +116,7 @@ export default function CustomizedTabs() {
             label="커뮤니티"
             style={{ fontFamily: "NanumSquareB" }}
             onClick={() => {
-              setClickValue(<Cummunity />);
+              setClickValue(<Community />);
             }}
           />
         </AntTabs>
