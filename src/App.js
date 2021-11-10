@@ -60,6 +60,7 @@ function App() {
           <Route exact={true} path="/join" component={Join} />
           <Route exact={true} path="/forgotPW" component={ForgotPW} />
           <Route exact={true} path="/users/myproject" component={MyProject} />
+          <Route path="/users/mysettings/:user_id" component={MySettings} />
           <Route exact={true} path="/users/mysettings" component={MySettings} />
           <Route exact={true} path="/admin/adminmain" component={AdminMain} />
           <Route exact={true} path="/admin/manageArtwork" component={ManageArtwork} />

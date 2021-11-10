@@ -6,7 +6,7 @@ function UserLinkMenu(){
 
     return <NavDropdown  title= { window.localStorage.getItem('name') } id="basic-nav-dropdown">            
             <NavDropdown.Item style={{fontFamily:"NanumSquareB", fontSize:"14px"}} href="/users/myproject">프로젝트</NavDropdown.Item>
-            <NavDropdown.Item style={{fontFamily:"NanumSquareB", fontSize:"14px"}} href="/users/myproject">설정</NavDropdown.Item>
+            <NavDropdown.Item style={{fontFamily:"NanumSquareB", fontSize:"14px"}} href="/users/mysettings">설정</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item style={{fontFamily:"NanumSquareB", fontSize:"14px"}} ><LogoutLink /></NavDropdown.Item>
             {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}

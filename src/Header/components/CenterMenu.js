@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { ReactComponent as Logo } from '../../assets/artfor_logo.svg';
+import { ReactComponent as Logo } from '../../assets/artforlogo11.svg';
 import { flex } from '../../styles/mixins';
 
 function CenterMenu() {

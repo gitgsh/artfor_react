@@ -48,6 +48,7 @@ function Login(props) {
           getUserInfo();
 
           props.history.push("/users/myproject");
+          // props.history.push("/");
         }
       })
       .catch((error) => {

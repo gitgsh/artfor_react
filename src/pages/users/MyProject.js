@@ -18,6 +18,8 @@ function MyProject(props) {
   };
   console.log(value);
 
+  const user_id = window.localStorage.getItem('user_id');
+
   return (
     <div className="setting-margin-box">
       <div className="setting-box-1" >
@@ -29,10 +31,12 @@ function MyProject(props) {
             
             {/* {window.localStorage.getItem('user_id').slice(1,-1)} <span style={{ fontSize: "25px" }}>님</span> */}
             {window.localStorage.getItem('name')} <span style={{ fontSize: "25px" }}>님</span>
+            {/* {window.localStorage.getItem('user_id')} */}
+            {/* {user_id} */}
           </h2>
         </div>
         <div style={{position:'absolute', zIndex:'1', left:'670px', top:'150px'}}>
-          <Link to="/users/mysettings">
+          <Link to={`/users/mysettings/${user_id}`}>
           <BsGear size="30" color="#505050"/>
           </Link>
         </div>
