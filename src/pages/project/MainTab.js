@@ -98,7 +98,7 @@ export default function PlanTabs() {
   };
 
   
-
+ 
   const [clickValue, setClickValue] = useState(<ProjectFundingPlan />);
 
   return (
@@ -108,7 +108,7 @@ export default function PlanTabs() {
      
           <div className="content_wrap" >
             <div className="pmImage"></div>
-            <div className="pmTitle">wlgp****의 프로젝트 </div>
+            <div className="pmTitle">{window.localStorage.getItem('name')}의 프로젝트 </div>
           </div>
 
           <AntTabs

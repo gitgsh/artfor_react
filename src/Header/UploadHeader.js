@@ -1,7 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import styled from "styled-components";
-import LeftMenu from "./components/LeftMenu";
 import CenterMenu from "./components/CenterMenu";
 import RightMenu from "./components/RightMenu";
 import SearchModal from "./components/SearchModal";
@@ -15,28 +14,26 @@ const exclusionRoutes = ["/login", "/signup"];
 
 // background: ${({ theme }) => theme.colors.white};
 //   border-bottom: 1px solid ${({ theme }) => theme.colors.grey500};
-function Header() {
+function UploadHeader() {
 
   
-  console.log(window.location.pathname);
+
   return (
     
-    <StyledHeader>
-      <HeaderContainer>
-      {(window.location.pathname ==
-        "/project/plan/projectupload")? (<UploadLeftMenu />) : ( <LeftMenu />)}
-        {/* <LeftMenu /> */}
-        {/* <SearchModal/> */}
+    <StyledHeader2>
+      <HeaderContainer2>
+        {/* 프로젝트올리기 */}
+        <UploadLeftMenu /> 
         <CenterMenu />
         <RightMenu />
-        <head_prjMenu/>
-      </HeaderContainer>
-    </StyledHeader>
+        {/* <head_prjMenu/> */}
+      </HeaderContainer2>
+    </StyledHeader2>
     
   );
 }
 
-const StyledHeader = styled.header`
+const StyledHeader2 = styled.header`
   position: fixed;
   top: 0;
   width: 100%;
@@ -47,9 +44,9 @@ const StyledHeader = styled.header`
   position: sticky;
 `;
 
-const HeaderContainer = styled(Container)`
+const HeaderContainer2 = styled(Container)`
   ${flex("space-between", "center")};
   height: 100%;
 `;
 
-export default Header;
+export default UploadHeader;

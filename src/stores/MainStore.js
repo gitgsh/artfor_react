@@ -34,19 +34,18 @@ export default class MainStore {
 
 
 
-  worksCreate() {
+  // worksCreate() {
     
-    axios
-      .post("http://localhost:8004/app/input.do", this.work)
-      .then((result) => {
-        console.log("성공");
-        console.log("dd", this.work);
-      })
-      .catch((err) => {
-        console.log("실패함", err);
-        // console.log(this.work.work_content)
-      });
-  };
+  //   axios
+  //     .post("http://localhost:8004/app/input.do", this.work)
+  //     .then((result) => {
+  //       console.log("성공");
+  //       console.log("dd", this.work);
+  //     })
+  //     .catch((err) => {
+  //       console.log("실패함", err);
+  //     });
+  // };
     
 
   worksRead() {

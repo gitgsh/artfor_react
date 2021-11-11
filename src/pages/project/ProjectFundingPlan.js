@@ -47,7 +47,7 @@ function ProjectFundingPlan(props) {
                       <img src="/book.png" style={{ width: "25px" }} />{" "}
                     </p>
                     <p className="pfpt">프로젝트 계획</p>
-                    <p>28%작성완료</p>
+                    {/* <p>28%작성완료</p> */}
                   </div>
                 </div>
               </a>
@@ -60,7 +60,7 @@ function ProjectFundingPlan(props) {
                       <img src="/mon.png" style={{ width: "25px" }} />{" "}
                     </p>
                     <p className="pfpt">펀딩 계획</p>
-                    <p>28%작성완료</p>
+                    {/* <p>28%작성완료</p> */}
                   </div>
                 </a>
               </div>
@@ -73,7 +73,7 @@ function ProjectFundingPlan(props) {
                       <img src="/safety.png" style={{ width: "25px" }} />{" "}
                     </p>
                     <p className="pfpt">신뢰와 안전</p>
-                    <p>28%작성완료</p>
+                    {/* <p>28%작성완료</p> */}
                   </div>
                 </a>
               </div>
@@ -86,7 +86,7 @@ function ProjectFundingPlan(props) {
                       <img src="/pen.png" style={{ width: "25px" }} />{" "}
                     </p>
                     <p className="pfpt">기본 정보</p>
-                    <p>28%작성완료</p>
+                    {/* <p>28%작성완료</p> */}
                   </div>
                 </a>
               </div>
