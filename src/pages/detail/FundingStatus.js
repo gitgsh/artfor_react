@@ -1,7 +1,8 @@
 import axios from "axios";
 import { inject, observer } from "mobx-react";
 import "./Detail.css";
-import { Button, Card, CardGroup } from "react-bootstrap";
+import { Col, Form, FormGroup, Label, Input } from "reactstrap";
+import { Button, Modal } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import { Popover } from "@mui/material";
 import { Typography } from "@mui/material";
@@ -12,6 +13,8 @@ import shareKakao from "../../kakao/shareKakao";
 import icon_detail_writer from "../../detail_images/icon_detail_writer.JPG";
 import icon_share from "../../detail_images/icon_share.png";
 import icon_url from "../../detail_images/icon_url.jpg";
+import FundingModal from "./FundingModal";
+import { AlternateEmailTwoTone } from "@material-ui/icons";
 
 function FundingStatus(props) {
   const { no } = useParams();
@@ -41,6 +44,7 @@ function FundingStatus(props) {
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
   //PopOver창 끝
+
   const [like, setLike] = useState(true); //좋아요(이미지)
   const [likeDB, setLikeDB] = useState(""); //좋아요(DB)
 
@@ -179,21 +183,63 @@ function FundingStatus(props) {
               <img src={icon_share} style={{ width: "25px", height: "25px" }} />
             </Button>
 
-            <Link to="/donation">
-              <Button
-                variant="danger"
-                style={{
-                  fontFamily: "NanumSqareL",
-                  marginRight: "138px",
-                  marginLeft: "8px",
-                }}
-              >
-                이 프로젝트 후원하기
-              </Button>
-            </Link>
+         
+
+              <FundingModal/>
+           
+            
           </div>
         </div>
+            
 
+        {/* <Modal show={show} onHide={handleCloseDonataion}>
+          <Modal.Header >
+            <Modal.Title style={{margin:"auto"}}>소중한 후원 감사합니다!</Modal.Title>
+          </Modal.Header>
+          <Modal.Body style={{color: "grey"}}> 
+              후원하고자 하는 금액을 입력해주세요!<br/> 
+              후원금을 입력하신 후 결제 페이지로 넘어갑니다.
+              <br/><br/>
+              <Form>
+              <FormGroup>
+                <Label
+                  for="exampleEmail"
+                  style={{
+                    textAlign: "left",
+                    float: "left",
+                    fontFamily: "NanumSquareB",
+                    fontWeight: "800px",
+                    fontSize: "15px",
+                    paddingTop: "25px",
+                    paddingBottom: "12px",
+                  }}
+                >
+                  목표 금액
+                </Label>
+
+                <Input
+                  type="number"
+                  style={{ textAlign: "right" }}
+                  transform="skew(-0.1deg)"
+                  className="Input-goal"
+                  placeholder="후원하고자 하는 금액을 입력해주세요"
+                  value={work.funding_goal}
+                  onChange={event=> {work.funding_goal = event.target.value}}
+                />
+              
+              </FormGroup>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+          <Link to="/donation">
+            <Button variant="secondary" style={{marginRight:"200px"}}>
+                확인
+            </Button>
+            </Link>
+            
+            
+          </Modal.Footer>
+        </Modal> */}
         {/* <hr/> */}
         <div className="detail_head4" style={{ textAlign: "left" }}>
           <div>
