@@ -12,19 +12,20 @@ import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { FcRemoveImage, FcExternal } from "react-icons/fc";
 import { Input } from "reactstrap";
 import axios from "axios";
+import { useHistory } from 'react-router';
 
 // jh
 import { inject, observer } from "mobx-react";
 
 
 function ProjectPlan(props) {
+  let history = useHistory();
   
-  
-
-
    //jh
    const {mainStore} = props;
    const {works, work} = mainStore;
+
+   work.artist_name = window.localStorage.getItem('name');
 
    console.log("새로고침");
 
@@ -36,6 +37,7 @@ function ProjectPlan(props) {
         height: "100%",
       }}
     >
+     {window.localStorage.getItem('name')}
       {/* 카테고리 */}
       <CategoryInput />
 
@@ -50,7 +52,7 @@ function ProjectPlan(props) {
 
       <div id="button" style={{ display: "block", paddingTop: "17px" }}>
             <Button
-              onClick={() => mainStore.worksCreate()}
+              onClick={workCreate}
               variant="dark"
               style={{ width: "80px" }}
             >
@@ -59,6 +61,19 @@ function ProjectPlan(props) {
       </div>
     </div>
   ); // return끝부분
+
+  function workCreate() {
+    //jh
+    axios
+      .post("http://localhost:8004/app/input.do", work)
+      .then((result) => {
+        console.log("성공");
+        history.push('/');
+      })
+      .catch((err) => {
+        console.log("실패함", err);
+      });
+  };
 
   function Description() {
     return (

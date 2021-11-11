@@ -28,6 +28,7 @@ import Donation from './pages/detail/donation/Donation';
 import AdminMain from "./pages/admin/AdminMain";
 import ProjectUploadMain from "./pages/project/ProjectUploadMain";
 import ManageArtwork from "./pages/admin/ManageArtwork";
+import UploadHeader from "./Header/UploadHeader";
 
 function App() {
   // Guide 게시판 검색관련2
@@ -43,8 +44,10 @@ function App() {
     <div>
       {console.log(window.location.pathname)}
       <div className="App">
+        {/* {(window.location.pathname ==
+        "/project/plan/projectupload")? (<></>) : (<Header />)} */}
         {(window.location.pathname ==
-        "/project/plan/projectupload")? (<></>) : (<Header />)}
+        "/project/plan/projectupload")? (<Header />) : (<Header />)}
         <Switch>
           {/* MAIN & DETAIL */}
           <Route exact={true} path="/" component={Main} />
