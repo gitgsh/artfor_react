@@ -98,7 +98,6 @@ export default function PlanTabs() {
   };
 
   
- 
   const [clickValue, setClickValue] = useState(<ProjectFundingPlan />);
 
   return (
@@ -107,8 +106,14 @@ export default function PlanTabs() {
         <Box sx={{ bgcolor: "#fff", height: "100%" }}>
      
           <div className="content_wrap" >
-            <div className="pmImage"></div>
-            <div className="pmTitle">{window.localStorage.getItem('name')}의 프로젝트 </div>
+            {/* <div className="pmImage"></div> */}
+            {
+              localStorage.getItem('work_img') === null ?  (<div className="pmImage"></div>) : 
+                // (<img src={`/image/${localStorage.getItem('work_img')}`} className="pmImage2" /> )
+                (<img src={localStorage.getItem('work_img')} className="pmImage2" /> )
+            }
+             {/* <img src={`/image/j1.jpg`} className="pmImage2" /> */}
+            <div className="pmTitle">{window.localStorage.getItem('name')}님의 프로젝트 </div>
           </div>
 
           <AntTabs

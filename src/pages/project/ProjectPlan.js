@@ -497,7 +497,7 @@ function ProjectPlan(props) {
     }
 
     const onFileChange = (event) => {
-      console.log(event.target.files[0]);
+      console.log(event.target.files[0].name);
       const {
         target: { files },
       } = event;
@@ -509,6 +509,9 @@ function ProjectPlan(props) {
         } = progressEvent;
         // 파일보여줄려고
         setAttachment(result);
+        console.log(result);
+        window.localStorage.setItem('work_img',result);
+
       };
       reader.readAsDataURL(files[0]);
     };
