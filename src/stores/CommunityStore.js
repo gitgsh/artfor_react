@@ -26,7 +26,7 @@ export default class CommunityStore {
 
   cstoresCreate() {
     axios
-      .post("http://localhost:8004/app/", this.cstore)
+      .post("http://localhost:8004/app/replyinput.do", this.cstore)
       .then((result) => {
         console.log("성공");
         console.log("dd", this.cstore);
@@ -44,7 +44,7 @@ export default class CommunityStore {
       .then((response) => {
         console.log("성공");
         console.log("Done cstoresRead", response);
-        console.log("뭐지",response.data)
+        console.log("뭐지", response.data);
         this.cstores = response.data;
         console.log("this.cstores>>", this.cstores);
       })
