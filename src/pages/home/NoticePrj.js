@@ -36,7 +36,9 @@ function NoticePrj(props){
         findOpen.slice(0,4).map(function(data, j){ //8개
           return(//data.work_title
 <Card className="card_Home">
-<Link to={`/detail/${data.work_no}`} onClick={()=>{mainStore.getWork(data.work_no)}}><Card.Img variant="top" src={require(`../../detail_images/${data.work_img}`).default} alt={data.work_img}
+<Link to={`/detail/${data.work_no}`} onClick={()=>{mainStore.getWork(data.work_no)}}><Card.Img variant="top" 
+// src={require(`../../detail_images/${data.work_img}`).default} alt={data.work_img}
+src={`image/${data.work_img}`}
 style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
 <Card.Body className="cardbody_Home">
 <Card.Title className="cardtitle_Home">공예 | {data.artist_name}</Card.Title>
@@ -63,7 +65,8 @@ style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
         findOpen.slice(4,8).map(function(data, j){ 
           return(//data.work_title
 <Card className="card_Home">
-<Link to={`/detail/${data.work_no}`} onClick={()=>{mainStore.getWork(data.work_no)}}><Card.Img variant="top" src={require(`../../detail_images/${data.work_img}`).default} alt={data.work_img}
+<Link to={`/detail/${data.work_no}`} onClick={()=>{mainStore.getWork(data.work_no)}}><Card.Img variant="top" 
+src={`image/${data.work_img}`}
 style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
 <Card.Body className="cardbody_Home">
 <Card.Title className="cardtitle_Home">공예 | {data.artist_name}</Card.Title>

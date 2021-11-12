@@ -26,17 +26,23 @@ export default class FundingStore {
   };
 
 
-  fundingsPage() {
+  fundingsPrc() {
+   
+    console.log('this.funding>>', this.funding);
     axios
-      .get("http://localhost:8004/app/fundingPage/")
+      .post("http://localhost:8004/app/fundingPage/", this.funding)
       .then((result) => {
         console.log("fundingPage 성공");
+        console.log("result>>", result);
       })
       .catch((err) => {
         console.log("fundingPage 실패함", err);
         // console.log(this.work.work_content)
       });
   };
+
+
+ 
 
   // fundingsPage() {
     
