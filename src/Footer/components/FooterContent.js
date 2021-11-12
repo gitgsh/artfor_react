@@ -48,7 +48,7 @@ function FooterContent() {
             <Contents>프로젝트 심사 기준</Contents>
           </tr>
           <tr>
-            <Contents>수수료 정책</Contents>
+            <Contents><Link to="/guide/G_Fee">수수료 정책</Link></Contents>
           </tr>
         </tbody>
         </div>
@@ -64,7 +64,7 @@ function FooterContent() {
         </thead>
         <tbody>
           <tr>
-            <Contents>이용약관</Contents>
+            <Contents><Link to="/guide/G_Articles">이용약관</Link></Contents>
           </tr>
           <tr>
             <ContentsRedHighlight>개인정보 처리방침</ContentsRedHighlight>

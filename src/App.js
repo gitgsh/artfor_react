@@ -28,6 +28,8 @@ import Donation from './pages/detail/donation/Donation';
 import AdminMain from "./pages/admin/AdminMain";
 import ProjectUploadMain from "./pages/project/ProjectUploadMain";
 import ManageArtwork from "./pages/admin/ManageArtwork";
+import G_Fee from "./pages/guide/G_Fee";
+import G_Articles from "./pages/guide/G_Articles";
 
 function App() {
   // Guide 게시판 검색관련2
@@ -105,6 +107,8 @@ function App() {
             keyField={keyField} setkeyField={setkeyField}
             />
           </Route>{" "}
+          <Route exact path="/guide/G_Fee" component={G_Fee} />
+          <Route exact path="/guide/G_Articles" component={G_Articles} />
         </Switch>
         {(window.location.pathname ==
         "/project/plan/projectupload")? (<></>) : (<Footer />)}
