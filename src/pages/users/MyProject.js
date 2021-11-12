@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -6,19 +5,29 @@ import { Link } from "react-router-dom";
 import "./Settings.css";
 import { BsGear } from "react-icons/bs";
 import ProjectTabdiv from './MyProject/ProjectTabdiv';
+import { inject, observer } from 'mobx-react';
+import React, { useEffect, useState } from 'react';
 
 function MyProject(props) {
+
+  const { membersStore } = props;
+  const { members, member } = membersStore;
+
+  useEffect(()=>{
+    member.user_name = window.localStorage.getItem('name');
+  }, [membersStore])
+
   console.log(props);
   const key = props.match.params.key;
   
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
   console.log(value);
 
-  const user_id = window.localStorage.getItem('user_id');
+  const user_n = window.localStorage.getItem('user_name');
 
   return (
     <div className="setting-margin-box">
@@ -30,13 +39,13 @@ function MyProject(props) {
           <h2>
             
             {/* {window.localStorage.getItem('user_id').slice(1,-1)} <span style={{ fontSize: "25px" }}>님</span> */}
-            {window.localStorage.getItem('name')} <span style={{ fontSize: "25px" }}>님</span>
+            {member.user_name} <span style={{ fontSize: "25px" }}>님</span>
             {/* {window.localStorage.getItem('user_id')} */}
             {/* {user_id} */}
           </h2>
         </div>
         <div style={{position:'absolute', zIndex:'1', left:'670px', top:'150px'}}>
-          <Link to={`/users/mysettings/${user_id}`}>
+          <Link to={`/users/mysettings/${user_n}`}>
           <BsGear size="30" color="#505050"/>
           </Link>
         </div>
@@ -92,4 +101,4 @@ const AntTab = styled((props) => <Tab disableRipple {...props} />)(({ theme }) =
   },
 }));
 
-export default MyProject;
+export default inject("membersStore")(observer(MyProject));
