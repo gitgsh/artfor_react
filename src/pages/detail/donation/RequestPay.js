@@ -1,15 +1,61 @@
 import React from "react";
 import $ from "jquery";
+import axios from "axios";
 
 class RequestPay extends React.Component {
        //참고주소: https://minaminaworld.tistory.com/78
+
     render() {
+     
+    
+      const user_email = localStorage.getItem('user_email');
+      const user_name = localStorage.getItem('name');
+      const funding_price = localStorage.getItem('funding_price');
+      const work_title = localStorage.getItem('work_title');
+      const work_no = localStorage.getItem('work_no');
+      const funding_now = localStorage.getItem('funding_now');
+
+      function fundingsPrc() { //user_funding 테이블 insert
+        const data = {funding_price : funding_price, user_email: user_email, user_name: user_name, work_no : work_no};
+        console.log("데이터>>", data)
+        axios
+          .post("http://localhost:8004/app/fundingsPrc/", data)
+          .then((result) => {
+            console.log("fundingPage 성공");
+            console.log("데이터2>>", data)
+          })
+          .catch((err) => {
+            console.log("fundingPage 실패함", err);
+            // console.log(this.work.work_content)
+          });
+      };
+
+      function fundingsPrcUpdate() { //user_funding 테이블 update
+        const data = {funding_price : funding_price, funding_now : funding_now, work_no : work_no};
+        console.log("데이터>>", data)
+        axios
+          .post("http://localhost:8004/app/fundingsPrcUpdate/", data)
+          .then((result) => {
+            console.log("fundingsPrcUpdate 성공");
+            console.log("데이터2>>", data)
+          })
+          .catch((err) => {
+            console.log("fundingsPrcUpdate 실패함", err);
+            // console.log(this.work.work_content)
+          });
+      };
+
+
 
         $("#check_module").click(function () {
+          
+
             var IMP = window.IMP; // 생략가능
             IMP.init('imp47449560'); //아임포트 관리자페이지 > 시스템설정 > 내정보에서 확인가능
             // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
             // i'mport 관리자 페이지 -> 내정보 -> 가맹점식별코드
+         
+
             IMP.request_pay({
             pg: 'inicis', // version 1.1.0부터 지원.
             /*
@@ -36,13 +82,12 @@ class RequestPay extends React.Component {
             merchant_uid에 경우
             https://docs.iamport.kr/implementation/payment
             위에 url에 따라가시면 넣을 수 있는 방법이 있습니다.
-            참고하세요.
-            나중에 포스팅 해볼게요.
+            
             */
-            name: '주문명:결제테스트',//결제창에서 보여질 이름
-            amount: 100,//가격
-            buyer_email: 'korea_sh3@naver.com',
-            buyer_name: '구매자이름',
+            name: work_title,//결제창에서 보여질 이름
+            amount: funding_price,//가격
+            buyer_email: user_email,
+            buyer_name: user_name,
             buyer_tel: '010-1234-5678',
             buyer_addr: '서울특별시 강남구 삼성동',
             buyer_postcode: '123-456',
@@ -60,6 +105,8 @@ class RequestPay extends React.Component {
             msg += '상점 거래ID : ' + rsp.merchant_uid;
             msg += '결제 금액 : ' + rsp.paid_amount;
             msg += '카드 승인번호 : ' + rsp.apply_num;
+            fundingsPrc();
+            fundingsPrcUpdate();
             } else {
             var msg = '결제에 실패하였습니다.';
             msg += '에러내용 : ' + rsp.error_msg;

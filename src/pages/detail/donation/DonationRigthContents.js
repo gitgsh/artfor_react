@@ -5,12 +5,15 @@ import Check from './Check';
 import PersonalInfo from "./PersonalInfo";
 
 function DonationRigthContents(){
+    var funding_price = localStorage.getItem('funding_price'); //const, let으로 선언하면 initalize~ 에러남.
+
+
     return(
     <div>
         <틀>
             <박스1>
             <최종후원금액>최종후원 금액</최종후원금액>
-            <금액>59,000원</금액>
+            <금액>{funding_price}원</금액>
             </박스1>
             <박스2>
             <Check/>

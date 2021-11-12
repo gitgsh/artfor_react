@@ -36,12 +36,13 @@ class Certification extends React.Component {
         }
 
       return (
-        
-        <button id="check_certi" onClick={()=>{certiCheck()}}
-        style={{backgroundColor:"brown", border:"0"}}
-        ><span style={{color: "white", fontFamily:"NanumSquareR"}}>인증번호 보내기2
-        </span>
-        </button>
+        <>
+        </>
+        // <button id="check_certi" onClick={()=>{certiCheck()}}
+        // style={{backgroundColor:"brown", border:"0"}}
+        // ><span style={{color: "white", fontFamily:"NanumSquareR"}}>인증번호 보내기2
+        // </span>
+        // </button>
       );
     }
   }

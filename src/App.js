@@ -31,6 +31,9 @@ import ManageArtwork from "./pages/admin/ManageArtwork";
 import G_Fee from "./pages/guide/G_Fee";
 import G_Articles from "./pages/guide/G_Articles";
 
+import UploadHeader from "./Header/UploadHeader";
+
+
 function App() {
   // Guide 게시판 검색관련2
   const [searchKeyword, setSearchKeyword] = useState("");
@@ -45,8 +48,10 @@ function App() {
     <div>
       {console.log(window.location.pathname)}
       <div className="App">
+        {/* {(window.location.pathname ==
+        "/project/plan/projectupload")? (<></>) : (<Header />)} */}
         {(window.location.pathname ==
-        "/project/plan/projectupload")? (<></>) : (<Header />)}
+        "/project/plan/projectupload")? (<Header />) : (<Header />)}
         <Switch>
           {/* MAIN & DETAIL */}
           <Route exact={true} path="/" component={Main} />

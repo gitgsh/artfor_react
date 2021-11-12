@@ -34,6 +34,16 @@
   line-height: 1.7em;
 }
 
+.pmImage2 {
+  /* background-color: lawngreen; */
+  float: left;
+  width: 200px;
+  height: 133px;
+  border-radius: 8px;
+  margin: 5px 32px 20px 0px;
+  line-height: 1.7em;
+}
+
 .pmTitle {
   font-family: "NanumSquareEB";
   /* display: block; */

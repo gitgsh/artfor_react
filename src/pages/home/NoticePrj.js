@@ -3,7 +3,7 @@ import { Link, Route } from "react-router-dom";
 import React, { ComponentElement, useEffect } from "react";
 import { Card, CardGroup } from "react-bootstrap";
 import "./Home.css";
-import main3 from '../../detail_images/main3.jpeg';
+// import main3 from '../../detail_images/main3.jpeg';
 
 function NoticePrj(props){
     const {mainStore} = props;
@@ -36,8 +36,10 @@ function NoticePrj(props){
         findOpen.slice(0,4).map(function(data, j){ //8개
           return(//data.work_title
 <Card className="card_Home">
-<Link to={`/detail/${data.work_no}`} onClick={()=>{mainStore.getWork(data.work_no)}}><Card.Img variant="top" src={require(`../../detail_images/${data.work_img}`).default} alt={data.work_img}
-style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+<Link to={`/detail/${data.work_no}`} onClick={()=>{mainStore.getWork(data.work_no)}}><Card.Img variant="top" 
+// src={require(`../../detail_images/${data.work_img}`).default} alt={data.work_img}
+src={`image/${data.work_img}`}
+style={{width:'250px', height:'200px', borderRadius: 15, overflow: 'hidden' }}/></Link>
 <Card.Body className="cardbody_Home">
 <Card.Title className="cardtitle_Home">공예 | {data.artist_name}</Card.Title>
 <Card.Text className="cardtext_Home">
@@ -51,7 +53,6 @@ style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
 <small className="text-muted" id="text-muted">1858% 달성</small>
 </Card.Footer> */}
 </Card>
-
             )
         })
         
@@ -63,8 +64,9 @@ style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
         findOpen.slice(4,8).map(function(data, j){ 
           return(//data.work_title
 <Card className="card_Home">
-<Link to={`/detail/${data.work_no}`} onClick={()=>{mainStore.getWork(data.work_no)}}><Card.Img variant="top" src={require(`../../detail_images/${data.work_img}`).default} alt={data.work_img}
-style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+<Link to={`/detail/${data.work_no}`} onClick={()=>{mainStore.getWork(data.work_no)}}><Card.Img variant="top" 
+src={`image/${data.work_img}`}
+style={{width:'250px', height:'200px', borderRadius: 15, overflow: 'hidden' }}/></Link>
 <Card.Body className="cardbody_Home">
 <Card.Title className="cardtitle_Home">공예 | {data.artist_name}</Card.Title>
 <Card.Text className="cardtext_Home"> 

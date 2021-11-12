@@ -3,21 +3,26 @@ import { Route } from "react-router";
 import styled from 'styled-components';
 
 function DonationHead(){
-   
+   const work_title = localStorage.getItem("work_title"); 
+   const funding_deadline = localStorage.getItem("funding_deadline");
+   const artist_name =localStorage.getItem("artist_name");
+   const funding_now =localStorage.getItem("funding_now");
+   const gapResult =localStorage.getItem("gapResult");
+   const fundingPercent =localStorage.getItem("fundingPercent");
+   const detail_work_img = localStorage.getItem('detail_work_img');
     return(
         <div>
             <사진>
-            <img src="./main1.jpeg" style={{width:'150px'}}/>
+            <img  src={`image/${detail_work_img}`} style={{width:'150px', height:'110px'}}/>
             </사진>
             <틀>
-                <작가>김지민</작가>
-                <설명>당신의 바다꽃이 될래요. 탄생화 자개 DIY키트</설명>
-                <후원액>70,622,000원</후원액>
-                <퍼센트> 3531%</퍼센트>
-                <D_day> 18일 남음</D_day>
+                <작가>{artist_name}</작가>
+                <설명>{work_title}</설명>
+                <후원액>{funding_now}원</후원액>
+                <퍼센트> {fundingPercent}%</퍼센트>
+                <D_day> {gapResult}일 남음</D_day>
             </틀>
             <hr/>
-            
 
         </div>
         
