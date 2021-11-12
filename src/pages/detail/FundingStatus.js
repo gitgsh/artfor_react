@@ -25,10 +25,20 @@ function FundingStatus(props) {
     return result.work_no == no;
   });
 
+//현재 로그인한 유저의 name, 보고 있는 작품의 work_no 
+  console.log('현재작품 no>>', no);
+  console.log('dzdz',findFunding.work_no)
+  console.log('work>>', work);
+  localStorage.setItem("work_no", no);
+  
+ 
+
   //천단위 콤마 함수
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
+
+  
 
   //링크복사기능
   const currentUrl = window.location.href;
@@ -52,6 +62,21 @@ function FundingStatus(props) {
   const dday = new Date(findFunding.funding_deadline);
   const gap = dday.getTime() - today.getTime();
   const gapResult = Math.ceil(gap / (1000 * 60 * 60 * 24)); //남은날짜 계산용
+  const fundingPercent = Math.round(
+    (findFunding.funding_now / findFunding.funding_goal) * 100
+  )
+
+ //start of 결제 시 꺼내쓸 것
+ localStorage.setItem("work_title", findFunding.work_title); 
+ localStorage.setItem("funding_deadline", findFunding.funding_deadline);
+ localStorage.setItem("artist_name", findFunding.artist_name);
+ localStorage.setItem("funding_now", findFunding.funding_now);
+ localStorage.setItem("gapResult", gapResult);
+ localStorage.setItem("fundingPercent", fundingPercent);
+ localStorage.setItem("detail_work_img", findFunding.work_img);
+ localStorage.setItem("work_no", findFunding.work_no);
+ localStorage.setItem("funding_now", findFunding.funding_now);
+ //end of 결제 시 꺼내 쓸 것
 
   function FuncLike() {
     if (like == true) {
@@ -88,7 +113,7 @@ function FundingStatus(props) {
             <img src={`main1.jpeg`} /> */}
           {/* <img
             className="detail_image"
-            src={require(`../../detail_images/${findFunding.work_img}`).default}
+            src={`/image/${findFunding.work_img}`}
             alt={findFunding.work_img}
             style={{}}
           /> */}
@@ -111,11 +136,7 @@ function FundingStatus(props) {
               </span>{" "}
               <span style={{ fontFamily: "NanumSquareL" }}>원</span>
               <span style={{ fontFamily: "NanumSquareB", fontSize: "20px" }}>
-                {" "}
-                {Math.round(
-                  (findFunding.funding_now / findFunding.funding_goal) * 100
-                )}
-                %
+                {fundingPercent}%
               </span>
               <br />
               <br />

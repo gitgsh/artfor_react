@@ -3,18 +3,37 @@ import styled from 'styled-components';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Certification from "./Certification";
+import { useParams } from "react-router";
+import { useEffect } from "react";
+import { inject, observer } from "mobx-react";
 
-function DonationLeftContents(){
+function DonationLeftContents(props){
+    const { no } = useParams();
+    const { mainStore } = props;
+    const { works, work } = mainStore;
 
+    useEffect(() => {
+        mainStore.worksRead();
+      }, []);
+
+    const funding_deadline = localStorage.getItem('funding_deadline');
+    const work_title = localStorage.getItem('work_title');
+    const user_email = localStorage.getItem('user_email');
+    const user_phone = localStorage.getItem('phone');
+
+    const findFunding = works.find(function (result) {
+      //사용자가 요청한 seq값과 일치하는 seq(db상의 seq값)을 찾는다.
+      return result.work_no == no;
+    });
     
+    console.log('no>>', no);
+    console.log('findFunding>>', findFunding);
 
     //Start of RadioButton 
     const [selectedValue, setSelectedValue] = React.useState('a');
-
     const handleChange = (event) => {
       setSelectedValue(event.target.value);
     };
-  
     const controlProps = (item) => ({
       checked: selectedValue === item,
       onChange: handleChange,
@@ -22,8 +41,10 @@ function DonationLeftContents(){
       name: 'color-radio-button-demo',
       inputProps: { 'aria-label': item },
     });
-
     //End of RadioButton 
+
+    var funding_price = localStorage.getItem('funding_price'); //const, let으로 선언하면 initalize~ 에러남.
+
 
     return(
         <틀>
@@ -34,17 +55,17 @@ function DonationLeftContents(){
             <table>
                 <tr>
                     <td style={{width:"150px", height:"30px"}}>전시제목</td>
-                    <td>자개꽃키트</td>
+                    {work_title}
                 </tr>
                 
                 <tr>
                     <td style={{width:"150px", height:"30px"}}>전시일시</td>
-                    <td>2022.02.01</td>
+                    {funding_deadline}
                 </tr>
 
                 <tr>
                     <td style={{width:"150px", height:"30px"}}>금액</td>
-                    <td>59,000원</td>
+                    <td>{funding_price}원</td>
                 </tr>
             </table>
             </테이블1>
@@ -56,20 +77,21 @@ function DonationLeftContents(){
             <table>
                 <tr>
                     <td style={{width:"150px", height:"30px"}}>연락처</td>
-                    <td> <TextField id="standard-basic" label="핸드폰번호" variant="standard" /><br/><br/></td>
+                    <td>{user_phone}</td>
+                    {/* <td> <TextField id="standard-basic" label="핸드폰번호" variant="standard" /><br/><br/></td> */}
                 </tr>
-                <tr>
+                {/* <tr>
                     <td style={{width:"150px", height:"30px"}}></td>
                     <td>    <Button variant="outlined" size="small" 
                     style={{color:"black", marginBottom:"10px", borderColor: "grey"}}>
                     인증번호 보내기
                     </Button>
-                    {/* <Certification/> */}
+                    <Certification/>
                     </td>
-                </tr>
+                </tr> */}
                 <tr>
                     <td style={{width:"150px", height:"30px"}}>이메일</td>
-                    <td>korea_sh3@naver.com</td>
+                    <td>{user_email}</td>
                 </tr>
             </table>
             <br/>
@@ -123,7 +145,7 @@ border-radius: 5px;
 
 const 박스2 = styled.div`
 width : 550px;
-height: 250px;
+height: 200px;
 padding-left: 15px;
 padding-top: 15px;
 border: 1px solid gainsboro;
@@ -165,4 +187,5 @@ padding-right: 30px;
  margin-bottom: 10px;
 `
 
-export default DonationLeftContents;
+export default inject("mainStore")(observer(DonationLeftContents));
+//export default DonationLeftContents;
