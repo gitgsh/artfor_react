@@ -44,8 +44,9 @@ export default class CommunityStore {
       .then((response) => {
         console.log("성공");
         console.log("Done cstoresRead", response);
+        console.log("뭐지",response.data)
         this.cstores = response.data;
-        console.log("this.cstore>>", this.cstore);
+        console.log("this.cstores>>", this.cstores);
       })
       .catch((error) => {
         console.log("실패");

@@ -40,6 +40,7 @@ function Login(props) {
         } else {
           alert("로그인 완료");
         
+          
           localStorage.setItem('token',true);
           user_email = getValues("user_email");
           localStorage.setItem('user_email',user_email);
@@ -47,7 +48,8 @@ function Login(props) {
           // localStorage.setItem('user_id',JSON.stringify(userinfo.user_id).slice(1,-1));
           getUserInfo();
 
-          props.history.push("/users/myproject");
+          // props.history.push("/users/myproject");
+          window.location.replace("/users/myproject")
           // props.history.push("/");
         }
       })
@@ -55,6 +57,8 @@ function Login(props) {
         axiosError(error);
       });
   };
+
+
 
   //로그인 성공 시 유저 정보를 스토어에 저장
   function getUserInfo(){
@@ -68,21 +72,19 @@ function Login(props) {
 
         member.user_name = result.user_name;
         member.user_email = result.user_email;
-        member.user_address = response2.data.user_address;
-        member.user_phone = response2.data.user_phone;
-        member.user_role = response2.data.user_role;
+        member.user_address = result.user_address;
+        member.user_phone = result.user_phone;
+        member.user_role = result.user_role;
+        console.log(member,"유저정보를보여주자")
 
-        console.log("유저정보" ,member);
+        let name = result.user_name;
+        let email = result.user_email;
+        let address = result.user_address;
+        let phone = result.user_phone;
+        let role = result.user_role;
+        console.log(typeof result.user_email,"타입이 뭐야?")
 
-
-        let name = member.user_name;
-        let email = member.user_email;
-        let address = member.user_address;
-        let phone = member.user_phone;
-        let role = member.user_role;
-        console.log(typeof member.user_role,"타입이 뭐야?")
-
-        localStorage.setItem('name',name);
+        window.localStorage.setItem('name',name);
         localStorage.setItem('email', email);
         localStorage.setItem('address',address);
         localStorage.setItem('phone',phone);
@@ -120,10 +122,10 @@ function Login(props) {
             )}
           </div>
           <div className="login-form-input-2">
-            <InputGroup>
+            <InputGroup style={{ fontFamily: 'Consolas' }}>
               <FormControl
                 className="login-form-input-row"
-                type="textz"
+                type="password"
                 placeholder="비밀번호 입력"
                 aria-label="Recipient's username with two button addons"
                 {...register("user_pw", {

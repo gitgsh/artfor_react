@@ -5,8 +5,17 @@ import { Link } from "react-router-dom";
 import ScrollIntoView from 'react-scroll-into-view'
 import DetailBottom from "./DetailBottom";
 import './Detail.css';
+import {  useParams } from "react-router-dom";
+import { inject, observer } from "mobx-react";
 
 function DetailContents(props){
+  const { no } = useParams();
+  const { mainStore } = props;
+  const { works, work } = mainStore;
+  const findFunding = works.find(function (result) {
+    //사용자가 요청한 seq값과 일치하는 seq(db상의 seq값)을 찾는다.
+    return result.work_no == no;
+  });
 
     return(
         <>
@@ -34,7 +43,9 @@ function DetailContents(props){
         <div className="content_HomeDetail" style={{fontFamily: "NanumSquareR"}}>
           <div className="box1" style={{backgroundColor:"green", paddingTop:"60px"}}>[목적]
             <div style={{backgroundColor: "yellow", marginBottom:"50px"}}>
-              목적 에디터
+              목적 에디터<br />
+              <p dangerouslySetInnerHTML={{ __html:findFunding.work_content }} />
+              {/* {findFunding.work_title} */}
            </div>
           </div>
           <div className="box2" style={{backgroundColor:"green", paddingTop:"60px"}}>[예산]
@@ -70,4 +81,5 @@ function DetailContents(props){
     )
 }
 
-export default DetailContents;
+// export default DetailContents;
+export default inject("mainStore")(observer(DetailContents));

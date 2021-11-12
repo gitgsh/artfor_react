@@ -3,7 +3,7 @@ import { Link, Route } from "react-router-dom";
 import React, { ComponentElement, useEffect } from "react";
 import { Card, CardGroup } from "react-bootstrap";
 import "./Home.css";
-import main3 from '../../detail_images/main3.jpeg';
+// import main3 from '../../detail_images/main3.jpeg';
 
 function NoticePrj(props){
     const {mainStore} = props;

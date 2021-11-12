@@ -1,10 +1,17 @@
-import React from 'react';
+import { inject, observer } from 'mobx-react';
+import React, { useEffect } from 'react';
 import { NavDropdown } from 'react-bootstrap';
 import LogoutLink from './LogoutLink';
 
-function UserLinkMenu(){
+function UserLinkMenu(props){
+        const { membersStore } = props;
+        const { members, member } = membersStore;   
+        
+        useEffect(()=>{
+                member.user_name = window.localStorage.getItem('name');
+        }, [membersStore])
 
-    return <NavDropdown  title= { window.localStorage.getItem('name') } id="basic-nav-dropdown">            
+    return <NavDropdown  title= {member.user_name } id="basic-nav-dropdown">            
             <NavDropdown.Item style={{fontFamily:"NanumSquareB", fontSize:"14px"}} href="/users/myproject">프로젝트</NavDropdown.Item>
             <NavDropdown.Item style={{fontFamily:"NanumSquareB", fontSize:"14px"}} href="/users/mysettings">설정</NavDropdown.Item>
             <NavDropdown.Divider />
@@ -14,4 +21,4 @@ function UserLinkMenu(){
         </NavDropdown>;
 }
 
-export default UserLinkMenu;
+export default inject("membersStore")(observer(UserLinkMenu));

@@ -111,13 +111,13 @@ function FundingStatus(props) {
 
           {/* public 폴더 내 이미지 가져오기
             <img src={`main1.jpeg`} /> */}
-            {/* src = "require(`../../detail_images/${findFunding.work_img}`).default") */}
-          <img
+          {/* <img
             className="detail_image"
             src={`/image/${findFunding.work_img}`}
             alt={findFunding.work_img}
             style={{}}
-          />
+          /> */}
+           <img className="detail_image" src={`/image/${findFunding.work_img}`} />
 
           <div className="detail_head3">
             <div className="detail_head3_1">
@@ -175,7 +175,7 @@ function FundingStatus(props) {
                 }}
               >
                 목표 금액은 {numberWithCommas(findFunding.funding_goal)}
-                원입니다! 결제는 {findFunding.funding_deadline}까지 가능합니다.
+                원입니다! <br />결제는 {findFunding.funding_deadline}까지 가능합니다.
               </p>
             </div>
 
