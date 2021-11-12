@@ -24,7 +24,6 @@ function DonationHead(){
                 <D_day> {gapResult}일 남음</D_day>
             </틀>
             <hr/>
-            
 
         </div>
         
