@@ -16,9 +16,9 @@ function LogoutLink() {
           .filter(key => key.startsWith('kakao_'))
           .forEach(key => localStorage.removeItem(key));
 
+        localStorage.clear();
         localStorage.removeItem('token');
-        localStorage.removeItem('role');
-        localStorage.removeItem('name');
+
         alert('성공적으로 로그아웃 되었습니다. 다음에 또 만나요!🙋‍♀️');
         history.push('/login');
       },
@@ -28,6 +28,7 @@ function LogoutLink() {
           .filter(key => key.startsWith('kakao_'))
           .forEach(key => localStorage.removeItem(key));
 
+        localStorage.clear();
         localStorage.removeItem('token');
         alert('성공적으로 로그아웃 되었습니다. 다음에 또 만나요!🙋');
       },
@@ -37,8 +38,10 @@ function LogoutLink() {
 
   const handleNormalLogout = () => {
     localStorage.removeItem('token');
+    localStorage.clear();
     alert('성공적으로 로그아웃 되었습니다. 다음에 또 만나요🥰');
-    history.push('/login');
+    // history.push('/login');
+    window.location.replace("/login")
   };
 
   return (
