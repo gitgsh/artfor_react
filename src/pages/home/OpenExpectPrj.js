@@ -48,6 +48,7 @@ style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
 <div className="cardfooter">
   <p>{Math.round((data.funding_now/data.funding_goal)*100)}% 달성</p>
 </div>
+
 </Card.Body>
 </Card>
             )
