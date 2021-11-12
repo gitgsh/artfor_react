@@ -13,8 +13,7 @@ function DonationHead(){
     return(
         <div>
             <사진>
-            <img  src={require(`../../../detail_images/${detail_work_img}`).default} style={{width:'150px'}}/>
-           
+            <img  src={`image/${detail_work_img}`} style={{width:'150px', height:'110px'}}/>
             </사진>
             <틀>
                 <작가>{artist_name}</작가>
