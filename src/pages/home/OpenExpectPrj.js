@@ -39,7 +39,7 @@ function OpenExpectPrj(props){
 <Card className="card_Home">
 <Link to={`/detail/${data.work_no}`}><Card.Img variant="top" 
 src={`image/${data.work_img}`}
-style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+style={{width:'250px',  height:'200px', borderRadius: 15, overflow: 'hidden' }}/></Link>
 <Card.Body className="cardbody_Home">
 <Card.Title className="cardtitle_Home">공예 | {data.artist_name}</Card.Title>
 <Card.Text className="cardtext_Home">
