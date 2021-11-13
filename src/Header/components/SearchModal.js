@@ -35,7 +35,7 @@ function SearchModal(props) {
         setShow(true);
         setKeyword('');
         }} style={{color:'black', fontFamily:"NanumSquareB", fontSize:"15px", backgroundColor:"transparent", border:"0px"}}>
-      <img src="../icon_navbar.png" style={{width:'20px'}}/>프로젝트 둘러보기
+      <img src={`/icon_navbar.png`} style={{width:'20px'}}/>프로젝트 둘러보기
       </Button>
        
       <Modal
