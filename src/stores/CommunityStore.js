@@ -89,10 +89,11 @@ export default class CommunityStore {
     // this.members.splice(index, 1);
     // console.log('Done membersDelete', this.members);
     axios
-      .delete("http://localhost:3000/api/v1/members/" + index)
+      .delete("http://localhost:8004/app/replydelete.do", index)
       .then((response) => {
-        console.log("Done membersDelete", response);
-        this.membersRead();
+        console.log("Done cstoresDelete", response);
+        console.log(response);
+        this.cstoresRead();
       })
       .catch((error) => {
         axiosError(error);
