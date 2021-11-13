@@ -1,5 +1,5 @@
 import "./Community.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router";
 import { Link, useHistory } from "react-router-dom";
 import DetailBottom from "../detail/DetailBottom";
@@ -8,11 +8,10 @@ import * as React from "react";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
 import Avatar from "@mui/material/Avatar";
 import axios from "axios";
-import { event } from "jquery";
 import { Label } from "reactstrap";
+import { data, param } from "jquery";
 
 function Community(props) {
   const { no } = useParams();
@@ -21,6 +20,8 @@ function Community(props) {
   const { communityStore } = props;
   const { cstores, cstore } = communityStore;
   const [state, setState] = useState("dd");
+  const [click, setClick] = useState(false);
+  const [btnValue, setBtnValue] = useState("");
 
   //cstore
   cstore.c_writer = window.localStorage.getItem("name");
@@ -59,14 +60,20 @@ function Community(props) {
     //사용자가 요청한 seq값과 일치하는 seq(db상의 seq값)을 찾는다.
     return result.work_no == no;
   });
+  const [content, setContent] = useState("");
 
+  const changeContent = (event) => {
+    console.log(event.target.value);
+    setContent(event.target.value);
+    // cstore.c_content = content;
+  };
   return (
     <div className="projectTitle_Home_Detail">
-      <CommunityReply state={state} setState={setState} />
+      <CommunityReply />
       <br />
 
       <p style={{ fontFamily: "NanumSquareR" }}>
-        {findCommunity.map((data, i) => {
+        {findCommunity.map((cm, i) => {
           return (
             <div
               key={i}
@@ -82,9 +89,181 @@ function Community(props) {
               }}
             >
               {" "}
-              <ReplyBox data={data} />
+              <ReplyBox cm={cm} />
               <div style={{ marginTop: "5px", marginLeft: "58px" }}>
-                {data.c_content}
+                <div className="row" style={{}}>
+                  {click && btnValue == i ? (
+                    <div className="col" style={{ paddingTop: "4.5px" }}>
+                      <input
+                        key={i}
+                        type="text"
+                        value={content}
+                        onChange={changeContent}
+                      />
+                    </div>
+                  ) : (
+                    <div className="col" style={{ paddingTop: "4.5px" }}>
+                      {cm.c_content}
+                    </div>
+                  )}
+
+                  {cstore.c_writer === cm.c_writer && click === false ? (
+                    <>
+                      <div
+                        className="col-2"
+                        style={{
+                          width: "70px",
+                          margin: "0",
+                          padding: "0",
+                          marginRight: "-20px",
+                        }}
+                      >
+                        <button
+                          size="sm"
+                          style={{
+                            border: "none",
+                            borderRadius: "3px",
+                            backgroundColor: "grey",
+                            margin: "0 auto",
+                            transform: "skew(-0.1deg)",
+                            fontSize: "15px",
+                            color: "white",
+                            fontFamily: "NanumSquareL",
+                          }}
+                          key={i}
+                          onClick={() => {
+                            setBtnValue(i);
+                            setClick(!click);
+                            setContent(cm.c_content);
+                          }}
+                        >
+                          수정
+                        </button>
+                      </div>
+                      <div
+                        className="col-2"
+                        style={{ width: "70px", margin: "0", padding: "0" }}
+                      >
+                        <button
+                          className="col"
+                          size="sm"
+                          style={{
+                            border: "none",
+                            backgroundColor: "#E4E4E4",
+                            margin: "0 auto",
+                            transform: "skew(-0.1deg)",
+                            fontSize: "15px",
+                            fontFamily: "NanumSquareR",
+                          }}
+                          onClick={() => {
+                            console.log(cm.c_no);
+                            cstore.c_no = cm.c_no;
+                            axios
+                              .post(
+                                "http://localhost:8004/app/replydelete.do",
+                                cstore
+                              )
+                              .then((response) => {
+                                console.log("data", data);
+                                console.log("Done cstoresDelete", response);
+                                console.log(response);
+                                communityStore.cstoresRead();
+                              })
+                              .catch((error) => {
+                                console.log("삭제 실패");
+                              });
+                          }}
+                        >
+                          삭제
+                        </button>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div
+                        className="col-2"
+                        style={{
+                          width: "70px",
+                          margin: "0",
+                          padding: "0",
+                          marginRight: "-20px",
+                        }}
+                      >
+                        <button
+                          size="sm"
+                          style={{
+                            border: "none",
+                            borderRadius: "3px",
+                            backgroundColor: "grey",
+                            margin: "0 auto",
+                            transform: "skew(-0.1deg)",
+                            fontSize: "15px",
+                            color: "white",
+                            fontFamily: "NanumSquareL",
+                          }}
+                          onClick={(event) => {
+                            console.log(event.target.value);
+                            setContent(event.target.value);
+                            cstore.c_content = content;
+                            cstore.c_no = cm.c_no;
+                            axios
+                              .post(
+                                "http://localhost:8004/app/replyupdate.do",
+                                cstore
+                              )
+                              .then((response) => {
+                                console.log("Done ctoresUpdate", response);
+                                communityStore.cstoresRead();
+                              })
+                              .catch((error) => {
+                                console.log(error);
+                              });
+                            setClick(!click);
+                          }}
+                        >
+                          확인
+                        </button>
+                      </div>
+                      <div
+                        className="col-2"
+                        style={{ width: "70px", margin: "0", padding: "0" }}
+                      >
+                        <button
+                          className="col"
+                          size="sm"
+                          style={{
+                            border: "none",
+                            backgroundColor: "#E4E4E4",
+                            margin: "0 auto",
+                            transform: "skew(-0.1deg)",
+                            fontSize: "15px",
+                            fontFamily: "NanumSquareR",
+                          }}
+                          onClick={() => {
+                            console.log(cm.c_no);
+                            cstore.c_no = cm.c_no;
+                            axios
+                              .post(
+                                "http://localhost:8004/app/replydelete.do",
+                                cstore
+                              )
+                              .then((response) => {
+                                console.log("data", data);
+                                console.log("Done cstoresDelete", response);
+                                console.log(response);
+                                communityStore.cstoresRead();
+                              })
+                              .catch((error) => {
+                                console.log("삭제 실패");
+                              });
+                          }}
+                        >
+                          삭제
+                        </button>
+                      </div>
+                    </>
+                  )}
+                </div>
               </div>
             </div>
           );
@@ -122,21 +301,13 @@ function Community(props) {
   }
   function onSubmit(event) {
     cstoresCreate();
+  }
 
-    // e.preventDefault();
-    // cstore.c_content = e.target.value;
-    // console.log(cstore.c_content);
-    // let value = e.target.value;
-    // console.log(value);
-    // communityStore.cstoresCreate();
+  function btnUpdate() {
+    console.log();
+    // cstore.c_no = communityStore.cstoresDelete();
   }
-  function onChange(e) {
-    if (e.target.value !== "") {
-      alert(e.currentValue);
-    } else {
-      e.preventDefault();
-    }
-  }
+  function btnDelete() {}
 
   function CommunityReply() {
     return cstore.c_writer === null ? (
@@ -145,7 +316,7 @@ function Community(props) {
         style={{
           marginTop: "-30px",
           margin: "0 auto",
-          backgroundColor: "#F5F5F5",
+          backgroundColor: "#d4d4d4",
         }}
         sx={{
           p: "20px 20px",
@@ -159,45 +330,46 @@ function Community(props) {
       >
         <Avatar
           src="/broken-image.jpg"
-          style={{ color: "", backgroundColor: "#F0F0F0" }}
+          style={{ color: "", backgroundColor: "#B2B2B2" }}
         />
         <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
 
         <Label
           sx={{ ml: 1, flex: 1 }}
-          style={{ fontSize: "15px" }}
+          style={{ fontSize: "17px", paddingLeft: "10px", color: "#414141" }}
           onKeyPress={KeyPress}
-          inputProps={{ "aria-label": "search google maps" }}
         >
           로그인을 해주세요
         </Label>
       </Paper>
     ) : (
-      <Paper
-        component="form"
-        style={{ marginTop: "-30px", margin: "0 auto" }}
-        sx={{
-          p: "20px 20px",
-          display: "flex",
-          alignItems: "center",
-          width: 900,
-          boxShadow: "none",
-          border: "1px solid #F0F0F0",
-        }}
-      >
-        <Avatar
-          src="/broken-image.jpg"
-          style={{ color: "", backgroundColor: "#F0F0F0" }}
-        />
-        <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+      <div>
+        <Paper
+          component="form"
+          style={{ marginTop: "-30px", margin: "0 auto" }}
+          sx={{
+            p: "20px 20px",
+            display: "flex",
+            alignItems: "center",
+            width: 900,
+            boxShadow: "none",
+            border: "1px solid #F0F0F0",
+          }}
+        >
+          <Avatar
+            src="/broken-image.jpg"
+            style={{ color: "", backgroundColor: "#F0F0F0" }}
+          />
+          <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
 
-        <InputBase
-          sx={{ ml: 1, flex: 1 }}
-          placeholder="댓글을 입력하세요"
-          onKeyPress={KeyPress}
-          inputProps={{ "aria-label": "search google maps" }}
-        />
-      </Paper>
+          <InputBase
+            sx={{ ml: 1, flex: 1 }}
+            placeholder="댓글을 입력하세요"
+            onKeyPress={KeyPress}
+            inputProps={{ "aria-label": "search google maps" }}
+          />
+        </Paper>
+      </div>
     );
   }
   function ReplyBox(props) {
@@ -219,7 +391,7 @@ function Community(props) {
                 marginTop: "4px",
               }}
             >
-              {props.data.c_writer}
+              {props.cm.c_writer}
             </div>
           </div>
           <div
@@ -235,7 +407,7 @@ function Community(props) {
                 color: "#828282",
               }}
             >
-              {props.data.c_day}
+              {props.cm.c_day}
             </div>
           </div>
         </div>
