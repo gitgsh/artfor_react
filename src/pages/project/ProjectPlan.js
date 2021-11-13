@@ -25,6 +25,8 @@ function ProjectPlan(props) {
    const {mainStore} = props;
    const {works, work} = mainStore;
 
+   
+
    work.artist_name = window.localStorage.getItem('name');
 
    console.log("새로고침");
@@ -389,6 +391,8 @@ function ProjectPlan(props) {
 
   // 프로젝트 제목
   function Titleupload() {
+
+    const [work_title, setWork_title] = useState();
     let [titleModal, setTitleModal] = useState(false);
 
     function modalSwitch(e) {
@@ -470,9 +474,15 @@ function ProjectPlan(props) {
                 transform="skew(-0.1deg)"
                 className="Input-title"
                 placeholder="     제목을 입력해주세요"
-                onChange={(event)=>{work.work_title = event.target.value}}
+                value={work.work_title}
+                onChange={(event)=>{
+                  setWork_title(event.target.value);  
+                  work.work_title = event.target.value;
+                }}
              
               />
+              {/* 제목은 : {work_title}
+              제목은 : {work.work_title} */}
               {/* 테스트 */}
               {/* 제목은 : {work.work_title}
               내용은 : {work.work_content} */}
