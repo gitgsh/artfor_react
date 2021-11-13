@@ -30,15 +30,11 @@ function FundingStatus(props) {
   console.log('dzdz',findFunding.work_no)
   console.log('work>>', work);
   localStorage.setItem("work_no", no);
-  
- 
 
   //천단위 콤마 함수
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
-
-  
 
   //링크복사기능
   const currentUrl = window.location.href;
@@ -56,7 +52,7 @@ function FundingStatus(props) {
   //PopOver창 끝
 
   const [like, setLike] = useState(true); //좋아요(이미지)
-  const [likeDB, setLikeDB] = useState(""); //좋아요(DB)
+  const [likeDB, setLikeDB] = useState(""); //좋아요(ArtWork DB)
 
   const today = new Date();
   const dday = new Date(findFunding.funding_deadline);
@@ -78,8 +74,11 @@ function FundingStatus(props) {
  localStorage.setItem("funding_now", findFunding.funding_now);
  //end of 결제 시 꺼내 쓸 것
 
+localStorage.setItem("funding_startline", findFunding.funding_startline); //결제버튼 클릭 시 사용
+
   function FuncLike() {
     if (like == true) {
+      setLikeDB(mainStore.likePlusUser());
       setLikeDB(mainStore.likePlus(no));
     } else setLikeDB(mainStore.likeMinus(no));
   }

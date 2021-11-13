@@ -24,9 +24,15 @@ function FundingModal(props) {
     const detail_work_no = localStorage.getItem("detail_work_no");
     const user_name = window.localStorage.getItem('name');
     const user_email = localStorage.getItem('user_email');
-    
+    const funding_deadline = localStorage.getItem('funding_deadline');
+    const funding_startline = localStorage.getItem('funding_startline');
+    var today = new Date();
+    var year = today.getFullYear();
+    var month = ('0' + (today.getMonth() + 1)).slice(-2);
+    var day = ('0' + today.getDate()).slice(-2);
+    var dateString = year + '-' + month  + '-' + day; //현재날짜(2021-11-10 형태)
     console.log(user_email);
-    
+    console.log('token >> ', token);
 
     // const {fundingStore} = props;
     // const {fundings, funding} = fundingStore;
@@ -34,6 +40,23 @@ function FundingModal(props) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    
+console.log('deadline >>', funding_deadline);
+console.log('dateString >>', dateString);
+console.log('funding_startline>>', funding_startline);
+    function handleButton(){
+      if(token == 'true' && funding_deadline >= dateString && funding_startline <= dateString){
+        setShow(true)
+      } else if(token == null){
+        alert('로그인 해주세요!')
+      } else if(funding_deadline < dateString){
+        alert('마감된 프로젝트입니다!')
+      } else if(funding_startline > dateString){
+        alert('아직 공개되지 않은 프로젝트입니다! 오픈 예정일은 '+funding_startline+ ' 입니다');
+        
+      }
+
+    }
 
     function handlePay(e){
       return(
@@ -46,12 +69,23 @@ function FundingModal(props) {
     
     return (
       <>
-      
-        {
+      <Button
+           onClick={()=>{handleButton()}}
+           variant="danger"
+           style={{
+             fontFamily: "NanumSqareL",
+             marginRight: "138px",
+             marginLeft: "8px",
+           }}
+         >
+           이 프로젝트 후원하기
+          
+         </Button>
+        {/* {
           token == 'true'
           ? 
            <Button
-           onClick={handleShow}
+           onClick={handleButton}
            variant="danger"
            style={{
              fontFamily: "NanumSqareL",
@@ -74,7 +108,7 @@ function FundingModal(props) {
         >
           이 프로젝트 후원하기
          </Button>
-        }
+        } */}
 
         <Modal show={show} onHide={handleClose}>
           <Modal.Header >
