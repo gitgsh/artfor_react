@@ -51,15 +51,15 @@ function FundingProject(props) {
 
   return (
     <div>
-      <div className="project_component">
-        <CardGroup className="cardgroup_Home">
+      <div className="project_component" style={{ height: "100%" }}>
+        <CardGroup className="cardgroup_Home" style={{ height: "auto" }}>
           {workList.slice(0, count).map(function (data, i) {
             //8개
             return (
               <div
                 style={{
-                  marginLeft: "20px",
-                  marginBottom: "-80px",
+                  marginLeft: "10px",
+                  marginBottom: "-50px",
                 }}
               >
                 <Card className="card_Home">
