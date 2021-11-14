@@ -1,5 +1,6 @@
 div.fade.modal-backdrop.show{
     background-color:transparent;
+    /* background-color:transparent; */
     box-shadow: none;
 }
 

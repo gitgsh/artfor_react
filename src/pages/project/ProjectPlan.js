@@ -28,6 +28,7 @@ function ProjectPlan(props) {
    
 
    work.artist_name = window.localStorage.getItem('name');
+   work.artist_id = window.localStorage.getItem('user_email');
 
    console.log("새로고침");
 

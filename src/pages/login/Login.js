@@ -91,6 +91,9 @@ function Login(props) {
         localStorage.setItem("address", address);
         localStorage.setItem("phone", phone);
         localStorage.setItem("role", role);
+        window.location.replace("/users/myproject")
+
+
       })
       .catch((error) => {
         axiosError(error);

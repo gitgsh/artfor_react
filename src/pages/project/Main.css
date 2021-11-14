@@ -14,6 +14,12 @@
 
 }
 
+.p_m_jumbo2 {
+    background-size: 100%;
+    background-image : url('https://as2.ftcdn.net/v2/jpg/01/18/58/85/1000_F_118588555_SaeZEbw78r2QhDB401ND2rSBytQe6o3O.jpg');
+    /* background-image : url("/src/image/pm1.jpg"); */
+}
+
 .p_m_title, .p_m_p1 {
     padding-top: 2%;
 }

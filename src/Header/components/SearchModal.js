@@ -65,7 +65,8 @@ function SearchModal(props) {
                 id="standard-basic"
                 label="프로젝트를 검색해보세요"
                 variant="standard"
-                style={{ width: "800px" }}
+                color="success"
+                style={{ width: "800px", borderRadiu:"red"}}
                 onChange={(event) => {
                   setKeyword(event.target.value);
                 }}
