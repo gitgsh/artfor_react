@@ -93,7 +93,7 @@ function Community(props) {
               <div style={{ marginTop: "5px", marginLeft: "58px" }}>
                 <div className="row" style={{}}>
                   {click && btnValue == i ? (
-                    <div className="col" style={{ paddingTop: "4.5px" }}>
+                    <div className="col" style={{ paddingTop: "1px" }}>
                       <input
                         key={i}
                         type="text"
@@ -115,6 +115,7 @@ function Community(props) {
                           width: "70px",
                           margin: "0",
                           padding: "0",
+
                           marginRight: "-20px",
                         }}
                       >
@@ -178,7 +179,7 @@ function Community(props) {
                         </button>
                       </div>
                     </>
-                  ) : (
+                  ) : btnValue === i ? (
                     <>
                       <div
                         className="col-2"
@@ -262,6 +263,8 @@ function Community(props) {
                         </button>
                       </div>
                     </>
+                  ) : (
+                    <></>
                   )}
                 </div>
               </div>
@@ -271,11 +274,9 @@ function Community(props) {
       </p>
 
       <div
-        className="content_HomeDetail"
+        className="reply-content"
         style={{ fontFamily: "NanumSquareR" }}
-      >
-        ㅐㅐ
-      </div>
+      ></div>
       <hr />
       <div style={{ marginLeft: "10px", marginTop: "10px" }}>
         <div
