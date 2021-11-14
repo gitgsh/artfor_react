@@ -40,7 +40,7 @@ function FundingStatus(props) {
         })
         .catch((error) => {
           console.log("likesRead 실패...");
-          axiosError(error);
+          console.log(error);
         });
     
   }, []); //[]를 추가하면 첫 렌더링 시 한 번만 실행된다.
