@@ -45,7 +45,7 @@ function MakeProject(props) {
     )
   })
 
-  //전체 데이터 중 이미 오픈한 && && 아직 종료되지 않은 데이터 필터링 
+ // 내가 올린 프로젝트 찾기
   const myWork = workList.filter((data)=>{
     return (data.artist_name.includes(artist_name));
   })
