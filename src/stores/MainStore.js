@@ -121,6 +121,24 @@ export default class MainStore {
       console.log('likeMinus실패...')
     });
   }
+  
+  
+  // likePlusMinusArtWork(index){
+  //   const data = {work_no: localStorage.getItem('work_no'), user_email: localStorage.getItem('user_email')}
+  //   console.log("likePlusMinusArtWork 데이터>>", data)
+  //   axios.post("http://localhost:8004/app/likePlusMinusArtWork/", data)
+  //   .then((response)=>{
+  //     console.log('likePlusMinusArtWork axious...')
+  //   })
+  //   .catch((error)=>{
+  //     axiosError(error);
+  //     console.log('likePlusMinusArtWork 실패...')
+  //   });
+  // }
+
+
+
+  
 
 
   //****이렇게 하면 왜 이클립스 Mybatis 단에서 user_email을 못받지?? */
@@ -143,42 +161,24 @@ export default class MainStore {
   //   });
   // }
 
-  likePlusUser(){
+  likePlusMinusUser(){
     const data = {work_no: localStorage.getItem('work_no'), user_email: localStorage.getItem('user_email')}
-    console.log("likePlusUser 데이터>>", data)
+    console.log("likePlusMinusUser 데이터>>", data)
     axios
-    .post("http://localhost:8004/app/likePlusUser/", data )
+    .post("http://localhost:8004/app/likePlusMinusUser/", data )
     .then((response)=>{
-      console.log('likePlusUser axious Success...')
+      console.log('likePlusMinusUser axious Success...')
       console.log('response>>', response);
       //localStorage.setItem("like_no", response.data.like_no);
     
     })
     .catch((error)=>{
       axiosError(error);
-      console.log('likePlusUser Fail...');
+      console.log('likePlusMinusUser Fail...');
       
     });
   }
 
-  
-  likeMinusUser(){
-    axios
-    .get("http://localhost:8004/app/likeMinusUser/", {
-      params : {
-        //like_no : , //name아님! like_no담아오기~
-      }
-    })
-    .then((response)=>{
-      console.log('likeMinusUser axious Success...')
-    
-    })
-    .catch((error)=>{
-      axiosError(error);
-      console.log('likeMinusUser Fail...');
-      
-    });
-  }
   
 
   worksUpdate(index, member) {
