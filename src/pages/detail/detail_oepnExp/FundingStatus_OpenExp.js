@@ -137,12 +137,15 @@ const token = localStorage.getItem("token");
                 {findFunding.work_title}
               </span>
               <br />
-              <p className="writer_homeDetail">
+              <p className="writer_homeDetail"
+              style={{fontSize:"17px", transform: "skew(-0.001deg)"}}>
               <img src={icon_detail_writer} />
               {findFunding.artist_name}
             </p>
             
-              <span style={{ fontFamily: "NanumSquareB", fontSize: "15px" }}>
+              <span style={{ 
+              fontFamily: "NanumSquareB", fontSize: "17px", 
+            }}>
               📅 {findFunding.funding_startline}공개예정
               </span>
               <br />
@@ -154,6 +157,7 @@ const token = localStorage.getItem("token");
                   fontFamily: "NanumSquareB",
                   fontSize: "15px",
                   textAlign: "left",
+                  transform: "skew(-0.1deg)",
                 }}
               >
                 공개 예정작

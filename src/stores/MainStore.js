@@ -122,6 +122,23 @@ export default class MainStore {
     });
   }
 
+  likePlusMinusUser(){
+    const data = {work_no: localStorage.getItem('work_no'), user_email: localStorage.getItem('user_email')}
+    console.log("likePlusMinusUser 데이터>>", data)
+    axios
+    .post("http://localhost:8004/app/likePlusMinusUser/", data )
+    .then((response)=>{
+      console.log('likePlusMinusUser axious Success...')
+      console.log('response>>', response);
+      //localStorage.setItem("like_no", response.data.like_no);
+    
+    })
+    .catch((error)=>{
+      axiosError(error);
+      console.log('likePlusMinusUser Fail...');
+      
+    });
+  }
 
   AlarmPlusMinusUser(){
     const data = {work_no: localStorage.getItem('work_no'), user_email: localStorage.getItem('user_email')}
