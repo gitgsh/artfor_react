@@ -48,7 +48,7 @@ function PasswordModal(props){
           setUpdateModal(false);
           return false;
         } else if (response.data === 1) {
-          setCondition(1);
+          setCondition(4);
           setUpdateModal(true);
         }
         // alert("비밀번호 변경 성공!");
@@ -78,8 +78,8 @@ function PasswordModal(props){
             />
           </InputGroup>
           <Button variant="dark" style={{marginLeft:'15px', marginTop:'-5px', width:'80px', transform: "skew(-0.1deg)"}} type="submit" onClick={onClick}>확인</Button>
-          {condition === 1
-          && <></>
+          {condition === 4
+          && <p style={{ marginTop:'10px', color:'blue', fontSize:'13px', transform: "skew(-0.1deg)" }}>현재 비밀번호와 일치합니다.</p>
           }
           {condition === 0
           && <p style={{ marginTop:'10px', color:'red', fontSize:'13px', transform: "skew(-0.1deg)" }}>현재 비밀번호가 일치하지 않습니다.</p>
