@@ -1,4 +1,5 @@
 import axios from "axios";
+import axiosError from "axios";
 import { inject, observer } from "mobx-react";
 import "./Detail.css";
 import { Col, Form, FormGroup, Label, Input } from "reactstrap";
@@ -17,6 +18,34 @@ import FundingModal from "./FundingModal";
 import { AlternateEmailTwoTone } from "@material-ui/icons";
 
 function FundingStatus(props) {
+
+  useEffect(()=>{
+      axios
+        .get("http://localhost:8004/app/likeList/")
+        .then((response) => {
+          console.log("Done likesRead", response);
+          const findLike = response.data.find(function(result){
+            return result.user_email == user_email && result.work_no == no
+            
+          })
+
+          HandleLikeIcon(); 
+          function HandleLikeIcon() {
+            if(findLike==null){
+              setLike(true);
+            } else{
+              setLike(false);
+            }
+          }
+        })
+        .catch((error) => {
+          console.log("likesRead 실패...");
+          axiosError(error);
+        });
+    
+  }, []); //[]를 추가하면 첫 렌더링 시 한 번만 실행된다.
+  
+  const user_email = localStorage.getItem('user_email'); //현재 로그인한 유저의 email
   const { no } = useParams();
   const { mainStore } = props;
   const { works, work } = mainStore;
@@ -75,17 +104,31 @@ function FundingStatus(props) {
  //end of 결제 시 꺼내 쓸 것
 
 localStorage.setItem("funding_startline", findFunding.funding_startline); //결제버튼 클릭 시 사용
+const token = localStorage.getItem("token");
 
   function FuncLike() {
     if (like == true) {
-      setLikeDB(mainStore.likePlusUser());
+      setLikeDB(mainStore.likePlusMinusUser());
       setLikeDB(mainStore.likePlus(no));
-    } else setLikeDB(mainStore.likeMinus(no));
+    } else {
+      setLikeDB(mainStore.likePlusMinusUser());
+      setLikeDB(mainStore.likeMinus(no));
+
+    }
   }
 
   function handleLike() {
-    return setLike(!like), FuncLike();
+    if(token==null){
+      alert('로그인해주세요!')
+    } else{
+      setLike(!like);
+       FuncLike();
+    }
+      ;
+    
   }
+
+
 
   return (
     <>
@@ -108,14 +151,6 @@ localStorage.setItem("funding_startline", findFunding.funding_startline); //결�
           </center>
           <br />
 
-          {/* public 폴더 내 이미지 가져오기
-            <img src={`main1.jpeg`} /> */}
-          {/* <img
-            className="detail_image"
-            src={`/image/${findFunding.work_img}`}
-            alt={findFunding.work_img}
-            style={{}}
-          /> */}
            <img className="detail_image" src={`/image/${findFunding.work_img}`} />
 
           <div className="detail_head3">
@@ -211,57 +246,6 @@ localStorage.setItem("funding_startline", findFunding.funding_startline); //결�
             
           </div>
         </div>
-            
-
-        {/* <Modal show={show} onHide={handleCloseDonataion}>
-          <Modal.Header >
-            <Modal.Title style={{margin:"auto"}}>소중한 후원 감사합니다!</Modal.Title>
-          </Modal.Header>
-          <Modal.Body style={{color: "grey"}}> 
-              후원하고자 하는 금액을 입력해주세요!<br/> 
-              후원금을 입력하신 후 결제 페이지로 넘어갑니다.
-              <br/><br/>
-              <Form>
-              <FormGroup>
-                <Label
-                  for="exampleEmail"
-                  style={{
-                    textAlign: "left",
-                    float: "left",
-                    fontFamily: "NanumSquareB",
-                    fontWeight: "800px",
-                    fontSize: "15px",
-                    paddingTop: "25px",
-                    paddingBottom: "12px",
-                  }}
-                >
-                  목표 금액
-                </Label>
-
-                <Input
-                  type="number"
-                  style={{ textAlign: "right" }}
-                  transform="skew(-0.1deg)"
-                  className="Input-goal"
-                  placeholder="후원하고자 하는 금액을 입력해주세요"
-                  value={work.funding_goal}
-                  onChange={event=> {work.funding_goal = event.target.value}}
-                />
-              
-              </FormGroup>
-            </Form>
-          </Modal.Body>
-          <Modal.Footer>
-          <Link to="/donation">
-            <Button variant="secondary" style={{marginRight:"200px"}}>
-                확인
-            </Button>
-            </Link>
-            
-            
-          </Modal.Footer>
-        </Modal> */}
-        {/* <hr/> */}
         <div className="detail_head4" style={{ textAlign: "left" }}>
           <div>
             {/* <Link to={"#"} style={{marginLeft: '40px', marginRight:'15px', fontSize: '15px'}}>프로젝트 계획 </Link>
