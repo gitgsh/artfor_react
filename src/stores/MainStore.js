@@ -121,61 +121,54 @@ export default class MainStore {
       console.log('likeMinus실패...')
     });
   }
-  
-  
-  // likePlusMinusArtWork(index){
-  //   const data = {work_no: localStorage.getItem('work_no'), user_email: localStorage.getItem('user_email')}
-  //   console.log("likePlusMinusArtWork 데이터>>", data)
-  //   axios.post("http://localhost:8004/app/likePlusMinusArtWork/", data)
-  //   .then((response)=>{
-  //     console.log('likePlusMinusArtWork axious...')
-  //   })
-  //   .catch((error)=>{
-  //     axiosError(error);
-  //     console.log('likePlusMinusArtWork 실패...')
-  //   });
-  // }
 
 
-
-  
-
-
-  //****이렇게 하면 왜 이클립스 Mybatis 단에서 user_email을 못받지?? */
-  // likePlusUser(index){
-
-  //   axios.post("http://localhost:8004/app/likePlusUser/", {
-  //     params: {
-  //       work_no : index,
-  //       user_email: localStorage.getItem('user_email'),
-  //     }
-  //   })
-  //   .then((response)=>{
-  //     console.log('likePlusUser axious Success...')
-  //     console.log('user_email>>',localStorage.getItem('user_email') )
-  //   })
-  //   .catch((error)=>{
-  //     axiosError(error);
-  //     console.log('likePlusUser Fail...');
-      
-  //   });
-  // }
-
-  likePlusMinusUser(){
+  AlarmPlusMinusUser(){
     const data = {work_no: localStorage.getItem('work_no'), user_email: localStorage.getItem('user_email')}
-    console.log("likePlusMinusUser 데이터>>", data)
+    console.log("AlarmPlusMinusUser 데이터>>", data)
     axios
-    .post("http://localhost:8004/app/likePlusMinusUser/", data )
+    .post("http://localhost:8004/app/AlarmPlusMinusUser/", data )
     .then((response)=>{
-      console.log('likePlusMinusUser axious Success...')
+      console.log('AlarmPlusMinusUser axious Success...')
       console.log('response>>', response);
       //localStorage.setItem("like_no", response.data.like_no);
     
     })
     .catch((error)=>{
       axiosError(error);
-      console.log('likePlusMinusUser Fail...');
+      console.log('AlarmPlusMinusUser Fail...');
       
+    });
+  }
+
+  AlarmPlus(index){
+    axios.get("http://localhost:8004/app/AlarmPlus/", {
+      params: {
+        work_no : index,
+      }
+    })
+    .then((response)=>{
+      console.log('AlarmPlus axious success...')
+      console.log('response.data>>>>>', response.data)
+    })
+    .catch((error)=>{
+      axiosError(error);
+      console.log('AlarmPlus...')
+    });
+  }
+
+  AlarmMinus(index){
+    axios.get("http://localhost:8004/app/AlarmMinus/", {
+      params: {
+        work_no : index,
+      }
+    })
+    .then((response)=>{
+      console.log('AlarmMinus axious success...')
+    })
+    .catch((error)=>{
+      axiosError(error);
+      console.log('AlarmMinus fail...')
     });
   }
 
