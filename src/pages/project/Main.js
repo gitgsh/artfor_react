@@ -13,7 +13,7 @@ function Main(props) {
     //dd
   return (
       <div>
-          <div className="pmain">
+          <div className="pmain" style={{fontFamily:"NanumSquareR"}}>
                 <Jumbotron className="p_m_jumbo"> 
                     <h1 className="p_m_title">마음 속 프로젝트 아이디어,<br />artfor에서 현실로..</h1>
                     <br />
@@ -46,7 +46,7 @@ function Main(props) {
                         <div class="p_m_c2_1">
                             <br />
                             <h2 align="left" style={{ fontWeight: "bold"}}>쉽게 시작할 수 있습니다!</h2><br />
-                            <p>‘크라우드펀딩’은 어려울지 몰라도 artfor은 어렵지 않습니다. 수익을 내서 현금을 돌려주거나 소유권을 나누는 등의 복잡한 과정도 필요하지 않습니다. 
+                            <p>‘크라우드펀딩’은 어려울지 몰라도 artfor은 어렵지 않습니다. 수익을 내서 현금을 돌려주거나 소유권을 나누는 등의 복잡한 과정도 필요하지 않습니다.<br /> 
                                 펀딩으로 모은 금액을 통해 만들어낸 제품 또는 특별한 경험 그 자체를 후원자들과 약속하고 공유하면 됩니다.</p>
                         </div>   
                         <div class="p_m_c2_2">
@@ -126,10 +126,10 @@ function Main(props) {
                 </div>
                 <br />
                 <br />
-                <Jumbotron className="p_m_jumbo"> 
+                <Jumbotron className="p_m_jumbo2"> 
            
-                    <h1 className="p_m_title">프로젝트를 만들어보세요!</h1>
-                    <p className="p_m_p1">직관적인 프로젝트 편집 도구로 곧바로 작성을 시작할 수 있습니다.<br />
+                    <h1 className="p_m_title" style={{color:"black"}}>프로젝트를 만들어보세요!</h1>
+                    <p className="p_m_p1" style={{color:"black"}}>직관적인 프로젝트 편집 도구로 곧바로 작성을 시작할 수 있습니다.<br />
                                         프로젝트를 제출하면 artfor의 심사를 거쳐 후원자에게 공개됩니다.</p>
                     <br />
                     <p className="p_m_lead">
