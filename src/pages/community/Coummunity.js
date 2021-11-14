@@ -275,20 +275,9 @@ function Community(props) {
 
       <div
         className="reply-content"
-        style={{ fontFamily: "NanumSquareR" }}
+        style={{ fontFamily: "NanumSquareR", paddingBottom: "25px" }}
       ></div>
-      <hr />
-      <div style={{ marginLeft: "10px", marginTop: "10px" }}>
-        <div
-          style={{
-            fontSize: "20px",
-            textAlign: "left",
-            fontFamily: "NanumSquareR",
-          }}
-        >
-          이런 프로젝트 어떠세요?
-        </div>
-      </div>
+      <hr style={{ backgroundColor: "#B8B8B8" }} />
       <DetailBottom />
     </div>
   );
