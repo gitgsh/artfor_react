@@ -1,0 +1,154 @@
+
+.detail_total{
+/* container */
+max-width: 1080px;
+width: 100%;
+
+
+}
+
+
+.Detail_Home_All{
+
+margin-left: 60px;
+
+}
+
+.detailOpenExp_head1{
+    margin-top: 100px;
+    margin-bottom: 0px;
+    /* background-color: blue; */
+    width: 1400px;
+    height: 500px;
+    margin-left: 300px;
+    
+    
+}
+
+
+
+.detail_head2{
+    width: 1250px;
+}
+
+.detail_head3{
+    /* background-color: brown; */
+    
+    width: 500px;
+    height: 465px;
+    float: right;
+    
+    margin-right: 30px;
+    
+}
+
+.content_HomeDetail{
+    
+    height: 1000px;
+    width: 1080px;
+    background-color: blanchedalmond;
+}
+.writer_homeDetail{
+    font-family:'NanumSquareB';
+    font-size: 16px;
+    margin-right: 80px;
+    
+}
+.fundingbox{
+    background-color: whitesmoke;
+    margin-left: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 320px;
+    border-radius: 10px;
+    padding: 10px;
+    
+
+}
+
+.detail_head3_1{
+    text-align: left;
+    margin-left: 20px;
+}
+
+
+.CardHead_Home_Detail{
+       max-width: 1280px;
+       width: 100%;
+       
+}
+
+.card{
+    border-color: white;
+    
+}
+
+.cardtitle_Home_Detail {
+    font-family:'NanumSquareL';
+    font-size: 14px;
+    text-align: left;
+    
+   
+  }
+  
+  .cardfooter_Home_Detail{
+    font-family: 'NanumSquareR';
+    font-size: 15px;
+    color: red;
+
+  }
+
+  .card_Home_Detail {
+    /* margin-left: 50px; */
+    /* margin-right: 50px; */
+    margin-top: 10px;
+    margin-bottom: 50px;
+    padding-left: 10px;
+   
+  }
+  
+  /* 카드 이미지 밑에 글씨 패딩~ */
+  .cardbody_Home_Detail{
+    /* font-family: 'NanumSquareB'; */
+    padding-left: 5px;
+  
+  }
+  
+  .cardtext_Home_Detail {
+    font-family: 'NanumSquareR';
+    font-size: 17px;
+    height: 50px;
+    text-align: left;
+    
+  }
+
+  .projectTitle_Home_Detail {
+    display: block;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'NanumSquareR';
+    text-align: left;
+    max-width: 1080px;
+    margin: 0 auto;
+    margin-top: 50px;
+    
+  }
+
+.scroll{
+  width: 17%;
+  float: left;
+
+}
+
+  .detailBottomTitle{
+    font-size: 20px;
+    text-align: "left";
+    font-family: NanumSquareR;
+
+  }
+  
+  .detail_image{
+    width: 500px;
+    height: 400px;
+
+  }

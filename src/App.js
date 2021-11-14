@@ -30,7 +30,7 @@ import ProjectUploadMain from "./pages/project/ProjectUploadMain";
 import ManageArtwork from "./pages/admin/ManageArtwork";
 import G_Fee from "./pages/guide/G_Fee";
 import G_Articles from "./pages/guide/G_Articles";
-
+import Detail_OpenExp from "./pages/detail/detail_oepnExp/Detail_OpenExp";
 import UploadHeader from "./Header/UploadHeader";
 
 
@@ -58,6 +58,8 @@ function App() {
           <Route exact={true} path="/" component={Home} />
           <Route exact={true} path="/detail/:no" component={Detail}>
             <Detail /></Route>
+          <Route exact={true} path="/detailOpenExp/:no" component={Detail_OpenExp}>
+            <Detail_OpenExp/> </Route>
           <Route exact={true} path="/donation" component={Donation}/>
           <Route exact={true} path="/members/list" component={Members} />
 

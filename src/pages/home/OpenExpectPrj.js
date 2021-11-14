@@ -37,13 +37,13 @@ function OpenExpectPrj(props){
           
           return(//data.work_title
 <Card className="card_Home">
-<Link to={`/detail/${data.work_no}`}><Card.Img variant="top" 
+<Link to={`/detailOpenExp/${data.work_no}`}><Card.Img variant="top" 
 src={`image/${data.work_img}`}
 style={{width:'250px',  height:'200px', borderRadius: 15, overflow: 'hidden' }}/></Link>
 <Card.Body className="cardbody_Home">
 <Card.Title className="cardtitle_Home">공예 | {data.artist_name}</Card.Title>
 <Card.Text className="cardtext_Home">
-<Link to={"/detail"}>{data.work_title}</Link>
+<Link to={`/detailOpenExp/${data.work_no}`}> {data.work_title}</Link>
 </Card.Text>
 <div className="cardfooter">
   <p>{Math.round((data.funding_now/data.funding_goal)*100)}% 달성</p>
