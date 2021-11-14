@@ -41,6 +41,9 @@ function Profile(props) {
   const textValue = (value) => {
     setNameModal(value);
   }
+  const textEValue = (value) => {
+    setEmailModal(value);
+  }
 
   useEffect(()=>{
     member.user_name = window.localStorage.getItem('name');
@@ -108,8 +111,8 @@ function Profile(props) {
               <div>
                 {
                   emailModal === true
-                    ? <div><EmailModal></EmailModal></div>
-                    : <p>{ member.user_email}</p>
+                    ? <div><EmailModal textValue={textValue} textEValue={textEValue}></EmailModal></div>
+                    : <p style={{transform: "skew(-0.1deg)"}}>{ member.user_email}</p>
                 }
               </div>
               <hr style={{marginBottom:'20px'}} />
@@ -131,12 +134,14 @@ function Profile(props) {
                   }
               </div>
               <div>
+              </div>
                 {
                   phoneModal === true
                     ? <div><PhoneModal></PhoneModal></div>
-                    : <p>{member.user_phone}</p>
+                    : member.user_phone ==="null"
+                      ? <p>저장된 연락처가 없습니다.</p>
+                      : <p>{member.user_phone}</p>
                 }
-              </div>
               <hr style={{marginBottom:'20px'}} />
             </div>
             

@@ -29,7 +29,7 @@ function Header() {
         {/* <SearchModal/> */}
         <CenterMenu />
         <RightMenu />
-        <head_prjMenu/>
+        {/* <head_prjMenu/> */}
       </HeaderContainer>
     </StyledHeader>
     
