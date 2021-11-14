@@ -8,7 +8,8 @@ import { membersStore } from "./stores/MembersStore.js";
 import { mainStore } from "./stores/MainStore.js";
 import reportWebVitals from "./reportWebVitals";
 import { communityStore } from "./stores/CommunityStore";
-import {fundingStore} from "./stores/FundingStore";
+import { fundingStore } from "./stores/FundingStore";
+import { likeStore } from "./stores/LikeStore";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,6 +19,7 @@ ReactDOM.render(
         mainStore={mainStore}
         communityStore={communityStore}
         fundingStore={fundingStore}
+        likeStore={likeStore}
       >
         <App />
       </Provider>

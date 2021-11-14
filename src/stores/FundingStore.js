@@ -22,13 +22,25 @@ export default class FundingStore {
     work_no: "",
     funding_price: "",
     funding_date: "",
-    
   };
 
+  fundingsRead() {
+    axios
+      .get("http://localhost:8004/app/fundinglist.do")
+      .then((response) => {
+        console.log("성공");
+        console.log("Done fundingsRead", response);
+        this.fundings = response.data;
+        console.log("this.works>>", this.fundings);
+      })
+      .catch((error) => {
+        console.log("실패");
+        axiosError(error);
+      });
+  }
 
   fundingsPrc() {
-   
-    console.log('this.funding>>', this.funding);
+    console.log("this.funding>>", this.funding);
     axios
       .post("http://localhost:8004/app/fundingPage/", this.funding)
       .then((result) => {
@@ -39,116 +51,7 @@ export default class FundingStore {
         console.log("fundingPage 실패함", err);
         // console.log(this.work.work_content)
       });
-  };
-
-
- 
-
-  // fundingsPage() {
-    
-  //   axios
-  //     .post("http://localhost:8004/app/fundingPage", this.funding)
-  //     .then((result) => {
-  //       console.log("fundingPage 성공");
-  //       console.log("dd", this.funding);
-  //     })
-  //     .catch((err) => {
-  //       console.log("fundingPage 실패함", err);
-  //       // console.log(this.work.work_content)
-  //     });
-  // };
-    
-
-//   worksRead() {
-//     axios
-//       .get("http://localhost:8004/app/")
-//       .then((response) => {
-//         console.log("성공");
-//         console.log("Done worksRead", response);
-//         this.works = response.data;
-//         console.log("this.works>>", this.works);
-//       })
-//       .catch((error) => {
-//         console.log("실패");
-//         axiosError(error);
-//       });
-//   }
-
- 
-//   getWork(index) {
-//     axios
-//     .get("http://localhost:8004/app/detail/", {
-//     params:{
-//       work_no : index,
-//     }
-//     })
-//       .then((response) => {
-//         console.log("DoneDetail", response); //response가 null이 뜸...
-//         this.works.work_no = index;
-//         console.log('index>>', index);
-//         console.log('response.data>>', response.data);
-//       })
-//       .catch((error) => {
-//         axiosError(error);
-//         console.log('getWork실패!');
-//       });
-//   }
-
-//   likePlus(index){
-//     axios.get("http://localhost:8004/app/likePlus/", {
-//       params: {
-//         work_no : index,
-//       }
-//     })
-//     .then((response)=>{
-//       console.log('likePlus axious...')
-//     })
-//     .catch((error)=>{
-//       axiosError(error);
-//       console.log('likePlus실패...')
-//     });
-//   }
-
-//   likeMinus(index){
-//     axios.get("http://localhost:8004/app/likeMinus/", {
-//       params: {
-//         work_no : index,
-//       }
-//     })
-//     .then((response)=>{
-//       console.log('likeMinus axious...')
-//     })
-//     .catch((error)=>{
-//       axiosError(error);
-//       console.log('likeMinus실패...')
-//     });
-//   }
-
-//   worksUpdate(index, member) {
-//     axios
-//       .patch("http://localhost:3000/api/v1/members/" + index, member)
-//       .then((response) => {
-//         console.log("Done membersUpdate", response);
-//         this.membersRead();
-//       })
-//       .catch((error) => {
-//         axiosError(error);
-//       });
-//   }
-
-//   worksDelete(index) {
-//     // this.members.splice(index, 1);
-//     // console.log('Done membersDelete', this.members);
-//     axios
-//       .delete("http://localhost:3000/api/v1/members/" + index)
-//       .then((response) => {
-//         console.log("Done membersDelete", response);
-//         this.membersRead();
-//       })
-//       .catch((error) => {
-//         axiosError(error);
-//       });
-//   }
- }
+  }
+}
 
 export const fundingStore = new FundingStore();
