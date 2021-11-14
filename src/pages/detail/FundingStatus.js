@@ -225,7 +225,7 @@ const token = localStorage.getItem("token");
               {like === true ? (
                 <HeartOutlined style={{ fontSize: "27px" }} />
               ) : (
-                <HeartFilled style={{ fontSize: "27px" }} />
+                <HeartFilled style={{ fontSize: "27px", color:"red" }} />
               )}
             </Button>
 
