@@ -24,7 +24,7 @@ import G_List from "./pages/guide/G_List";
 import G_Update from "./pages/guide/G_Update";
 import ProjectUpload from "./pages/project/ProjectUpload";
 import MySettings from "./pages/users/MySettings";
-import Donation from './pages/detail/donation/Donation';
+import Donation from "./pages/detail/donation/Donation";
 import AdminMain from "./pages/admin/AdminMain";
 import ProjectUploadMain from "./pages/project/ProjectUploadMain";
 import ManageArtwork from "./pages/admin/ManageArtwork";
@@ -32,7 +32,7 @@ import G_Fee from "./pages/guide/G_Fee";
 import G_Articles from "./pages/guide/G_Articles";
 import Detail_OpenExp from "./pages/detail/detail_oepnExp/Detail_OpenExp";
 import UploadHeader from "./Header/UploadHeader";
-
+import Gallery from "./pages/gallery/gallerystart";
 
 function App() {
   // Guide 게시판 검색관련2
@@ -44,26 +44,34 @@ function App() {
   let [header, setHeader] = useState(true);
 
   return (
-    
     <div>
       {console.log(window.location.pathname)}
       <div className="App">
         {/* {(window.location.pathname ==
         "/project/plan/projectupload")? (<></>) : (<Header />)} */}
-        {(window.location.pathname ==
-        "/project/plan/projectupload")? (<Header />) : (<Header />)}
+        {window.location.pathname == "/project/plan/projectupload" ? (
+          <Header />
+        ) : (
+          <Header />
+        )}
         <Switch>
           {/* MAIN & DETAIL */}
           <Route exact={true} path="/" component={Main} />
           <Route exact={true} path="/" component={Home} />
           <Route exact={true} path="/detail/:no" component={Detail}>
-            <Detail /></Route>
-          <Route exact={true} path="/detailOpenExp/:no" component={Detail_OpenExp}>
-            <Detail_OpenExp/> </Route>
-          <Route exact={true} path="/donation" component={Donation}/>
+            <Detail />
+          </Route>
+          <Route
+            exact={true}
+            path="/detailOpenExp/:no"
+            component={Detail_OpenExp}
+          >
+            <Detail_OpenExp />{" "}
+          </Route>
+          <Route exact={true} path="/donation" component={Donation} />
           <Route exact={true} path="/members/list" component={Members} />
-
-
+          {/* Gallery */}
+          {/* <Route exact={true} path="/gallery" component={Artforgall} /> */}
           {/* LOGIN */}
           <Route exact={true} path="/login" component={Login} />
           <Route exact={true} path="/join" component={Join} />
@@ -72,7 +80,11 @@ function App() {
           <Route path="/users/mysettings/:user_id" component={MySettings} />
           <Route exact={true} path="/users/mysettings" component={MySettings} />
           <Route exact={true} path="/admin/adminmain" component={AdminMain} />
-          <Route exact={true} path="/admin/manageArtwork" component={ManageArtwork} />
+          <Route
+            exact={true}
+            path="/admin/manageArtwork"
+            component={ManageArtwork}
+          />
           {/* PROJECT */}
           <Route exact={true} path="/project/main" component={Main2} />
           <Route exact={true} path="/project/check" component={Check} />
@@ -97,7 +109,11 @@ function App() {
             component={ProjectUploadMain}
           />
           {/* GUIDE */}
-          <Route exact path="/guide/G_List_practice" component={G_List_practice} />
+          <Route
+            exact
+            path="/guide/G_List_practice"
+            component={G_List_practice}
+          />
           <Route path="/guide/G_Detail/:seq" component={G_Detail}>
             <G_Detail data={data} setData={setData} />
           </Route>
@@ -110,16 +126,23 @@ function App() {
           <Route exact path="/guide/G_Detail" component={G_Detail} />
           <Route exact path="/guide/G_Input" component={G_Input} />
           <Route exact path="/guide/G_List" component={G_List}>
-            <G_List data={data} setData={setData} searchKeyword={searchKeyword} setSearchKeyword={setSearchKeyword}
-            keyField={keyField} setkeyField={setkeyField}
+            <G_List
+              data={data}
+              setData={setData}
+              searchKeyword={searchKeyword}
+              setSearchKeyword={setSearchKeyword}
+              keyField={keyField}
+              setkeyField={setkeyField}
             />
           </Route>{" "}
           <Route exact path="/guide/G_Fee" component={G_Fee} />
           <Route exact path="/guide/G_Articles" component={G_Articles} />
         </Switch>
-        {(window.location.pathname ==
-        "/project/plan/projectupload")? (<></>) : (<Footer />)}
-        
+        {window.location.pathname == "/project/plan/projectupload" ? (
+          <></>
+        ) : (
+          <Footer />
+        )}
       </div>
     </div>
   );
