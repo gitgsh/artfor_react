@@ -71,6 +71,22 @@ export default class MainStore {
       });
   }
 
+//좋아요 순 출력
+  worksReadSort() {
+    
+    axios
+      .get("http://localhost:8004/app/sortLike")
+      .then((response) => {
+        console.log("성공");
+        console.log("Done worksReadSort", response);
+        this.works = response.data;
+        console.log("this.works>>", this.works);
+      })
+      .catch((error) => {
+        console.log("worksReadSort 실패");
+        axiosError(error);
+      });
+  }
  
   getWork(index) {
     axios
