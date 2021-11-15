@@ -81,8 +81,16 @@ function App() {
           <Route path="/users/mysettings/:user_id" component={MySettings} />
           <Route exact={true} path="/users/mysettings" component={MySettings} />
           <Route exact={true} path="/admin/adminmain" component={AdminMain} />
-          <Route exact={true} path="/admin/manageArtwork" component={ManageArtwork} />
-          <Route exact={true} path="/admin/manageFunding" component={ManageFunding} />
+          <Route
+            exact={true}
+            path="/admin/manageArtwork"
+            component={ManageArtwork}
+          />
+          <Route
+            exact={true}
+            path="/admin/manageFunding"
+            component={ManageFunding}
+          />
           {/* PROJECT */}
           <Route exact={true} path="/project/main" component={Main2} />
           <Route exact={true} path="/project/check" component={Check} />
