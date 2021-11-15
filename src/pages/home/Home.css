@@ -28,6 +28,7 @@
 .main_home {
   font-size: 22px;
   text-align: left;
+  margin-left: 55px;
   font-family: 'NanumSquareB';
   /* margin-left: 410px; */
   font-weight: bold;
@@ -101,10 +102,15 @@ a:hover {
  /* container */
  max-width: 1200px;
  width: 100%;
- margin-left: 410px;
+ /* margin-left: 410px; */
+ margin: auto;
  text-align: left;
       
 } 
+
+.main_home_in_1{
+  padding-left: 55px;
+}
 
 .cardgroup_Home{
   max-width: 1105px;
