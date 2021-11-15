@@ -77,6 +77,7 @@ function Login(props) {
         member.user_address = result.user_address;
         member.user_phone = result.user_phone;
         member.user_role = result.user_role;
+        member.user_photo = result.user_photo;
         console.log(member, "유저정보를보여주자");
 
         let name = result.user_name;
@@ -84,6 +85,7 @@ function Login(props) {
         let address = result.user_address;
         let phone = result.user_phone;
         let role = result.user_role;
+        let photo = result.user_photo;
         console.log(typeof result.user_email, "타입이 뭐야?");
 
         window.localStorage.setItem("name", name);
@@ -91,9 +93,8 @@ function Login(props) {
         localStorage.setItem("address", address);
         localStorage.setItem("phone", phone);
         localStorage.setItem("role", role);
+        localStorage.setItem("photo", photo);
         window.location.replace("/users/myproject")
-
-
       })
       .catch((error) => {
         axiosError(error);

@@ -4,6 +4,7 @@ import { observer } from "mobx-react-lite";
 import { useEffect, useState } from "react";
 import { Button, FormControl, InputGroup } from "react-bootstrap";
 import { axiosError } from "../../../stores/common";
+import PhoneAuthModal from "./PhoneAuthModal";
 
 function PhoneModal(props){
 
@@ -13,6 +14,10 @@ function PhoneModal(props){
   const [phone, setPhone] = useState();
   const [condition, setCondition] = useState(1);
   const phoneC = /[^0-9]/;
+
+  const middleValue = (value) => {
+    props.textPValue(value);
+  }
 
   useEffect(()=>{
     if(member.user_phone === "null"){
@@ -70,7 +75,7 @@ function PhoneModal(props){
 
       if (result === 1) {
         setCondition(6);
-        alert("인증번호를 확인해 주세요");
+        // alert("인증번호를 확인해 주세요");
       } else if (result === -1) {
         alert("이미 가입된 연락처입니다.");
       } else {
@@ -91,7 +96,7 @@ function PhoneModal(props){
               style={{transform: "skew(-0.1deg)"}}
               type="text"
               spellCheck="false"
-              placeholder="연락처 입력"
+              placeholder="예) 010-0000-0000"
               value={phone}
               onChange={onChange} />
           </InputGroup>
@@ -111,7 +116,9 @@ function PhoneModal(props){
           {condition === 6
           && <>
               <p style={{ marginTop:'10px', color:'blue', fontSize:'13px', transform: "skew(-0.1deg)" }}>전송 완료!</p>
-              {/* <EmailAuthModal email={email} setEmail={setEmail} middleValue={middleValue}/> */}
+              <PhoneAuthModal phone={phone} setPhone={setPhone}
+               middleValue={middleValue}
+               />
             </>
           }
         </form>

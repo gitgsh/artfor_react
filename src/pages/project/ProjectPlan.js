@@ -532,8 +532,10 @@ function ProjectPlan(props) {
       //console.log(event.target); <form></form>이 들어온다
       //그냥 폼은 태그 엘리먼트일뿐이기에 FormData 타입으로 변경해야한다. 
       let form = event.target;
+      console.log("form은 대체 뭐람", form);
       let data = new FormData(form);
       // 파일 전송중에는 submit 비활성화되도록
+      console.log("data가 뭐냐고 대체", data);
 
 
       axios.post('http://localhost:8004/app/input2.do', data,{

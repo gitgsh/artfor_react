@@ -11,8 +11,6 @@ function PasswordModal(props) {
   const { members, member } = membersStore;
 
   const [now_pw, setNow_pw] = useState("");
-  const [modify_pw1, setModify_pw1] = useState("");
-  const [modify_pw2, setModify_pw2] = useState("");
 
   const [condition, setCondition] = useState(1);
   const [updatepwModal, setUpdateModal] = useState(false);
@@ -26,6 +24,7 @@ function PasswordModal(props) {
 
     if (now_pw === "") {
       setCondition(2);
+      setUpdateModal(false);
       return false;
     } else if (now_pw.length < 4 || now_pw.length > 14) {
       setCondition(3);
@@ -34,7 +33,7 @@ function PasswordModal(props) {
     }
 
     let data = {
-      user_name: member.user_name,
+      user_email: member.user_email,
       user_pw: now_pw,
     };
 
@@ -53,13 +52,6 @@ function PasswordModal(props) {
           setCondition(4);
           setUpdateModal(true);
         }
-        // alert("비밀번호 변경 성공!");
-        // sendValue();
-        // console.log("과연 이름은?");
-        // console.log(name);
-        // localStorage.setItem('name',name);
-        // const user_n = window.localStorage.getItem('name');
-        // console.log("user_n : ",user_n);
       })
       .catch((error) => {
         console.log("error임", error);
@@ -155,7 +147,7 @@ function PasswordModal(props) {
         >
           <p style={{ transform: "skew(-0.1deg)" }}>
             비밀번호가 기억나지 않나요?{" "}
-            <Link style={{ color: "#3399ff", transform: "skew(-0.1deg)" }}>
+            <Link style={{ color: "#3399ff", transform: "skew(-0.1deg)" }} to="/forgotPW">
               비밀번호 초기화
             </Link>
           </p>

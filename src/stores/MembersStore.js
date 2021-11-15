@@ -20,6 +20,7 @@ export default class MembersStore {
     user_address: "",
     user_phone :"",
     user_role : "",
+    user_photo : "",
   };
 
   membersCreate() {
