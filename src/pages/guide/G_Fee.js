@@ -149,7 +149,7 @@ let Title2 = styled.div`
     text-align : left;
 `;
 let Content = styled.div`
-    color : #757575;
+    color : #616161;
     margin-top : 20px;
     font-size : 16px;
     text-align : left;

@@ -2,6 +2,8 @@ import React from "react";
 import styled from 'styled-components';
 import Article1 from "./Article1";
 import Article2 from "./Article2";
+import Article3 from "./Article3";
+import Article4 from "./Article4";
 
 
 function ArticlesTabs(props) {
@@ -16,20 +18,13 @@ function ArticlesTabs(props) {
         )
       } else if(props.value === 2) {
         return(
-            <div>심사 기준
-            </div>
+          <Article3/>
         )
       } else if(props.value === 3) {
         return(
-            <div>프로젝트 선정 기준
-            </div>
+          <Article4/>
         )
-    } else if(props.value === 4) {
-        return(
-            <div> 
-            </div>
-        )
-      }
+    } 
     };
 
     let DivFee = styled.div`

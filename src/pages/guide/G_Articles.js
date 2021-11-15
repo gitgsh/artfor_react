@@ -24,7 +24,7 @@ function G_Articles() {
 
                         <AntTab label="개인정보 처리방침"/>
                         <AntTab label="커뮤니티 운영원칙"/>
-                        <AntTab label="심사 기준"/>
+                        <AntTab label="프로젝트 심사 기준"/>
                         <AntTab label="프로젝트 선정 기준"/>
                     </AntTabs>
                     </div>
@@ -41,6 +41,7 @@ function G_Articles() {
 
 // Tab styled component
 const AntTabs = styled(Tabs)({
+    transform: "skew(-0.1deg)",
     // borderBottom: '1px solid #e8e8e8',
     '& .MuiTabs-indicator': {
       backgroundColor: 'white',      
@@ -48,6 +49,7 @@ const AntTabs = styled(Tabs)({
   });
   
   const AntTab = styled((props) => <Tab disableRipple {...props} />)(({ theme }) => ({
+    transform: "skew(-0.1deg)",
     textTransform: 'none',
     minWidth: 150,
     [theme.breakpoints.up('sm')]: {
