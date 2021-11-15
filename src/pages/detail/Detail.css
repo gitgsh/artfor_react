@@ -11,6 +11,8 @@ width: 100%;
 .Detail_Home_All{
 
 margin-left: 60px;
+height: auto;
+
 
 }
 
@@ -25,7 +27,26 @@ margin-left: 60px;
     
 }
 
+.detail_home_all2{
 
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+    /* IE scroll 숨김 */
+    -ms-overflow-style: none;
+}
+.detail_home_all2 img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.detail_home_all2::-webkit-scrollbar { 
+
+  
+   display: none;
+ 
+}
 
 .detail_head2{
     width: 1250px;
@@ -44,7 +65,7 @@ margin-left: 60px;
 
 .content_HomeDetail{
     
-    height: 1000px;
+    height: 100vh;
     width: 1080px;
     background-color: blanchedalmond;
 }
@@ -126,7 +147,7 @@ margin-left: 60px;
     display: block;
     font-size: 25px;
     font-weight: bold;
-    font-family: 'NanumSquareR';
+    /* font-family: 'NanumSquareR'; */
     text-align: left;
     max-width: 1080px;
     margin: 0 auto;
@@ -151,4 +172,9 @@ margin-left: 60px;
     width: 500px;
     height: 400px;
 
+  }
+
+  .detail_box{
+    background-color: blue;
+    height: auto;
   }

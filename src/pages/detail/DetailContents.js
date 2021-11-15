@@ -19,8 +19,12 @@ function DetailContents(props){
 
     return(
         <>
-
-          <div className="buttonClass_detail_Home" style={{paddingTop: "10px"}}>
+          <div className="detail_home_all2" style={{
+            // backgroundColor:'brown'
+            height:'auto'
+          
+         }}>
+          <div className="buttonClass_detail_Home" style={{paddingTop: "10px"}} >
         <ScrollIntoView selector=".box1" className="scroll" >
         <Button id="box1" variant="outline-secondary" size="sm" style={{borderRadius:"30px"}}>목적</Button>
         </ScrollIntoView>
@@ -37,46 +41,50 @@ function DetailContents(props){
         <Button id="box5" variant="outline-secondary" size="sm" style={{borderRadius:"30px", marginLeft:"10px"}}>신뢰와 안전</Button>
         </ScrollIntoView>
         </div>
-        <div className="projectTitle_Home_Detail">
+        
+        <div className="projectTitle_Home_Detail" style={{height:'auto'}}>
           <p style={{fontFamily: "NanumSquareR"}}>프로젝트 계획</p>
         
-        <div className="content_HomeDetail" style={{fontFamily: "NanumSquareR"}}>
-          <div className="box1" style={{backgroundColor:"green", paddingTop:"60px"}}>[목적]
-            <div style={{backgroundColor: "yellow", marginBottom:"50px"}}>
+        <div className="content_HomeDetail" style={{height:'auto'}}>
+          <div className="box1" style={{backgroundColor:"green", paddingTop:"60px", 
+          // height:'100vw'
+          }}>[목적]
+            <div style={{backgroundColor: "yellow", marginBottom:"50px", height:"auto"}}>
               목적 에디터<br />
-              <p dangerouslySetInnerHTML={{ __html:findFunding.work_content }} />
+              <p style={{width:"auto",  fontSize:"20px"}} dangerouslySetInnerHTML={{ __html:findFunding.work_content }}  />
               {/* {findFunding.work_title} */}
            </div>
           </div>
-          <div className="box2" style={{backgroundColor:"green", paddingTop:"60px"}}>[예산]
-            <div style={{backgroundColor: "yellow", marginBottom:"50px"}}>
+          <div className="box2" style={{backgroundColor:"green", paddingTop:"60px",}}>[예산]
+            <div style={{backgroundColor: "yellow", marginBottom:"50px", height:"auto"}}>
               예산 에디터
            </div>
           </div>
 
-          <div className="box3" style={{backgroundColor:"green", paddingTop:"60px"}}>[일정]
+          <div className="box3" style={{backgroundColor:"green", paddingTop:"60px", }}>[일정]
             <div style={{backgroundColor: "yellow", marginBottom:"50px"}}>
               일정 에디터
            </div>
           </div>
           
-          <div className="box4" style={{backgroundColor:"green", paddingTop:"60px"}}>[팀소개]
+          <div className="box4" style={{backgroundColor:"green", paddingTop:"60px",}}>[팀소개]
             <div style={{backgroundColor: "yellow", marginBottom:"50px"}}>
               팀소개 에디터
            </div>
           </div>
 
-          <div className="box5" style={{backgroundColor:"green", paddingTop:"60px"}}>[신뢰와 안전]
+          <div className="box5" style={{backgroundColor:"green", paddingTop:"60px",}}>[신뢰와 안전]
             <div style={{backgroundColor: "yellow", marginBottom:"50px"}}>
               신뢰와 안전 에디터
            </div>
           </div>
-        </div>
+       
     <hr/>
 
-    <DetailBottom/>
+    </div>
 </div>
-
+</div>
+<DetailBottom/>
     </>
     )
 }

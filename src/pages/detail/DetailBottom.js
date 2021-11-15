@@ -42,7 +42,7 @@ function DetailBottom(props){
                 return(
                     <Card className="card_Home_Detail">
 <Link to={`/detail/${data.work_no}`}><Card.Img variant="top" src={`../image/${data.work_img}`}
-style={{width:'250px', borderRadius: 15, overflow: 'hidden' }}/></Link>
+style={{width:'250px', height: '200px',borderRadius: 15, overflow: 'hidden' }}/></Link>
 <Card.Body className="cardbody_Home_Detail">
 <Card.Title className="cardtitle_Home_Detail">공예 | {data.artist_name}</Card.Title>
 <Card.Text className="cardtext_Home_Detail">
