@@ -40,7 +40,7 @@ function FundingStatus(props) {
         })
         .catch((error) => {
           console.log("likesRead 실패...");
-          console.log(error);
+          axiosError(error);
         });
     
   }, []); //[]를 추가하면 첫 렌더링 시 한 번만 실행된다.
@@ -144,7 +144,7 @@ const token = localStorage.getItem("token");
             {findFunding.work_title}
           </h2>
           <center>
-            <p className="writer_homeDetail">
+            <p className="writer_homeDetail" style={{fontFamily:"NanumBarunGothic"}}>
               <img src={icon_detail_writer} />
               {findFunding.artist_name}
             </p>
@@ -169,7 +169,7 @@ const token = localStorage.getItem("token");
                 {numberWithCommas(findFunding.funding_now)}
               </span>{" "}
               <span style={{ fontFamily: "NanumSquareL" }}>원</span>
-              <span style={{ fontFamily: "NanumSquareB", fontSize: "20px" }}>
+              <span style={{ fontFamily: "NanumSquareB", fontSize: "20px", paddingLeft:"10px"}}>
                 {fundingPercent}%
               </span>
               <br />
@@ -203,6 +203,7 @@ const token = localStorage.getItem("token");
               <p
                 style={{
                   fontFamily: "NanumSquareR",
+                  // fontFamily:"NanumBarunGothicLight",
                   fontSize: "15px",
                   textAlign: "left",
                   transform: "skew(-1.0deg)",

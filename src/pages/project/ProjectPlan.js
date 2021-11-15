@@ -40,7 +40,7 @@ function ProjectPlan(props) {
         height: "100%",
       }}
     >
-     {window.localStorage.getItem('name')}
+     {/* {window.localStorage.getItem('name')} */}
       {/* 카테고리 */}
       <CategoryInput />
 

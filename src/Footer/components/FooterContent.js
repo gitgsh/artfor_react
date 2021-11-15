@@ -39,7 +39,7 @@ function FooterContent() {
         </thead>
         <tbody>
           <tr>
-            <Contents><Link to="/guide/G_List">헬프센터</Link></Contents>
+            <Contents><Link to="/guide/G_List" style={{color:"#f76453", fontWeight:"bold"}}>헬프센터</Link></Contents>
           </tr>
           <tr>
             <ContentsHighlight>창작자 가이드</ContentsHighlight>
@@ -178,9 +178,11 @@ const Contents = styled.td`
 
 const ContentsHighlight = styled.td`
   font-size: 14px;
-  font-weight: bold;
+  // font-weight: bold;
   line-height: 22px;
-  color: #f76453;
+  // color: #f76453;
+  color: #6d6d6d;
+
 `;
 
 const ContentsRedHighlight = styled.td`
