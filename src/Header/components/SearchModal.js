@@ -7,6 +7,8 @@ import SearchIcon from "@mui/icons-material/Search";
 import { inject, observer } from "mobx-react";
 import { Card, CardGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { AiOutlineMenu } from "react-icons/ai";
+import { FcMenu } from "react-icons/fc";
 function SearchModal(props) {
   const [show, setShow] = useState(false);
   // jh
@@ -37,14 +39,21 @@ function SearchModal(props) {
           setKeyword("");
         }}
         style={{
-          color: "black",
-          fontFamily: "NanumSquareB",
-          fontSize: "15px",
           backgroundColor: "transparent",
           border: "0px",
+          color: "#000000",
+          fontFamily: "NanumSquareR",
+          fontSize: "15px",
+          fontWeight: "bold",
         }}
       >
-        <img src="../icon_navbar.png" style={{ width: "20px" }} />
+        <FcMenu
+          // src="../icon_navbar.png"
+          style={{
+            width: "20px",
+            marginRight: "3px",
+          }}
+        />
         프로젝트 둘러보기
       </Button>
 
@@ -66,7 +75,7 @@ function SearchModal(props) {
                 label="프로젝트를 검색해보세요"
                 variant="standard"
                 color="success"
-                style={{ width: "800px", borderRadiu:"red"}}
+                style={{ width: "800px", borderRadiu: "red" }}
                 onChange={(event) => {
                   setKeyword(event.target.value);
                 }}
