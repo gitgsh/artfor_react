@@ -14,7 +14,7 @@ function FooterCompany() {
         <Strong>회사명</Strong>
         <Normal>아트포(주)</Normal>
         <Strong>주소</Strong>
-        <Normal>수원시 장안구 정자천로 188번길 </Normal>
+        <Normal>서울시 금천구 가산디지털2로 123 </Normal>
         <Strong>대표</Strong>
         <Normal>2팀</Normal>
         <Strong>사업자등록번호</Strong>

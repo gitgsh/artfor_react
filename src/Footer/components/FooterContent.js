@@ -45,9 +45,6 @@ function FooterContent() {
             <ContentsHighlight>창작자 가이드</ContentsHighlight>
           </tr>
           <tr>
-            <Contents>프로젝트 심사 기준</Contents>
-          </tr>
-          <tr>
             <Contents><Link to="/guide/G_Fee">수수료 정책</Link></Contents>
           </tr>
         </tbody>
@@ -59,15 +56,12 @@ function FooterContent() {
       <div className="footer_font3">
         <thead>
           <tr>
-            <ContentsTitle>정책</ContentsTitle>
+            <ContentsTitle>약관 및 정책</ContentsTitle>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <Contents><Link to="/guide/G_Articles">이용약관</Link></Contents>
-          </tr>
-          <tr>
-            <ContentsRedHighlight>개인정보 처리방침</ContentsRedHighlight>
+            <Contents><Link to="/guide/G_Articles">개인정보 처리방침</Link></Contents>
           </tr>
         </tbody>
         </div>
