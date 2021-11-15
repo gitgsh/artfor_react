@@ -46,22 +46,29 @@ function LikeProject(props) {
 
   console.log("works>>>>>>>>>>>>", works);
 
-  const workList = works.filter(function (data, i) {
-    return data.work_no == findWorkNO;
-  });
-  console.log("data", workList);
+  const workList = works
+    .filter(function (data, i) {
+      // console.log("findWorkNO[i]", findWorkNO[i]);
+      // console.log("data.work_no", data.work_no);
+      return data.work_no;
+    })
+    .filter(function (data, i) {
+      return findWorkNO[i];
+    });
+
+  console.log("workList", workList);
 
   return (
     <div>
-      <div className="project_component" style={{ height: "100%" }}>
-        <CardGroup className="cardgroup_Home" style={{ height: "auto" }}>
+      <div className="project_component">
+        <CardGroup className="cardgroup_Home">
           {workList.slice(0, count).map(function (data, i) {
             //8개
             return (
               <div
                 style={{
-                  marginLeft: "10px",
-                  marginBottom: "-50px",
+                  marginLeft: "20px",
+                  marginBottom: "-80px",
                 }}
               >
                 <Card className="card_Home">
