@@ -3,34 +3,59 @@ import { buttons, pokemons } from "./testData";
 import ProjectList from "./ProjectList";
 import { FcInspection } from "react-icons/fc";
 import "./AdminMain.css";
+import { inject, observer } from "mobx-react";
 
 
-function ManageArtwork() {
+function ManageArtwork(props) {
+
+  const {mainStore} = props;
+  const {works} = mainStore;
     
-    const [filtredPokemon, setFiltredPokemon] = useState(null);
+  // const [filtredPokemon, setFiltredPokemon] = useState(null);
+  const [filtredArtwork, setFiltredArtwork] = useState(null);
+
     
-    function getPokemon() {
-        const pokemonList = pokemons;
-        return pokemonList;
-    }
+  // function getPokemon() {
+  //     const pokemonList = pokemons;
+  //     return pokemonList;
+  // }
+  const artworks = works.map(function(data, i){
+    return (
+      data
+    )
+  })
   
-    function filterPokemon(pokeType) {
-        let filtredPokemon = getPokemon().filter(type => type.tipo === pokeType);
-        return filtredPokemon;
-    }
+  function getArtwork() {
+    const artworkList = artworks;
+    return artworkList;
+  }
+  
+  // function filterPokemon(pokeType) {
+  //     let filtredPokemon = getPokemon().filter(type => type.tipo === pokeType);
+  //     return filtredPokemon;
+  // }
+
+  function filterArtwork(fundingStatus) {
+    let filtredArtwork = getArtwork().filter(type => type.funding_status === fundingStatus);
+    return filtredArtwork;
+  }
   
 
-    useEffect(() => {
-        setFiltredPokemon(getPokemon());
-    }, []);
+  // useEffect(() => {
+  //     setFiltredPokemon(getPokemon());
+  // }, []);
 
-    function handlePokemon(e) {
-        let typePokemon = e.target.value;
-        typePokemon !== "all"
-        ? setFiltredPokemon(filterPokemon(typePokemon))
-        : setFiltredPokemon(getPokemon());
-        console.log(typePokemon,"<<<<<");
-    }
+  useEffect(() => {
+    setFiltredArtwork(getArtwork());
+  }, []);
+
+  // function handlePokemon(e) {
+  //     let typePokemon = e.target.value;
+  //     typePokemon !== "all"
+  //     ? setFiltredPokemon(filterPokemon(typePokemon))
+  //     : setFiltredPokemon(getPokemon());
+  //     console.log(typePokemon,"<<<<<");
+  // }
 
     return (
         <div className="setting-margin-abox">
@@ -48,12 +73,12 @@ function ManageArtwork() {
               <div style={{clear:'both', borderBottom:'1px solid #e8e8e8'}} />
       
               <div className="setting-abox-1" >
-            <ProjectList/>
-            </div>
+              <ProjectList filtredArtwork={filtredArtwork} setFiltredArtwork={setFiltredArtwork}/>
+              </div>
             
             
         </div>
     );
 }
 
-export default ManageArtwork;
+export default inject("mainStore")(observer(ManageArtwork));

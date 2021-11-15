@@ -9,6 +9,7 @@ import { mainStore } from "./stores/MainStore.js";
 import reportWebVitals from "./reportWebVitals";
 import { communityStore } from "./stores/CommunityStore";
 import { fundingStore } from "./stores/FundingStore";
+import { fundingStore2 } from "./stores/FundingStore2";
 import { likeStore } from "./stores/LikeStore";
 
 ReactDOM.render(
@@ -19,6 +20,7 @@ ReactDOM.render(
         mainStore={mainStore}
         communityStore={communityStore}
         fundingStore={fundingStore}
+        fundingStore2={fundingStore2}
         likeStore={likeStore}
       >
         <App />

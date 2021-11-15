@@ -232,6 +232,6 @@ export default class MainStore {
         axiosError(error);
       });
   }
-}
 
+}
 export const mainStore = new MainStore();
