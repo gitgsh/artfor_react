@@ -24,6 +24,9 @@
   border-radius:70%;
   overflow:hidden;
 }
+.myicon-box1{
+  float: left;
+}
 .myname-box {
   float: left;
   margin-left: 15px;
