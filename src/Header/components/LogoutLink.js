@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link, useHistory } from 'react-router-dom';
-import { FaUserCircle } from 'react-icons/fa';
-import { flex } from '../../styles/mixins';
+import React from "react";
+import styled from "styled-components";
+import { Link, useHistory } from "react-router-dom";
+import { FaUserCircle } from "react-icons/fa";
+import { flex } from "../../styles/mixins";
 
 function LogoutLink() {
   // const kakaoToken = window.Kakao.Auth.getAccessToken();
@@ -10,38 +10,38 @@ function LogoutLink() {
 
   const handleKakaoLogout = () => {
     window.Kakao.API.request({
-      url: '/v1/user/unlink',
-      success: res => {
+      url: "/v1/user/unlink",
+      success: (res) => {
         Object.keys(localStorage)
-          .filter(key => key.startsWith('kakao_'))
-          .forEach(key => localStorage.removeItem(key));
+          .filter((key) => key.startsWith("kakao_"))
+          .forEach((key) => localStorage.removeItem(key));
 
         localStorage.clear();
-        localStorage.removeItem('token');
+        localStorage.removeItem("token");
 
-        alert('성공적으로 로그아웃 되었습니다. 다음에 또 만나요!🙋‍♀️');
-        history.push('/login');
+        alert("성공적으로 로그아웃 되었습니다. 다음에 또 만나요!🙋‍♀️");
+        history.push("/login");
       },
-      fail: error => {
+      fail: (error) => {
         console.log(error);
         Object.keys(localStorage)
-          .filter(key => key.startsWith('kakao_'))
-          .forEach(key => localStorage.removeItem(key));
+          .filter((key) => key.startsWith("kakao_"))
+          .forEach((key) => localStorage.removeItem(key));
 
         localStorage.clear();
-        localStorage.removeItem('token');
-        alert('성공적으로 로그아웃 되었습니다. 다음에 또 만나요!🙋');
+        localStorage.removeItem("token");
+        alert("성공적으로 로그아웃 되었습니다. 다음에 또 만나요!🙋");
       },
     });
     window.Kakao.Auth.setAccessToken(undefined);
   };
 
   const handleNormalLogout = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
     localStorage.clear();
-    alert('성공적으로 로그아웃 되었습니다. 다음에 또 만나요🥰');
+    alert("성공적으로 로그아웃 되었습니다. 다음에 또 만나요🥰");
     // history.push('/login');
-    window.location.replace("/login")
+    window.location.replace("/login");
   };
 
   return (
@@ -51,7 +51,15 @@ function LogoutLink() {
         // onClick={kakaoToken ? handleKakaoLogout : handleNormalLogout}
         onClick={handleNormalLogout}
       >
-        <SignInSignUp>로그아웃</SignInSignUp>
+        <SignInSignUp
+          style={{
+            fontFamily: "NanumSquareR",
+            fontWeight: "bold",
+            fontSize: "14px",
+          }}
+        >
+          로그아웃
+        </SignInSignUp>
         {/* <UserAvatarIcon /> */}
       </LogoutButton>
     </>
@@ -70,7 +78,7 @@ const PledgesButton = styled(Link)`
 `;
 
 const LogoutButton = styled.div`
-  ${flex('center', 'center')};
+  ${flex("center", "center")};
   height: 100%;
   cursor: pointer;
   transition: opacity 250ms;
