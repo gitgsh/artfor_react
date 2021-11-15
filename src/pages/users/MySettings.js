@@ -19,7 +19,7 @@ function MySettings(props) {
   return (
     <div className="setting-margin-box">
       <div className="setting-box-1" >
-        <div className="myicon-box">
+        <div className="myicon-box1">
           <h2>설정</h2>
         </div>
       </div>
