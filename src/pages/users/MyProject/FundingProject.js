@@ -5,6 +5,7 @@ import "../Project.css";
 import { inject, observer } from "mobx-react";
 
 function FundingProject(props) {
+  console.log("후원한 프로젝트");
   const { mainStore } = props;
   const { works, work } = mainStore;
 
@@ -34,32 +35,37 @@ function FundingProject(props) {
 
   const findFundingProject = fundings.filter(function (result) {
     //사용자가 요청한 seq값과 일치하는 seq(db상의 seq값)을 찾는다.
-    return result.user_name == window.localStorage.getItem("name");
+    return result.user_email == window.localStorage.getItem("email");
   });
-  const findWorkNO = findFundingProject.map(function (data, i) {
+  const findFundingWorkNO = findFundingProject.map(function (data, i) {
     return data.work_no;
   });
 
-  console.log("findWorkNO", findWorkNO);
+  console.log("findWorkNO", findFundingWorkNO);
 
   console.log("works>>>>>>>>>>>>", works);
 
-  const workList = works.filter(function (data, i) {
-    return data.work_no == findWorkNO;
-  });
-  console.log("data", workList);
-
+  const workList = works
+    .filter(function (data, i) {
+      console.log("findFundingWorkNO[i]", findFundingWorkNO[i]);
+      console.log("data.work_no", data.work_no);
+      return data.work_no;
+    })
+    .filter(function (data, i) {
+      return findFundingWorkNO[i];
+    });
+  console.log("workListFunding", workList);
   return (
     <div>
-      <div className="project_component" style={{ height: "100%" }}>
-        <CardGroup className="cardgroup_Home" style={{ height: "auto" }}>
+      <div className="project_component">
+        <CardGroup className="cardgroup_Home">
           {workList.slice(0, count).map(function (data, i) {
             //8개
             return (
               <div
                 style={{
-                  marginLeft: "10px",
-                  marginBottom: "-50px",
+                  marginLeft: "20px",
+                  marginBottom: "-80px",
                 }}
               >
                 <Card className="card_Home">
