@@ -9,24 +9,16 @@ import AdminMenu from "./AdminMenu";
 import { FcConferenceCall } from "react-icons/fc";
 
 function RightMenu() {
-  const token = localStorage.getItem("token");
-  const user_role = localStorage.getItem("name");
+  const token = localStorage.getItem('token');
+  const user_role = localStorage.getItem('role');
 
   console.log("토큰 : ", token);
   console.log("유저 권한 : ", user_role);
 
-  return (
-    <RightMenuBox
-      style={{
-        fontFamily: "NanumSquareR",
-        fontSize: "15px",
-        fontWeight: "bold",
-      }}
-    >
-      {user_role == "관리자" && token ? <AdminMenu /> : <> </>}
-      {token ? <UserLinkMenu /> : <LoginLink />}
-    </RightMenuBox>
-  );
+  return <RightMenuBox>
+    {(user_role == 'admin' && token ) ? <AdminMenu /> : <> </>}
+    {token ? <UserLinkMenu /> : <LoginLink />}
+    </RightMenuBox>;
 }
 
 const RightMenuBox = styled.div`
