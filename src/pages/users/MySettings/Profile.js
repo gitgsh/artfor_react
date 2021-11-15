@@ -11,6 +11,9 @@ import NameModal from './NameModal';
 import PasswordModal from './PasswordModal';
 import EmailModal from './EmailModal';
 import PhoneModal from './PhoneModal';
+import { FcCheckmark } from "react-icons/fc";
+import SignoutModal from './SignoutModal';
+import PhotoModal from './PhotoModal';
 
 function Profile(props) {
 
@@ -22,6 +25,11 @@ function Profile(props) {
   let [emailModal, setEmailModal] = useState(false);
   let [phoneModal, setPhoneModal] = useState(false);
   let [photoModal, setPhotoModal] = useState(false);
+  let [signoutModal, setSignoutModal] = useState(false);
+  let [photostatus, setPhotostatus] = useState(false);
+  const [attachment, setAttachment] = useState("");
+  
+  const [photo, setPhoto] = useState(member.user_photo);
 
   function modalSwitch(e) {
     let value = e.target.value;
@@ -35,6 +43,8 @@ function Profile(props) {
       setPhoneModal(!phoneModal);
     } else if (value === 'photo') {
       setPhotoModal(!photoModal);
+    } else if (value === 'signout') {
+      setSignoutModal(!signoutModal);
     }
   }
 
@@ -44,12 +54,23 @@ function Profile(props) {
   const textEValue = (value) => {
     setEmailModal(value);
   }
+  const textPValue = (value) => {
+    setPhoneModal(value);
+  }
 
   useEffect(()=>{
     member.user_name = window.localStorage.getItem('name');
     member.user_email = window.localStorage.getItem('email');
     member.user_phone = window.localStorage.getItem('phone');
+    member.user_photo = window.localStorage.getItem('photo');
   }, [membersStore])
+
+  const updatephoto =(value) => {
+    console.log("value는?",value);
+    member.user_photo = value;
+    console.log("상위에서 member유저포토", member.user_photo);
+    localStorage.setItem('photo', member.user_photo);
+  }
 
   return (
     <div className="setting-box2">
@@ -68,7 +89,7 @@ function Profile(props) {
               {
                 nameModal === true
                   ? <div><NameModal textValue={textValue}></NameModal></div>
-                  : <p>{member.user_name}</p>
+                  : <p style={{transform: "skew(-0.1deg)"}}>{member.user_name}</p>
               }
               </div>
               <hr style={{marginBottom:'20px'}} />
@@ -111,7 +132,7 @@ function Profile(props) {
               <div>
                 {
                   emailModal === true
-                    ? <div><EmailModal textValue={textValue} textEValue={textEValue}></EmailModal></div>
+                    ? <div><EmailModal textEValue={textEValue}></EmailModal></div>
                     : <p style={{transform: "skew(-0.1deg)"}}>{ member.user_email}</p>
                 }
               </div>
@@ -127,20 +148,23 @@ function Profile(props) {
                 }}
               >
                 <h5 style={{ fontWeight: "bold", fontSize: "17px" }}>연락처</h5>
-                  {
-                    phoneModal === true
-                    ? <button style={{ fontSize: "17px", background:'none', color:'#3399ff', border:'0' }} onClick={modalSwitch} value="phone">취소</button>
-                    : <button style={{ fontSize: "17px", background:'none', color:'#3399ff', border:'0' }} onClick={modalSwitch} value="phone">변경</button>
-                  }
+                {
+                  member.user_phone !=="null"
+                  ? <div style={{marginRight:'5px'}}><FcCheckmark style={{float:'left', marginRight:'7px'}}/><p style={{float:'left', fontSize: "17px" }}>인증됨</p></div>
+                :
+                  phoneModal === true
+                  ? <button style={{ fontSize: "17px", background:'none', color:'#3399ff', border:'0' }} onClick={modalSwitch} value="phone">취소</button>
+                  : <button style={{ fontSize: "17px", background:'none', color:'#3399ff', border:'0' }} onClick={modalSwitch} value="phone">인증</button>
+                }
               </div>
               <div>
               </div>
                 {
                   phoneModal === true
-                    ? <div><PhoneModal></PhoneModal></div>
+                    ? <div><PhoneModal textPValue={textPValue}></PhoneModal></div>
                     : member.user_phone ==="null"
-                      ? <p>저장된 연락처가 없습니다.</p>
-                      : <p>{member.user_phone}</p>
+                      ? <p style={{transform: "skew(-0.1deg)"}}>저장된 연락처가 없습니다.</p>
+                      : <p style={{transform: "skew(-0.1deg)"}}>{member.user_phone}</p>
                 }
               <hr style={{marginBottom:'20px'}} />
             </div>
@@ -154,10 +178,19 @@ function Profile(props) {
                 }}
               >
                 <h5 style={{ fontWeight: "bold", fontSize: "17px" }}>회원탈퇴</h5>
-                  <button style={{ fontSize: "17px", background:'none', color:'#ff6666', border:'0' }} value="phone">탈퇴</button>
+                {
+                  signoutModal === true
+                  ? <button style={{ fontSize: "17px", background:'none', color:'#ff6666', border:'0' }} onClick={modalSwitch} value="signout">취소</button>
+                  : <button style={{ fontSize: "17px", background:'none', color:'#ff6666', border:'0' }} onClick={modalSwitch} value="signout">탈퇴</button>
+                }
               </div>
               <div>
               </div>
+              {
+                signoutModal === true
+                  ? <div><SignoutModal></SignoutModal></div>
+                  : null
+              }
             </div>
 
           </div>
@@ -166,7 +199,15 @@ function Profile(props) {
             <div style={{clear:'both'}}>
             <h5 style={{textAlign:'center', fontWeight: "bold", fontSize: "17px" }}>프로필</h5>
             <div style={{marginTop:'20px', marginLeft:'95px', width:'180px', height:'180px', borderRadius:'70%', overflow:'hidden'}}>
-              <img style={{width:'100%', height:'100%', objectFit:'cover'}} src="/dog1.jpg" />
+              
+              {member.user_photo === "null"
+                ? attachment !== ""
+                  ? <img style={{width:'100%', height:'100%', objectFit:'cover'}} src={attachment} />
+                  : <img style={{width:'100%', height:'100%', objectFit:'cover'}} src="/basicphoto.png" />
+                : attachment !== ""
+                  ? <img style={{width:'100%', height:'100%', objectFit:'cover'}} src={attachment} />
+                  : <img style={{width:'100%', height:'100%', objectFit:'cover'}} src={`/myphoto/${member.user_photo}`}/>
+              }
             </div>
             <div style={{marginLeft:'160px', marginTop:'20px'}}>
               {
@@ -178,8 +219,8 @@ function Profile(props) {
             <div style={{marginLeft:'150px', marginTop:'20px'}}>
               {
                 photoModal === true
-                  ? <div><PhotoModal></PhotoModal></div>
-                  : null
+                ? <div><PhotoModal attachment={attachment} setAttachment={setAttachment} photoModal={photoModal} setPhotoModal={setPhotoModal} photostatus={photostatus} setPhotostatus={setPhotostatus} photo={photo} setPhoto={setPhoto} updatephoto={updatephoto}></PhotoModal></div>
+                : null
               }
             </div>
             </div>
@@ -188,22 +229,6 @@ function Profile(props) {
       </div>
   );
 };
-
-function PhotoModal(){
-  return(
-    <div>
-      <form>
-        <InputGroup>
-          <FormControl
-            type="file"
-          />
-        </InputGroup>
-        <br />
-        <Button variant="dark" style={{width:'80px'}}>저장</Button>
-      </form>
-    </div>
-  )
-}
 
 const Warning = styled.div`
     color : red ;

@@ -13,8 +13,11 @@ function MyProject(props) {
   const { membersStore } = props;
   const { members, member } = membersStore;
 
+  const [photo, setPhoto] = useState(member.user_photo);
+
   useEffect(()=>{
     member.user_name = window.localStorage.getItem('name');
+    member.user_photo = window.localStorage.getItem('photo');
   }, [membersStore])
 
   console.log(props);
@@ -33,22 +36,26 @@ function MyProject(props) {
     <div className="setting-margin-box">
       <div className="setting-box-1" >
         <div className="myicon-box">
-            <img src="/mygray.png" width="100px" />
+          {member.user_photo === "null"
+            ? <img style={{width:'100%', height:'100%', objectFit:'cover'}} src="/basicphoto.png" />
+            : <img style={{width:'100%', height:'100%', objectFit:'cover'}} src={`/myphoto/${member.user_photo}`}/>
+          }
         </div>
-        <div className="myname-box">
+        <div className="myname-box" style={{marginRight:'0p'}}>
           <h2>
             
             {/* {window.localStorage.getItem('user_id').slice(1,-1)} <span style={{ fontSize: "25px" }}>님</span> */}
             {member.user_name} <span style={{ fontSize: "25px" }}>님</span>
             {/* {window.localStorage.getItem('user_id')} */}
             {/* {user_id} */}
-          </h2>
-        </div>
-        <div style={{position:'absolute', zIndex:'1', left:'670px', top:'150px'}}>
-          <Link to={`/users/mysettings/${user_n}`}>
+          <Link to={`/users/mysettings/${user_n}`} style={{marginLeft:'10px'}}>
           <BsGear size="30" color="#505050"/>
           </Link>
+          </h2>
         </div>
+        <div style={{float:'left', border:'1px solid red'}}>
+        </div>
+        {/* <div style={{position:'absolute', zIndex:'1', left:'670px', top:'150px'}}> */}
       </div>
       <div style={{borderBottom:'1px solid #e8e8e8'}}>
         <div className="tab-box">

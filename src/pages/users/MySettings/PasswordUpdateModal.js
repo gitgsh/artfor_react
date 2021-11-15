@@ -50,13 +50,14 @@ function PasswordUpdateModal(props) {
             return false;
         } else if(modify_pw1 === modify_pw2) {
             let data = {
-                user_name : member.user_name,
+                user_email : member.user_email,
                 user_pw : modify_pw2,
             };
             console.log("비밀번호 변경했을 때 data는?, ", data);
             axios.post("http://localhost:8004/app/user/pwupdate", data)
             .then((response)=>{
                 console.log("서버와 통신 성공", response);
+                setTwoCon(1);
                 alert("비밀번호 변경 성공! 다시 로그인 해주세요🥰");
                 localStorage.removeItem('token');
                 history.push('/login');
@@ -99,7 +100,7 @@ function PasswordUpdateModal(props) {
                     />
                 </InputGroup>
                 {twoCon === 1
-                && <></>
+                && null
                 }
                 {twoCon === 2
                 && <p style={{ marginTop:'10px', color:'red', fontSize:'13px', transform: "skew(-0.1deg)" }}>비밀번호를 입력해주세요</p>
