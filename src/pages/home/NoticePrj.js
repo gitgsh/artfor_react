@@ -31,6 +31,7 @@ function NoticePrj(props){
     return(
 <>
 <p className="main_home">주목할 만한 프로젝트</p>
+<div className="main_home_in_1">
 <CardGroup className="cardgroup_Home">
       {
         findOpen.slice(0,4).map(function(data, j){ //8개
@@ -57,7 +58,9 @@ style={{width:'250px', height:'200px', borderRadius: 15, overflow: 'hidden' }}/>
         })
         
       }
+      
       </CardGroup>           
+      
 
       <CardGroup className="cardgroup_Home">
       {
@@ -80,7 +83,8 @@ style={{width:'250px', height:'200px', borderRadius: 15, overflow: 'hidden' }}/>
             )
         })
       }
-      </CardGroup>         
+      </CardGroup>      
+      </div>  
 </>
     )
 }

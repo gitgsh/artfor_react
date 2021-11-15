@@ -72,10 +72,10 @@ function Slider() {
           );
         })}
         <LeftButton onClick={goLeft}>
-          <BsChevronLeft size="14" color="white"style={{marginBottom: "5px"}}/>
+          <BsChevronLeft size="14" color="white"style={{marginBottom: "1px"}}/>
         </LeftButton>
         <RightButton onClick={goRight}>
-          <BsChevronRight size="14" color="white" style={{marginBottom: "5px"}}/>
+          <BsChevronRight size="14" color="white" style={{marginBottom: "1px"}}/>
         </RightButton>
       </SlideContainerRight>
     </MainSlideContainer>

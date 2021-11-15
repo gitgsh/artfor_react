@@ -11,7 +11,7 @@ function HomeList(props){
     const {works, work} = mainStore;
   
     useEffect(()=>{
-      mainStore.worksRead();
+      mainStore.worksReadSort();
     }, [mainStore]);
     
     return(

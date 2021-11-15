@@ -30,7 +30,7 @@ function OpenExpectPrj(props){
     return(
 <>
 <p className="main_home">공개예정 프로젝트</p>
-
+<div className="main_home_in_1">
 <CardGroup className="cardgroup_Home">
       {
         findOpenExp.slice(0,4).map(function(data, j){ 
@@ -55,7 +55,7 @@ style={{width:'250px',  height:'200px', borderRadius: 15, overflow: 'hidden' }}/
         })
       }
       </CardGroup>           
-      
+      </div>
 </>
     )
 }
