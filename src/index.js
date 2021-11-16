@@ -11,6 +11,7 @@ import { communityStore } from "./stores/CommunityStore";
 import { fundingStore } from "./stores/FundingStore";
 import { fundingStore2 } from "./stores/FundingStore2";
 import { likeStore } from "./stores/LikeStore";
+import ScrollToTop from "./scrollToTop";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -23,6 +24,7 @@ ReactDOM.render(
         fundingStore2={fundingStore2}
         likeStore={likeStore}
       >
+        <ScrollToTop/>
         <App />
       </Provider>
     </BrowserRouter>

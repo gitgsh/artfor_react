@@ -105,7 +105,9 @@ function FooterContent() {
             <Timetable>평일 10:00 ~ 18:00 (12:00 ~ 14:00 제외)</Timetable>
           </tr>
           <tr>
-            <Link to="/chatbot"><CustomerButton>아트포에 문의</CustomerButton></Link>
+            {/* <Link to="/chatbot"><CustomerButton>아트포에 문의</CustomerButton></Link> */}
+            <a href="https://edo9z.channel.io/"><CustomerButton>아트포에 문의</CustomerButton></a>
+            
           </tr>
         </tbody>
       </CustomerWrapContents>
