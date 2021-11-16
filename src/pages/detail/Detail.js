@@ -11,6 +11,8 @@ function Detail(props) {
 
   //카카오 공유기능
   const [doKakao, setDoKakao] = useState(null)
+ 
+
   useEffect(() => {
     let isComponentMounted = true
     const fetchData = async () => {
@@ -18,6 +20,12 @@ function Detail(props) {
         setDoKakao(initialize())
       }
     }
+
+  
+    
+  
+
+
     fetchData()
     return () => {
       isComponentMounted = false

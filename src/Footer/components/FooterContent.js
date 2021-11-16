@@ -129,11 +129,13 @@ function FooterContent() {
             </Timetable>
           </tr>
           <tr>
-            <Link to="/chatbot" style={{ textDecorationLine: "none" }}>
-              <CustomerButton style={{ fontWeight: "bold" }}>
-                아트포에 문의
-              </CustomerButton>
-            </Link>
+            {/* <Link to="/chatbot"><CustomerButton>아트포에 문의</CustomerButton></Link> */}
+            <a 
+            style={{textDecorationLine:"none",
+            fontWeight: "bold", 
+            transform: "skew(-0.1deg)" }}
+            href="https://edo9z.channel.io/"><CustomerButton>아트포에 문의</CustomerButton></a>
+            
           </tr>
         </tbody>
       </CustomerWrapContents>

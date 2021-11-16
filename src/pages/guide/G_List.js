@@ -14,6 +14,13 @@ import ListTabs from "./ListTabs";
 
 function List(props) {
 
+  // 운영자만 글쓰기 가능
+  const token = localStorage.getItem('token');
+  const user_name = localStorage.getItem('name');
+
+  console.log('토큰 : ', token);
+  console.log('유저 권한 : ', user_name);
+
   //Tab 관련
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
@@ -137,14 +144,20 @@ function List(props) {
             </div>
           </div>
        </div> */}
+
+       {/* user_name이 관리자여야 글쓰기 가능 */}
+        {
+          (user_name == '관리자' && token)
+          ? <div>
+          <Link to="/guide/G_Input">
+            <Button className="guide-writeBtn" variant="dark">
+              글쓰기
+            </Button>
+          </Link>
+          </div>
+          : <div></div>
+        }
         
-        <div>
-        <Link to="/guide/G_Input">
-          <Button className="guide-writeBtn" variant="dark">
-            글쓰기
-          </Button>
-        </Link>
-        </div>
       </div>
   );
 }

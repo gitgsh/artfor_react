@@ -62,7 +62,7 @@ function OpenExpectPrj(props) {
                       color: "#6c757d",
                     }}
                   >
-                    공예 | {data.artist_name}
+                    예술 | {data.artist_name}
                   </Card.Title>
                   <Card.Text className="cardtext_Home">
                     <Link
@@ -74,14 +74,13 @@ function OpenExpectPrj(props) {
                         fontWeight: "bold",
                       }}
                     >
-                      {" "}
                       {data.work_title}
                     </Link>
                   </Card.Text>
-                  <div className="cardfooter" style={{ marginTop: "-26px" }}>
-                    <p>
-                      {Math.round((data.funding_now / data.funding_goal) * 100)}
-                      % 달성
+                  <div className="cardfooter" style={{ marginTop: "-7px"}}>
+                  <p style={{color: "#FF5757"}}>
+                     {data.alarm}
+                      명이 찜하기 중
                     </p>
                   </div>
                 </Card.Body>

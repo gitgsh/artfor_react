@@ -51,6 +51,7 @@
  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
 
  <!-- Channel Plugin Scripts(챗봇) -->
+<!-- Channel Plugin Scripts -->
 <script>
   (function() {
     var w = window;
@@ -90,6 +91,73 @@
   ChannelIO('boot', {
     "pluginKey": "432e64fd-3e35-4586-89b0-b389eb0c4573"
   });
+
+  
+  // if(window.location.href=="http://localhost:3000/"){
+  //     console.log('챗봇없애버리기~');
+  // ChannelIO('hideChannelButton');
+
+
+
+//   import { loadScript } from '@libs/scripts'
+
+// window.channelPluginSettings = {
+//   pluginKey: '432e64fd-3e35-4586-89b0-b389eb0c4573',
+//   hideDefaultLauncher: true,
+// }
+
+// export default {
+//   name: 'channel-io',
+//   data: () => ({
+//     active: false,
+//     unreadCount: 0,
+//   }),
+//   methods: {
+//     launcher() {
+//       console.log('show messenger')
+//       window.ChannelIO('show')
+//     },
+//   },
+//   mounted() {
+//     loadScript(
+//       'https://cdn.channel.io/plugin/ch-plugin-web.js',
+//       'ChannelIO'
+//     ).then(value => {
+//       if (value) {
+//         var ch = function() {
+//           ch.c(arguments)
+//         }
+//         ch.q = []
+//         ch.c = function(args) {
+//           ch.q.push(args)
+//         }
+//         window.ChannelIO = ch
+//         window.ChannelIO('boot', window.channelPluginSettings)
+//         window.ChannelIO('onBoot', () => {
+//           this.active = true
+//         })
+//         window.ChannelIO('onChangeBadge', unreadCount => {
+//           this.unreadCount = unreadCount
+//         })
+//       }
+//     })
+//   },
+// }
+// </script>
+
+<!-- // <template>
+//   <div id='ch-plugin-wrapper' @click="launcher" v-bind:class="{active: active}">
+//     <div id="ch-plugin-launcher">
+//       <span />
+//       <div id='ch-plugin-badge' size="24" font-size="14" v-bind:class="{active: unreadCount > 0}"></div>
+//     </div>
+//   </div>
+// </template> -->
+
+  
+
+  
+  
 </script>
 <!-- End Channel Plugin -->
     <title>React App</title>
