@@ -21,34 +21,31 @@ import DetailBottom_OpenExp from "./DetailBottom_OpenExp";
 import { AlternateEmailTwoTone } from "@material-ui/icons";
 
 function FundingStatus_OpenExp(props) {
-
-  useEffect(()=>{
-      axios
-        .get("http://localhost:8004/app/AlarmList/")
-        .then((response) => {
-          console.log("Done AlarmListRead", response);
-          const findLike = response.data.find(function(result){
-            return result.user_email == user_email && result.work_no == no
-            
-          })
-
-          HandleLikeIcon(); 
-          function HandleLikeIcon() {
-            if(findLike==null){
-              setLike(true);
-            } else{
-              setLike(false);
-            }
-          }
-        })
-        .catch((error) => {
-          console.log("AlarmListRead 실패...");
-          axiosError(error);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8004/app/AlarmList/")
+      .then((response) => {
+        console.log("Done AlarmListRead", response);
+        const findLike = response.data.find(function (result) {
+          return result.user_email == user_email && result.work_no == no;
         });
-    
+
+        HandleLikeIcon();
+        function HandleLikeIcon() {
+          if (findLike == null) {
+            setLike(true);
+          } else {
+            setLike(false);
+          }
+        }
+      })
+      .catch((error) => {
+        console.log("AlarmListRead 실패...");
+        axiosError(error);
+      });
   }, []); //[]를 추가하면 첫 렌더링 시 한 번만 실행된다.
-  
-  const user_email = localStorage.getItem('user_email'); //현재 로그인한 유저의 email
+
+  const user_email = localStorage.getItem("user_email"); //현재 로그인한 유저의 email
   const { no } = useParams();
   const { mainStore } = props;
   const { works, work } = mainStore;
@@ -57,10 +54,10 @@ function FundingStatus_OpenExp(props) {
     return result.work_no == no;
   });
 
-//현재 로그인한 유저의 name, 보고 있는 작품의 work_no 
-  console.log('현재작품 no>>', no);
-  console.log('dzdz',findFunding.work_no)
-  console.log('work>>', work);
+  //현재 로그인한 유저의 name, 보고 있는 작품의 work_no
+  console.log("현재작품 no>>", no);
+  console.log("dzdz", findFunding.work_no);
+  console.log("work>>", work);
   localStorage.setItem("work_no", no);
 
   //천단위 콤마 함수
@@ -92,11 +89,10 @@ function FundingStatus_OpenExp(props) {
   const gapResult = Math.ceil(gap / (1000 * 60 * 60 * 24)); //남은날짜 계산용
   const fundingPercent = Math.round(
     (findFunding.funding_now / findFunding.funding_goal) * 100
-  )
+  );
 
-
-localStorage.setItem("funding_startline", findFunding.funding_startline); //결제버튼 클릭 시 사용
-const token = localStorage.getItem("token");
+  localStorage.setItem("funding_startline", findFunding.funding_startline); //결제버튼 클릭 시 사용
+  const token = localStorage.getItem("token");
 
   function FuncLike() {
     if (like == true) {
@@ -105,22 +101,17 @@ const token = localStorage.getItem("token");
     } else {
       setLikeDB(mainStore.AlarmPlusMinusUser());
       setLikeDB(mainStore.AlarmMinus(no));
-
     }
   }
 
   function handleLike() {
-    if(token==null){
-      alert('로그인해주세요!')
-    } else{
+    if (token == null) {
+      alert("로그인해주세요!");
+    } else {
       setLike(!like);
-       FuncLike();
+      FuncLike();
     }
-      ;
-    
   }
-
-
 
   return (
     <>
@@ -128,25 +119,40 @@ const token = localStorage.getItem("token");
         <div className="detail_head2">
           <br />
 
-           <img className="detail_image" src={`/image/${findFunding.work_img}`} />
+          <img
+            className="detail_image"
+            src={`/image/${findFunding.work_img}`}
+          />
 
           <div className="detail_head3">
             <div className="detail_head3_1">
               <br />
-              <span style={{ fontSize: "50px", fontFamily:"NanumSquareR" }}>
+              <span style={{ fontSize: "50px", fontFamily: "NanumSquareR" }}>
                 {findFunding.work_title}
               </span>
               <br />
-              <p className="writer_homeDetail"
-              style={{fontSize:"17px", transform: "skew(-0.001deg)"}}>
-              <img src={icon_detail_writer} />
-              {findFunding.artist_name}
-            </p>
-            
-              <span style={{ 
-              fontFamily: "NanumSquareB", fontSize: "17px", 
-            }}>
-              📅 {findFunding.funding_startline}공개예정
+              <p
+                className="writer_homeDetail"
+                style={{
+                  fontSize: "17px",
+                  transform: "skew(-0.001deg)",
+                  fontWeight: "bold",
+                  marginTop: "3px",
+                }}
+              >
+                <img src={icon_detail_writer} style={{ marginRight: "4px" }} />
+                {findFunding.artist_name}
+              </p>
+
+              <span
+                style={{
+                  fontFamily: "NanumSquareB",
+                  fontSize: "17px",
+                  transform: "skew(-0.1deg)",
+                  marginLeft: "3px",
+                }}
+              >
+                📅 {findFunding.funding_startline}공개예정
               </span>
               <br />
               <br />
@@ -158,6 +164,7 @@ const token = localStorage.getItem("token");
                   fontSize: "15px",
                   textAlign: "left",
                   transform: "skew(-0.1deg)",
+                  fontWeight: "bold",
                 }}
               >
                 공개 예정작
@@ -171,44 +178,44 @@ const token = localStorage.getItem("token");
                 }}
               >
                 목표 금액은 {numberWithCommas(findFunding.funding_goal)}
-                원입니다! <br />후원은 {findFunding.funding_startline}부터 가능합니다.
+                원입니다! <br />
+                후원은 {findFunding.funding_startline}부터 가능합니다.
               </p>
             </div>
 
             {/* 좋아요버튼 */}
             <Button
-              style={{backgroundColor:"transparent", border:"transparent"}}
+              style={{ backgroundColor: "transparent", border: "transparent" }}
               onClick={() => {
                 handleLike();
               }}
             >
               {like === true ? (
-            <Button
-            variant="danger"
-            style={{
-              fontFamily: "NanumSqareL",
-              marginRight:"20px",
-              minWidth:"230px",
-            }}
-          >
-            🔔 찜하기
-           
-          </Button>
-
+                <Button
+                  variant="danger"
+                  style={{
+                    fontWeight: "normal",
+                    marginRight: "20px",
+                    minWidth: "230px",
+                    transform: "skew(-1.0deg)",
+                  }}
+                >
+                  🔔 찜하기
+                </Button>
               ) : (
                 <Button
-           variant="danger"
-           style={{
-             fontFamily: "NanumSqareL",
-             marginRight:"20px",
-             minWidth:"230px",
-             
-           }}
-         >
-           🔕 찜하기 취소
-           
-         </Button>
-         
+                  variant="danger"
+                  style={{
+                    fontWeight: "normal",
+                    marginRight: "20px",
+                    minWidth: "230px",
+                    transform: "skew(-1.0deg)",
+                    marginRight: "20px",
+                    minWidth: "230px",
+                  }}
+                >
+                  🔕 찜하기 취소
+                </Button>
               )}
             </Button>
 
@@ -221,11 +228,6 @@ const token = localStorage.getItem("token");
             >
               <img src={icon_share} style={{ width: "25px", height: "25px" }} />
             </Button>
-
-         
-
-             
-            
           </div>
         </div>
         <div className="detail_head4" style={{ textAlign: "left" }}>
@@ -276,7 +278,7 @@ const token = localStorage.getItem("token");
           </CopyToClipboard>
         </Typography>
       </Popover>
-      <DetailBottom_OpenExp/>
+      <DetailBottom_OpenExp />
     </>
   );
 }
