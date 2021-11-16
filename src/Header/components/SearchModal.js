@@ -32,7 +32,7 @@ function SearchModal(props) {
   });
 
   return (
-    <>
+    <div className="headerLeft" style={{textAlign:"left"}}>
       <Button
         onClick={() => {
           setShow(true);
@@ -46,6 +46,8 @@ function SearchModal(props) {
           fontFamily: "NanumSquareR",
           fontSize: "15px",
           fontWeight: "bold",
+          padding:"0px",
+          boxSadow:"none",
           marginLeft: "-22px",
         }}
       >
@@ -55,6 +57,7 @@ function SearchModal(props) {
             marginTop: "-3px",
             width: "20px",
             marginRight: "3px",
+            marginLeft: "20px",
           }}
         />
         프로젝트 둘러보기
@@ -171,7 +174,7 @@ function SearchModal(props) {
           </>
         </Modal.Body>
       </Modal>
-    </>
+    </div>
   );
 }
 

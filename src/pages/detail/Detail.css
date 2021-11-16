@@ -137,6 +137,20 @@ height: auto;
     
   }
 
+/* 좌측헤더 */
+.btn-primary:focus,
+.btn-primary.focus {
+  box-shadow:none;
+}
+/* 좌측헤더 */
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+  box-shadow:none;
+}
+/* https://stackoverflow.com/questions/28261287/how-to-change-btn-color-in-bootstrap */
+
+
   .projectTitle_Home_Detail {
     display: block;
     font-size: 25px;

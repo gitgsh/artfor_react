@@ -9,14 +9,14 @@ function UserLinkMenu(props) {
 
   useEffect(() => {
     member.user_name = window.localStorage.getItem("name");
-  }, [membersStore]);
+  }, [membersStore]);//
 
   return (
     <NavDropdown
       title={member.user_name}
       id="basic-nav-dropdown"
       style={{
-        marginTop: "4.5px",
+        marginTop: "4px",
         color: "#000000",
         fontFamily: "NanumSquareR",
         fontSize: "15px",

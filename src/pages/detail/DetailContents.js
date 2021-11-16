@@ -24,24 +24,27 @@ function DetailContents(props){
             height:'auto'
           
          }}>
-          <div className="buttonClass_detail_Home" style={{paddingTop: "10px"}} >
+        
+          <div className="buttonClass_detail_Home" style={{paddingTop: "10px"}}>
         <ScrollIntoView selector=".box1" className="scroll" >
-        <Button id="box1" variant="outline-secondary" size="sm" style={{borderRadius:"30px"}}>목적</Button>
+        <Button id="box1" variant="outline-secondary" size="sm" 
+        style={{borderRadius:"30px", boxShadow: "none"}}>목적</Button>
         </ScrollIntoView>
         <ScrollIntoView selector=".box2" className="scroll">
-        <Button id="box2" variant="outline-secondary" size="sm" style={{borderRadius:"30px"}}>예산</Button>
+        <Button id="box2" variant="outline-secondary" size="sm" style={{borderRadius:"30px", boxShadow: "none"}}>예산</Button>
         </ScrollIntoView>
         <ScrollIntoView selector=".box3" className="scroll">
-        <Button id="box3" variant="outline-secondary" size="sm" style={{ borderRadius:"30px"}}>일정</Button>
+        <Button id="box3" variant="outline-secondary" size="sm" style={{ borderRadius:"30px", boxShadow: "none"}}>일정</Button>
         </ScrollIntoView>
         <ScrollIntoView selector=".box4"className="scroll">
-        <Button id="box4"  variant="outline-secondary" size="sm" style={{borderRadius:"30px"}}>팀소개</Button>
+        <Button id="box4"  variant="outline-secondary" size="sm" style={{borderRadius:"30px", boxShadow: "none"}}>팀소개</Button>
         </ScrollIntoView>
         <ScrollIntoView selector=".box5" style={{width:"28%", float:"left"}}>
-        <Button id="box5" variant="outline-secondary" size="sm" style={{borderRadius:"30px", marginLeft:"10px"}}>신뢰와 안전</Button>
+        <Button id="box5" variant="outline-secondary" size="sm" style={{borderRadius:"30px", marginLeft:"10px", boxShadow: "none"}}>신뢰와 안전</Button>
         </ScrollIntoView>
         </div>
-        
+      
+
         <div className="projectTitle_Home_Detail" style={{height:'auto'}}>
           <p style={{fontFamily: "NanumSquareR"}}>프로젝트 계획</p>
         <div className="content_HomeDetail" style={{height:'auto'}}>

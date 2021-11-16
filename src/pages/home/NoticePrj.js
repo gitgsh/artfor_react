@@ -73,7 +73,7 @@ function NoticePrj(props) {
                       color: "#6c757d",
                     }}
                   >
-                    공예 | {data.artist_name}
+                    예술 | {data.artist_name}
                   </Card.Title>
                   <Card.Text className="cardtext_Home">
                     <Link
@@ -91,8 +91,8 @@ function NoticePrj(props) {
                       {data.work_title}
                     </Link>
                   </Card.Text>
-                  <div className="cardfooter" style={{ marginTop: "-26px" }}>
-                    <p>
+                  <div className="cardfooter" style={{ marginTop: "-7px",  }}>
+                    <p style={{color: "#FF5757"}}>
                       {Math.round((data.funding_now / data.funding_goal) * 100)}
                       % 달성
                     </p>
@@ -137,7 +137,7 @@ function NoticePrj(props) {
                       color: "#6D6D6D",
                     }}
                   >
-                    공예 | {data.artist_name}
+                    예술 | {data.artist_name}
                   </Card.Title>
                   <Card.Text className="cardtext_Home">
                     <Link
@@ -155,8 +155,8 @@ function NoticePrj(props) {
                       {data.work_title}
                     </Link>
                   </Card.Text>
-                  <div className="cardfooter" style={{ marginTop: "-26px" }}>
-                    <p>
+                  <div className="cardfooter" style={{  marginTop: "-7px" }}>
+                  <p style={{color: "#FF5757"}}>
                       {Math.round((data.funding_now / data.funding_goal) * 100)}
                       % 달성
                     </p>
