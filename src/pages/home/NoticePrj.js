@@ -91,8 +91,8 @@ function NoticePrj(props) {
                       {data.work_title}
                     </Link>
                   </Card.Text>
-                  <div className="cardfooter" style={{ marginTop: "-7px",  }}>
-                    <p style={{color: "#FF5757"}}>
+                  <div className="cardfooter" style={{ marginTop: "-7px" }}>
+                    <p style={{ color: "#FF5757" }}>
                       {Math.round((data.funding_now / data.funding_goal) * 100)}
                       % 달성
                     </p>
@@ -155,8 +155,8 @@ function NoticePrj(props) {
                       {data.work_title}
                     </Link>
                   </Card.Text>
-                  <div className="cardfooter" style={{  marginTop: "-7px" }}>
-                  <p style={{color: "#FF5757"}}>
+                  <div className="cardfooter" style={{ marginTop: "-7px" }}>
+                    <p style={{ color: "#FF5757" }}>
                       {Math.round((data.funding_now / data.funding_goal) * 100)}
                       % 달성
                     </p>
