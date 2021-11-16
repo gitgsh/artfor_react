@@ -12,6 +12,7 @@ function UserLinkMenu(props) {
   }, [membersStore]);//
 
   return (
+
     <NavDropdown
       title={member.user_name}
       id="basic-nav-dropdown"
@@ -30,7 +31,6 @@ function UserLinkMenu(props) {
           fontFamily: "NanumSquareR",
           fontWeight: "bold",
           fontSize: "14px",
-          textDecorationLine: "none",
         }}
         href="/users/myproject"
       >
