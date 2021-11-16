@@ -39,6 +39,7 @@ function SearchModal(props) {
           setKeyword("");
         }}
         style={{
+          marginTop: "2px",
           backgroundColor: "transparent",
           border: "0px",
           color: "#000000",
@@ -47,13 +48,16 @@ function SearchModal(props) {
           fontWeight: "bold",
           padding:"0px",
           boxSadow:"none",
+          marginLeft: "-22px",
         }}
       >
         <FcMenu
           // src="../icon_navbar.png"
           style={{
+            marginTop: "-3px",
             width: "20px",
             marginRight: "3px",
+            marginLeft: "20px",
           }}
         />
         프로젝트 둘러보기

@@ -23,14 +23,16 @@ function LeftMenu() {
           <SearchModal />
         </div>
         <div className="head_btn2">
-          <Link to="/project/main">
+          <Link to="/project/main" style={{ textDecorationLine: "none" }}>
             <Button
               style={{
+                marginTop: "3px",
                 color: "#000000",
                 fontFamily: "NanumSquareR",
                 fontSize: "15px",
                 fontWeight: "bold",
                 width: "120px",
+                marginLeft: "-10px",
               }}
             >
               프로젝트 올리기

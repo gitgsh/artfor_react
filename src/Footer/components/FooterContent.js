@@ -1,76 +1,96 @@
-import React from 'react';
-import styled from 'styled-components';
-import { FaGooglePlay, FaApple } from 'react-icons/fa';
-import './footerContent.css';
-import { Link } from 'react-router-dom';
+import React from "react";
+import styled from "styled-components";
+import { FaGooglePlay, FaApple } from "react-icons/fa";
+import "./footerContent.css";
+import { Link } from "react-router-dom";
 
 function FooterContent() {
   return (
     <ContentContainer>
-      
       <NoticeWrap>
-      <div className="footer_font">  
-        <thead>
-          <tr>
-            <ContentsTitle>텀블벅</ContentsTitle>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <Contents>공지사항</Contents>
-          </tr>
-          <tr>
-            <Contents>채용</Contents>
-          </tr>
-          <tr>
-            <Contents>제휴협력</Contents>
-          </tr>
-        </tbody>
-        </div>  
+        <div className="footer_font">
+          <thead>
+            <tr>
+              <ContentsTitle>텀블벅</ContentsTitle>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <Contents style={{ fontWeight: "bold" }}>공지사항</Contents>
+            </tr>
+            <tr>
+              <Contents style={{ fontWeight: "bold" }}>채용</Contents>
+            </tr>
+            <tr>
+              <Contents style={{ fontWeight: "bold" }}>제휴협력</Contents>
+            </tr>
+          </tbody>
+        </div>
       </NoticeWrap>
-      
 
       <ServiceGuideWrap>
-      <div className="footer_font2">
-        <thead>
-          <tr>
-            <ContentsTitle>이용안내</ContentsTitle>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <Contents><Link to="/guide/G_List" style={{color:"#f76453", fontWeight:"bold"}}>헬프센터</Link></Contents>
-          </tr>
-          <tr>
-            <ContentsHighlight>창작자 가이드</ContentsHighlight>
-          </tr>
-          <tr>
-            <Contents><Link to="/guide/G_Fee">수수료 정책</Link></Contents>
-          </tr>
-        </tbody>
+        <div className="footer_font2">
+          <thead>
+            <tr>
+              <ContentsTitle>이용안내</ContentsTitle>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <Contents>
+                <Link
+                  to="/guide/G_List"
+                  style={{ color: "#f76453", fontWeight: "bold" }}
+                >
+                  헬프센터
+                </Link>
+              </Contents>
+            </tr>
+            <tr>
+              <ContentsHighlight style={{ fontWeight: "bold" }}>
+                창작자 가이드
+              </ContentsHighlight>
+            </tr>
+            <tr>
+              <Contents style={{ fontWeight: "bold" }}>
+                <Link
+                  to="/guide/G_Fee"
+                  style={{ color: "#6D6D6D", textDecorationLine: "none" }}
+                >
+                  수수료 정책
+                </Link>
+              </Contents>
+            </tr>
+          </tbody>
         </div>
       </ServiceGuideWrap>
-      
-      
+
       <PolicyWrap>
-      <div className="footer_font3">
-        <thead>
-          <tr>
-            <ContentsTitle>약관 및 정책</ContentsTitle>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <Contents><Link to="/guide/G_Articles">개인정보 처리방침</Link></Contents>
-          </tr>
-        </tbody>
+        <div className="footer_font3">
+          <thead>
+            <tr>
+              <ContentsTitle>약관 및 정책</ContentsTitle>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <Contents style={{ fontWeight: "bold" }}>
+                <Link
+                  to="/guide/G_Articles"
+                  style={{ color: "#6D6D6D", textDecorationLine: "none" }}
+                >
+                  개인정보 처리방침
+                </Link>
+              </Contents>
+            </tr>
+          </tbody>
         </div>
       </PolicyWrap>
-      
+
       <AppContentWrap>
         <thead>
           <tr>
-            <ContentsTitle style={{marginTop:"9px"}}>App</ContentsTitle>
+            <ContentsTitle style={{ marginTop: "9px" }}>App</ContentsTitle>
           </tr>
         </thead>
         <tbody>
@@ -78,8 +98,8 @@ function FooterContent() {
             <Contents />
           </tr>
           <tr>
-            <AndroidButton>
-              <FaGooglePlay />
+            <AndroidButton style={{ transform: "skew(-0.1deg)" }}>
+              <FaGooglePlay style={{ marginRight: "3px" }} />
               안드로이드
             </AndroidButton>
           </tr>
@@ -87,8 +107,8 @@ function FooterContent() {
             <Contents />
           </tr>
           <tr>
-            <IosButton>
-              <FaApple />
+            <IosButton style={{ transform: "skew(-0.1deg)" }}>
+              <FaApple style={{ marginRight: "3px" }} />
               iOS
             </IosButton>
           </tr>
@@ -97,16 +117,24 @@ function FooterContent() {
       <CustomerWrapContents>
         <thead>
           <tr>
-            <ContentsTitle style={{marginTop:"9px"}}>고객지원</ContentsTitle>
+            <ContentsTitle style={{ marginTop: "9px" }}>고객지원</ContentsTitle>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <Timetable>평일 10:00 ~ 18:00 (12:00 ~ 14:00 제외)</Timetable>
+            <Timetable
+              style={{ fontWeight: "bold", transform: "skew(-0.1deg)" }}
+            >
+              평일 10:00 ~ 18:00 (12:00 ~ 14:00 제외)
+            </Timetable>
           </tr>
           <tr>
             {/* <Link to="/chatbot"><CustomerButton>아트포에 문의</CustomerButton></Link> */}
-            <a href="https://edo9z.channel.io/"><CustomerButton>아트포에 문의</CustomerButton></a>
+            <a 
+            style={{textDecorationLine:"none",
+            fontWeight: "bold", 
+            transform: "skew(-0.1deg)" }}
+            href="https://edo9z.channel.io/"><CustomerButton>아트포에 문의</CustomerButton></a>
             
           </tr>
         </tbody>
@@ -116,7 +144,6 @@ function FooterContent() {
 }
 
 const ContentContainer = styled.div`
-  
   display: flex;
   width: 1080px;
   padding: 18px 18px 0 18px;
@@ -178,7 +205,6 @@ const ContentsHighlight = styled.td`
   line-height: 22px;
   // color: #f76453;
   color: #6d6d6d;
-
 `;
 
 const ContentsRedHighlight = styled.td`
