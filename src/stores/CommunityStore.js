@@ -22,6 +22,7 @@ export default class CommunityStore {
     c_writer: "",
     c_content: "",
     c_day: "",
+    user_photo: "",
   };
 
   cstoresCreate() {
