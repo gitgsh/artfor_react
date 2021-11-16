@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
-import { getAchievedRate } from '../../../utils';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import { getAchievedRate } from "../../../utils";
 
 function ProjectCard({
   id,

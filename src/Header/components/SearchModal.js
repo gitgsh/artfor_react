@@ -39,17 +39,20 @@ function SearchModal(props) {
           setKeyword("");
         }}
         style={{
+          marginTop: "2px",
           backgroundColor: "transparent",
           border: "0px",
           color: "#000000",
           fontFamily: "NanumSquareR",
           fontSize: "15px",
           fontWeight: "bold",
+          marginLeft: "-22px",
         }}
       >
         <FcMenu
           // src="../icon_navbar.png"
           style={{
+            marginTop: "-3px",
             width: "20px",
             marginRight: "3px",
           }}

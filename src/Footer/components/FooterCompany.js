@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 // import {
 //   AiFillFacebook,
 //   AiFillTwitterCircle,
@@ -9,7 +9,7 @@ import styled from 'styled-components';
 
 function FooterCompany() {
   return (
-    <Container>
+    <Container style={{ fontWeight: "" }}>
       <Address>
         <Strong>회사명</Strong>
         <Normal>아트포(주)</Normal>
@@ -19,7 +19,6 @@ function FooterCompany() {
         <Normal>2팀</Normal>
         <Strong>사업자등록번호</Strong>
         <Normal>112-11-55849</Normal>
-        
       </Address>
       <Address>
         <Strong>통신판매업 신고번호</Strong>
@@ -28,7 +27,7 @@ function FooterCompany() {
         <Normal>01-7777-7777</Normal>
       </Address>
       <Address>
-        <Normal>© 2021 ARTFOR Inc.</Normal>
+        <Normal style={{ fontWeight: "bold" }}>© 2021 ARTFOR Inc.</Normal>
       </Address>
     </Container>
   );
@@ -47,15 +46,17 @@ const Address = styled.div`
 
 const Strong = styled.div`
   margin-right: 5px;
-  font-weight: 500;
+  font-weight: bold;
   line-height: 21px;
+  transform: "skew(-0.1deg)";
 `;
 
 const Normal = styled.div`
   margin-right: 5px;
-  font-weight: 400;
-  line-height: 21px;
+  font-weight: normal;
+  line-height: 22px;
   color: #6d6d6d;
+  transform: "skew(-0.1deg)";
 `;
 
 const ButtonBox = styled.span`

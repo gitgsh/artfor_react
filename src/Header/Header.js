@@ -16,15 +16,15 @@ const exclusionRoutes = ["/login", "/signup"];
 // background: ${({ theme }) => theme.colors.white};
 //   border-bottom: 1px solid ${({ theme }) => theme.colors.grey500};
 function Header() {
-
-  
   console.log(window.location.pathname);
   return (
-    
     <StyledHeader>
       <HeaderContainer>
-      {(window.location.pathname ==
-        "/project/plan/projectupload")? (<UploadLeftMenu />) : ( <LeftMenu />)}
+        {window.location.pathname == "/project/plan/projectupload" ? (
+          <UploadLeftMenu />
+        ) : (
+          <LeftMenu />
+        )}
         {/* <LeftMenu /> */}
         {/* <SearchModal/> */}
         <CenterMenu />
@@ -32,7 +32,6 @@ function Header() {
         {/* <head_prjMenu/> */}
       </HeaderContainer>
     </StyledHeader>
-    
   );
 }
 
