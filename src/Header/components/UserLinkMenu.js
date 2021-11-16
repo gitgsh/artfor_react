@@ -12,25 +12,12 @@ function UserLinkMenu(props) {
   }, [membersStore]);
 
   return (
-    <NavDropdown
-      title={member.user_name}
-      id="basic-nav-dropdown"
-      style={{
-        marginTop: "4.5px",
-        color: "#000000",
-        fontFamily: "NanumSquareR",
-        fontSize: "15px",
-        fontWeight: "bold",
-        marginRight: "-13px",
-      }}
-      textDecorationLine="none"
-    >
+    <NavDropdown title={member.user_name} id="basic-nav-dropdown">
       <NavDropdown.Item
         style={{
           fontFamily: "NanumSquareR",
           fontWeight: "bold",
           fontSize: "14px",
-          textDecorationLine: "none",
         }}
         href="/users/myproject"
       >
