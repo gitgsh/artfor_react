@@ -7,6 +7,7 @@ import DetailBottom from "./DetailBottom";
 import './Detail.css';
 import {  useParams } from "react-router-dom";
 import { inject, observer } from "mobx-react";
+import { lineHeight } from "@mui/system";
 
 function DetailContents(props){
   const { no } = useParams();
@@ -57,8 +58,7 @@ function DetailContents(props){
               // backgroundColor: "yellow", 
               marginBottom:"50px", height:"auto"}}>
               목적 에디터<br />
-              <p style={{width:"auto",  fontSize:"18px"}} dangerouslySetInnerHTML={{ __html:findFunding.work_content }}  />
-              {/* {findFunding.work_title} */}
+              <p style={{width:"auto",  fontSize:"18px", lineHeight:"180%"}} dangerouslySetInnerHTML={{ __html:findFunding.work_content }}  />
            </div>
           </div>
           <div className="box2" style={{backgroundColor:"green", paddingTop:"60px",}}>[예산]
