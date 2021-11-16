@@ -56,19 +56,28 @@ function Check({history}) {
       <Button  variant="dark" size="lg" 
         onClick={()=>history.push('/project/main')}>뒤로 가기</Button>
       &nbsp;
-      <Link to="/project/plan/projectuploadmain">
+      {/* <Link to="/project/plan/projectuploadmain"> */}
       <Button 
         variant="light" 
         size="lg"
         disabled={disabled}
-        onClick={()=>history.push('/signupcomplete')}
+        // disabled={disabled}
+        // onClick={()=>history.push('/signupcomplete')}
         style={
           disabled
             ? { backgroundColor: "dark", borderColor: "transparent", color:"black"}
             : { backgroundColor: '#fa3062',  borderColor: "transparent", color:"white" }
           
         }
-        >확인</Button></Link>
+        onClick = {
+          ()=>{
+            disabled ? history.push('/')
+            : history.push('/project/plan/projectuploadmain')
+          }
+        }
+       
+        >확인</Button>
+        {/* </Link> */}
     </div>
 
   ) 
