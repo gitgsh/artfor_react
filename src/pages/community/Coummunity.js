@@ -19,6 +19,8 @@ function Community(props) {
   const history = useHistory();
   const { communityStore } = props;
   const { cstores, cstore } = communityStore;
+  const { membersStore } = props;
+  const { members, member } = membersStore;
   const [state, setState] = useState("dd");
   const [click, setClick] = useState(false);
   const [btnValue, setBtnValue] = useState("");
@@ -89,7 +91,7 @@ function Community(props) {
               }}
             >
               {" "}
-              <ReplyBox cm={cm} />
+              <ReplyBox cm={cm}/>
               <div style={{ marginTop: "5px", marginLeft: "58px" }}>
                 <div className="row" style={{}}>
                   {click && btnValue == i ? (
@@ -346,10 +348,18 @@ function Community(props) {
             border: "1px solid #F0F0F0",
           }}
         >
-          <Avatar
+          {/* <Avatar
             src="/broken-image.jpg"
             style={{ color: "", backgroundColor: "#F0F0F0" }}
-          />
+          /> */}
+          {localStorage.getItem("photo") === "null"
+          ? <div style={{width:'40px', height:'40px', borderRadius:'70%', overflow:'hidden'}}>
+              <img style={{width:'100%', height:'100%', objectFit:'cover'}} src="/basicphoto.png"/>
+            </div>
+          : <div style={{width:'40px', height:'40px', borderRadius:'70%', overflow:'hidden'}}>
+              <img style={{width:'100%', height:'100%', objectFit:'cover'}} src={`/myphoto/${localStorage.getItem("photo")}`}/>
+            </div>
+          }
           <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
 
           <InputBase
@@ -363,14 +373,23 @@ function Community(props) {
     );
   }
   function ReplyBox(props) {
+    console.log("ReplyBox의 props는 ? ", props);
     return (
       <div className="reply-box">
         <div className="row" style={{ width: "800px", marginTop: "19px" }}>
           <div className="col-2" style={{ width: "50px" }}>
-            <Avatar
+            {/* <Avatar
               src="/broken-image.jpg"
               style={{ backgroundColor: "#F0F0F0" }}
-            />
+            /> */}
+            {props.cm.user_photo === null
+          ? <div style={{width:'40px', height:'40px', borderRadius:'70%', overflow:'hidden'}}>
+              <img style={{width:'100%', height:'100%', objectFit:'cover'}} src="/basicphoto.png"/>
+            </div>
+          : <div style={{width:'40px', height:'40px', borderRadius:'70%', overflow:'hidden'}}>
+              <img style={{width:'100%', height:'100%', objectFit:'cover'}} src={`/myphoto/${props.cm.user_photo}`}/>
+            </div>
+          }
           </div>
           <div className="col-2" style={{ width: "80px", margin: "0" }}>
             <div
@@ -406,4 +425,4 @@ function Community(props) {
     );
   }
 }
-export default inject("communityStore")(observer(Community));
+export default inject("communityStore", "membersStore")(observer(Community));
