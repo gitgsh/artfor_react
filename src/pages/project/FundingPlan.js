@@ -15,31 +15,41 @@ function FundingPlan(props) {
   const [endDate, setEndDate] = useState(new Date());
   const [fee1, setFee1] = useState(0);
   const [fee2, setFee2] = useState(0);
- 
 
   //jh
-  const {mainStore} = props;
-  const {works, work} = mainStore;
-  
-    // 얘를 없애면 home안감
-    // useEffect(()=>{
-    //   mainStore.worksRead();
-    // }, [mainStore]);
+  const { mainStore } = props;
+  const { works, work } = mainStore;
 
-    function Soso1() {
-      console.log(work.funding_goal);
-      const mfee1 = (work.funding_goal)*0.03;
-      const rfee = mfee1+(mfee1*0.1);
-      setFee1(rfee);
-      return fee1;
-    }
+  // 얘를 없애면 home안감
+  // useEffect(()=>{
+  //   mainStore.worksRead();
+  // }, [mainStore]);
 
-    function Soso2() {
-      const mfee2 = (work.funding_goal)*0.05;
-      const rfee = mfee2+(mfee2*0.1);
-      setFee2(rfee);
-      return fee2;
-    }
+  function Soso1() {
+    console.log(work.funding_goal);
+    const mfee1 = work.funding_goal * 0.03;
+    const rfee = mfee1 + mfee1 * 0.1;
+    setFee1(rfee);
+    return fee1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  function Soso2() {
+    const mfee2 = work.funding_goal * 0.05;
+    const rfee = mfee2 + mfee2 * 0.1;
+    setFee2(rfee);
+    return fee2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+  function Soso3() {
+    const total = fee1 + fee2;
+    return total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+  function Soso4() {
+    const goal = work.funding_goal;
+    const total = fee1 + fee2;
+    const expect = goal - total;
+
+    return expect.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
 
   return (
     <div
@@ -81,7 +91,10 @@ function FundingPlan(props) {
 
               <div
                 className="funding-goal-box"
-                style={{ backgroundColor: "rgb(252, 252, 252)" }}
+                style={{
+                  backgroundColor: "rgb(252, 252, 252)",
+                  transform: "skew(-0.1deg)",
+                }}
               >
                 <div
                   className="funding-notice"
@@ -143,11 +156,11 @@ function FundingPlan(props) {
                   style={{
                     textAlign: "left",
                     float: "left",
-                    fontFamily: "NanumSquareB",
-                    fontWeight: "800px",
                     fontSize: "15px",
                     paddingTop: "25px",
                     paddingBottom: "12px",
+                    transform: "skew(-0.1deg)",
+                    fontWeight: "bold",
                   }}
                 >
                   목표 금액
@@ -155,12 +168,13 @@ function FundingPlan(props) {
 
                 <Input
                   type="number"
-                  style={{ textAlign: "right" }}
-                  transform="skew(-0.1deg)"
+                  style={{ textAlign: "right", transform: "skew(-0.1deg)" }}
                   className="Input-goal"
                   placeholder="50만원 이상의 금액을 입력해주세요"
                   value={work.funding_goal}
-                  onChange={event=> {work.funding_goal = event.target.value}}
+                  onChange={(event) => {
+                    work.funding_goal = event.target.value;
+                  }}
                 />
 
                 <div
@@ -172,7 +186,7 @@ function FundingPlan(props) {
                     paddingLeft: "20px",
                     paddingRight: "20px",
                     textAlign: "left",
-                    fontFamily: "NanumSquareR",
+                    fontFamily: "NanumSquareL",
                     fontWeight: "800px",
                     fontSize: "15px",
                   }}
@@ -184,7 +198,14 @@ function FundingPlan(props) {
                       borderBottomColor: "rgb(228, 228, 228)",
                     }}
                   >
-                    <div class="col-4" style={{ width: "200px" }}>
+                    <div
+                      class="col-4"
+                      style={{
+                        width: "200px",
+                        fontWeight: "bold",
+                        transform: "skew(-0.1deg)",
+                      }}
+                    >
                       {" "}
                       목표금액 달성시 예상 수령액
                     </div>
@@ -197,8 +218,7 @@ function FundingPlan(props) {
                         textAlign: "right",
                       }}
                     >
-                      {work.funding_goal - (fee1+fee2)} 원
-                      {/* {work.funding_goal} */}
+                      <Soso4 /> 원{/* {work.funding_goal} */}
                     </div>
                   </div>
 
@@ -213,7 +233,11 @@ function FundingPlan(props) {
 
                     <div
                       className="row justify-content-between"
-                      style={{ color: "#9E9E9E", paddingBottom: "0px" }}
+                      style={{
+                        color: "#9E9E9E",
+                        paddingBottom: "0px",
+                        transform: "skew(-0.1deg)",
+                      }}
                     >
                       <div class="col-4">총 수수료</div>
                       <div
@@ -221,7 +245,7 @@ function FundingPlan(props) {
                         style={{ textAlign: "right", marginBottom: "2px" }}
                       >
                         {/* {0} 원 */}
-                        {fee1+fee2} 원
+                        <Soso3 /> 원
                       </div>
                     </div>
 
@@ -230,7 +254,11 @@ function FundingPlan(props) {
 
                     <div
                       className="row justify-content-between"
-                      style={{ color: "#9E9E9E", paddingBottom: "0px" }}
+                      style={{
+                        color: "#9E9E9E",
+                        paddingBottom: "0px",
+                        transform: "skew(-0.1deg)",
+                      }}
                     >
                       <div class="col-4" style={{ width: "300px" }}>
                         결제대행 수수료 (총 결제액의 3% + VAT)
@@ -239,8 +267,7 @@ function FundingPlan(props) {
                         class="col-4"
                         style={{ textAlign: "right", marginBottom: "2px" }}
                       >
-                        <Soso1 /> 원
-                        {/* {0} 원 */}
+                        <Soso1 /> 원{/* {0} 원 */}
                       </div>
                     </div>
 
@@ -248,7 +275,11 @@ function FundingPlan(props) {
 
                     <div
                       className="row justify-content-between"
-                      style={{ color: "#9E9E9E", paddingBottom: "0px" }}
+                      style={{
+                        color: "#9E9E9E",
+                        paddingBottom: "0px",
+                        transform: "skew(-0.1deg)",
+                      }}
                     >
                       <div class="col-4" style={{ width: "300px" }}>
                         플랫폼 수수료(총 모금액의 5%+VAT)
@@ -283,7 +314,7 @@ function FundingPlan(props) {
             class="col"
             style={{
               marginTop: "26px",
-              marginRight: "4px",
+              marginRight: "5.8px",
               borderRight: "1px solid",
               height: "570px",
             }}
@@ -366,6 +397,8 @@ function FundingPlan(props) {
                     color: "black",
                     fontSize: "15px",
                     textAlign: "left",
+                    fontWeight: "bold",
+                    transform: "skew(-0.1deg)",
                   }}
                 >
                   시작일
@@ -381,6 +414,7 @@ function FundingPlan(props) {
                         textAlign: "left",
                         marginLeft: "11px",
                         marginBottom: "-17px",
+                        transform: "skew(-0.1deg)",
                       }}
                     >
                       시작 날짜를 선택해주세요
@@ -394,9 +428,9 @@ function FundingPlan(props) {
                         console.log(startDate);
                         //const dateFormat = dayjs(startDate).format('YY/MM/DD');
                         //console.log(">>>>",dateFormat);
-                        //console.log(">>>>", typeof dateFormat) 
+                        //console.log(">>>>", typeof dateFormat)
                         work.funding_startline = startDate;
-                        console.log(">>>>", work.funding_startline); 
+                        console.log(">>>>", work.funding_startline);
                       }}
                       renderInput={(params) => (
                         <TextField
@@ -424,9 +458,10 @@ function FundingPlan(props) {
                     color: "black",
                     fontSize: "15px",
                     textAlign: "left",
+                    fontWeight: "normal",
+                    transform: "skew(-0.1deg)",
                   }}
                 >
-                  
                   펀딩기간
                   <div
                     style={{
@@ -437,7 +472,6 @@ function FundingPlan(props) {
                   >
                     최대 60일
                   </div>
-                  
                 </p>
               </li>
               <li style={{ color: "tomato", fontSize: "30px" }}>
@@ -447,6 +481,8 @@ function FundingPlan(props) {
                     color: "black",
                     fontSize: "15px",
                     textAlign: "left",
+                    fontWeight: "bold",
+                    transform: "skew(-0.1deg)",
                   }}
                 >
                   종료일
@@ -463,6 +499,7 @@ function FundingPlan(props) {
                         textAlign: "left",
                         marginLeft: "12px",
                         marginBottom: "-17px",
+                        transform: "skew(-0.1deg)",
                       }}
                     >
                       종료 날짜를 선택해주세요
@@ -502,6 +539,8 @@ function FundingPlan(props) {
                     color: "black",
                     fontSize: "15px",
                     textAlign: "left",
+                    fontWeight: "bold",
+                    transform: "skew(-0.1deg)",
                   }}
                 >
                   후원자 결제종료
@@ -511,6 +550,7 @@ function FundingPlan(props) {
                     textAlign: "left",
                     fontSize: "16px",
                     color: "#6D6D6D",
+                    transform: "skew(-0.1deg)",
                   }}
                 >
                   종료일 다음 날부터 7일
@@ -530,6 +570,8 @@ function FundingPlan(props) {
                     color: "black",
                     fontSize: "15px",
                     textAlign: "left",
+                    fontWeight: "bold",
+                    transform: "skew(-0.1deg)",
                   }}
                 >
                   정산일
@@ -539,6 +581,7 @@ function FundingPlan(props) {
                     textAlign: "left",
                     fontSize: "16px",
                     color: "#6D6D6D",
+                    transform: "skew(-0.1deg)",
                   }}
                 >
                   후원자 결제 종료 다음 날부터 7영업일
