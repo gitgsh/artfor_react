@@ -1,52 +1,20 @@
 import React from "react";
 import * as THREE from "three";
+import { Link } from "react-router-dom";
+import { Gallrender } from "./gallrender";
 
-class Gallery extends React.Component {
-  constructor(props) {
-    super(props);
+function Gallery() {
+  function handleClick(e) {
+    window.location.href =
+      "http://127.0.0.1:5500/src/pages/gallery/exhibition.html";
   }
-
-  componentDidMount() {
-    const width = window.innerWidth - 1;
-    const height = window.innerHeight - 1;
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, width / height, 1, 1000);
-
-    const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(width, height);
-
-    this.element.appendChild(renderer.domElement);
-
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
-
-    camera.position.z = 5;
-
-    this.scene = scene;
-    this.camera = camera;
-    this.renderer = renderer;
-    this.cube = cube;
-    this.animate();
-  }
-
-  animate = () => {
-    this.renderer.render(this.scene, this.camera);
-    this.cube.rotation.x += 0.01;
-    this.cube.rotation.y += 0.01;
-    requestAnimationFrame(this.animate);
-  };
-
-  render() {
-    return (
-      <div
-        ref={(el) => (this.element = el)}
-        style={{ width: "100%", height: "100%", border: "1px solid red" }}
-      />
-    );
-  }
+  return (
+    <div>
+      <a href="http://127.0.0.1:5500/src/pages/gallery/exhibition.html">입장</a>
+      <button onClick={handleClick}>입장3</button>
+      <Gallrender />
+    </div>
+  );
 }
 
 export default Gallery;

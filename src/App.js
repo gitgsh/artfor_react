@@ -72,7 +72,7 @@ function App() {
           <Route exact={true} path="/donation" component={Donation} />
           <Route exact={true} path="/members/list" component={Members} />
           {/* Gallery */}
-          {/* <Route exact={true} path="/gallery" component={Artforgall} /> */}
+          <Route exact={true} path="/gallery" component={Gallery} />
           {/* LOGIN */}
           <Route exact={true} path="/login" component={Login} />
           <Route exact={true} path="/join" component={Join} />
