@@ -32,7 +32,7 @@ function SearchModal(props) {
   });
 
   return (
-    <div className="headerLeft" style={{textAlign:"left"}}>
+    <div className="headerLeft" style={{ textAlign: "left" }}>
       <Button
         onClick={() => {
           setShow(true);
@@ -46,8 +46,8 @@ function SearchModal(props) {
           fontFamily: "NanumSquareR",
           fontSize: "15px",
           fontWeight: "bold",
-          padding:"0px",
-          boxSadow:"none",
+          padding: "0px",
+          boxSadow: "none",
           marginLeft: "-22px",
         }}
       >
