@@ -25,6 +25,24 @@ export default class FundingStore2 {
     work_title:"",
   };
 
+  works = [];
+  work = {
+    work_no: "",
+    work_title: "",
+    work_img: "",
+    work_content: "",
+    artist_id: "",
+    funding_like: "",
+    funding_deadline: "",
+    funding_goal: "",
+    funding_now: "",
+    supporters: "",
+    artist_name: "",
+    funding_today: "",
+    funding_status: "",
+    funding_startline: "",
+  };
+ 
   fundingsRead2() {
     axios
       .get("http://localhost:8004/app/admin/fundinglist.do")
@@ -40,6 +58,20 @@ export default class FundingStore2 {
       });
   }
 
+  worksRead() {
+    axios
+      .get("http://localhost:8004/app/")
+      .then((response) => {
+        console.log("성공");
+        console.log("Done worksRead", response);
+        this.works = response.data;
+        console.log("this.works>>", this.works);
+      })
+      .catch((error) => {
+        console.log("실패");
+        axiosError(error);
+      });
+  }
 
 }
 

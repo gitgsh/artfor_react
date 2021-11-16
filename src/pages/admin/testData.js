@@ -45,6 +45,10 @@ export const pokemons = [
     {
       name: "반려",
       value: "Refuse"
+    },
+    {
+      name: "마감",
+      value: "Complete"
     }
   ];
   
