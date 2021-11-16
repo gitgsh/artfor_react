@@ -97,48 +97,48 @@ export default function PlanTabs() {
     setValue(newValue);
   };
 
-  
   const [clickValue, setClickValue] = useState(<ProjectFundingPlan />);
 
   return (
     <div className="TabsAll_Project2">
-      
-        <Box sx={{ bgcolor: "#fff", height: "100%" }}>
-     
-          <div className="content_wrap" >
-            {/* <div className="pmImage"></div> */}
-            {
-              localStorage.getItem('work_img') === null ?  (<div className="pmImage"></div>) : 
-                // (<img src={`/image/${localStorage.getItem('work_img')}`} className="pmImage2" /> )
-                (<img src={localStorage.getItem('work_img')} className="pmImage2" /> )
-            }
-             {/* <img src={`/image/j1.jpg`} className="pmImage2" /> */}
-            <div className="pmTitle">{window.localStorage.getItem('name')}님의 프로젝트 </div>
+      <Box sx={{ bgcolor: "#fff", height: "100%" }}>
+        <div className="content_wrap">
+          {/* <div className="pmImage"></div> */}
+          {localStorage.getItem("work_img") === null ? (
+            <div className="pmImage"></div>
+          ) : (
+            // (<img src={`/image/${localStorage.getItem('work_img')}`} className="pmImage2" /> )
+            <img src={localStorage.getItem("work_img")} className="pmImage2" />
+          )}
+          {/* <img src={`/image/j1.jpg`} className="pmImage2" /> */}
+          <div className="pmTitle">
+            {window.localStorage.getItem("name")}님의 프로젝트{" "}
           </div>
+        </div>
 
-          <AntTabs
-            value={value}
-            onChange={handleChange}
-            aria-label="ant example"
-            style={{ height: "100%" }}
-          >
-            <AntTab
-              label="프로젝트 기획"
-              style={{ fontFamily: "NanumSquareB" }}
-              onClick={() => {
-                setClickValue(<ProjectFundingPlan />);
-              }}
-            />
-            <AntTab
-              label="공개 예정"
-              style={{ fontFamily: "NanumSquareB" }}
-              onClick={() => {
-                setClickValue(<TobeRel />);
-              }}
-            />
-          </AntTabs>
-        </Box>
-        {clickValue}
-      </div>
+        <AntTabs
+          value={value}
+          onChange={handleChange}
+          aria-label="ant example"
+          style={{ height: "100%" }}
+        >
+          <AntTab
+            label="프로젝트 기획"
+            style={{ fontFamily: "NanumSquareB", transform: "skew(-0.1deg)" }}
+            onClick={() => {
+              setClickValue(<ProjectFundingPlan />);
+            }}
+          />
+          <AntTab
+            label="공개 예정"
+            style={{ fontFamily: "NanumSquareB", transform: "skew(-0.1deg)" }}
+            onClick={() => {
+              setClickValue(<TobeRel />);
+            }}
+          />
+        </AntTabs>
+      </Box>
+      {clickValue}
+    </div>
   );
 }

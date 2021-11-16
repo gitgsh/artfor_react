@@ -11,26 +11,23 @@ import { useState } from "react";
 
 function ProjectFundingPlan(props) {
   const [modalShow, setModalShow] = useState(false);
-  
+
   return (
     <div
       className="fundingPlan-container"
-      style={{ backgroundColor: "rgb(252, 252, 252)"}}
+      style={{ backgroundColor: "rgb(252, 252, 252)" }}
     >
       <div
         className="funding-box"
         style={{ margin: "0 auto", maxWidth: "1180px" }}
       >
-      <div style={{textAlign:"right"}}>
-        <button className="bbtn" onClick={() => setModalShow(true)}>
-          심사 기준
-        </button>
+        <div style={{ textAlign: "right", transform: "skew(-0.1deg)" }}>
+          <button className="bbtn" onClick={() => setModalShow(true)}>
+            심사 기준
+          </button>
 
-        <PFPModal
-          show={modalShow}
-          onHide={() => setModalShow(false)}
-        />
-      </div>
+          <PFPModal show={modalShow} onHide={() => setModalShow(false)} />
+        </div>
         <div
           style={{
             paddingTop: "5%",
@@ -40,13 +37,18 @@ function ProjectFundingPlan(props) {
         >
           <Row>
             <Col>
-              <a href="/project/plan/projectupload" style={{ textDecorationLine: "none" }}>
+              <a
+                href="/project/plan/projectupload"
+                style={{ textDecorationLine: "none" }}
+              >
                 <div className="fb">
                   <div>
                     <p style={{ textAlign: "left" }}>
                       <img src="/book.png" style={{ width: "25px" }} />{" "}
                     </p>
-                    <p className="pfpt">프로젝트 계획</p>
+                    <p className="pfpt" style={{ transform: "skew(-0.1deg)" }}>
+                      프로젝트 계획
+                    </p>
                     {/* <p>28%작성완료</p> */}
                   </div>
                 </div>
@@ -54,12 +56,17 @@ function ProjectFundingPlan(props) {
             </Col>
             <Col>
               <div className="fb">
-                <a href="/project/plan/projectupload" style={{ textDecorationLine: "none" }}>
+                <a
+                  href="/project/plan/projectupload"
+                  style={{ textDecorationLine: "none" }}
+                >
                   <div>
                     <p style={{ textAlign: "left" }}>
                       <img src="/mon.png" style={{ width: "25px" }} />{" "}
                     </p>
-                    <p className="pfpt">펀딩 계획</p>
+                    <p className="pfpt" style={{ transform: "skew(-0.1deg)" }}>
+                      펀딩 계획
+                    </p>
                     {/* <p>28%작성완료</p> */}
                   </div>
                 </a>
@@ -67,12 +74,17 @@ function ProjectFundingPlan(props) {
             </Col>
             <Col>
               <div className="fb">
-                <a href="/project/plan/projectupload" style={{ textDecorationLine: "none" }}>
+                <a
+                  href="/project/plan/projectupload"
+                  style={{ textDecorationLine: "none" }}
+                >
                   <div>
                     <p style={{ textAlign: "left" }}>
                       <img src="/safety.png" style={{ width: "25px" }} />{" "}
                     </p>
-                    <p className="pfpt">신뢰와 안전</p>
+                    <p className="pfpt" style={{ transform: "skew(-0.1deg)" }}>
+                      신뢰와 안전
+                    </p>
                     {/* <p>28%작성완료</p> */}
                   </div>
                 </a>
@@ -80,12 +92,17 @@ function ProjectFundingPlan(props) {
             </Col>
             <Col>
               <div className="fb">
-                <a href="/project/plan/projectupload" style={{ textDecorationLine: "none" }}>
+                <a
+                  href="/project/plan/projectupload"
+                  style={{ textDecorationLine: "none" }}
+                >
                   <div>
                     <p style={{ textAlign: "left" }}>
                       <img src="/pen.png" style={{ width: "25px" }} />{" "}
                     </p>
-                    <p className="pfpt">기본 정보</p>
+                    <p className="pfpt" style={{ transform: "skew(-0.1deg)" }}>
+                      기본 정보
+                    </p>
                     {/* <p>28%작성완료</p> */}
                   </div>
                 </a>

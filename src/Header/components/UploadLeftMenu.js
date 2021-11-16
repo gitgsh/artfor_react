@@ -24,7 +24,9 @@ function UploadLeftMenu() {
           <Button
             style={{
               color: "black",
-              fontFamily: "NanumSquareB",
+              fontFamily: "NanumSquareR",
+
+              fontWeight: "bold",
               fontSize: "15px",
               width: "120px",
             }}
@@ -33,7 +35,10 @@ function UploadLeftMenu() {
             }}
           >
             <IoArrowBack
-              style={{ marginRight: "10px", transform: "skew(-0.1deg)" }}
+              style={{
+                marginRight: "10px",
+                transform: "skew(-0.1deg)",
+              }}
             />
             뒤로 가기
           </Button>
