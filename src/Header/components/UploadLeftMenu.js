@@ -25,7 +25,6 @@ function UploadLeftMenu() {
             style={{
               color: "black",
               fontFamily: "NanumSquareR",
-
               fontWeight: "bold",
               fontSize: "15px",
               width: "120px",
