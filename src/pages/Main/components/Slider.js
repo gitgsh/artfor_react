@@ -35,7 +35,7 @@ function Slider() {
   setTimeout(  //자동슬라이더 효과.
     () =>
       goRight(),
-    3000  
+    4000  
   );
   
   return (

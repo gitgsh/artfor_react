@@ -3,6 +3,7 @@ import { Card, CardGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../Project.css";
 import { inject, observer } from "mobx-react";
+import { height } from "@mui/system";
 
 function LikeProject(props) {
   const { mainStore } = props;
@@ -60,18 +61,20 @@ function LikeProject(props) {
 
   return (
     <div>
-      <div className="project_component">
-        <CardGroup className="cardgroup_Home">
+      <div className="project_component" style={{height:"100%"}}>
+        <div>
+        <CardGroup className="cardgroup_Home" style={{height:"auto"}}>
           {workList.slice(0, count).map(function (data, i) {
             //8개
             return (
               <div
                 style={{
-                  marginLeft: "20px",
-                  marginBottom: "-80px",
+                  marginLeft: "10px",
+                  marginBottom: "-40px",
+                  
                 }}
               >
-                <Card className="card_Home">
+                <Card className="card_Home" >
                   <Link
                     to={`/detail/${data.work_no}`}
                     onClick={() => {
@@ -90,11 +93,17 @@ function LikeProject(props) {
                       }}
                     />
                   </Link>
-                  <Card.Body className="cardbody_Home">
+                  <Card.Body className="cardbody_Home"
+                              style={{
+                              maxWidth:"250px",
+                              textAlign:"left",
+                              
+                              }}>
                     <Card.Title className="cardtitle_Home">
-                      공예 | {data.artist_name}
+                    예술 | {data.artist_name}
                     </Card.Title>
-                    <Card.Text className="cardtext_Home">
+                    <Card.Text className="cardtext_Home"
+                                style={{minHeight:"80px"}}>
                       <Link
                         to={`/detail/${data.work_no}`}
                         onClick={() => {
@@ -112,7 +121,7 @@ function LikeProject(props) {
                         textAlign: "center",
                       }}
                     >
-                      <p style={{ marginTop: "-25px" }}>
+                      <p style={{ marginTop: "-35px" }}>
                         {Math.round(
                           (data.funding_now / data.funding_goal) * 100
                         )}
@@ -125,6 +134,7 @@ function LikeProject(props) {
             );
           })}
         </CardGroup>
+        </div>
       </div>
     </div>
   );

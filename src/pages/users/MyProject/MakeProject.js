@@ -5,6 +5,7 @@ import "../Project.css";
 //jh
 import { inject, observer } from "mobx-react";
 import { useState, useEffect } from 'react';
+import { minHeight } from '@mui/system';
 
 function MakeProject(props) {
   const {mainStore} = props;
@@ -57,7 +58,7 @@ function MakeProject(props) {
       <div className="project_component" style={{height:"100%"}}> 
         <div>
       <CardGroup className="cardgroup_Home" style={{height:"auto"}}>
-                      {myWork.slice(0, count).map(function (data, i) {
+                      {myWork.map(function (data, i) {
                         return (
                           <div
                             style={{
@@ -83,11 +84,17 @@ function MakeProject(props) {
                                   }}
                                 />
                               </Link>
-                              <Card.Body className="cardbody_Home">
+                              <Card.Body className="cardbody_Home"
+                              style={{
+                              maxWidth:"250px",
+                              textAlign:"left",
+                              
+                              }}>
                                 <Card.Title className="cardtitle_Home">
-                                  공예 | {data.artist_name}
+                                  예술 | {data.artist_name}
                                 </Card.Title>
-                                <Card.Text className="cardtext_Home">
+                                <Card.Text className="cardtext_Home"
+                                style={{minHeight:"80px",}}>
                                   <Link
                                     to={`/detail/${data.work_no}`}
                                     onClick={() => {
@@ -102,6 +109,7 @@ function MakeProject(props) {
                                   style={{
                                     fontSize: "18px",
                                     textAlign: "center",
+                                    
                                   }}
                                 >
                                   <p style={{ marginTop: "-25px" }}>
