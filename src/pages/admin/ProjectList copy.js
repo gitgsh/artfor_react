@@ -8,7 +8,6 @@ import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 import { inject, observer } from "mobx-react";
 import { axiosError } from "../../stores/common";
-import { Link } from 'react-router-dom';
 import axios from "axios";
 
 const Img = styled('img')({
@@ -40,6 +39,13 @@ function ProjectList(props) {
           });
     }
 
+    
+    // useEffect(
+    //     ()=>{
+    //         mainStore.worksRead();
+    //         console.log("워크스 리드실행");
+    //     },[mainStore]
+    // )
 
     const artworks = works.map(function(data, i){
         return (
@@ -47,7 +53,10 @@ function ProjectList(props) {
         )
     })
 
+    // const [artworkList2 , setArtWorkList2] = useState("");
 
+    // setArtWorkList2 = [...works];
+    // console.log(artworkList2,"리스트으으으ㅡ으으");
     console.log(artworks,"<<<<데이터받기");
     
     // const [filtredPokemon, setFiltredPokemon] = useState(null);
@@ -61,7 +70,7 @@ function ProjectList(props) {
         setFiltredArtwork(getArtwork());
         mainStore.worksRead();
         console.log("필터드 아트워크 실행");
-    }, []);
+    }, [check]);
 
     // function getPokemon() {
     //     const pokemonList = pokemons;
@@ -113,59 +122,44 @@ function ProjectList(props) {
             <div style={{ paddingTop:'50px  ', clear:'both'}}>
             {filtredArtwork &&
                 filtredArtwork.map(artWork => (
-            <Paper sx={{ p: 2, margin: 'auto', maxWidth: 980, flexGrow: 1 }} key={artWork.work_no}>
+            <Paper sx={{ p: 2, margin: 'auto', maxWidth: 1080, flexGrow: 1 }} key={artWork.work_no}>
             <Grid container spacing={2} rowSpacing={5}>
                 <Grid item>
                     <ButtonBase sx={{ width: 128, height: 128 }}>
                         {/* <Img alt="complex" src= {`/image/j2.jpg`} /> */}
-                        <Link to={`/detail/${artWork.work_no}`} ><Img alt="complex" src= {`/image/${artWork.work_img}`} /></Link>
+                        <Img alt="complex" src= {`/image/${artWork.work_img}`} />
                     </ButtonBase>
                 </Grid>
-                <Grid item xs={6} sm container>
+                <Grid item xs={12} sm container>
                     <Grid item xs container direction="column" spacing={2} sx={{margin : 2}}>
                         <Grid item xs>
                         <Typography gutterBottom variant="subtitle1" component="div">
-                            상태 : {artWork.funding_status}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                           작품 번호 : {artWork.work_no}
+                            {artWork.funding_status}
                         </Typography>
                         <Typography variant="body2" gutterBottom>
-                            작품 명 : {artWork.artist_name}
+                            {artWork.artist_name}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                            펀딩 시작일 : {artWork.funding_today}
+                            {artWork.funding_today}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                            {artWork.work_img}
                         </Typography>
                         </Grid>
                         <Grid item>
-                        {/* <Typography sx={{ cursor: 'pointer' }} variant="body2"  >
-                            <Link to={`/detail/${artWork.work_no}`} >상세 보기</Link>
-                        </Typography> */}
+                        <Typography sx={{ cursor: 'pointer' }} variant="body2">
+                            Remove
+                        </Typography>
                         </Grid>
                     </Grid>
                     <Grid item sx={{width:128, margin:5}} >
                         <Typography variant="subtitle1" component="div">
-
-                            { (artWork.funding_status != 'Wait') ? 
-                            <Button variant="outline-secondary" size="sm" style={{marginRight: '10px',  borderRadius:"30px"}} onClick={ 
-                                ()=> { changeFundingStatus(artWork.work_no,"Wait")}} >
-                            대기 변경</Button> : <></>}
-
-                            { (artWork.funding_status != 'Approval') ? 
-                            <Button variant="outline-secondary" size="sm" style={{marginRight: '10px',  borderRadius:"30px"}} onClick={ 
-                                ()=> { changeFundingStatus(artWork.work_no,"Approval")}} >
-                            승인 하기</Button> : <></>}
-
-                            { (artWork.funding_status != 'Refuse') ? 
-                            <Button variant="outline-secondary" size="sm" style={{marginRight: '10px',  borderRadius:"30px"}}  onClick={ 
-                                ()=> { changeFundingStatus(artWork.work_no,"Refuse"); }}>
-                            반려 하기</Button>  : <></>} 
-
-                            { (artWork.funding_status != 'Complete') ? 
-                            <Button variant="outline-secondary" size="sm" style={{marginRight: '10px',  borderRadius:"30px"}}  onClick={ 
-                                ()=> { changeFundingStatus(artWork.work_no,"Complete"); }}>
-                            마감 하기</Button>  : <></>} 
-                        
+                        <Button variant="outline-secondary" size="sm" style={{marginRight: '10px',  borderRadius:"30px"}} onClick={ 
+                            ()=> { changeFundingStatus(artWork.work_no,"Approval")}} >
+                        승인 하기</Button>
+                        <Button variant="outline-secondary" size="sm" style={{marginRight: '10px',  borderRadius:"30px"}}  onClick={ 
+                            ()=> { changeFundingStatus(artWork.work_no,"Refuse"); }}>
+                        반려 하기</Button>
                         </Typography>
                     </Grid>
                 </Grid>
