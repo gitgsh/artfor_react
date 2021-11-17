@@ -121,7 +121,7 @@ function LikeProject(props) {
                         textAlign: "center",
                       }}
                     >
-                      <p style={{ marginTop: "-35px" }}>
+                      <p style={{ marginTop: "-35px", textAlign:"left" }}>
                         {Math.round(
                           (data.funding_now / data.funding_goal) * 100
                         )}
