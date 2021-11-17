@@ -116,7 +116,7 @@ function FundingStatus_OpenExp(props) {
   return (
     <>
       <div className="detailOpenExp_head1">
-        <div className="detail_head2">
+        <div className="detailOpenExp_head2">
           <br />
 
           <img
@@ -124,12 +124,14 @@ function FundingStatus_OpenExp(props) {
             src={`/image/${findFunding.work_img}`}
           />
 
-          <div className="detail_head3">
-            <div className="detail_head3_1">
+          <div className="detail_head3" >
+            <div className="detailOpenExp_head3_1" >
               <br />
-              <span style={{ fontSize: "50px", fontFamily: "NanumSquareR" }}>
+              <div style={{minHeight:"50px", marginRight:"100px"}}>
+              <span style={{ fontSize: "30px", fontFamily: "NanumSquareR"}} >
                 {findFunding.work_title}
               </span>
+              </div>
               <br />
               <p
                 className="writer_homeDetail"
