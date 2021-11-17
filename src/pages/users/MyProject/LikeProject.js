@@ -5,6 +5,7 @@ import "../Project.css";
 import { inject, observer } from "mobx-react";
 import { height } from "@mui/system";
 import { useParams } from "react-router";
+import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
 
 function LikeProject(props) {
   const { no } = useParams();
@@ -45,11 +46,10 @@ function LikeProject(props) {
   const findWorkNo = findLikeProject.map(function (data, i) {
     return data.work_no;
   });
+  console.log(findWorkNo, "findWorkNo");
 
   const workList = works.filter(function (data, i) {
-    // console.log("findWorkNO[i]", parseInt(findWorkNO[i]));
-
-    return findWorkNo.includes();
+    return findWorkNo.includes(data.work_no);
   });
 
   console.log("workList", workList);
@@ -118,7 +118,13 @@ function LikeProject(props) {
                           textAlign: "center",
                         }}
                       >
-                        <p style={{ marginTop: "-35px" }}>
+                        <p
+                          style={{
+                            marginTop: "-35px",
+                            textAlign: "left",
+                            color: "#FF5757",
+                          }}
+                        >
                           {Math.round(
                             (data.funding_now / data.funding_goal) * 100
                           )}
