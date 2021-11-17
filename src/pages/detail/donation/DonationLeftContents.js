@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
@@ -6,11 +6,20 @@ import Certification from "./Certification";
 import { useParams } from "react-router";
 import { useEffect } from "react";
 import { inject, observer } from "mobx-react";
+import PhoneModal from "../../users/MySettings/PhoneModal";
+import { Link } from "react-router-dom";
 
 function DonationLeftContents(props) {
   const { no } = useParams();
   const { mainStore } = props;
   const { works, work } = mainStore;
+  let [phoneModal, setPhoneModal] = useState(false);
+  function modalSwitch(e) {
+    let value = e.target.value;
+    if (value === 'phone') {
+      setPhoneModal(!phoneModal);
+    }
+  }
 
   useEffect(() => {
     mainStore.worksRead();
@@ -120,13 +129,17 @@ function DonationLeftContents(props) {
               </td>
               <td
                 style={{
-                  width: "150px",
+                  width: "350px",
                   height: "30px",
                   fontFamily: "NanumSquareL",
                   fontWeight: "bold",
                 }}
               >
-                {user_phone}
+                {
+                  user_phone !=="null"
+                  ? user_phone
+                  : <>저장된 연락처가 없습니다. &nbsp;&nbsp;<Link to="/users/mysettings" style={{ color: "#3399ff", transform: "skew(-0.1deg)", fontSize:'13px' }}>연락처 등록</Link></>
+                }
               </td>
               {/* <td> <TextField id="standard-basic" label="핸드폰번호" variant="standard" /><br/><br/></td> */}
             </tr>
@@ -178,7 +191,7 @@ function DonationLeftContents(props) {
               fontWeight: "bold",
             }}
           >
-            * 연락처 및 이메일 변경은 설정 ＞계정 설정에서 가능합니다.
+            * 연락처 및 이메일 변경은 설정 ＞<Link to="/users/mysettings"style={{ color: "#3399ff", transform: "skew(-0.1deg)"}}>계정 설정</Link>에서 가능합니다.
           </p>
         </테이블1>
       </박스2>
