@@ -155,11 +155,12 @@ function Join(props) {
                   })}
                 />
                 <Button
+                  style={{ fontFamily: "Consolas" }}
                   className="btn_empty"
                   variant="outline-secondary"
                   onClick={confirmEmail}
                 >
-                  인증 하기
+                  인증하기
                 </Button>
               </InputGroup>
               {errors.user_email?.type === "required" && (
@@ -181,11 +182,12 @@ function Join(props) {
                   {...register("confirmNum", { required: true, pattern: /\d/ })}
                 />
                 <Button
+                  style={{ fontFamily: "Consolas" }}
                   className="btn_empty"
                   variant="outline-secondary"
                   onClick={checkNum}
                 >
-                  인증 확인
+                  인증확인
                 </Button>
               </InputGroup>
               {errors.confirmNum?.type === "required" && (
@@ -204,10 +206,10 @@ function Join(props) {
           <BoxStyle>
             <div className="join-form-input-1">
               <InfoStyle>비밀번호</InfoStyle>
-              <InputGroup>
+              <InputGroup style={{ fontFamily: "Consolas" }}>
                 <FormControl
                   className="login-form-input-row"
-                  type="text"
+                  type="password"
                   placeholder="비밀번호를 입력해주세요."
                   {...register("user_pw", {
                     required: true,
@@ -231,9 +233,10 @@ function Join(props) {
               )}
             </div>
             <div className="join-form-input-1">
-              <InputGroup>
+              <InputGroup style={{ fontFamily: "Consolas" }}>
                 <FormControl
                   className="login-form-input-row"
+                  type="password"
                   placeholder="비밀번호를 확인합니다."
                   {...register("user_pw_con", {
                     required: true,
@@ -277,6 +280,7 @@ const Warning = styled.div`
 
 const InfoStyle = styled.div`
   font-size: 14px;
+  transform: skew(-0.1deg);
 `;
 
 const BoxStyle = styled.div`
