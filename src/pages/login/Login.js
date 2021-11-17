@@ -2,7 +2,6 @@ import React from "react";
 import { Button, FormControl, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../../CSS/login/Login.css";
-import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { axiosError } from "../../stores/common";
@@ -10,7 +9,6 @@ import { axiosError } from "../../stores/common";
 import { inject, observer } from "mobx-react";
 import styled from "styled-components";
 
-// import { KakaoLogin } from "react-kakao-login";
 
 function Login(props) {
   const { membersStore } = props;
@@ -51,9 +49,6 @@ function Login(props) {
           // localStorage.setItem('user_id',JSON.stringify(userinfo.user_id).slice(1,-1));
           getUserInfo();
 
-          // props.history.push("/users/myproject");
-          // window.location.replace("/users/myproject")
-          // props.history.push("/");
         }
       })
       .catch((error) => {
@@ -94,7 +89,7 @@ function Login(props) {
         localStorage.setItem("phone", phone);
         localStorage.setItem("role", role);
         localStorage.setItem("photo", photo);
-        window.location.replace("/users/myproject")
+        window.location.replace("/")
       })
       .catch((error) => {
         axiosError(error);
@@ -130,7 +125,7 @@ function Login(props) {
             )}
           </div>
           <div className="login-form-input-2">
-            <InputGroup style={{ fontFamily: "Consolas" }}>
+            <InputGroup style={{ fontFamily: "Consolas", transform: "skew(-0.1deg)" }}>
               <FormControl
                 className="login-form-input-row"
                 type="password"
@@ -158,22 +153,15 @@ function Login(props) {
             </Button>{" "}
           </div>
 
-          <p className="question-join">
+          <p className="question-join" style={{transform: "skew(-0.1deg)"}}>
             아직 계정이 없으신가요? <Link to="/join">가입하기</Link>
           </p>
           <hr className="hr" />
-          <Link className="question-pw" to="/forgotPW">
+          <Link className="question-pw" to="/forgotPW" style={{transform: "skew(-0.1deg)"}}>
             혹시 비밀번호를 잊으셨나요?
           </Link>
         </form>
-        <div>
-          <a id="custom-login-btn">
-            <img
-              src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
-              width="222"
-            />
-          </a>
-        </div>
+
       </div>
     </div>
   );
@@ -182,6 +170,7 @@ function Login(props) {
 const Warning = styled.div`
   color: red;
   font-size: 13px;
+  tansform : skew(-0.1deg);
 `;
 
 export default inject("membersStore")(observer(Login));
