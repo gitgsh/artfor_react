@@ -6,6 +6,7 @@ import Container from '../../../Container/Container';
 import TextBoxComp from './TextBoxComp';
 import { BsChevronLeft } from 'react-icons/bs';
 import { BsChevronRight } from 'react-icons/bs';
+import "./Slider.css";
 
 function Slider() {
   const [buttonState, buttonSetState] = useState(0);
@@ -28,7 +29,9 @@ function Slider() {
   useEffect(() => {
     fetch('data/SlideImgData.json')
       .then(res => res.json())
-      .then(data => slideImageSetState(data.SlideImgData));
+      .then(data => {
+        slideImageSetState(data.SlideImgData)
+      })
   }, []);
 
 
@@ -56,15 +59,22 @@ function Slider() {
           );
         })}
       </SlideContainerLeft>
-      <SlideContainerRight className="SlideContainerRight">
+      <SlideContainerRight className="SlideContainerRight"
+      style={{
+      fontFamily:"NanumSquareB",
+      transform: "skew(-0.1deg)", }}>
+        
+
         {slideImageState.map(item => {
           return (
             <SlideTextBox
               key={item.id}
-              style={{ transform: `translateX(${buttonState}%)` }}
+              style={{ 
+                transform: `translateX(${buttonState}%)` }}
             >
               <TextBoxComp
-                MainTitle={item.content}
+              clnassName= "root"
+                MainTitle= {item.content}
                 backgroundColor={item.color}
                 SubTitle={item.subContent}
               />
@@ -81,6 +91,8 @@ function Slider() {
     </MainSlideContainer>
   );
 }
+
+
 
 const MainSlideContainer = styled(Container)`
   display: flex;
