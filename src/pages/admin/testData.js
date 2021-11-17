@@ -36,19 +36,19 @@ export const pokemons = [
     },
     {
       name: "대기",
-      value: "Wait"
+      value: "대기"
     },
     {
       name: "승인",
-      value: "Approval"
+      value: "승인"
     },
     {
       name: "반려",
-      value: "Refuse"
+      value: "반려"
     },
     {
       name: "마감",
-      value: "Complete"
+      value: "마감"
     }
   ];
   

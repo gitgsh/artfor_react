@@ -72,11 +72,11 @@ function ManageFunding(props) {
       const columns_work = useMemo(
         () => [
           {accessor: "work_no",
-            Header: "작품번호"},
+            Header: "번호"},
           {accessor: "work_title",
             Header: "작품 제목"},
-          { accessor: "artist_id",
-            Header: "작가 아이디" },
+          // { accessor: "artist_id",
+          //   Header: "작가 아이디" },
           {accessor: "artist_name",
             Header: "작가 이름"  },
           {accessor: "funding_startline",
@@ -111,7 +111,7 @@ function ManageFunding(props) {
           <h2>
             운영자 페이지
           </h2>
-          <h4>후원 관리</h4>
+          <h4>펀딩 관리</h4>
         </div>
       </div>
       <div style={{borderBottom:'1px solid #e8e8e8'}}>

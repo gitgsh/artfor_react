@@ -50,12 +50,8 @@ function ProjectList(props) {
 
     console.log(artworks,"<<<<데이터받기");
     
-    // const [filtredPokemon, setFiltredPokemon] = useState(null);
     const [filtredArtwork, setFiltredArtwork] = useState(null);
-    
-    // useEffect(() => {
-    //     setFiltredPokemon(getPokemon());
-    // }, []);
+
 
     useEffect(() => {
         setFiltredArtwork(getArtwork());
@@ -63,10 +59,7 @@ function ProjectList(props) {
         console.log("필터드 아트워크 실행");
     }, []);
 
-    // function getPokemon() {
-    //     const pokemonList = pokemons;
-    //     return pokemonList;
-    // }
+
 
     function getArtwork() {
         // const artworkList = artworks;
@@ -74,10 +67,6 @@ function ProjectList(props) {
         return artworkList;
     }
 
-    // function filterPokemon(pokeType) {
-    //     let filtredPokemon = getPokemon().filter(type => type.tipo === pokeType);
-    //     return filtredPokemon;
-    // }
 
     function filterArtwork(fundingStatus) {
         let filtredArtwork = getArtwork().filter(type => type.funding_status === fundingStatus);
@@ -85,13 +74,6 @@ function ProjectList(props) {
     }
   
 
-    
-    // function handlePokemon(e) {
-        //     let typePokemon = e.target.value;
-        //     typePokemon !== "all"
-        //     ? setFiltredPokemon(filterPokemon(typePokemon))
-        //     : setFiltredPokemon(getPokemon());
-        // }
         
     function handleArtwork(e) {
         let fundingStatus = e.target.value;
@@ -131,39 +113,38 @@ function ProjectList(props) {
                            작품 번호 : {artWork.work_no}
                         </Typography>
                         <Typography variant="body2" gutterBottom>
-                            작품 명 : {artWork.artist_name}
+                            작품 명 : {artWork.work_title}
+                        </Typography>
+                        <Typography variant="body2" gutterBottom>
+                            작가 명 : {artWork.artist_name}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                            펀딩 시작일 : {artWork.funding_today}
+                            펀딩 시작일 : {artWork.funding_startline}
                         </Typography>
                         </Grid>
-                        <Grid item>
-                        {/* <Typography sx={{ cursor: 'pointer' }} variant="body2"  >
-                            <Link to={`/detail/${artWork.work_no}`} >상세 보기</Link>
-                        </Typography> */}
-                        </Grid>
+
                     </Grid>
                     <Grid item sx={{width:128, margin:5}} >
                         <Typography variant="subtitle1" component="div">
 
-                            { (artWork.funding_status != 'Wait') ? 
+                            { (artWork.funding_status != '대기') ? 
                             <Button variant="outline-secondary" size="sm" style={{marginRight: '10px',  borderRadius:"30px"}} onClick={ 
-                                ()=> { changeFundingStatus(artWork.work_no,"Wait")}} >
+                                ()=> { changeFundingStatus(artWork.work_no,"대기")}} >
                             대기 변경</Button> : <></>}
 
-                            { (artWork.funding_status != 'Approval') ? 
+                            { (artWork.funding_status != '승인') ? 
                             <Button variant="outline-secondary" size="sm" style={{marginRight: '10px',  borderRadius:"30px"}} onClick={ 
-                                ()=> { changeFundingStatus(artWork.work_no,"Approval")}} >
+                                ()=> { changeFundingStatus(artWork.work_no,"승인")}} >
                             승인 하기</Button> : <></>}
 
-                            { (artWork.funding_status != 'Refuse') ? 
+                            { (artWork.funding_status != '반려') ? 
                             <Button variant="outline-secondary" size="sm" style={{marginRight: '10px',  borderRadius:"30px"}}  onClick={ 
-                                ()=> { changeFundingStatus(artWork.work_no,"Refuse"); }}>
+                                ()=> { changeFundingStatus(artWork.work_no,"반려"); }}>
                             반려 하기</Button>  : <></>} 
 
-                            { (artWork.funding_status != 'Complete') ? 
+                            { (artWork.funding_status != '마감') ? 
                             <Button variant="outline-secondary" size="sm" style={{marginRight: '10px',  borderRadius:"30px"}}  onClick={ 
-                                ()=> { changeFundingStatus(artWork.work_no,"Complete"); }}>
+                                ()=> { changeFundingStatus(artWork.work_no,"마감"); }}>
                             마감 하기</Button>  : <></>} 
                         
                         </Typography>
