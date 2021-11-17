@@ -63,7 +63,7 @@ function MakeProject(props) {
                           <div
                             style={{
                               marginLeft: "10px",
-                              marginBottom: "-50px",
+                              marginBottom: "-40px",
                             }}
                           >
                             <Card className="card_Home">
@@ -112,7 +112,7 @@ function MakeProject(props) {
                                     
                                   }}
                                 >
-                                  <p style={{ marginTop: "-25px" }}>
+                                  <p style={{ marginTop: "-35px", textAlign:"left" }}>
                                     {Math.round(
                                       (data.funding_now / data.funding_goal) *
                                         100
