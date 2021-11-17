@@ -30,8 +30,13 @@ function SearchModal(props) {
       data.work_title.includes(keyword) || data.artist_name.includes(keyword)
     );
   });
+  const today = new Date();
+  // const aLink = `/detail/${data.work_no}` 
+  // const bLink = `/detailOpenExp/${data.work_no}`
 
   return (
+    <>
+  
     <div className="headerLeft" style={{ textAlign: "left" }}>
       <Button
         onClick={() => {
@@ -101,24 +106,26 @@ function SearchModal(props) {
                 ) : (
                   <div>
                     <div style={{ marginBottom: "30px" }}>모든 프로젝트</div>
-                    <CardGroup className="cardgroup_Home">
+                    <CardGroup className="cardgroup_Home" style={{height:"auto"}}>
                       {findOpen.slice(0, count).map(function (data, i) {
                         //8개
                         return (
                           <div
                             style={{
                               marginLeft: "20px",
-                              marginBottom: "-80px",
+                              marginBottom: "-40px",
                             }}
                           >
                             <Card className="card_Home">
-                              <Link
-                                to={`/detail/${data.work_no}`}
-                                onClick={() => {
-                                  mainStore.getWork(data.work_no);
-                                  setShow(false);
-                                }}
-                              >
+                            { data.funding_startline <= today
+                                  ?
+                                  <Link to ={`/detail/${data.work_no}`}
+                                    onClick={() => {   
+                                      mainStore.getWork(data.work_no);
+                                      setShow(false);
+                                      console.log('today>>', today);
+                                    }}
+                                  >
                                 <Card.Img
                                   variant="top"
                                   src={`/image/${data.work_img}`}
@@ -129,21 +136,60 @@ function SearchModal(props) {
                                     overflow: "hidden",
                                   }}
                                 />
-                              </Link>
-                              <Card.Body className="cardbody_Home">
-                                <Card.Title className="cardtitle_Home">
-                                  공예 | {data.artist_name}
-                                </Card.Title>
-                                <Card.Text className="cardtext_Home">
-                                  <Link
-                                    to={`/detail/${data.work_no}`}
-                                    onClick={() => {
+                                     </Link>
+                                  :
+                                  <Link to ={`/detailOpenExp/${data.work_no}`}
+                                    onClick={() => {   
                                       mainStore.getWork(data.work_no);
                                       setShow(false);
+                                      console.log('today>>', today);
+                                    }}
+                                  >
+                                    <Card.Img
+                                  variant="top"
+                                  src={`/image/${data.work_img}`}
+                                  style={{
+                                    width: "250px",
+                                    height: "200px",
+                                    borderRadius: 15,
+                                    overflow: "hidden",
+                                  }}
+                                />
+                                    </Link>
+                                  }
+                              <Card.Body className="cardbody_Home"
+                              style={{
+                              maxWidth:"250px",
+                              textAlign:"left",
+                              
+                              }}>
+                                <Card.Title className="cardtitle_Home">
+                                  예술 | {data.artist_name}
+                                </Card.Title>
+                                <Card.Text className="cardtext_Home"
+                                style={{minHeight:"80px"}}>
+                                  { data.funding_startline <= today
+                                  ?
+                                  <Link to ={`/detail/${data.work_no}`}
+                                    onClick={() => {   
+                                      mainStore.getWork(data.work_no);
+                                      setShow(false);
+                                      console.log('today>>', today);
                                     }}
                                   >
                                     {data.work_title}
                                   </Link>
+                                  :
+                                  <Link to ={`/detailOpenExp/${data.work_no}`}
+                                    onClick={() => {   
+                                      mainStore.getWork(data.work_no);
+                                      setShow(false);
+                                      console.log('today>>', today);
+                                    }}
+                                  >
+                                    {data.work_title}
+                                  </Link>
+                                  }
                                 </Card.Text>
                                 <div
                                   className="cardfooter"
@@ -152,7 +198,7 @@ function SearchModal(props) {
                                     textAlign: "center",
                                   }}
                                 >
-                                  <p style={{ marginTop: "-25px" }}>
+                                  <p style={{ marginTop: "-25px", textAlign:"left" }}>
                                     {Math.round(
                                       (data.funding_now / data.funding_goal) *
                                         100
@@ -175,6 +221,7 @@ function SearchModal(props) {
         </Modal.Body>
       </Modal>
     </div>
+    </>
   );
 }
 

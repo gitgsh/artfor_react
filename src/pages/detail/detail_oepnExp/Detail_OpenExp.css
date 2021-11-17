@@ -27,7 +27,7 @@ margin-left: 60px;
 
 
 
-.detail_head2{
+.detailOpenExp_head2{
     width: 1250px;
 }
 
@@ -66,9 +66,10 @@ margin-left: 60px;
 
 }
 
-.detail_head3_1{
+.detailOpenExp_head3_1{
     text-align: left;
     margin-left: 20px;
+    
 }
 
 
@@ -147,8 +148,9 @@ margin-left: 60px;
 
   }
   
-  .detail_image{
+  .detailOpenExp_image{
     width: 500px;
     height: 400px;
+    /* float: left; */
 
   }
