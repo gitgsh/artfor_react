@@ -91,7 +91,7 @@ function Community(props) {
               }}
             >
               {" "}
-              <ReplyBox cm={cm}/>
+              <ReplyBox cm={cm} />
               <div style={{ marginTop: "5px", marginLeft: "58px" }}>
                 <div className="row" style={{}}>
                   {click && btnValue == i ? (
@@ -181,7 +181,7 @@ function Community(props) {
                         </button>
                       </div>
                     </>
-                  ) : btnValue === i ? (
+                  ) : btnValue === i && cstore.c_writer === cm.c_writer ? (
                     <>
                       <div
                         className="col-2"
@@ -352,14 +352,35 @@ function Community(props) {
             src="/broken-image.jpg"
             style={{ color: "", backgroundColor: "#F0F0F0" }}
           /> */}
-          {localStorage.getItem("photo") === "null"
-          ? <div style={{width:'40px', height:'40px', borderRadius:'70%', overflow:'hidden'}}>
-              <img style={{width:'100%', height:'100%', objectFit:'cover'}} src="/basicphoto.png"/>
+          {localStorage.getItem("photo") === "null" ? (
+            <div
+              style={{
+                width: "40px",
+                height: "40px",
+                borderRadius: "70%",
+                overflow: "hidden",
+              }}
+            >
+              <img
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                src="/basicphoto.png"
+              />
             </div>
-          : <div style={{width:'40px', height:'40px', borderRadius:'70%', overflow:'hidden'}}>
-              <img style={{width:'100%', height:'100%', objectFit:'cover'}} src={`/myphoto/${localStorage.getItem("photo")}`}/>
+          ) : (
+            <div
+              style={{
+                width: "40px",
+                height: "40px",
+                borderRadius: "70%",
+                overflow: "hidden",
+              }}
+            >
+              <img
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                src={`/myphoto/${localStorage.getItem("photo")}`}
+              />
             </div>
-          }
+          )}
           <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
 
           <InputBase
@@ -382,14 +403,35 @@ function Community(props) {
               src="/broken-image.jpg"
               style={{ backgroundColor: "#F0F0F0" }}
             /> */}
-            {props.cm.user_photo === null
-          ? <div style={{width:'40px', height:'40px', borderRadius:'70%', overflow:'hidden'}}>
-              <img style={{width:'100%', height:'100%', objectFit:'cover'}} src="/basicphoto.png"/>
-            </div>
-          : <div style={{width:'40px', height:'40px', borderRadius:'70%', overflow:'hidden'}}>
-              <img style={{width:'100%', height:'100%', objectFit:'cover'}} src={`/myphoto/${props.cm.user_photo}`}/>
-            </div>
-          }
+            {props.cm.user_photo === null ? (
+              <div
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "70%",
+                  overflow: "hidden",
+                }}
+              >
+                <img
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  src="/basicphoto.png"
+                />
+              </div>
+            ) : (
+              <div
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "70%",
+                  overflow: "hidden",
+                }}
+              >
+                <img
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  src={`/myphoto/${props.cm.user_photo}`}
+                />
+              </div>
+            )}
           </div>
           <div className="col-2" style={{ width: "80px", margin: "0" }}>
             <div

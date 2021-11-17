@@ -18,43 +18,61 @@ import FundingModal from "./FundingModal";
 import { AlternateEmailTwoTone } from "@material-ui/icons";
 
 function FundingStatus(props) {
-  function handleGallery(e) {
-    window.location.href =
-      "http://127.0.0.1:5500/src/pages/gallery/exhibition.html";
-     
-  }
-  useEffect(() => {
-    axios
-      .get("http://localhost:8004/app/likeList/")
-      .then((response) => {
-        console.log("Done likesRead", response);
-        const findLike = response.data.find(function (result) {
-          return result.user_email == user_email && result.work_no == no;
-        });
+  const [gFunding, setGFunding] = useState(null);
 
-        HandleLikeIcon();
-        function HandleLikeIcon() {
-          if (findLike == null) {
-            setLike(true);
-          } else {
-            setLike(false);
-          }
-        }
-      })
-      .catch((error) => {
-        console.log("likesRead 실패...");
-        axiosError(error);
-      });
+  useEffect(() => {
+    let isComponentMounted = true;
+    const fetchData = async () => {
+      if (isComponentMounted) {
+        axios
+          .get("http://localhost:8004/app/likeList/")
+          .then((response) => {
+            console.log("Done likesRead", response);
+            const findLike = response.data.find(function (result) {
+              return result.user_email == user_email && result.work_no == no;
+            });
+
+            HandleLikeIcon();
+            function HandleLikeIcon() {
+              if (findLike == null) {
+                setLike(true);
+              } else {
+                setLike(false);
+              }
+            }
+          })
+          .catch((error) => {
+            console.log("likesRead 실패...");
+            axiosError(error);
+          });
+        setGFunding(fundingStore.fundingsRead());
+      }
+    };
+    fetchData();
+    return () => {
+      isComponentMounted = false;
+    };
   }, []); //[]를 추가하면 첫 렌더링 시 한 번만 실행된다.
 
   const user_email = localStorage.getItem("user_email"); //현재 로그인한 유저의 email
   const { no } = useParams();
   const { mainStore } = props;
   const { works, work } = mainStore;
+  const { fundingStore } = props;
+  const { fundings, funding } = fundingStore;
+
   const findFunding = works.find(function (result) {
     //사용자가 요청한 seq값과 일치하는 seq(db상의 seq값)을 찾는다.
     return result.work_no == no;
   });
+  const findUserEmail = fundings
+    .filter(function (result) {
+      //사용자가 요청한 seq값과 일치하는 seq(db상의 seq값)을 찾는다.
+      return result.work_no === no;
+    })
+    .map(function (data, i) {
+      return data.user_email;
+    });
 
   //현재 로그인한 유저의 name, 보고 있는 작품의 work_no
   console.log("현재작품 no>>", no);
@@ -127,6 +145,28 @@ function FundingStatus(props) {
     }
   }
 
+  function handleGallery(e) {
+    window.location.href =
+      "http://127.0.0.1:5500/src/pages/gallery/exhibition.html";
+  }
+
+  function GalleryEntrance() {
+    return (
+      <Button
+        onClick={handleGallery}
+        variant="danger"
+        style={{
+          marginRight: "138px",
+          marginLeft: "8px",
+          fontWeight: "normal",
+          transform: "skew(-1.0deg)",
+          minWidth: "177px",
+        }}
+      >
+        전시회 입장하기
+      </Button>
+    );
+  }
   return (
     <>
       <div className="detail_head1">
@@ -249,22 +289,10 @@ function FundingStatus(props) {
             >
               <img src={icon_share} style={{ width: "25px", height: "25px" }} />
             </Button>
-            {false ? (
-              <FundingModal />
+            {findUserEmail == localStorage.getItem("user_email") ? (
+              <GalleryEntrance />
             ) : (
-              <Button
-                onClick={handleGallery}
-                variant="danger"
-                style={{
-                  marginRight: "138px",
-                  marginLeft: "8px",
-                  fontWeight: "normal",
-                  transform: "skew(-1.0deg)",
-                  minWidth: "177px",
-                }}
-              >
-                전시회 입장하기
-              </Button>
+              <FundingModal />
             )}
           </div>
         </div>
@@ -320,4 +348,4 @@ function FundingStatus(props) {
   );
 }
 
-export default inject("mainStore")(observer(FundingStatus));
+export default inject("mainStore", "fundingStore")(observer(FundingStatus));
