@@ -35,31 +35,21 @@ function FundingProject(props) {
 
   const findFundingProject = fundings.filter(function (result) {
     //사용자가 요청한 seq값과 일치하는 seq(db상의 seq값)을 찾는다.
-    return result.user_email == window.localStorage.getItem("email");
+    return result.user_email == window.localStorage.getItem("user_email");
   });
   const findFundingWorkNO = findFundingProject.map(function (data, i) {
-    return data.work_no;
+    return parseInt(data.work_no);
   });
-
-
-  console.log("findWorkNO", findFundingWorkNO);
-
-  console.log("works>>>>>>>>>>>>", works);
-
-  const workList = works
-    .filter(function (data, i) {
-      console.log("findFundingWorkNO[i]", findFundingWorkNO[i]);
-      console.log("data.work_no", data.work_no);
-      return data.work_no;
-    })
-    .filter(function (data, i) {
-      return findFundingWorkNO[i];
-    });
-  console.log("workListFunding", workList);
+  console.log("findFundingWorkNO", findFundingWorkNO);
+  const workList = works.filter(function (data, i) {
+    console.log("data.work_no", data.work_no);
+    return findFundingWorkNO.includes(data.work_no);
+  });
+  console.log("workList????", workList);
   return (
     <div>
-      <div className="project_component" style={{height:"100%"}} >
-        <CardGroup className="cardgroup_Home" style={{height:"auto"}} >
+      <div className="project_component" style={{ height: "100%" }}>
+        <CardGroup className="cardgroup_Home" style={{ height: "auto" }}>
           {workList.slice(0, count).map(function (data, i) {
             //8개
             return (
@@ -88,17 +78,20 @@ function FundingProject(props) {
                       }}
                     />
                   </Link>
-                  <Card.Body className="cardbody_Home"
+                  <Card.Body
+                    className="cardbody_Home"
                     style={{
-                      maxWidth:"250px",
-                      textAlign:"left",
-                      
-                      }}>
+                      maxWidth: "250px",
+                      textAlign: "left",
+                    }}
+                  >
                     <Card.Title className="cardtitle_Home">
                       예술 | {data.artist_name}
                     </Card.Title>
-                    <Card.Text className="cardtext_Home"
-                       style={{minHeight:"80px"}}>
+                    <Card.Text
+                      className="cardtext_Home"
+                      style={{ minHeight: "80px" }}
+                    >
                       <Link
                         to={`/detail/${data.work_no}`}
                         onClick={() => {
@@ -116,7 +109,13 @@ function FundingProject(props) {
                         textAlign: "center",
                       }}
                     >
-                      <p style={{ marginTop: "-35px", textAlign:"left" }}>
+                      <p
+                        style={{
+                          marginTop: "-35px",
+                          textAlign: "left",
+                          color: "#FF5757",
+                        }}
+                      >
                         {Math.round(
                           (data.funding_now / data.funding_goal) * 100
                         )}
