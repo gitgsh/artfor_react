@@ -10,15 +10,6 @@ function SettingsTabdiv(props) {
       </div>
     )
   }
-  // else if(props.value === 1) {
-  //   return (
-  //     <MakeProject />
-  //   )
-  // } else if(props.value === 2) {
-  //   return(
-  //     <Profile />
-  //   )
-  // }
 };
 
 export default SettingsTabdiv;
