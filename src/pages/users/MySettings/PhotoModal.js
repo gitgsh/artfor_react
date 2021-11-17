@@ -1,8 +1,6 @@
 import { Button, FormControl, InputGroup } from "react-bootstrap";
-import React, { useEffect, useState } from 'react';
-import { SentimentSatisfiedOutlined } from "@material-ui/icons";
+import React from 'react';
 import axios from "axios";
-import { Preview } from "@mui/icons-material";
 import { inject, observer } from "mobx-react";
 
 function PhotoModal(props){
@@ -38,28 +36,19 @@ function PhotoModal(props){
         "Content-Type": "multipart/form-data",
       }      
     }).then((result)=>{
-          console.log('fileupload 성공', result);
-          console.log(result.data.user_photo);
-          props.updatephoto(result.data.user_photo);
-          console.log("props.photo", props.photo);
-          // member.user_photo = result.data.user_photo;
-          // localStorage.setItem('photo',member.user_photo);
-          // props.setPhoto(result.data.user_photo);
-          // //setPhoto("a.gif");
-          // console.log("photo는?", props.photo);
-          // alert("사진 변경 성공!");
-          // // setPhoto(photo);
-          // props.setPhotoModal(false);
-          // props.setPhotostatus(true);
-        })
-      .catch((err)=>{
-          console.log('fileupload 실패', err);
-          props.setPhotoModal(false);
-      })
+      console.log('fileupload 성공', result);
+      props.updatephoto(result.data.user_photo);
+      console.log("props.photo", props.photo);
+      alert("프로필 사진 변경 성공!")
+      props.setPhotoModal(false);
+    })
+    .catch((err)=>{
+      console.log('fileupload 실패', err);
+      props.setPhotoModal(false);
+    })
   }
   return(
     <div>
-      {/* <h1>{member.user_photo}</h1> */}
       <form onSubmit={onSubmit}>
         <InputGroup>
           <FormControl

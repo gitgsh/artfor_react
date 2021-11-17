@@ -53,7 +53,7 @@ function MyProject(props) {
           </Link>
           </h2>
         </div>
-        <div style={{float:'left', border:'1px solid red'}}>
+        <div style={{float:'left'}}>
         </div>
         {/* <div style={{position:'absolute', zIndex:'1', left:'670px', top:'150px'}}> */}
       </div>
