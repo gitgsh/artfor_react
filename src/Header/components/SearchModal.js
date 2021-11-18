@@ -30,9 +30,12 @@ function SearchModal(props) {
       data.work_title.includes(keyword) || data.artist_name.includes(keyword)
     );
   });
-  const today = new Date();
-  // const aLink = `/detail/${data.work_no}` 
-  // const bLink = `/detailOpenExp/${data.work_no}`
+
+  var today = new Date();
+  var year = today.getFullYear();
+  var month = ("0" + (today.getMonth() + 1)).slice(-2);
+  var day = ("0" + today.getDate()).slice(-2);
+  var dateString = year + "-" + month + "-" + day; //현재날짜(2021-11-10 형태)
 
   return (
     <>
@@ -117,7 +120,7 @@ function SearchModal(props) {
                             }}
                           >
                             <Card className="card_Home">
-                            { data.funding_startline <= today
+                            { data.funding_startline <= dateString
                                   ?
                                   <Link to ={`/detail/${data.work_no}`}
                                     onClick={() => {   

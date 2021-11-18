@@ -39,7 +39,6 @@ function OpenExpectPrj(props) {
         <CardGroup className="cardgroup_Home">
           {findOpenExp.slice(0, 4).map(function (data, j) {
             return (
-              //data.work_title
               <Card className="card_Home">
                 <Link to={`/detailOpenExp/${data.work_no}`}>
                   <Card.Img
