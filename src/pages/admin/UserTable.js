@@ -16,20 +16,23 @@ function UserTable(props) {
   const { membersStore } = props;
   const { members, member } = membersStore;
 
-  function  deleteUser(user_idx){
+  function  deleteUser(user_idx, user_name){
     let data = {user_idx : user_idx,};
     console.log("승인할 데이터는? " ,data);
-    
-    axios
-      .post("http://localhost:8004/app/admin/deleteUser", data)
-      .then((response) => {
-        console.log("Done changeWorkStatus", response);
-        membersStore.membersRead();
-      })
-      .catch((error) => {
-        axiosError(error);
-      });
-}
+    if(window.confirm(user_name + "님을 정말 삭제하시겠습니까?")){
+      axios
+        .post("http://localhost:8004/app/admin/deleteUser", data)
+        .then((response) => {
+          console.log("Done changeWorkStatus", response);
+          alert("삭제되었습니다.");
+          membersStore.membersRead();
+        })
+        .catch((error) => {
+          axiosError(error);
+        });
+    }
+    else{alert("취소되었습니다.");}
+  } 
 
   return (
     <TableContainer component={Paper}>
@@ -61,7 +64,7 @@ function UserTable(props) {
               <TableCell>{member.user_role}</TableCell>
               <TableCell > 
                 <Button variant="outline-secondary" size="sm" style={{marginRight: '10px',  borderRadius:"30px"}} 
-                onClick={ ()=> { deleteUser(member.user_idx)}} >
+                onClick={ ()=> { deleteUser(member.user_idx, member.user_name)}} >
                             회원 삭제
                 </Button>
               </TableCell>
