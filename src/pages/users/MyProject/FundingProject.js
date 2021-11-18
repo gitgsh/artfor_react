@@ -48,6 +48,9 @@ function FundingProject(props) {
   console.log("workList????", workList);
   return (
     <div>
+      {workList.length === 0
+      ? <div style={{height:'100px', paddingTop:'30px'}}><h4 style={{color: '#BDBDBD'}}>후원한 프로젝트가 없습니다.</h4></div>
+      : 
       <div className="project_component" style={{ height: "100%" }}>
         <CardGroup className="cardgroup_Home" style={{ height: "auto" }}>
           {workList.slice(0, count).map(function (data, i) {
@@ -129,6 +132,7 @@ function FundingProject(props) {
           })}
         </CardGroup>
       </div>
+      }
     </div>
   );
 }

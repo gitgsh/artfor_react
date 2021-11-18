@@ -36,6 +36,7 @@ const TextContent = styled.div`
   font-weight: bold;
   color: white;
   line-height: 1.8;
+  white-space: pre-wrap;
 `;
 
 export default TextBoxComp;

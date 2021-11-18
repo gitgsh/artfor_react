@@ -55,6 +55,9 @@ function MakeProject(props) {
 
   return (
     <div>
+      {myWork.length === 0
+      ? <div style={{height:'100px', paddingTop:'30px'}}><h4 style={{color: '#BDBDBD'}}>올린 프로젝트가 없습니다.</h4></div>
+      : 
       <div className="project_component" style={{height:"100%"}}> 
         <div>
       <CardGroup className="cardgroup_Home" style={{height:"auto"}}>
@@ -128,6 +131,7 @@ function MakeProject(props) {
                     </CardGroup>
           </div>
       </div>
+      }
     </div>
   );
 };

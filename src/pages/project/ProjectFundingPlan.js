@@ -41,7 +41,7 @@ function ProjectFundingPlan(props) {
                 href="/project/plan/projectupload"
                 style={{ textDecorationLine: "none" }}
               >
-                <div className="fb">
+                <div className="fb" style={{ backgroundColor: "white" }}>
                   <div>
                     <p style={{ textAlign: "left" }}>
                       <img src="/book.png" style={{ width: "25px" }} />{" "}
@@ -55,7 +55,7 @@ function ProjectFundingPlan(props) {
               </a>
             </Col>
             <Col>
-              <div className="fb">
+              <div className="fb" style={{ backgroundColor: "white" }}>
                 <a
                   href="/project/plan/projectupload"
                   style={{ textDecorationLine: "none" }}
@@ -73,7 +73,7 @@ function ProjectFundingPlan(props) {
               </div>
             </Col>
             <Col>
-              <div className="fb">
+              <div className="fb" style={{ backgroundColor: "white" }}>
                 <a
                   href="/project/plan/projectupload"
                   style={{ textDecorationLine: "none" }}
@@ -91,7 +91,7 @@ function ProjectFundingPlan(props) {
               </div>
             </Col>
             <Col>
-              <div className="fb">
+              <div className="fb" style={{ backgroundColor: "white" }}>
                 <a
                   href="/project/plan/projectupload"
                   style={{ textDecorationLine: "none" }}

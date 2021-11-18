@@ -142,9 +142,6 @@ function NoticePrj(props) {
                   <Card.Text className="cardtext_Home">
                     <Link
                       to={`/detail/${data.work_no}`}
-                      onClick={() => {
-                        mainStore.getWork(data.work_no);
-                      }}
                       style={{
                         textDecorationLine: "none",
                         transform: "skew(-0.1deg)",

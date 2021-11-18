@@ -54,10 +54,10 @@ function FooterContent() {
             <tr>
               <Contents style={{ fontWeight: "bold" }}>
                 <Link
-                  to="/guide/G_Fee"
+                  to="/map"
                   style={{ color: "#6D6D6D", textDecorationLine: "none" }}
                 >
-                  수수료 정책
+                  오시는 길
                 </Link>
               </Contents>
             </tr>
@@ -73,6 +73,16 @@ function FooterContent() {
             </tr>
           </thead>
           <tbody>
+            <tr>
+              <Contents style={{ fontWeight: "bold" }}>
+                <Link
+                  to="/guide/G_Fee"
+                  style={{ color: "#6D6D6D", textDecorationLine: "none" }}
+                >
+                  수수료 정책
+                </Link>
+              </Contents>
+            </tr>
             <tr>
               <Contents style={{ fontWeight: "bold" }}>
                 <Link
