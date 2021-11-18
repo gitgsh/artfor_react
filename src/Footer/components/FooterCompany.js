@@ -13,18 +13,18 @@ function FooterCompany() {
       <Address>
         <Strong>회사명</Strong>
         <Normal>아트포(주)</Normal>
-        <Strong>주소</Strong>
+        <Strong>&nbsp;&nbsp;주소</Strong>
         <Normal>서울시 금천구 가산디지털2로 123 </Normal>
-        <Strong>대표</Strong>
+        <Strong>&nbsp;&nbsp;대표</Strong>
         <Normal>2팀</Normal>
-        <Strong>사업자등록번호</Strong>
+        <Strong>&nbsp;&nbsp;사업자등록번호</Strong>
         <Normal>112-11-55849</Normal>
       </Address>
       <Address>
         <Strong>통신판매업 신고번호</Strong>
         <Normal>2021-2013455-22-1-05178</Normal>
-        <Strong>대표번호</Strong>
-        <Normal>01-7777-7777</Normal>
+        <Strong>&nbsp;&nbsp;대표번호</Strong>
+        <Normal>02-1234-5678</Normal>
       </Address>
       <Address>
         <Normal style={{ fontWeight: "bold" }}>© 2021 ARTFOR Inc.</Normal>
@@ -48,7 +48,7 @@ const Strong = styled.div`
   margin-right: 5px;
   font-weight: bold;
   line-height: 21px;
-  transform: "skew(-0.1deg)";
+  transform: skew(-0.1deg);
 `;
 
 const Normal = styled.div`
@@ -56,7 +56,7 @@ const Normal = styled.div`
   font-weight: normal;
   line-height: 22px;
   color: #6d6d6d;
-  transform: "skew(-0.1deg)";
+  transform: skew(-0.1deg);
 `;
 
 const ButtonBox = styled.span`
