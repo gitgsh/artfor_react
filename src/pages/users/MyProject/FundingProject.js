@@ -5,7 +5,7 @@ import "../Project.css";
 import { inject, observer } from "mobx-react";
 
 function FundingProject(props) {
-  console.log("후원한 프로젝트");
+  console.log("후원한 프로젝트.");
   const { mainStore } = props;
   const { works, work } = mainStore;
 
