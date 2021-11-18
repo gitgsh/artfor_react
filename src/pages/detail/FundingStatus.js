@@ -75,9 +75,6 @@ function FundingStatus(props) {
     });
 
   //현재 로그인한 유저의 name, 보고 있는 작품의 work_no
-  console.log("현재작품 no>>", no);
-  console.log("dzdz", findFunding.work_no);
-  console.log("work>>", work);
   localStorage.setItem("work_no", no);
 
   //천단위 콤마 함수
