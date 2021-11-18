@@ -1,39 +1,42 @@
 {
   "SlideImgData": [
+    
     {
       "id": 1,
-      "imageUrl": "https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80",
-      "content": "제주 건천 깊숙한 곳을 떠나지 않으려는 우리",
-      "subContent": "매일의 마음이 모여 추억이 만들어진다.",
-      "color": "#4B1955"
+      "imageUrl": "http://drive.google.com/uc?export=view&id=1g5ghsTFp9m956wRdlhU0zA9Mwt3eoLer",
+      "content": "우리 서로 다른 존재지만 공존하고 있지 않나요?",
+      "subContent": "나와 다른 당신에게 건네는 또 다른 이야기",
+      "color": "rgba(177,142,121)"
     },
     {
       "id": 2,
-      "imageUrl": "https://images.unsplash.com/photo-1571065497914-38c5d3cde715?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80",
-      "content": "할아버지 시계마을을 구해주세요!",
-      "subContent": "눈을 떠 보니 소설 속 주인공이 되어 버렸다! 시간여행 이야기",
-      "color": "#423421"
+      "imageUrl": "http://drive.google.com/uc?export=view&id=1sd-tDRnWJadwnMY8ooyHBDXQz1UcQkyz",
+      "content": "<RE:PLAT>\n 젤다킨의 작은 기록들",
+      "subContent": "리:플랫!과 젤다킨의 작은전시 ",
+      "color": "rgba(155,192,110)"
     },
+
     {
       "id": 3,
-      "imageUrl": "https://images.unsplash.com/photo-1624274579623-18121fc8126e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000&q=80",
-      "content": "지쳐 있는 여성들에게 재충전의 시간을",
-      "subContent": "재충전을 가질 수 있도록...",
-      "color": "#A48371"
+      "imageUrl": "https://images.unsplash.com/photo-1559251606-c623743a6d76?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "content": "매일 새벽과 저녁, 찬란한 노을의 순간",
+      "subContent": "어린왕자는 하루에도 마흔네 번의 노을을 봤다 ",
+      "color": "rgba(238,181,182)"
     },
     {
       "id": 4,
-      "imageUrl": "https://images.unsplash.com/photo-1605131546405-65fedb62861f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80",
-      "content": "소규모 출판사를 위한 도서 물류 파트너",
-      "subContent": "자신의 자리를 지키려는 두 아이 이야기 <하영과 미정>",
-      "color": "#7EB5B0"
+      "imageUrl": "https://images.unsplash.com/photo-1570393080660-de4e4a15a247?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1074&q=80",
+      "content": "당신의 집, 당신의 박물관",
+      "subContent": "미술로 행복해지는 삶을 꿈꿉니다",
+      "color": "rgba(99,161,227)"
     },
     {
       "id": 5,
-      "imageUrl": "https://images.unsplash.com/photo-1522198763288-96e9f39904af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80",
-      "content": "ArtFor 프로젝트!",
-      "subContent": "2022년 새해 복 많이 받으세요!",
-      "color": "#68270F"
+      "imageUrl": "https://images.unsplash.com/photo-1495562569060-2eec283d3391?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
+      "content": "Viva La Vida!",
+      "subContent": "이방인의 시선으로 담은 스페인의 기록들",
+      "color": "rgba(147,99,81)"
     }
+    
   ]
 }

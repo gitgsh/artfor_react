@@ -45,8 +45,7 @@ class RequestPay extends React.Component {
           });
       };
 
-
-
+      
         $("#check_module").click(function () {
           
 
@@ -81,8 +80,7 @@ class RequestPay extends React.Component {
             /*
             merchant_uid에 경우
             https://docs.iamport.kr/implementation/payment
-            위에 url에 따라가시면 넣을 수 있는 방법이 있습니다.
-            
+            위에 url에 따라가면 넣을 수 있는 방법 있음.
             */
             name: work_title,//결제창에서 보여질 이름
             amount: funding_price,//가격
@@ -91,7 +89,7 @@ class RequestPay extends React.Component {
             buyer_tel: '010-1234-5678',
             buyer_addr: '서울특별시 강남구 삼성동',
             buyer_postcode: '123-456',
-            m_redirect_url: 'http://localhost:3000/detail'
+            m_redirect_url: 'http://localhost:3000/'
             /*
             모바일 결제시,
             결제가 끝나고 랜딩되는 URL을 지정
@@ -100,11 +98,11 @@ class RequestPay extends React.Component {
             }, function (rsp) {
             console.log(rsp);
             if (rsp.success) {
-            var msg = '결제가 완료되었습니다.';
+            var msg = '결제가 완료되었습니다.\n';
             msg += '고유ID : ' + rsp.imp_uid;
-            msg += '상점 거래ID : ' + rsp.merchant_uid;
-            msg += '결제 금액 : ' + rsp.paid_amount;
-            msg += '카드 승인번호 : ' + rsp.apply_num;
+            msg += '\n상점 거래ID : ' + rsp.merchant_uid;
+            msg += '\n결제 금액 : ' + rsp.paid_amount + "원";
+            msg += '\n카드 승인번호 : ' + rsp.apply_num;
             fundingsPrc();
             fundingsPrcUpdate();
             } else {
@@ -112,6 +110,7 @@ class RequestPay extends React.Component {
             msg += '에러내용 : ' + rsp.error_msg;
             }
             alert(msg);
+            window.location.href = "http://localhost:3000/";
             });
             });
       return (
