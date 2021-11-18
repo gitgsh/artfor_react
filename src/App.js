@@ -34,6 +34,7 @@ import G_Articles from "./pages/guide/G_Articles";
 import Detail_OpenExp from "./pages/detail/detail_oepnExp/Detail_OpenExp";
 import UploadHeader from "./Header/UploadHeader";
 import Gallery from "./pages/gallery/gallerystart";
+import MapPage from "./pages/map/MapPage";
 
 function App() {
   // Guide 게시판 검색관련2
@@ -143,6 +144,7 @@ function App() {
           </Route>{" "}
           <Route exact path="/guide/G_Fee" component={G_Fee} />
           <Route exact path="/guide/G_Articles" component={G_Articles} />
+          <Route exact path="/map" component={MapPage} />
         </Switch>
         {window.location.pathname == "/project/plan/projectupload" ? (
           <></>

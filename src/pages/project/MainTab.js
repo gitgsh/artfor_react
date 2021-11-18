@@ -102,16 +102,18 @@ export default function PlanTabs() {
   return (
     <div className="TabsAll_Project2">
       <Box sx={{ bgcolor: "#fff", height: "100%" }}>
-        <div className="content_wrap">
+        <div className="content_wrap" style={{marginTop:'20px'}}>
           {/* <div className="pmImage"></div> */}
           {localStorage.getItem("work_img") === null ? (
             <div className="pmImage"></div>
           ) : (
             // (<img src={`/image/${localStorage.getItem('work_img')}`} className="pmImage2" /> )
-            <img src={localStorage.getItem("work_img")} className="pmImage2" />
+            <div style={{float:'left', width:'100px', height:'100px', borderRadius:'70%', overflow:'hidden'}}>
+            <img src={localStorage.getItem("work_img")} style={{width:'100%', height:'100%', objectFit:'cover'}} className="pmImage2" />
+            </div>
           )}
           {/* <img src={`/image/j1.jpg`} className="pmImage2" /> */}
-          <div className="pmTitle">
+          <div className="pmTitle" style={{marginLeft:'15px'}}>
             {window.localStorage.getItem("name")}님의 프로젝트{" "}
           </div>
         </div>
