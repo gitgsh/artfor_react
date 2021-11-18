@@ -9,7 +9,6 @@ import { axiosError } from "../../stores/common";
 import { inject, observer } from "mobx-react";
 import styled from "styled-components";
 
-
 function Login(props) {
   const { membersStore } = props;
   const { members, member } = membersStore;
@@ -40,7 +39,7 @@ function Login(props) {
         } else if (result === -1) {
           alert("비밀번호가 일치하지 않습니다.");
         } else {
-          alert("로그인 완료");
+          alert("로그인 완료 😇 ");
 
           localStorage.setItem("token", true);
           user_email = getValues("user_email");
@@ -48,7 +47,6 @@ function Login(props) {
           console.log("getvalue 성공", user_email);
           // localStorage.setItem('user_id',JSON.stringify(userinfo.user_id).slice(1,-1));
           getUserInfo();
-
         }
       })
       .catch((error) => {
@@ -89,7 +87,7 @@ function Login(props) {
         localStorage.setItem("phone", phone);
         localStorage.setItem("role", role);
         localStorage.setItem("photo", photo);
-        window.location.replace("/")
+        window.location.replace("/");
       })
       .catch((error) => {
         axiosError(error);
@@ -125,7 +123,9 @@ function Login(props) {
             )}
           </div>
           <div className="login-form-input-2">
-            <InputGroup style={{ fontFamily: "Consolas", transform: "skew(-0.1deg)" }}>
+            <InputGroup
+              style={{ fontFamily: "Consolas", transform: "skew(-0.1deg)" }}
+            >
               <FormControl
                 className="login-form-input-row"
                 type="password"
@@ -153,15 +153,18 @@ function Login(props) {
             </Button>{" "}
           </div>
 
-          <p className="question-join" style={{transform: "skew(-0.1deg)"}}>
+          <p className="question-join" style={{ transform: "skew(-0.1deg)" }}>
             아직 계정이 없으신가요? <Link to="/join">가입하기</Link>
           </p>
           <hr className="hr" />
-          <Link className="question-pw" to="/forgotPW" style={{transform: "skew(-0.1deg)"}}>
+          <Link
+            className="question-pw"
+            to="/forgotPW"
+            style={{ transform: "skew(-0.1deg)" }}
+          >
             혹시 비밀번호를 잊으셨나요?
           </Link>
         </form>
-
       </div>
     </div>
   );
@@ -170,7 +173,7 @@ function Login(props) {
 const Warning = styled.div`
   color: red;
   font-size: 13px;
-  tansform : skew(-0.1deg);
+  tansform: skew(-0.1deg);
 `;
 
 export default inject("membersStore")(observer(Login));
