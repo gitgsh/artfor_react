@@ -45,6 +45,7 @@ function NoticePrj(props) {
               <Card className="card_Home">
                 <Link
                   to={`/detail/${data.work_no}`}
+                  onClick={()=>{mainStore.getWork(data.work_no)}}
                 >
                   <Card.Img
                     variant="top"

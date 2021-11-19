@@ -83,7 +83,7 @@ function DetailContents(props) {
                     fontSize: "18px",
                     lineHeight: "180%",
                   }}
-                  dangerouslySetInnerHTML={{ __html: findFunding.work_content }}
+                  dangerouslySetInnerHTML={{ __html: findFunding && findFunding.work_content }}
                 />
               </div>
             </div>

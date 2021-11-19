@@ -27,7 +27,7 @@ function SearchModal(props) {
   const findOpen = workList.filter((data) => {
     console.log("data.work_title", data.work_title);
     return (
-      data.work_title.includes(keyword) || data.artist_name.includes(keyword)
+      (data.work_title.includes(keyword) || data.artist_name.includes(keyword))&&data.funding_status =='승인'
     );
   });
 
