@@ -58,7 +58,7 @@ export default class MainStore {
     // }];
     // console.log('Done membersRead', this.members);
     axios
-      .get("http://localhost:8004/app/")
+      .get("http://3.35.120.213:8080/artfor/")
       .then((response) => {
         console.log("성공");
         console.log("Done worksRead", response);
@@ -75,7 +75,7 @@ export default class MainStore {
   worksReadSort() {
     
     axios
-      .get("http://localhost:8004/app/sortLike")
+      .get("http://3.35.120.213:8080/artfor/sortLike")
       .then((response) => {
         console.log("성공");
         console.log("Done worksReadSort", response);
