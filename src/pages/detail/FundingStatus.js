@@ -319,7 +319,8 @@ function FundingStatus(props) {
             style={{
               backgroundColor: "transparent",
               borderColor: "transparent",
-            }}////
+            }}
+            //git
           >
             <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
           </button>
