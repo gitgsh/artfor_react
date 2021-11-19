@@ -28,7 +28,7 @@ function Login(props) {
     console.log("데이터>>>", data);
 
     axios
-      .post("http://3.35.120.213:8080/artfor/user/login.do", data)
+      .post("http://localhost:8004/app/user/login.do", data)
       .then((response) => {
         console.log("login post user to Spring", response);
         result = response.data;
