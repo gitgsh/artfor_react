@@ -13,7 +13,7 @@ export default class MainStore {
     //감시대상자? 재랜더링
     makeAutoObservable(this);
   }
-  //this
+  //this//
   works = [];
   work = {
     work_no: "",
