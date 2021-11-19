@@ -39,8 +39,8 @@ function PhotoModal(props){
       console.log('fileupload 성공', result);
       props.updatephoto(result.data.user_photo);
       console.log("props.photo", props.photo);
-      alert("프로필 사진 변경 성공!")
       props.setPhotoModal(false);
+      alert("프로필 사진 변경 성공!")
     })
     .catch((err)=>{
       console.log('fileupload 실패', err);
