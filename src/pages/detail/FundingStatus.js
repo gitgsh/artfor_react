@@ -2,7 +2,6 @@ import axios from "axios";
 import axiosError from "axios";
 import { inject, observer } from "mobx-react";
 import "./Detail.css";
-import { Col, Form, FormGroup, Label, Input } from "reactstrap";
 import { Button, Modal } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import { Popover } from "@mui/material";
@@ -15,14 +14,63 @@ import icon_detail_writer from "../../detail_images/icon_detail_writer.JPG";
 import icon_share from "../../detail_images/icon_share.png";
 import icon_url from "../../detail_images/icon_url.jpg";
 import FundingModal from "./FundingModal";
-import { AlternateEmailTwoTone } from "@material-ui/icons";
+import { useHistory } from "react-router";
 
 function FundingStatus(props) {
   const [gFunding, setGFunding] = useState(null);
+  const user_email = localStorage.getItem("user_email"); //현재 로그인한 유저의 email
+  const { no } = useParams();
+  const { mainStore } = props;
+  const { works, work } = mainStore;
+  const { fundingStore } = props;
+  const { fundings, funding } = fundingStore;
+  
+  const [work_no, setWork_no] = useState("");
+  const [work_title, setWork_title] = useState("");
+  const [funding_deadline, setFunding_deadline] = useState("");
+  const [funding_startline, setFunding_startLine] = useState("");
+  const [funding_now, setFunding_now] = useState("");
+  const [funding_goal, setFunding_goal] = useState('');
+  const [artist_name, setArtist_name] = useState('');
+  const [work_img, setWork_img] = useState('');
+  const [supporters,setSupporters]=useState('');
+  
+  useEffect(() => {
+    let isComponentMounted = true;
+    const fetchData = async () => {
+      
+      if (isComponentMounted) {
+        axios.get("http://localhost:8004/app/detail/",{
+          params:{
+            work_no: no
+          },
+        }).then((result)=>{
+          setWork_no(result.data.work_no)
+          setWork_title(result.data.work_title)
+          setFunding_deadline(result.data.funding_deadline);
+          setFunding_startLine(result.data.funding_startline)
+          setFunding_now(result.data.funding_now);
+          setFunding_goal(result.data.funding_goal);
+          setArtist_name(result.data.artist_name);
+          setWork_img(result.data.work_img);
+          setSupporters(result.data.supporters);
+        }).catch((error)=>{
+          console.log(error)
+        })
+       
+      }
+    };
+    fetchData();
+    return () => {
+      isComponentMounted = false;
+    };
+  }, []); //[]를 추가하면 첫 렌더링 시 한 번만 실행된다.
+        
 
   useEffect(() => {
     let isComponentMounted = true;
     const fetchData = async () => {
+      
       if (isComponentMounted) {
         axios
           .get("http://localhost:8004/app/likeList/")
@@ -42,7 +90,7 @@ function FundingStatus(props) {
             }
           })
           .catch((error) => {
-            console.log("likesRead 실패...");
+            console.log("likesRead fail...");
             axiosError(error);
           });
         setGFunding(fundingStore.fundingsRead());
@@ -54,17 +102,6 @@ function FundingStatus(props) {
     };
   }, []); //[]를 추가하면 첫 렌더링 시 한 번만 실행된다.
 
-  const user_email = localStorage.getItem("user_email"); //현재 로그인한 유저의 email
-  const { no } = useParams();
-  const { mainStore } = props;
-  const { works, work } = mainStore;
-  const { fundingStore } = props;
-  const { fundings, funding } = fundingStore;
-
-  const findFunding = works.find(function (result) {
-    //사용자가 요청한 seq값과 일치하는 seq(db상의 seq값)을 찾는다.
-    return result.work_no == no;
-  });
   const findUserEmail = fundings
     .filter(function (result) {
       //사용자가 요청한 seq값과 일치하는 seq(db상의 seq값)을 찾는다.
@@ -73,9 +110,6 @@ function FundingStatus(props) {
     .map(function (data, i) {
       return data.user_email;
     });
-
-  //현재 로그인한 유저의 name, 보고 있는 작품의 work_no
-  localStorage.setItem("work_no", no);
 
   //천단위 콤마 함수
   function numberWithCommas(x) {
@@ -101,26 +135,26 @@ function FundingStatus(props) {
   const [likeDB, setLikeDB] = useState(""); //좋아요(ArtWork DB)
 
   const today = new Date();
-  const dday = new Date(findFunding.funding_deadline);
+  const dday = new Date(funding_deadline);
   const gap = dday.getTime() - today.getTime();
   const gapResult = Math.ceil(gap / (1000 * 60 * 60 * 24)); //남은날짜 계산용
   const fundingPercent = Math.round(
-    (findFunding.funding_now / findFunding.funding_goal) * 100
+    (funding_now / funding_goal) * 100
   );
-
+ 
   //start of 결제 시 꺼내쓸 것
-  localStorage.setItem("work_title", findFunding.work_title);
-  localStorage.setItem("funding_deadline", findFunding.funding_deadline);
-  localStorage.setItem("artist_name", findFunding.artist_name);
-  localStorage.setItem("funding_now", findFunding.funding_now);
+  localStorage.setItem("work_title", work_title);
+  localStorage.setItem("funding_deadline", funding_deadline);
+  localStorage.setItem("artist_name", artist_name);
+  localStorage.setItem("funding_now",funding_now);
   localStorage.setItem("gapResult", gapResult);
   localStorage.setItem("fundingPercent", fundingPercent);
-  localStorage.setItem("detail_work_img", findFunding.work_img);
-  localStorage.setItem("work_no", findFunding.work_no);
-  localStorage.setItem("funding_now", findFunding.funding_now);
+  localStorage.setItem("detail_work_img", work_img);
+  localStorage.setItem("work_no", work_no);
+  localStorage.setItem("funding_now", funding_now);
   //end of 결제 시 꺼내 쓸 것
 
-  localStorage.setItem("funding_startline", findFunding.funding_startline); //결제버튼 클릭 시 사용
+  localStorage.setItem("funding_startline", funding_startline); //결제버튼 클릭 시 사용
   const token = localStorage.getItem("token");
 
   function FuncLike() {
@@ -175,7 +209,7 @@ function FundingStatus(props) {
               marginRight: "70px",
             }}
           >
-            {findFunding.work_title}
+            {work_title}
           </h2>
           <center>
             <p
@@ -183,14 +217,14 @@ function FundingStatus(props) {
               style={{ fontFamily: "NanumBarunGothic" }}
             >
               <img src={icon_detail_writer} />
-              {findFunding.artist_name}
+              {artist_name}
             </p>
           </center>
           <br />
 
           <img
             className="detail_image"
-            src={`/image/${findFunding.work_img}`}
+            src={`/image/${work_img}`}
           />
 
           <div className="detail_head3">
@@ -206,7 +240,7 @@ function FundingStatus(props) {
               </span>
               <br />
               <span style={{ fontSize: "30px" }}>
-                {numberWithCommas(findFunding.funding_now)}
+                {numberWithCommas(funding_now)}
               </span>{" "}
               <span style={{ fontFamily: "NanumSquareL" }}>원</span>
               <span
@@ -232,7 +266,7 @@ function FundingStatus(props) {
                 후원자
               </span>
               <br />
-              <span style={{ fontSize: "30px" }}>{findFunding.supporters}</span>
+              <span style={{ fontSize: "30px" }}>{supporters}</span>
               <span style={{ fontFamily: "NanumSquareL" }}>명</span>
               <br />
             </div>
@@ -255,9 +289,9 @@ function FundingStatus(props) {
                   transform: "skew(-1.0deg)",
                 }}
               >
-                목표 금액은 {numberWithCommas(findFunding.funding_goal)}
+                목표 금액은 {numberWithCommas(funding_goal)}
                 원입니다! <br />
-                결제는 {findFunding.funding_deadline}까지 가능합니다.
+                결제는 {funding_deadline}까지 가능합니다.
               </p>
             </div>
 
@@ -295,11 +329,8 @@ function FundingStatus(props) {
         </div>
         <div className="detail_head4" style={{ textAlign: "left" }}>
           <div>
-            {/* <Link to={"#"} style={{marginLeft: '40px', marginRight:'15px', fontSize: '15px'}}>프로젝트 계획 </Link>
-        <Link to={"#"} style={{marginRight:'10px', fontSize: '15px'}}>커뮤니티</Link> */}
           </div>
         </div>
-        {/* <hr/> */}
       </div>
 
       <Popover

@@ -71,7 +71,8 @@ function ProjectPlan(props) {
       .post("http://localhost:8004/app/input.do", work)
       .then((result) => {
         console.log("성공");
-        history.push('/');
+        alert("성공적으로 프로젝트를 업로드 했습니다!😁");
+        window.location.replace("http://localhost:3000/");
       })
       .catch((err) => {
         console.log("실패함", err);
