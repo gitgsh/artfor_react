@@ -44,9 +44,6 @@ function App() {
   // Guide 게시판 데이터 초기화
   let [data, setData] = useState([""]);
   let [header, setHeader] = useState(true);
-  
-  //홈 디테일 게시판
-  let [mainData, setMainData] = useState([""]);
 
   return (
     <div>
@@ -63,9 +60,8 @@ function App() {
           {/* MAIN & DETAIL */}
           <Route exact={true} path="/" component={Main} />
           <Route exact={true} path="/" component={Home} />
-          <Route exact={true} path="/detail" component={Detail}/>
           <Route exact={true} path="/detail/:no" component={Detail}>
-            <Detail mainData={mainData} setMainData={setMainData}/>
+            <Detail />
           </Route>
           <Route
             exact={true}
