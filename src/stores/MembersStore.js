@@ -50,7 +50,7 @@ export default class MembersStore {
     // }];
     // console.log('Done membersRead', this.members);
     axios
-      .get("http://3.35.120.213:8080/artfor/user/userList.do")
+      .get("http://localhost:8004/app/user/userList.do")
       .then((response) => {
         console.log("Done membersRead", response);
         // this.members = response.data.members;
